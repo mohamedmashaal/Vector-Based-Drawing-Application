@@ -66,19 +66,14 @@ public class CalculatorImp implements Calculator {
 	@Override
 	public String prev() {
 		// TODO Auto-generated method stub
-		StringBuilder b = new StringBuilder();
-		for(String x : history) {
-			b.append(x);
-		}
-		throw new RuntimeException(b.toString());
-		/*if(!history.isEmpty() && currentOperation -1 > 0) {
+		if(!history.isEmpty() && currentOperation -1 > 0) {
             	currentOperation -- ;
             	return history.get(currentOperation-1);
 		}
 		else if (!history.isEmpty() && currentOperation -1 == 0){
             	return history.get(currentOperation-1);
                 }
-		return null;*/
+		return null;
 	}
 
 	@Override
@@ -128,7 +123,7 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
-		currentOperation = 1 ;
+		currentOperation = history.size();
 		//throw new RuntimeException(z.toString());
 	}
 
