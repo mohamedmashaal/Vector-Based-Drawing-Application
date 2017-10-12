@@ -113,6 +113,7 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
+		currentOperation = history.size()-1 ;
 	}
 
     private int countOperators(String formula) {
