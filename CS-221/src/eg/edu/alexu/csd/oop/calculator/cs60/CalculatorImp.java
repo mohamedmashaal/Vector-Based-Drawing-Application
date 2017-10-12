@@ -120,7 +120,7 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
-        currentOperation = history.size();
+        currentOperation = 1 ;
                 
 	}
 
