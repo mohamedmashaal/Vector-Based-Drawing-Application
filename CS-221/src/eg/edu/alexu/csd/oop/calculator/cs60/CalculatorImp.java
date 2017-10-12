@@ -120,8 +120,6 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
-        currentOperation = 1 ;
-                
 	}
 
     private int countOperators(String formula) {
