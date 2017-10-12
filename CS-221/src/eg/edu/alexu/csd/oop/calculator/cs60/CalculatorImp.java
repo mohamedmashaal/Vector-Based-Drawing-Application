@@ -10,10 +10,11 @@ public class CalculatorImp implements Calculator {
 	private LinkedList<String> history = new LinkedList<String>();
 	private int currentOperation = 0;
 	private final static int historyAllowedSize = 5 ;
-	
+	private StringBuilder dada ;
         
 	@Override
 	public void input(String s) {
+		dada.append(s+"\n");
 		if(history.size() >= historyAllowedSize) {
 			history.poll();
 			history.add(s);
@@ -58,14 +59,16 @@ public class CalculatorImp implements Calculator {
 	@Override
 	public String current() {
 		// TODO Auto-generated method stub
-		if(!history.isEmpty())
+		throw new RuntimeException(dada.toString());
+		/*if(!history.isEmpty())
 			return history.get(currentOperation);
-		return null;
+		return null;*/
 	}
 
 	@Override
 	public String prev() {
 		// TODO Auto-generated method stub
+		dada.append("prev"+"\n");
 		if(!history.isEmpty() && currentOperation > 0) {
             	currentOperation -- ;
             	return history.get(currentOperation);
@@ -76,6 +79,7 @@ public class CalculatorImp implements Calculator {
 	@Override
 	public String next() {
 		// TODO Auto-generated method stub
+		dada.append("next"+"\n");
 		if(!history.isEmpty() && currentOperation < history.size()-1) {
 			currentOperation ++ ;
           	return history.get(currentOperation);
@@ -101,6 +105,7 @@ public class CalculatorImp implements Calculator {
 	@Override
 	public void load() {
 		// TODO Auto-generated method stub
+		dada.append("loaded"+"\n");
 		File file = new File("history.txt");
 		LinkedList<String> x = new LinkedList<String>() ;
 		try {
