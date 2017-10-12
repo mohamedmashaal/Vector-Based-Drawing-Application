@@ -29,7 +29,6 @@ public class CalculatorImp implements Calculator {
 
   @Override
   public String getResult() {
-    // TODO Auto-generated method stub
     try {
       final String[] formula = current().split("[-+*/]");
       final int operatorsNum = countOperators(current());
@@ -65,7 +64,6 @@ public class CalculatorImp implements Calculator {
 
   @Override
   public String current() {
-    // TODO Auto-generated method stub
     if (!history.isEmpty()) {
       return history.get(currentOperation);
     }
@@ -74,7 +72,6 @@ public class CalculatorImp implements Calculator {
 
   @Override
   public String prev() {
-    // TODO Auto-generated method stub
     if (!history.isEmpty() && currentOperation > 0) {
       currentOperation--;
       return history.get(currentOperation);
@@ -84,7 +81,6 @@ public class CalculatorImp implements Calculator {
 
   @Override
   public String next() {
-    // TODO Auto-generated method stub
     if (!history.isEmpty() && currentOperation < history.size() - 1) {
       currentOperation++;
       return history.get(currentOperation);
@@ -94,7 +90,6 @@ public class CalculatorImp implements Calculator {
 
   @Override
   public void save() {
-    // TODO Auto-generated method stub
     final File file = new File("history.txt");
     try {
       final FileWriter writer = new FileWriter(file);
@@ -109,7 +104,6 @@ public class CalculatorImp implements Calculator {
 
   @Override
   public void load() {
-    // TODO Auto-generated method stub
     final File file = new File("history.txt");
     final LinkedList<String> x = new LinkedList<String>();
     try {
