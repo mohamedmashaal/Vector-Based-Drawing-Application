@@ -20,7 +20,7 @@ public class CalculatorImp implements Calculator {
 		}
 		else {
 			history.add(s);
-			currentOperation = history.size();
+			currentOperation = history.size()-1;
 		}
 	}
 
@@ -59,33 +59,27 @@ public class CalculatorImp implements Calculator {
 	public String current() {
 		// TODO Auto-generated method stub
 		if(!history.isEmpty())
-			return history.get(currentOperation-1);
+			return history.get(currentOperation);
 		return null;
 	}
 
 	@Override
 	public String prev() {
 		// TODO Auto-generated method stub
-		if(!history.isEmpty() && currentOperation -1 > 0) {
+		if(!history.isEmpty() && currentOperation > 0) {
             	currentOperation -- ;
-            	return history.get(currentOperation-1);
+            	return history.get(currentOperation);
 		}
-		else if (!history.isEmpty() && currentOperation -1 == 0){
-            	return history.get(currentOperation-1);
-                }
 		return null;
 	}
 
 	@Override
 	public String next() {
 		// TODO Auto-generated method stub
-		if(!history.isEmpty() && currentOperation < history.size()) {
+		if(!history.isEmpty() && currentOperation < history.size()-1) {
 			currentOperation ++ ;
-          	return history.get(currentOperation-1);
+          	return history.get(currentOperation);
 		}
-    	else if (!history.isEmpty() && currentOperation == history.size()){
-    		return history.get(currentOperation-1);
-                }
 		return null;
 	}
 
@@ -109,13 +103,10 @@ public class CalculatorImp implements Calculator {
 		// TODO Auto-generated method stub
 		File file = new File("history.txt");
 		LinkedList<String> x = new LinkedList<String>() ;
-		//StringBuilder z = new StringBuilder();
 		try {
 			Scanner sc = new Scanner(file);
 			while (sc.hasNext()) {
-				//String temp = sc.nextLine();
 				x.add(sc.nextLine());
-				//z.append(temp);
 			}
 		}
 		catch (Exception e) {
@@ -123,8 +114,7 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
-		currentOperation = history.size();
-		//throw new RuntimeException(z.toString());
+		currentOperation = history.size()-1;
 	}
 
     private int countOperators(String formula) {
