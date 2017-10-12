@@ -8,7 +8,7 @@ import eg.edu.alexu.csd.oop.calculator.Calculator;
 
 public class CalculatorImp implements Calculator {
 	private LinkedList<String> history = new LinkedList<String>();
-	private int currentOperation = 0;
+	private int currentOperation = -1;
 	private final static int historyAllowedSize = 5 ;
         
 	@Override
