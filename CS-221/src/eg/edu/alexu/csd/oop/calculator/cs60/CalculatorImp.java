@@ -88,8 +88,8 @@ public class CalculatorImp implements Calculator {
 		File file = new File("history.txt");
 		try {
 			FileWriter writer = new FileWriter(file);
-			for(int i = 0 ; i < currentOperation ; i ++)
-				writer.write(history.get(i)+System.getProperty("line.separator"));
+			for(String x : history)
+				writer.write(x+System.getProperty("line.separator"));
 			writer.close();
 		}
 		catch (Exception e) {
@@ -113,6 +113,12 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
+		if(x.size() == 5) {
+			currentOperation = history.size()-1;
+		}
+		else {
+			currentOperation = 0 ;
+		}
 	}
 
     private int countOperators(String formula) {
