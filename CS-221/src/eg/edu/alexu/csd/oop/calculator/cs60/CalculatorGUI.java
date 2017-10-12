@@ -22,8 +22,9 @@ public class CalculatorGUI extends javax.swing.JFrame {
    * Creates new form NewJFrame.
    */
   public CalculatorGUI() {
-    setIconImage(Toolkit.getDefaultToolkit().getImage(CalculatorGUI.class
-        .getResource("/eg/edu/alexu/csd/oop/calculator/cs60/asset.png")));
+    setIconImage(Toolkit.getDefaultToolkit().getImage(
+        CalculatorGUI.class.getResource(
+            "/eg/edu/alexu/csd/oop/calculator/cs60/asset.png")));
     initComponents();
   }
 
@@ -63,13 +64,15 @@ public class CalculatorGUI extends javax.swing.JFrame {
     saveBtn = new javax.swing.JButton();
     loadBtn = new javax.swing.JButton();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(
+        javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setTitle("Calculator");
     setResizable(false);
 
     formulaArea.setBackground(new java.awt.Color(255, 255, 255));
     formulaArea.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-    formulaArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    formulaArea.setHorizontalAlignment(
+        javax.swing.SwingConstants.CENTER);
     formulaArea.setBorder(new javax.swing.border.LineBorder(
         new java.awt.Color(0, 0, 0), 3, true));
     formulaArea.setOpaque(true);
@@ -78,7 +81,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
     jLabel2.setText("=");
 
     resultArea.setBackground(new java.awt.Color(255, 255, 255));
-    resultArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    resultArea.setHorizontalAlignment(
+        javax.swing.SwingConstants.CENTER);
     resultArea.setBorder(new javax.swing.border.LineBorder(
         new java.awt.Color(0, 0, 0), 2, true));
     resultArea.setOpaque(true);
@@ -260,11 +264,13 @@ public class CalculatorGUI extends javax.swing.JFrame {
                             .addGroup(
                                 javax.swing.GroupLayout.Alignment.TRAILING,
                                 layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(
-                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout
+                                        .createParallelGroup(
+                                            javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(
                                             javax.swing.GroupLayout.Alignment.TRAILING,
-                                            layout.createSequentialGroup()
+                                            layout
+                                                .createSequentialGroup()
                                                 .addGroup(layout
                                                     .createParallelGroup(
                                                         javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +311,9 @@ public class CalculatorGUI extends javax.swing.JFrame {
                                                         javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout
                                                         .createSequentialGroup()
-                                                        .addGap(13, 13, 13)
+                                                        .addGap(13,
+                                                            13,
+                                                            13)
                                                         .addComponent(
                                                             num6Btn,
                                                             javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -322,7 +330,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
                                                             javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGroup(
                                             javax.swing.GroupLayout.Alignment.TRAILING,
-                                            layout.createSequentialGroup()
+                                            layout
+                                                .createSequentialGroup()
                                                 .addComponent(num7Btn,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                     79,
@@ -340,9 +349,10 @@ public class CalculatorGUI extends javax.swing.JFrame {
                                                     80,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(25, 25, 25)
-                                    .addGroup(layout.createParallelGroup(
-                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                        false)
+                                    .addGroup(layout
+                                        .createParallelGroup(
+                                            javax.swing.GroupLayout.Alignment.LEADING,
+                                            false)
                                         .addGroup(layout
                                             .createSequentialGroup()
                                             .addGroup(layout
@@ -365,46 +375,53 @@ public class CalculatorGUI extends javax.swing.JFrame {
                                                     false)
                                                 .addGroup(layout
                                                     .createSequentialGroup()
-                                                    .addComponent(mltBtn,
+                                                    .addComponent(
+                                                        mltBtn,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         61,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(
                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(delBtn,
+                                                    .addComponent(
+                                                        delBtn,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         69,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout
                                                     .createSequentialGroup()
-                                                    .addComponent(mnsBtn,
+                                                    .addComponent(
+                                                        mnsBtn,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         61,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(
                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(dotBtn,
+                                                    .addComponent(
+                                                        dotBtn,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         Short.MAX_VALUE))))
                                         .addGroup(
                                             javax.swing.GroupLayout.Alignment.TRAILING,
-                                            layout.createSequentialGroup()
+                                            layout
+                                                .createSequentialGroup()
                                                 .addComponent(num0Btn,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     javax.swing.GroupLayout.DEFAULT_SIZE,
                                                     Short.MAX_VALUE)
                                                 .addPreferredGap(
                                                     javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(equalBtn,
+                                                .addComponent(
+                                                    equalBtn,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                     100,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(
                                 javax.swing.GroupLayout.Alignment.TRAILING,
                                 layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(
-                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout
+                                        .createParallelGroup(
+                                            javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(prevBtn,
                                             javax.swing.GroupLayout.PREFERRED_SIZE,
                                             249,
@@ -422,23 +439,26 @@ public class CalculatorGUI extends javax.swing.JFrame {
                                                 120,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(5, 5, 5)
-                                    .addGroup(layout.createParallelGroup(
-                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                        false)
+                                    .addGroup(layout
+                                        .createParallelGroup(
+                                            javax.swing.GroupLayout.Alignment.LEADING,
+                                            false)
                                         .addComponent(nextBtn,
                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                             javax.swing.GroupLayout.DEFAULT_SIZE,
                                             Short.MAX_VALUE)
                                         .addGroup(
                                             javax.swing.GroupLayout.Alignment.TRAILING,
-                                            layout.createSequentialGroup()
+                                            layout
+                                                .createSequentialGroup()
                                                 .addComponent(jLabel2,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                     106,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(
                                                     javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(resultArea,
+                                                .addComponent(
+                                                    resultArea,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE,
                                                     125,
                                                     javax.swing.GroupLayout.PREFERRED_SIZE)))))))
@@ -595,11 +615,12 @@ public class CalculatorGUI extends javax.swing.JFrame {
 
   private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {
     StringBuilder result = new StringBuilder(formulaArea.getText());
-    formulaArea.setText((result.length() - 1 >= 0) ? result.deleteCharAt(
-        result.length() - 1).toString() : "");
+    formulaArea.setText((result.length() - 1 >= 0) ? result
+        .deleteCharAt(result.length() - 1).toString() : "");
   }
 
-  private void num1BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num1BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("1");
   }
 
@@ -611,11 +632,13 @@ public class CalculatorGUI extends javax.swing.JFrame {
     printChar("/");
   }
 
-  private void num4BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num4BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("4");
   }
 
-  private void prevBtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void prevBtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     String res = manager.prev();
     if (res == null) {
       JOptionPane.showMessageDialog(null,
@@ -627,7 +650,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
     }
   }
 
-  private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void nextBtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     String res = manager.next();
     if (res == null) {
       JOptionPane.showMessageDialog(null,
@@ -639,7 +663,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
     }
   }
 
-  private void equalBtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void equalBtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     String formula = formulaArea.getText();
     try {
       manager.input(formula);
@@ -653,35 +678,43 @@ public class CalculatorGUI extends javax.swing.JFrame {
     }
   }
 
-  private void num2BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num2BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("2");
   }
 
-  private void num3BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num3BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("3");
   }
 
-  private void num5BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num5BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("5");
   }
 
-  private void num6BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num6BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("6");
   }
 
-  private void num7BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num7BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("7");
   }
 
-  private void num8BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num8BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("8");
   }
 
-  private void num9BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num9BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("9");
   }
 
-  private void plusBtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void plusBtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("+");
   }
 
@@ -689,7 +722,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
     printChar("-");
   }
 
-  private void num0BtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void num0BtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     printChar("0");
   }
 
@@ -697,7 +731,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
     printChar(".");
   }
 
-  private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void saveBtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     try {
       manager.save();
       JOptionPane.showMessageDialog(null,
@@ -712,7 +747,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
     }
   }
 
-  private void loadBtnActionPerformed(java.awt.event.ActionEvent evt) {
+  private void loadBtnActionPerformed(
+      java.awt.event.ActionEvent evt) {
     try {
       manager.load();
       formulaArea.setText(manager.current());
@@ -733,7 +769,7 @@ public class CalculatorGUI extends javax.swing.JFrame {
    * @param args
    *          the command line arguments
    */
-  public static void main(String args[]) {
+  public static void main(String [] args) {
     /* Set the Nimbus look and feel */
     // <editor-fold defaultstate="collapsed" desc=" Look and feel setting
     // code (optional) ">
@@ -753,17 +789,17 @@ public class CalculatorGUI extends javax.swing.JFrame {
         }
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(CalculatorGUI.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(CalculatorGUI.class
+          .getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(CalculatorGUI.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(CalculatorGUI.class
+          .getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(CalculatorGUI.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(CalculatorGUI.class
+          .getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(CalculatorGUI.class.getName())
-          .log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(CalculatorGUI.class
+          .getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
     // </editor-fold>
     // </editor-fold>

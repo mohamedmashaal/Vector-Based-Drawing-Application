@@ -7,14 +7,18 @@ import java.util.Scanner;
 
 import eg.edu.alexu.csd.oop.calculator.Calculator;
 
+/**
+ * @author Mohamed Mashaal.
+ *
+ */
 public class CalculatorImp implements Calculator {
   private LinkedList<String> history = new LinkedList<String>();
   private int currentOperation = 0;
-  private final static int historyAllowedSize = 5;
+  private final static int HISTORYALLOWEDSIZE = 5;
 
   @Override
   public final void input(final String s) {
-    if (history.size() >= historyAllowedSize) {
+    if (history.size() >= HISTORYALLOWEDSIZE) {
       history.poll();
       history.add(s);
     } else {
@@ -118,7 +122,7 @@ public class CalculatorImp implements Calculator {
     }
     history = new LinkedList<>();
     history.addAll(x);
-    if (x.size() == 5) {
+    if (x.size() == HISTORYALLOWEDSIZE) {
       currentOperation = history.size() - 1;
     } else {
       currentOperation = 0;
