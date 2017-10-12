@@ -88,8 +88,8 @@ public class CalculatorImp implements Calculator {
 		File file = new File("history.txt");
 		try {
 			FileWriter writer = new FileWriter(file);
-			for(String x : history)
-				writer.write(x+System.getProperty("line.separator"));
+			for(int i = 0 ; i < currentOperation ; i ++)
+				writer.write(history.get(i)+System.getProperty("line.separator"));
 			writer.close();
 		}
 		catch (Exception e) {
