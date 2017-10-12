@@ -109,11 +109,13 @@ public class CalculatorImp implements Calculator {
 		// TODO Auto-generated method stub
 		File file = new File("history.txt");
 		LinkedList<String> x = new LinkedList<String>() ;
+		StringBuilder z = new StringBuilder();
 		try {
 			Scanner sc = new Scanner(file);
 			while (sc.hasNext()) {
-				
-				x.add(sc.nextLine());
+				String temp = sc.nextLine();
+				x.add(temp);
+				z.append(temp);
 			}
 		}
 		catch (Exception e) {
@@ -121,7 +123,7 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
-		throw new RuntimeException(Integer.toString(x.size()));
+		throw new RuntimeException(z.toString());
 	}
 
     private int countOperators(String formula) {
