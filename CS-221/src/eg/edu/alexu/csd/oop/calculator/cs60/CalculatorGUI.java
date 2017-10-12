@@ -18,7 +18,7 @@ public class CalculatorGUI extends javax.swing.JFrame {
     
     private Calculator manager = new CalculatorImp();
     /**
-     * Creates new form NewJFrame
+     * Creates new form NewJFrame.
      */
     public CalculatorGUI() {
     	setIconImage(Toolkit.getDefaultToolkit().getImage(CalculatorGUI.class.getResource("/eg/edu/alexu/csd/oop/calculator/cs60/asset.png")));
