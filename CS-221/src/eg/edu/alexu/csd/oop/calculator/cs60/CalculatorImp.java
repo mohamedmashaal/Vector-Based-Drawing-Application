@@ -18,8 +18,8 @@ public class CalculatorImp implements Calculator {
 			history.add(s);
 		}
 		else {
-			history.add(currentOperation,s);
-			//currentOperation = history.size()-1;
+			history.add(s);
+			currentOperation = history.size()-1;
 		}
 	}
 
