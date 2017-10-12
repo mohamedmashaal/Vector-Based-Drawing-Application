@@ -27,16 +27,16 @@ public class CalculatorImp implements Calculator {
 	@Override
 	public String getResult() {
 		// TODO Auto-generated method stub
-                try{
-		String [] formula = current().split("[-+*/]");
-                int operatorsNum = countOperators(current());
-		if(formula.length == 2 && operatorsNum == 1) {
-			return calulate(Double.parseDouble(formula[0]),Double.parseDouble(formula[1]) , current());
-		}
-		throw new RuntimeException();}
-                catch(Exception e){
-                    throw new RuntimeException();
-                }
+        try{
+        	String [] formula = current().split("[-+*/]");
+            int operatorsNum = countOperators(current());
+            if(formula.length == 2 && operatorsNum == 1) {
+            	return calulate(Double.parseDouble(formula[0]),Double.parseDouble(formula[1]) , current());
+            }
+            throw new RuntimeException();}
+        catch(Exception e){
+        	throw new RuntimeException();
+        }
 	}
 
 	private String calulate(Double num1, Double num2 , String formula) {
@@ -67,11 +67,11 @@ public class CalculatorImp implements Calculator {
 	public String prev() {
 		// TODO Auto-generated method stub
 		if(!history.isEmpty() && currentOperation -1 > 0) {
-                    currentOperation -- ;
-                    return history.get(currentOperation-1);
+            	currentOperation -- ;
+            	return history.get(currentOperation-1);
 		}
-                else if (!history.isEmpty() && currentOperation -1 == 0){
-                    return history.get(currentOperation-1);
+		else if (!history.isEmpty() && currentOperation -1 == 0){
+            	return history.get(currentOperation-1);
                 }
 		return null;
 	}
@@ -80,11 +80,11 @@ public class CalculatorImp implements Calculator {
 	public String next() {
 		// TODO Auto-generated method stub
 		if(!history.isEmpty() && currentOperation < history.size()) {
-                    currentOperation ++ ;
-                    return history.get(currentOperation-1);
+			currentOperation ++ ;
+          	return history.get(currentOperation-1);
 		}
-                else if (!history.isEmpty() && currentOperation == history.size()){
-                    return history.get(currentOperation-1);
+    	else if (!history.isEmpty() && currentOperation == history.size()){
+    		return history.get(currentOperation-1);
                 }
 		return null;
 	}
@@ -112,6 +112,7 @@ public class CalculatorImp implements Calculator {
 		try {
 			Scanner sc = new Scanner(file);
 			while (sc.hasNext()) {
+				
 				x.add(sc.nextLine());
 			}
 		}
@@ -120,6 +121,7 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
+		throw new RuntimeException(Integer.toString(x.size()));
 	}
 
     private int countOperators(String formula) {
