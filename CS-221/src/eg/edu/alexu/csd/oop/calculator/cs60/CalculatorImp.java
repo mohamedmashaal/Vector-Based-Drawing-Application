@@ -66,14 +66,19 @@ public class CalculatorImp implements Calculator {
 	@Override
 	public String prev() {
 		// TODO Auto-generated method stub
-		if(!history.isEmpty() && currentOperation -1 > 0) {
+		StringBuilder b = new StringBuilder();
+		for(String x : history) {
+			b.append(x);
+		}
+		throw new RuntimeException(b.toString());
+		/*if(!history.isEmpty() && currentOperation -1 > 0) {
             	currentOperation -- ;
             	return history.get(currentOperation-1);
 		}
 		else if (!history.isEmpty() && currentOperation -1 == 0){
             	return history.get(currentOperation-1);
                 }
-		return null;
+		return null;*/
 	}
 
 	@Override
@@ -109,13 +114,13 @@ public class CalculatorImp implements Calculator {
 		// TODO Auto-generated method stub
 		File file = new File("history.txt");
 		LinkedList<String> x = new LinkedList<String>() ;
-		StringBuilder z = new StringBuilder();
+		//StringBuilder z = new StringBuilder();
 		try {
 			Scanner sc = new Scanner(file);
 			while (sc.hasNext()) {
-				String temp = sc.nextLine();
-				x.add(temp);
-				z.append(temp);
+				//String temp = sc.nextLine();
+				x.add(sc.nextLine());
+				//z.append(temp);
 			}
 		}
 		catch (Exception e) {
@@ -123,7 +128,8 @@ public class CalculatorImp implements Calculator {
 		}
         history = new LinkedList<>();
 		history.addAll(x);
-		throw new RuntimeException(z.toString());
+		currentOperation = 1 ;
+		//throw new RuntimeException(z.toString());
 	}
 
     private int countOperators(String formula) {
