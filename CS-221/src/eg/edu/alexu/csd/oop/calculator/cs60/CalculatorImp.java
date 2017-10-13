@@ -93,6 +93,7 @@ public class CalculatorImp implements Calculator {
     final File file = new File("history.txt");
     try {
       final FileWriter writer = new FileWriter(file);
+      writer.write(currentOperation + System.getProperty("line.separator"));
       for (final String x : history) {
         writer.write(x + System.getProperty("line.separator"));
       }
@@ -108,6 +109,7 @@ public class CalculatorImp implements Calculator {
     final LinkedList<String> x = new LinkedList<String>();
     try {
       final Scanner sc = new Scanner(file);
+      currentOperation = Integer.parseInt(sc.nextLine());
       while (sc.hasNext()) {
         x.add(sc.nextLine());
       }
@@ -116,11 +118,11 @@ public class CalculatorImp implements Calculator {
     }
     history = new LinkedList<>();
     history.addAll(x);
-    if (x.size() == HISTORYALLOWEDSIZE) {
+/*    if (x.size() == HISTORYALLOWEDSIZE) {
       currentOperation = history.size() - 1;
     } else {
       currentOperation = 0;
-    }
+    }*/
   }
 
   private int countOperators(final String formula) {
