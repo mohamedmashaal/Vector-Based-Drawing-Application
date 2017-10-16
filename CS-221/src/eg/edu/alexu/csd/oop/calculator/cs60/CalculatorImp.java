@@ -15,10 +15,15 @@ public class CalculatorImp implements Calculator {
   /**
    * variable setting the history size.
    */
-  private final static int HISTORYALLOWEDSIZE = 5;
+  private static final int HISTORYALLOWEDSIZE = 5;
+  /**
+   * the history linkedlist.
+   */
   private LinkedList<String> history = new LinkedList<String>();
+  /**
+   * a variable keeping track of the current opereation.
+   */
   private int currentOperation = 0;
-  
 
   @Override
   public final void input(final String s) {
@@ -48,12 +53,9 @@ public class CalculatorImp implements Calculator {
   }
 
   /**
-   * @param num1.
-   * @param num2.
-   * @param formula.
-   * @return
+   * returns the calculated result as a string.
    */
-  private final String calulate(final Double num1,
+  private String calulate(final Double num1,
       final Double num2,
       final String formula) {
     try {
