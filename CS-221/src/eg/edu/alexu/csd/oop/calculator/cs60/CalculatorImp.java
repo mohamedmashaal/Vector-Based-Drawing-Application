@@ -53,10 +53,10 @@ public class CalculatorImp implements Calculator {
   }
 
   /**
-   * @param num1.
-   * @param num2.
-   * @param formula.
-   * @return string
+   * @param num1 the first number.
+   * @param num2 the second one.
+   * @param formula the formula to calculate.
+   * @return a string representing result.
    */
   private String calulate(final Double num1,
       final Double num2,
