@@ -140,6 +140,10 @@ public class CalculatorImp implements Calculator {
     }*/
   }
 
+  /**
+   * @param formula under testing.
+   * @return the numbers of operators in formula.
+   */
   private int countOperators(final String formula) {
     final String operators = "+-*/";
     int count = 0;
