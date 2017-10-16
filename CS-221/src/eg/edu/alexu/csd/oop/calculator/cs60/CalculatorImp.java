@@ -12,9 +12,13 @@ import eg.edu.alexu.csd.oop.calculator.Calculator;
  *
  */
 public class CalculatorImp implements Calculator {
+  /**
+   * variable setting the history size.
+   */
+  private final static int HISTORYALLOWEDSIZE = 5;
   private LinkedList<String> history = new LinkedList<String>();
   private int currentOperation = 0;
-  private final static int HISTORYALLOWEDSIZE = 5;
+  
 
   @Override
   public final void input(final String s) {
@@ -28,7 +32,7 @@ public class CalculatorImp implements Calculator {
   }
 
   @Override
-  public String getResult() {
+  public final String getResult() {
     try {
       final String[] formula = current().split("[-+*/]");
       final int operatorsNum = countOperators(current());
@@ -43,7 +47,13 @@ public class CalculatorImp implements Calculator {
     }
   }
 
-  private String calulate(final Double num1,
+  /**
+   * @param num1.
+   * @param num2.
+   * @param formula.
+   * @return
+   */
+  private final String calulate(final Double num1,
       final Double num2,
       final String formula) {
     try {
@@ -63,7 +73,7 @@ public class CalculatorImp implements Calculator {
   }
 
   @Override
-  public String current() {
+  public final String current() {
     if (!history.isEmpty()) {
       return history.get(currentOperation);
     }
@@ -71,7 +81,7 @@ public class CalculatorImp implements Calculator {
   }
 
   @Override
-  public String prev() {
+  public final String prev() {
     if (!history.isEmpty() && currentOperation > 0) {
       currentOperation--;
       return history.get(currentOperation);
@@ -80,7 +90,7 @@ public class CalculatorImp implements Calculator {
   }
 
   @Override
-  public String next() {
+  public final String next() {
     if (!history.isEmpty() && currentOperation < history.size() - 1) {
       currentOperation++;
       return history.get(currentOperation);
@@ -89,7 +99,7 @@ public class CalculatorImp implements Calculator {
   }
 
   @Override
-  public void save() {
+  public final void save() {
     final File file = new File("history.txt");
     try {
       final FileWriter writer = new FileWriter(file);
@@ -104,7 +114,7 @@ public class CalculatorImp implements Calculator {
   }
 
   @Override
-  public void load() {
+  public final void load() {
     final File file = new File("history.txt");
     final LinkedList<String> x = new LinkedList<String>();
     try {
