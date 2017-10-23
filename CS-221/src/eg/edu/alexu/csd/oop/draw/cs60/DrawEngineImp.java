@@ -4,10 +4,10 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
-import eg.edu.alexu.csd.oop.draw.DrawEngine;
+import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
-public class DrawEngineImp implements DrawEngine {
+public class DrawEngineImp implements DrawingEngine {
 	private ArrayList<Shape> data ;
 	private Graphics canvas ;
 	public DrawEngineImp() {

@@ -8,12 +8,12 @@ import java.util.Random;
 
 import javax.swing.*;
 
-import eg.edu.alexu.csd.oop.draw.DrawEngine;
+import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 
 public class MainView2 extends JPanel implements MouseMotionListener, MouseListener{
-	DrawEngine engine = new DrawEngineImp();
+	DrawingEngine engine = new DrawEngineImp();
 	
 	Point p = null;
 	Point p2 = null;

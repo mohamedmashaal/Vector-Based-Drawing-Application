@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.oop.draw;
 
-public interface DrawEngine {
+public interface DrawingEngine {
 	/* redraw all shapes on the canvas */
 	public void refresh(java.awt.Graphics canvas); 
 	 
