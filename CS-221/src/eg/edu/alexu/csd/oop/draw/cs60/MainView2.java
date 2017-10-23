@@ -11,6 +11,7 @@ import javax.swing.*;
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 
 public class MainView2 extends JPanel implements MouseMotionListener, MouseListener{
 	DrawingEngine engine = new DrawEngineImp();
@@ -31,11 +32,12 @@ public class MainView2 extends JPanel implements MouseMotionListener, MouseListe
 		addMouseListener(this);
         addMouseMotionListener(this);
         System.out.println(p + "23");
-		Shape line = new Line();
-		if(p != null) {
-			line.setPosition(p);
-			line.setColor(new Color(rand.nextInt()));
-			engine.addShape(line);
+		Shape rect = new Rectangle();
+		if(p != null && p2 != null) {
+			rect.setPosition(p);
+			((Rectangle) rect).setPosition2(p2);
+			rect.setColor(new Color(rand.nextInt()));
+			engine.addShape(rect);
 			engine.refresh(g);
 		}
 	}
@@ -74,7 +76,7 @@ public class MainView2 extends JPanel implements MouseMotionListener, MouseListe
 		// TODO Auto-generated method stub
 		p = getMousePosition();
 		System.out.println(p + " 54");
-		repaint();
+		//repaint();
 	}
 
 	@Override

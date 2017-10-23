@@ -9,7 +9,7 @@ import java.util.Map;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public abstract class MainShape implements Shape {
-	private Map<String, Double> properties ;
+	protected Map<String, Double> properties ;
 	
 	public MainShape() {
 		properties = new HashMap<String, Double>();	
@@ -17,13 +17,13 @@ public abstract class MainShape implements Shape {
 	@Override
 	public void setPosition(Point position) {
 		// TODO Auto-generated method stub
-		properties.put("x", position.getX());
-		properties.put("y", position.getY());
+		properties.put("x1", position.getX());
+		properties.put("y1", position.getY());
 	}
 
 	@Override
 	public Point getPosition() {
-		Point point = new Point(properties.get("x").intValue(),properties.get("y").intValue());
+		Point point = new Point(properties.get("x1").intValue(),properties.get("y1").intValue());
 		return point;
 	}
 
