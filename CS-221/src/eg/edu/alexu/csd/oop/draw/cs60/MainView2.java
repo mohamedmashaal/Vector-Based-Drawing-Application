@@ -35,7 +35,7 @@ public class MainView2 extends JPanel implements MouseMotionListener, MouseListe
 		Shape rect = new Rectangle();
 		if(p != null && p2 != null) {
 			rect.setPosition(p);
-			((Rectangle) rect).setPosition2(p2);
+			//((Rectangle) rect).setPosition2(p2);
 			rect.setColor(new Color(rand.nextInt()));
 			engine.addShape(rect);
 			engine.refresh(g);
