@@ -9,7 +9,10 @@ import java.util.Map;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public abstract class MainShape implements Shape {
-	protected Map<String, Double> properties ;
+	private  Map<String, Double> properties ;
+	private Point position ;
+	private Color color ;
+	private Color fill_color ;
 	
 	public MainShape() {
 		properties = new HashMap<String, Double>();	
@@ -17,14 +20,16 @@ public abstract class MainShape implements Shape {
 	@Override
 	public void setPosition(Point position) {
 		// TODO Auto-generated method stub
-		properties.put("x1", position.getX());
-		properties.put("y1", position.getY());
+		/*properties.put("x1", position.getX());
+		properties.put("y1", position.getY());*/
+		this.position = position ;
 	}
 
 	@Override
 	public Point getPosition() {
-		Point point = new Point(properties.get("x1").intValue(),properties.get("y1").intValue());
-		return point;
+		//Point point = new Point(properties.get("x1").intValue(),properties.get("y1").intValue());
+		//return point;
+		return position ;
 	}
 
 	@Override
@@ -42,31 +47,33 @@ public abstract class MainShape implements Shape {
 	@Override
 	public void setColor(Color color) {
 		// TODO Auto-generated method stub
-		properties.put("color", new Double(color.getRGB()));
+		//properties.put("color", new Double(color.getRGB()));
+		this.color = color ;
 	}
 
 	@Override
 	public Color getColor() {
 		// TODO Auto-generated method stub
-		return new Color(properties.get("color").intValue());
+		//return new Color(properties.get("color").intValue());
+		return color ;
 	}
 
 	@Override
 	public void setFillColor(Color color) {
 		// TODO Auto-generated method stub
-		properties.put("fill-color", new Double(color.getRGB()));
+		//properties.put("fill-color", new Double(color.getRGB()));
+		this.fill_color = color ;
 	}
 
 	@Override
 	public Color getFillColor() {
 		// TODO Auto-generated method stub
-		return new Color(properties.get("fill-color").intValue());
+		//return new Color(properties.get("fill-color").intValue());
+		return fill_color ;
 	}
 
 	@Override
 	public abstract void draw(Graphics canvas);
 	
-	public Object clone() {
-		return null;
-	}
+	public abstract Object clone() throws CloneNotSupportedException;
 }

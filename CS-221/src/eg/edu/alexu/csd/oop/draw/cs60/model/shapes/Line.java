@@ -1,28 +1,47 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model.shapes;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
+import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.MainShape;
 
 public class Line extends MainShape {
+	private Point end ;
+	public Line() {
+		super();
+	}
 	
-	public void setPosition2(Point position) {
-		properties.put("x2", position.getX());
-		properties.put("y2", position.getY());
+	public Line(Point p1 , Point p2) {
+		super();
+		setPosition(p1);
+		end = new Point (p2);
+		this.getProperties().put("x1", p1.getX());
+		this.getProperties().put("y1", p1.getY());
+		this.getProperties().put("x2", p2.getX());
+		this.getProperties().put("y2", p2.getY());
 	}
-
-	public Point getPosition2() {
-		Point point = new Point(properties.get("x2").intValue(),properties.get("y2").intValue());
-		return point;
-	}
-		
+	
+	
 	@Override
 	public void draw(Graphics canvas) {
-		canvas.setColor(getColor());
-		canvas.drawLine(getPosition().x, getPosition().y, getPosition2().x, getPosition2().y);
+		Graphics2D g = (Graphics2D)canvas ;
+		g.setColor(getColor());
+		g.drawLine(getPosition().x, getPosition().y, end.x, end.y);
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		Shape clone = new Line(getPosition() , this.end); // needs some adjustment
+		clone.setColor(this.getColor());
+		clone.setFillColor(this.getFillColor());
+		clone.setPosition(this.getPosition());
+		Map<String,Double> clone_prop = new HashMap<>();
+		clone_prop.putAll(this.getProperties());
+		clone.setProperties(clone_prop);
+		return clone;
 	}
 }
