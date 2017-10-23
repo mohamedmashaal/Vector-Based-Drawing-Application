@@ -2,6 +2,8 @@ package eg.edu.alexu.csd.oop.draw.cs60.model.shapes;
 
 import java.awt.Graphics;
 
+import eg.edu.alexu.csd.oop.draw.cs60.MainShape;
+
 public class Triangle extends MainShape{
 
 	@Override

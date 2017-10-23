@@ -6,6 +6,8 @@ import java.awt.Point;
 import java.util.Map;
 import java.util.Random;
 
+import eg.edu.alexu.csd.oop.draw.cs60.MainShape;
+
 public class Line extends MainShape {
 	
 	public void setPosition2(Point position) {
