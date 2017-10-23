@@ -8,16 +8,15 @@ import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public class DrawEngineImp implements DrawingEngine {
-	private ArrayList<Shape> data ;
-	private Graphics canvas ;
+	private ArrayList<Shape> shapes ;
 	public DrawEngineImp() {
-		data = new ArrayList<>();;
+		shapes = new ArrayList<>();;
 	}
 
 	@Override
 	public void refresh(Graphics canvas) {
 		// TODO Auto-generated method stub
-		for(Shape x : data) {
+		for(Shape x : shapes) {
 			x.draw(canvas);
 		}
 	}
@@ -25,25 +24,29 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
-		data.add(shape);
+		shapes.add(shape);
 	}
 
 	@Override
 	public void removeShape(Shape shape) {
 		// TODO Auto-generated method stub
-
+		int index = shapes.indexOf(shape);
+		if(index >= 0)
+			shapes.remove(index);
 	}
 
 	@Override
 	public void updateShape(Shape oldShape, Shape newShape) {
 		// TODO Auto-generated method stub
-
+		int index = shapes.indexOf(oldShape);
+		if(index >= 0)
+			shapes.set(index, newShape) ;
 	}
 
 	@Override
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub
-		return null;
+		return shapes.toArray(new Shape [0]);
 	}
 
 	@Override
