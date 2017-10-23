@@ -1,23 +1,31 @@
 package eg.edu.alexu.csd.oop.draw.cs60;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.List;
 
 import eg.edu.alexu.csd.oop.draw.DrawEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public class DrawEngineImp implements DrawEngine {
+	private ArrayList<Shape> data ;
+	private Graphics canvas ;
+	public DrawEngineImp() {
+		data = new ArrayList<>();;
+	}
 
 	@Override
 	public void refresh(Graphics canvas) {
 		// TODO Auto-generated method stub
-
+		for(Shape x : data) {
+			x.draw(canvas);
+		}
 	}
 
 	@Override
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
-
+		data.add(shape);
 	}
 
 	@Override
