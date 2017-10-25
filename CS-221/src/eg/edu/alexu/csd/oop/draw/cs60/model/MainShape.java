@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.draw.cs60;
+package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.Color;
 import java.awt.Graphics;

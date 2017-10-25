@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
-import eg.edu.alexu.csd.oop.draw.cs60.MainShape;
+import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Square extends MainShape {
 	private static final float STROKE = 2;

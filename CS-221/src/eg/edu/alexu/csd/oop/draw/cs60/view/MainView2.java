@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.draw.cs60;
+package eg.edu.alexu.csd.oop.draw.cs60.view;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
+import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 
