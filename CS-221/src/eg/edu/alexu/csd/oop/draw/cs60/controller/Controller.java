@@ -8,6 +8,6 @@ import eg.edu.alexu.csd.oop.draw.cs60.view.View;
 
 public class Controller {
 	private View view = new View();
-	private ArrayList<DrawingEngine> model = new DrawEngineImp();
+	private DrawEngineImp model = new DrawEngineImp();
 	
 }
