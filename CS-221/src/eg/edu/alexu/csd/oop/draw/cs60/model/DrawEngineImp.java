@@ -37,7 +37,7 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void removeShape(Shape shape) {
 		// TODO Auto-generated method stub
-		int index = shapes.indexOf(shape);
+		int index = shapes.peek().indexOf(shape);
 		if(index >= 0) {
 			shapes.push(new ArrayList<Shape>(shapes.peek()));
 			shapes.peek().remove(index);
@@ -47,7 +47,7 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void updateShape(Shape oldShape, Shape newShape) {
 		// TODO Auto-generated method stub
-		int index = shapes.indexOf(oldShape);
+		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
 			shapes.push(new ArrayList<Shape>(shapes.peek()));
 			shapes.peek().set(index, newShape);
