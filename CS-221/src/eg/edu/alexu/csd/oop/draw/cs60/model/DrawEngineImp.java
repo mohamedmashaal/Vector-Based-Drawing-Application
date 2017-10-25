@@ -53,7 +53,7 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public List<Class<? extends Shape>> getSupportedShapes() {
-		
+		return null ;
 	}
 
 	@Override
