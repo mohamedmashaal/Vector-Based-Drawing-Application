@@ -14,8 +14,8 @@ public class DrawEngineImp implements DrawingEngine {
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
 	public DrawEngineImp() {
-		shapes = new Stack<>();
-		shapes.push(new ArrayList<>());
+		shapes = new Stack<ArrayList<Shape>>();
+		shapes.push(new ArrayList<Shape>());
 	}
 
 	@Override
