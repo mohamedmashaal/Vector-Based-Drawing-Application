@@ -2,6 +2,8 @@ package eg.edu.alexu.csd.oop.draw.cs60;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
@@ -51,8 +53,9 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public List<Class<? extends Shape>> getSupportedShapes() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Class> arr = Arrays.asList(MainShape.class.getClasses());
+		List<Class<? extends Shape>> allClasses = 
+		return a;
 	}
 
 	@Override
@@ -64,13 +67,12 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void redo() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void save(String path) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
