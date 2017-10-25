@@ -16,6 +16,7 @@ public class DrawEngineImp implements DrawingEngine {
 	public DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
+		redoShapes = new Stack<ArrayList<Shape>>();
 	}
 
 	@Override
@@ -29,7 +30,7 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
-		shapes.push(new ArrayList<>(shapes.peek()));
+		shapes.push(new ArrayList<Shape>(shapes.peek()));
 		shapes.peek().add(shape);
 	}
 
@@ -38,7 +39,7 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		int index = shapes.indexOf(shape);
 		if(index >= 0) {
-			shapes.push(new ArrayList<>(shapes.peek()));
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
 			shapes.peek().remove(index);
 		}
 	}
@@ -48,7 +49,7 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		int index = shapes.indexOf(oldShape);
 		if(index >= 0){
-			shapes.push(new ArrayList<>(shapes.peek()));
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
 			shapes.peek().set(index, newShape);
 		}
 	}
@@ -56,7 +57,7 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub
-		return shapes.peek().toArray(new Shape [0]);
+		return shapes.peek().toArray(new Shape[0]);
 	}
 
 	@Override
