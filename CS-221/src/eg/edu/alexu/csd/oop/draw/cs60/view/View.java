@@ -14,14 +14,14 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 
-public class MainView2 extends JPanel implements MouseMotionListener, MouseListener{
+public class View extends JPanel implements MouseMotionListener, MouseListener{
 	DrawingEngine engine = new DrawEngineImp();
 	
 	Point p = null;
 	Point p2 = null;
 	Random rand = new Random(255);
 	
-	public MainView2(){
+	public View(){
 		super();
 		this.setBackground(Color.WHITE);
 		addMouseListener(this);
@@ -47,7 +47,7 @@ public class MainView2 extends JPanel implements MouseMotionListener, MouseListe
  
         JFrame frame = new JFrame("Paint Try out");
         frame.setBackground(Color.WHITE);
-        frame.getContentPane().add(new MainView2());
+        frame.getContentPane().add(new View());
 		frame.setSize(1000, 600);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -5,20 +5,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public class DrawEngineImp implements DrawingEngine {
-	private ArrayList<Shape> shapes ;
+	private Stack<ArrayList<Shape>> shapes ;
+	private Stack<ArrayList<Shape>> redoShapes ;
 	public DrawEngineImp() {
-		shapes = new ArrayList<>();;
+		shapes = new Stack<>();
+		shapes.push(new ArrayList<>());
 	}
 
 	@Override
 	public void refresh(Graphics canvas) {
 		// TODO Auto-generated method stub
-		for(Shape x : shapes) {
+		for(Shape x : shapes.peek()) {
 			x.draw(canvas);
 		}
 	}
@@ -26,29 +29,34 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
-		shapes.add(shape);
+		shapes.push(new ArrayList<>(shapes.peek()));
+		shapes.peek().add(shape);
 	}
 
 	@Override
 	public void removeShape(Shape shape) {
 		// TODO Auto-generated method stub
 		int index = shapes.indexOf(shape);
-		if(index >= 0)
-			shapes.remove(index);
+		if(index >= 0) {
+			shapes.push(new ArrayList<>(shapes.peek()));
+			shapes.peek().remove(index);
+		}
 	}
 
 	@Override
 	public void updateShape(Shape oldShape, Shape newShape) {
 		// TODO Auto-generated method stub
 		int index = shapes.indexOf(oldShape);
-		if(index >= 0)
-			shapes.set(index, newShape) ;
+		if(index >= 0){
+			shapes.push(new ArrayList<>(shapes.peek()));
+			shapes.peek().set(index, newShape);
+		}
 	}
 
 	@Override
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub
-		return shapes.toArray(new Shape [0]);
+		return shapes.peek().toArray(new Shape [0]);
 	}
 
 	@Override
@@ -58,14 +66,15 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void undo() {
-		// TODO Auto-generated method stub
-
+		if(shapes.size() > 1)
+			redoShapes.push(shapes.pop());
+		
 	}
 
 	@Override
 	public void redo() {
-		// TODO Auto-generated method stub
-		
+		if(!redoShapes.empty())
+			shapes.push(redoShapes.pop());
 	}
 
 	@Override
