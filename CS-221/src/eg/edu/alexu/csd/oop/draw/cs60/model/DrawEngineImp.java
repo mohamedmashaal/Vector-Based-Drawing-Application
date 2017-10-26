@@ -44,8 +44,9 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(shape);
 		if(index >= 0) {
-			if(shapes.size() <= 20)
+			if(shapes.size() <= 20) {
 				shapes.push(new ArrayList<Shape>(shapes.peek()));
+			}
 			else {
 				shapes.remove(0);
 				shapes.push(new ArrayList<Shape>(shapes.peek()));
