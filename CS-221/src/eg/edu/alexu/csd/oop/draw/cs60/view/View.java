@@ -21,6 +21,8 @@ public class View extends JPanel implements MouseMotionListener, MouseListener{
 	Point p2 = null;
 	Random rand = new Random(255);
 	
+	boolean save = false;
+	
 	public View(){
 		super();
 		this.setBackground(Color.WHITE);
@@ -36,7 +38,7 @@ public class View extends JPanel implements MouseMotionListener, MouseListener{
 		Shape rect;
 		if(p != null && p2 != null) {
 			if(p.x > p2.x || p.y > p2.y) { // TODO needs more handling
-				Point temp = new Point(Math.abs(p.x-p2.x), Math.abs(p.y-p2.y));
+				Point temp = new Point(p);
 				p = new Point(p2);
 				p2 = temp;
 			}
@@ -45,6 +47,9 @@ public class View extends JPanel implements MouseMotionListener, MouseListener{
 			engine.addShape(rect);
 			engine.refresh(g);
 		}
+		//if(!save) {
+			engine.save("");
+		//}
 	}
     
     public static void main(String[] args) {
