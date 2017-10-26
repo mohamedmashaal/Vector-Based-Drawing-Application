@@ -33,10 +33,10 @@ public class View extends JPanel implements MouseMotionListener, MouseListener{
 		addMouseListener(this);
         addMouseMotionListener(this);
         System.out.println(p + "23");
-		Shape rect = new Rectangle();
+		Shape rect;
 		if(p != null && p2 != null) {
-			rect.setPosition(p);
-			//((Rectangle) rect).setPosition2(p2);
+			if()
+			rect = new Rectangle(p,Math.abs(p2.x-p.x),Math.abs(p2.y-p.y));
 			rect.setColor(new Color(rand.nextInt()));
 			engine.addShape(rect);
 			engine.refresh(g);
