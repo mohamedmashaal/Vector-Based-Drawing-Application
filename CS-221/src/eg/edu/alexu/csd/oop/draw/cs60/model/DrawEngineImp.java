@@ -30,7 +30,7 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
-		if(shapes.size() < 20)
+		if(shapes.size() <= 20)
 			shapes.push(new ArrayList<Shape>(shapes.peek()));
 		else {
 			shapes.remove(0);
@@ -44,7 +44,7 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(shape);
 		if(index >= 0) {
-			if(shapes.size() < 20)
+			if(shapes.size() <= 20)
 				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			else {
 				shapes.remove(0);
@@ -59,7 +59,7 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
-			if(shapes.size() < 20)
+			if(shapes.size() <= 20)
 				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			else {
 				shapes.remove(0);
@@ -82,28 +82,15 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void undo() {
-		if(shapes.size() > 1) {
-			if(redoShapes.size() < 20)
-				redoShapes.push(shapes.pop());
-			else {
-				redoShapes.remove(0);
-				redoShapes.push(shapes.pop());
+		if(shapes.size() > 1)
 			redoShapes.push(shapes.pop());
-			}
-		}
 		
 	}
 
 	@Override
 	public void redo() {
-		if(!redoShapes.empty()) {
-			if(shapes.size() < 20)
-				shapes.push(redoShapes.pop());
-			else {
-				shapes.remove(0);
-				shapes.push(redoShapes.pop());
-			}
-		}
+		if(!redoShapes.empty())
+			shapes.push(redoShapes.pop());
 	}
 
 	@Override
