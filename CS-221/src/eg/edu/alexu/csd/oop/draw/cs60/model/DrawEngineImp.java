@@ -30,7 +30,12 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
-		shapes.push(new ArrayList<Shape>(shapes.peek()));
+		if(shapes.size() < 20)
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
+		else {
+			shapes.remove(0);
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
+		}	
 		shapes.peek().add(shape);
 	}
 
@@ -39,7 +44,12 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(shape);
 		if(index >= 0) {
-			shapes.push(new ArrayList<Shape>(shapes.peek()));
+			if(shapes.size() < 20)
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
+			else {
+				shapes.remove(0);
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
+			}	
 			shapes.peek().remove(index);
 		}
 	}
@@ -49,7 +59,12 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
-			shapes.push(new ArrayList<Shape>(shapes.peek()));
+			if(shapes.size() < 20)
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
+			else {
+				shapes.remove(0);
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
+			}	
 			shapes.peek().set(index, newShape);
 		}
 	}
