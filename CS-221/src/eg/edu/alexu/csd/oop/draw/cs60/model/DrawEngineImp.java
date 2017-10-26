@@ -89,8 +89,14 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void redo() {
-		if(!redoShapes.empty())
-			shapes.push(redoShapes.pop());
+		if(!redoShapes.empty()) {
+			if(shapes.size() < 20)
+				shapes.push(redoShapes.pop());
+			else {
+				shapes.remove(0);
+				shapes.push(redoShapes.pop());
+			}
+		}
 	}
 
 	@Override
