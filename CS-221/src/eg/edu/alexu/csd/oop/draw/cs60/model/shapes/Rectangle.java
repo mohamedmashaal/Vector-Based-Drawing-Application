@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Stroke;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +36,6 @@ public class Rectangle extends MainShape {
 		g.setColor(getFillColor());
 		g.fillRect(getPosition().x, getPosition().y, width, height);
 		g.setStroke( new BasicStroke(STROKE));
-		g.setColor(getColor());
 		g.drawRect(getPosition().x, getPosition().y, width, height);
 	}
 
