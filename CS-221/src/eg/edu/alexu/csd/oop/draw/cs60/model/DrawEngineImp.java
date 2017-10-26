@@ -82,8 +82,15 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void undo() {
-		if(shapes.size() > 1)
+		if(shapes.size() > 1) {
+			if(redoShapes.size() < 20)
+				redoShapes.push(shapes.pop());
+			else {
+				redoShapes.remove(0);
+				redoShapes.push(shapes.pop());
 			redoShapes.push(shapes.pop());
+			}
+		}
 		
 	}
 
