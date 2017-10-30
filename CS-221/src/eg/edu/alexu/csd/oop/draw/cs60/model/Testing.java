@@ -7,7 +7,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 
 public class Testing {
 	public static void main(String [] args) {
-		DrawingEngine engine = new DrawEngineImp();
+		DrawingEngine engine = DrawEngineImp.getUniqueInstance();
 		Circle circle = new Circle();
 		engine.addShape(circle);
 		engine.addShape(new Rectangle());
