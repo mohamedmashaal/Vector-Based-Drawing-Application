@@ -1,10 +1,12 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.Graphics;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 import java.util.Stack;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
@@ -101,7 +103,25 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void save(String path) {
-		// TODO Auto-generated method stub
+		Properties prop = new Properties();
+		for(int i = 0; i < shapes.peek().size(); i++) {
+			prop.setProperty(shapes.peek().get(i).getClass().getSimpleName().toString(),shapes.peek().get(i).getProperties().toString());
+			/*for(Map.Entry<String, Double> entry : shapes.peek().get(i).getProperties().entrySet()) {
+				prop.setProperty(this.getClass().getSimpleName().toString(),entry.toString());
+			}*/
+			System.out.println(prop);
+			//System.out.println("----------------");
+		}
+		System.out.println("###################################");
+		try {
+			File xmlFile = new File("properities.xml");
+			FileOutputStream xmlFileStream = new FileOutputStream(xmlFile);;
+			Date now = new Date();
+			prop.storeToXML(xmlFileStream, "Created on " + now);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

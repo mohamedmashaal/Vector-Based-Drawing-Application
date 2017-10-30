@@ -23,6 +23,8 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 	Point p2 = null;
 	Random rand = new Random(255);
 	
+	boolean save = false;
+	
 	public ViewTryout(){
 		super();
 		this.setBackground(Color.WHITE);
@@ -35,14 +37,21 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 		addMouseListener(this);
         addMouseMotionListener(this);
         System.out.println(p + "23");
-		Shape rect = new Rectangle();
+		Shape rect;
 		if(p != null && p2 != null) {
-			rect.setPosition(p);
-			//((Rectangle) rect).setPosition2(p2);
+			if(p.x > p2.x || p.y > p2.y) { // TODO needs more handling
+				Point temp = new Point(p);
+				p = new Point(p2);
+				p2 = temp;
+			}
+			rect = new Rectangle(p,Math.abs(p2.x-p.x),Math.abs(p2.y-p.y));
 			rect.setColor(new Color(rand.nextInt()));
 			engine.addShape(rect);
 			engine.refresh(g);
 		}
+		//if(!save) {
+			engine.save("");
+		//}
 	}
     
     public static void main(String[] args) {
