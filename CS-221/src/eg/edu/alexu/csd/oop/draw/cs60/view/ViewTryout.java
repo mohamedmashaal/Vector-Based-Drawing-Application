@@ -1,27 +1,29 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.Random;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
-import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 
-public class View extends JPanel implements MouseMotionListener, MouseListener{
-	DrawingEngine engine = new DrawEngineImp();
+public class ViewTryout extends JPanel implements MouseMotionListener, MouseListener{
+	DrawingEngine engine = DrawEngineImp.getUniqueInstance();
 	
 	Point p = null;
 	Point p2 = null;
 	Random rand = new Random(255);
 	
-	public View(){
+	public ViewTryout(){
 		super();
 		this.setBackground(Color.WHITE);
 		addMouseListener(this);
@@ -47,7 +49,7 @@ public class View extends JPanel implements MouseMotionListener, MouseListener{
  
         JFrame frame = new JFrame("Paint Try out");
         frame.setBackground(Color.WHITE);
-        frame.getContentPane().add(new View());
+        frame.getContentPane().add(new ViewTryout());
 		frame.setSize(1000, 600);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

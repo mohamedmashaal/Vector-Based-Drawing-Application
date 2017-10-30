@@ -13,12 +13,17 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 public class DrawEngineImp implements DrawingEngine {
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
-	public DrawEngineImp() {
+	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
+	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
 	}
-
+	
+	public static DrawEngineImp getUniqueInstance() {
+		return uniqueInstance;
+	}
+	
 	@Override
 	public void refresh(Graphics canvas) {
 		// TODO Auto-generated method stub

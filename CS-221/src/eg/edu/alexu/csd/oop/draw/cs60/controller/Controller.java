@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
-import eg.edu.alexu.csd.oop.draw.cs60.view.View;
+import eg.edu.alexu.csd.oop.draw.cs60.view.ViewTryout;
 
 public class Controller {
-	private View view = new View();
-	private DrawEngineImp model = new DrawEngineImp();
+	private ViewTryout viewTryout = new ViewTryout();
+	private DrawEngineImp model = DrawEngineImp.getUniqueInstance();
 	
 }
