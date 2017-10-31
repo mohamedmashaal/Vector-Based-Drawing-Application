@@ -11,6 +11,8 @@ public class Controller {
 	public Controller(DrawingEngine model) {
 		 this.model = model ;
 		 view = new View(this , model);
+		 view.createView();
+		 view.createControls();
 	}
 	
 }
