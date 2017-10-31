@@ -19,6 +19,7 @@ public abstract class MainShape implements Shape {
 		properties.put("default_x", 0.0);
 		properties.put("default_y", 0.0);
 		properties.put("default_color", Color.BLACK.getRGB()*1.0);
+		properties.put("default_fill_color", Color.RED.getRGB()*1.0);
 	}
 	@Override
 	public void setPosition(Point position) {
