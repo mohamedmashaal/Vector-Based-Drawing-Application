@@ -33,7 +33,6 @@ public class Controller {
 		currentDraw.setColor(Color.BLUE);
 		currentDraw.setFillColor(Color.RED);
 		model.addShape(currentDraw);
-		model.refresh(view.getCanvas().getGraphics());
 	}
 	
 	public void dragDraw(Point p1, Point p2) {
@@ -41,7 +40,6 @@ public class Controller {
 		newCurrent.setColor(Color.BLUE);
 		newCurrent.setFillColor(Color.RED);
 		model.updateShape(currentDraw, newCurrent);
-		model.refresh(view.getCanvas().getGraphics());
 	}
 	
 	private int getdistance(Point p1 ,Point p2) {
