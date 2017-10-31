@@ -50,7 +50,7 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 			engine.refresh(g);
 		}
 		//if(!save) {
-			engine.save("");
+			engine.save("shapes.xml");
 		//}
 	}
     

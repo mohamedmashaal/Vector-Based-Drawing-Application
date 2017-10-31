@@ -27,6 +27,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.beans.*;
 
+import org.reflections.serializers.JsonSerializer;
+
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -143,10 +145,22 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void save(String path) {
+		throw new RuntimeException(path);
+		//saveXML(path);
+		//saveJSON(path);
+	}
+
+	@Override
+	public void load(String path) {
+		//loadXML(path);
+		//loadJSON(path);
+	}
+	
+	private void saveXML(String path){
 		if(shapes.peek().isEmpty())
 			return;
         String mapToString = objectToString(shapes.peek());
-        System.out.println("Map to XML: \n" + mapToString);
+        //System.out.println("Map to XML: \n" + mapToString);
         File outputXML = new File(path);
         try {
 			PrintWriter pw = new PrintWriter(outputXML);
@@ -157,10 +171,8 @@ public class DrawEngineImp implements DrawingEngine {
 			e.printStackTrace();
 		}
 	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public void load(String path) {
+	
+	private void loadXML(String path){
 		File inputXML = new File(path);
 		StringBuilder shapesXMLContent = new StringBuilder();
 		Scanner in;
@@ -176,7 +188,15 @@ public class DrawEngineImp implements DrawingEngine {
         shapes.push(parsedMap);
 	}
 	
-	private static String objectToString(Object hashMap) {
+	private void saveJSON(String path){
+		// TODO to be implemented
+	}
+	
+	private void loadJSON(String path){
+		// TODO to be implemented
+	}
+	
+	private String objectToString(Object hashMap) {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         XMLEncoder xmlEncoder = new XMLEncoder(bos);
         xmlEncoder.writeObject(hashMap);
@@ -184,7 +204,7 @@ public class DrawEngineImp implements DrawingEngine {
         return bos.toString();
     }
 
-    private static Object stringToObject(String string) {
+    private Object stringToObject(String string) {
         XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(string.getBytes()));
         return xmlDecoder.readObject();
     }
