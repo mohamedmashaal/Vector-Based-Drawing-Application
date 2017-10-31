@@ -7,6 +7,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,7 +43,7 @@ public class DrawEngineImp implements DrawingEngine {
 		initSupportedShapes();
 	}
 	
-	public void clear() {
+	private void clear() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
@@ -143,23 +145,29 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void save(String path) {
 		//throw new RuntimeException(path);
-		if(!path.substring(path.length()-3).equalsIgnoreCase("xml")
-		&& !path.substring(path.length()-4).equalsIgnoreCase("json")){
+		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
+			saveXML(path);
+		}
+		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
+			saveJSON(path);
+		}
+		else {
 			throw new RuntimeException(path);
 		}
-		saveXML(path);
-		saveJSON(path);
 	}
 
 	@Override
 	public void load(String path) {
 		//throw new RuntimeException(path);
-		if(!path.substring(path.length()-3).equalsIgnoreCase("xml")
-		&& !path.substring(path.length()-4).equalsIgnoreCase("json")){
+		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
+			loadXML(path);
+		}
+		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
+			loadJSON(path);
+		}
+		else {
 			throw new RuntimeException(path);
 		}
-		loadXML(path);
-		loadJSON(path);
 	}
 	
 	private void saveXML(String path){
@@ -169,12 +177,12 @@ public class DrawEngineImp implements DrawingEngine {
         //System.out.println("Map to XML: \n" + mapToString);
         File outputXML = new File(path);
         try {
-			PrintWriter pw = new PrintWriter(outputXML);
-			pw.print(mapToString);
+			FileWriter pw = new FileWriter(outputXML);
+			pw.write(mapToString);
 			pw.close();
 		}
-        catch (FileNotFoundException e) {
-			e.printStackTrace();
+        catch (Exception e) {
+			throw new RuntimeException();
 		}
 	}
 	
@@ -187,11 +195,13 @@ public class DrawEngineImp implements DrawingEngine {
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine());
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+			in.close();
         ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-        shapes.push(parsedMap);
+        clear();
+        shapes.push(parsedMap);}
+	catch(Exception e) {
+		throw new RuntimeException(path);
+	}
 	}
 	
 	private void saveJSON(String path){

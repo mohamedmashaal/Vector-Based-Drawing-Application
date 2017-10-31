@@ -19,6 +19,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.controller.Controller;
 public class View {
 	private DrawingEngine model ;
 	private Controller controller;
+	private ArrayList<JButton> btnList ;
 	
 	private JFrame mainWindow ;
 	private JButton circleButton;
@@ -235,13 +236,19 @@ public class View {
 	}
 
 	private void createBtns() {
+		btnList = new ArrayList<>();
         circleButton = new CustomButton("Circle");
+        btnList.add(circleButton);
         ellipseButton = new CustomButton("Ellipse");
+        btnList.add(ellipseButton);
         lineButton = new CustomButton("Line");
+        btnList.add(lineButton);
         rectButton = new CustomButton("Rectangle");
+        btnList.add(rectButton);
         squareButton = new CustomButton("Square");
+        btnList.add(squareButton);
         triangleButton = new CustomButton("Triangle");
-        
+        btnList.add(triangleButton);
 	}
 
 	public JPanel getCanvas() {
