@@ -72,7 +72,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		if(view.getActiveBtns() == 1) {
 		p2 = getMousePosition();
 		//getGraphics().clearRect(getX(), getY(), getWidth(), getHeight());
-		view.getController().draw(p1 , p2);
+		//view.getController().draw(p1 , p2);
 		//repaint();
 		}
 	}
