@@ -41,6 +41,13 @@ public class DrawEngineImp implements DrawingEngine {
 		initSupportedShapes();
 	}
 	
+	public void clear() {
+		shapes = new Stack<ArrayList<Shape>>();
+		shapes.push(new ArrayList<Shape>());
+		redoShapes = new Stack<ArrayList<Shape>>();
+		initSupportedShapes();
+	}
+	
 	private void initSupportedShapes() {
 		supportedShapes = new ArrayList<>();
 		supportedShapes.add(Line.class);
@@ -148,8 +155,8 @@ public class DrawEngineImp implements DrawingEngine {
 	}
 	
 	private void saveXML(String path){
-		if(shapes.peek().isEmpty())
-			return;
+		/*if(shapes.peek().isEmpty())
+			return;*/
         String mapToString = objectToString(shapes.peek());
         //System.out.println("Map to XML: \n" + mapToString);
         File outputXML = new File(path);

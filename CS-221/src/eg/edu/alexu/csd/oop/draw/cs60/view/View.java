@@ -147,8 +147,7 @@ public class View {
 	}
 
 	private void setupCanvas() {
-    	canvas = new javax.swing.JPanel();
-    	canvas.setBackground(new java.awt.Color(255, 255, 255));
+    	canvas = new Canvas();
     	javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(canvas);
         canvas.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
