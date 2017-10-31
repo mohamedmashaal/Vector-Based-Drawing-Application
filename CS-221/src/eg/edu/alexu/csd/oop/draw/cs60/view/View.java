@@ -19,15 +19,17 @@ import eg.edu.alexu.csd.oop.draw.cs60.controller.Controller;
 public class View {
 	private DrawingEngine model ;
 	private Controller controller;
-	private ArrayList<JButton> btnList ;
+	
+	private ArrayList<CustomButton> btnList ;
+	private Integer activeBtns = 0 ;
 	
 	private JFrame mainWindow ;
-	private JButton circleButton;
-	private JButton ellipseButton;
-	private JButton lineButton;
-	private JButton rectButton;
-	private JButton squareButton;
-	private JButton triangleButton;
+	private CustomButton circleButton;
+	private CustomButton ellipseButton;
+	private CustomButton lineButton;
+	private CustomButton rectButton;
+	private CustomButton squareButton;
+	private CustomButton triangleButton;
 	private JMenuItem aboutMenuItem;
     private JMenuItem contentsMenuItem;
     private JMenuItem copyMenuItem;
@@ -61,14 +63,18 @@ public class View {
     	setupBtnContainer();
     	setupShapesList();
         createMenuBar();
-        mainWindow.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        mainWindow.setJMenuBar(menuBar);
-        setupMainWindowLayout();
-        mainWindow.pack();
-        mainWindow.setVisible(true);
+        setupMainWindow();
     }
     
-    public void createControls() {
+    private void setupMainWindow() {
+    	 mainWindow.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+         mainWindow.setJMenuBar(menuBar);
+         setupMainWindowLayout();
+         mainWindow.pack();
+         mainWindow.setVisible(true);
+	}
+
+	public void createControls() {
     	
     }
     
@@ -142,7 +148,7 @@ public class View {
 	}
 
 	private void setupCanvas() {
-    	canvas = new Canvas();
+    	canvas = new Canvas(this);
     	javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(canvas);
         canvas.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -231,17 +237,17 @@ public class View {
 
 	private void createBtns() {
 		btnList = new ArrayList<>();
-        circleButton = new CustomButton("Circle");
+        circleButton = new CustomButton("Circle" , this);
         btnList.add(circleButton);
-        ellipseButton = new CustomButton("Ellipse");
+        ellipseButton = new CustomButton("Ellipse", this);
         btnList.add(ellipseButton);
-        lineButton = new CustomButton("Line");
+        lineButton = new CustomButton("Line" , this );
         btnList.add(lineButton);
-        rectButton = new CustomButton("Rectangle");
+        rectButton = new CustomButton("Rectangle" , this);
         btnList.add(rectButton);
-        squareButton = new CustomButton("Square");
+        squareButton = new CustomButton("Square" , this);
         btnList.add(squareButton);
-        triangleButton = new CustomButton("Triangle");
+        triangleButton = new CustomButton("Triangle" , this);
         btnList.add(triangleButton);
 	}
 
@@ -249,7 +255,21 @@ public class View {
 		return canvas;
 	}
     
-    
+	public Controller getController() {
+		return controller;
+	}
+	
+	public Integer getActiveBtns() {
+		return activeBtns;
+	}
 
+	public void setActiveBtns(Integer activeBtns) {
+		this.activeBtns = activeBtns ;
+	}
+
+	public ArrayList<CustomButton> getBtnList() {
+		// TODO Auto-generated method stub
+		return btnList;
+	}
     
 }

@@ -35,7 +35,7 @@ public class Circle extends MainShape{
 		g.setStroke( new BasicStroke(STROKE));
 		g.setColor(getColor());
 		g.drawOval(getPosition().x, getPosition().y, radius*2, radius*2);
-
+		System.out.println("I was here");
 	}
 	
 	@Override
