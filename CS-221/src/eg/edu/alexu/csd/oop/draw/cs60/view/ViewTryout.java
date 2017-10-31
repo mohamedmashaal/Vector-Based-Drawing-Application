@@ -24,6 +24,7 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 	Random rand = new Random(255);
 	
 	boolean save = false;
+	boolean load = false;
 	
 	public ViewTryout(){
 		super();
@@ -34,6 +35,11 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 	
 	@Override
 	public void paint(Graphics g) {
+		if(!load){
+			engine.load("0.6798829240056644_testDraw.XmL");
+			engine.refresh(g);
+			load = true;
+		}
 		addMouseListener(this);
         addMouseMotionListener(this);
         System.out.println(p + "23");
@@ -50,7 +56,7 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 			engine.refresh(g);
 		}
 		//if(!save) {
-			engine.save("shapes.xml");
+			//engine.save("0.6798829240056644_testDraw.XmL");
 		//}
 	}
     

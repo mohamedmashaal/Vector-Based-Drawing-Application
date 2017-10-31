@@ -27,9 +27,6 @@ import java.util.Map;
 import java.util.Scanner;
 import java.beans.*;
 
-import org.reflections.serializers.JsonSerializer;
-
-
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
@@ -145,15 +142,16 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void save(String path) {
-		throw new RuntimeException(path);
-		//saveXML(path);
-		//saveJSON(path);
+		//throw new RuntimeException(path);
+		saveXML(path);
+		saveJSON(path);
 	}
 
 	@Override
 	public void load(String path) {
-		//loadXML(path);
-		//loadJSON(path);
+		//throw new RuntimeException(path);
+		loadXML(path);
+		loadJSON(path);
 	}
 	
 	private void saveXML(String path){
