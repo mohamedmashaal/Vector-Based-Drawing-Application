@@ -12,7 +12,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 
 public class Testing {
-	public static void main(String [] args) throws InstantiationException, IllegalAccessException {
+	public static void main(String [] args) {
 		DrawingEngine engine = DrawEngineImp.getUniqueInstance();
 		List<Class<? extends Shape>> list = engine.getSupportedShapes();
 		/*Shape Z = new Circle();
