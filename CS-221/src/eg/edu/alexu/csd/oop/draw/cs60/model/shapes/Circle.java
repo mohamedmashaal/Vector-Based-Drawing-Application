@@ -13,10 +13,20 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Circle extends MainShape{
 	private float STROKE = 2;
-	private int radius ;
+	private double radius ;
 	
 	public Circle() {
 		super();
+	}
+	public Circle(Point position , double radius) {
+		super();
+		setPosition(position);
+		this.radius = radius ;
+		getProperties().put("x", getPosition().getX());
+		getProperties().put("y", getPosition().getY());
+		getProperties().put("radius", new Double(radius));
+		getProperties().put("color", Color.BLACK.getRGB()*1.0);
+		getProperties().put("fill_color", Color.RED.getRGB()*1.0);
 	}
 	public Circle(Point position , int radius, Color color, Color fillColor) {
 		super();

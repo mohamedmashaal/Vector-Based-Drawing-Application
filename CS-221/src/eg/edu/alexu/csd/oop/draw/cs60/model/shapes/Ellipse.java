@@ -12,14 +12,14 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Ellipse extends MainShape {
 	private float STROKE = 2;
-	private int width ;
-	private int height ;
+	private double width ;
+	private double height ;
 	
 	public Ellipse() {
 		super();
 	}
 	
-	public Ellipse(Point position , int width , int height) {
+	public Ellipse(Point position , double width , double height) {
 		super();
 		this.setPosition(position);
 		this.width = width ;
@@ -35,10 +35,10 @@ public class Ellipse extends MainShape {
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(getFillColor());
-		g.fillOval(getPosition().x, getPosition().y, width, height);
+		g.fillOval(getPosition().x, getPosition().y, (int)width, (int)height);
 		g.setStroke( new BasicStroke(STROKE));
 		g.setColor(getColor());
-		g.drawOval(getPosition().x, getPosition().y, width, height);
+		g.drawOval(getPosition().x, getPosition().y, (int)width, (int)height);
 	}
 
 	@Override

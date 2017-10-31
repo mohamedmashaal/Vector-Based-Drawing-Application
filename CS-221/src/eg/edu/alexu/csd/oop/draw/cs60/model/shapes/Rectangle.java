@@ -15,13 +15,13 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Rectangle extends MainShape {
 	private float STROKE = 2;
-	private int width ;
-	private int height ;
+	private double width ;
+	private double height ;
 	public Rectangle() {
 		super();
 	}
 	
-	public Rectangle(Point position , int width , int height) {
+	public Rectangle(Point position , double width , double height) {
 		super();
 		setPosition(position);
 		this.width = width ;
