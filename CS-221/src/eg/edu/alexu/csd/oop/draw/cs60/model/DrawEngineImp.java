@@ -5,9 +5,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.Stack;
+
+import org.reflections.Reflections;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -85,7 +89,9 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public List<Class<? extends Shape>> getSupportedShapes() {
-		return null ;
+		Reflections reflections = new Reflections();
+		List<Class<? extends Shape>> list = new LinkedList<>(reflections.getSubTypesOf(MainShape.class));
+		return list ;
 	}
 
 	@Override
