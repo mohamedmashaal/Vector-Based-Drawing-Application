@@ -10,6 +10,15 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.Stack;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Scanner;
+import java.beans.*;
 
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
