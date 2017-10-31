@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Stroke;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,6 +67,13 @@ public class Rectangle extends MainShape {
 		return clone;
 	}
 
+	
+	public ArrayList<Point> getBounds(){
+
+		
+		
+		return null;
+	}
 	
 
 }
