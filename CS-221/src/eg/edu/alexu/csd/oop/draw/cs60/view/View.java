@@ -18,6 +18,10 @@ import eg.edu.alexu.csd.oop.draw.cs60.controller.Controller;
 
 public class View {
 	private DrawingEngine model ;
+	public DrawingEngine getModel() {
+		return model;
+	}
+
 	private Controller controller;
 	
 	private ArrayList<CustomButton> btnList ;

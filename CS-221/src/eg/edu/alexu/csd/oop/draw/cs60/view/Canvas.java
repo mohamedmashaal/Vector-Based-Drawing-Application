@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -14,9 +15,9 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	private Point p2 ;
 	
 	@Override
-	public void paint(Graphics g) {
-		// TODO Auto-generated method stub
-		super.paint(g);
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		view.getModel().refresh(g);
 	}
 	
 	public Canvas(View view) {
@@ -30,7 +31,6 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -46,20 +46,24 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("I was here");
 		if(view.getActiveBtns() == 1) {
+			p1 = e.getPoint();
 			System.out.println(p1);
-			p1 = getMousePosition() ;
 			view.getController().draw(p1 , p1);
 			}
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(view.getActiveBtns() == 1) {
+			p2 = e.getPoint();
+			view.getController().draw(p1 , p2);
+			//repaint();
+			}
 	}
 
 	@Override
@@ -67,27 +71,18 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		// TODO Auto-generated method stub
 		if(view.getActiveBtns() == 1) {
 		p2 = getMousePosition();
-		getGraphics().clearRect(getX(), getY(), getWidth(), getHeight());
+		setBackground(Color.WHITE);
+		repaint();
 		view.getController().draw(p1 , p2);
-		repaint();}
+		}
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
 	}
 	
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return super.getX();
-	}
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return super.getY();
-	}
+	
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
