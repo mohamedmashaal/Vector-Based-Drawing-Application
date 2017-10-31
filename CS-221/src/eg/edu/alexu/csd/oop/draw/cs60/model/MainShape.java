@@ -18,6 +18,7 @@ public abstract class MainShape implements Shape {
 		properties = new HashMap<String, Double>();
 		properties.put("default_x", 0.0);
 		properties.put("default_y", 0.0);
+		properties.put("default_color", Color.BLACK.getRGB()*1.0);
 	}
 	@Override
 	public void setPosition(Point position) {
