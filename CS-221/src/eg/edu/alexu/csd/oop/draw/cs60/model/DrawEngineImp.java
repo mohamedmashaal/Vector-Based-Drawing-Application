@@ -15,8 +15,15 @@ import org.reflections.Reflections;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Ellipse;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 
 public class DrawEngineImp implements DrawingEngine {
+	private List<Class<? extends Shape>> supportedShapes ;
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
@@ -24,8 +31,19 @@ public class DrawEngineImp implements DrawingEngine {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
+		initSupportedShapes();
 	}
 	
+	private void initSupportedShapes() {
+		supportedShapes = new ArrayList<>();
+		supportedShapes.add(Line.class);
+		supportedShapes.add(Rectangle.class);
+		supportedShapes.add(Square.class);
+		supportedShapes.add(Circle.class);
+		supportedShapes.add(Ellipse.class);
+		supportedShapes.add(Triangle.class);
+	}
+
 	public static DrawEngineImp getUniqueInstance() {
 		return uniqueInstance;
 	}
@@ -86,12 +104,13 @@ public class DrawEngineImp implements DrawingEngine {
 		// TODO Auto-generated method stub
 		return shapes.peek().toArray(new Shape[0]);
 	}
-
+	
 	@Override
 	public List<Class<? extends Shape>> getSupportedShapes() {
-		Reflections reflections = new Reflections();
-		List<Class<? extends Shape>> list = new LinkedList<>(reflections.getSubTypesOf(MainShape.class));
-		return list ;
+		//Reflections reflections = new Reflections();
+		//List<Class<? extends Shape>> list = new LinkedList<>(reflections.getSubTypesOf(MainShape.class));
+		//return list ;
+		return supportedShapes;
 	}
 
 	@Override
