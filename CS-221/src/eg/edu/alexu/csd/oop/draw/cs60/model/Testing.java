@@ -13,29 +13,20 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 
 public class Testing {
 	public static void main(String [] args) {
-		DrawingEngine engine = DrawEngineImp.getUniqueInstance();
-		List<Class<? extends Shape>> list = engine.getSupportedShapes();
-		/*Shape Z = new Circle();
-		List<Class<? extends Shape>> list = engine.getSupportedShapes();
+		DrawEngineImp engine = DrawEngineImp.getUniqueInstance();
+		//List<Class<? extends Shape>> list = engine.getSupportedShapes();
+		Shape Z = new Circle();
+		/*List<Class<? extends Shape>> list = engine.getSupportedShapes();
 		for(Class x :list) {
 			System.out.println(x.getName());
 		}*/
-		/*Circle circle = new Circle();
-		engine.addShape(circle);
-		engine.addShape(new Rectangle());
-		Shape [] shapes =engine.getShapes();
+		Circle circle = new Circle();
+		engine.save("file");
+		engine.clear();
+		engine.load("file");
+		Shape [] shapes = engine.getShapes();
 		for(Shape x : shapes) {
-			System.out.println(x.getClass().getName());
-		}System.out.println();
-		engine.removeShape(circle);
-		shapes =engine.getShapes();
-		for(Shape x : shapes) {
-			System.out.println(x.getClass().getName());
-		}System.out.println();
-		engine.undo();
-		shapes =engine.getShapes();
-		for(Shape x : shapes) {
-			System.out.println(x.getClass().getName());
-		}*/
+			System.out.println(x);
+		}
 	}
 }
