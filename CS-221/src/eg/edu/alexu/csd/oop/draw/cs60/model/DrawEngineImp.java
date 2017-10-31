@@ -149,9 +149,9 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void load(String path) {
-		throw new RuntimeException(path);
-		//loadXML(path);
-		//loadJSON(path);
+		//throw new RuntimeException(path);
+		loadXML(path);
+		loadJSON(path);
 	}
 	
 	private void saveXML(String path){
