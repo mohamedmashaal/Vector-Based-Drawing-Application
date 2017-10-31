@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Stroke;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,13 +15,13 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Rectangle extends MainShape {
 	private float STROKE = 2;
-	private int width ;
-	private int height ;
+	private double width ;
+	private double height ;
 	public Rectangle() {
 		super();
 	}
 	
-	public Rectangle(Point position , int width , int height) {
+	public Rectangle(Point position , double width , double height) {
 		super();
 		setPosition(position);
 		this.width = width ;
@@ -66,6 +67,13 @@ public class Rectangle extends MainShape {
 		return clone;
 	}
 
+	
+	public ArrayList<Point> getBounds(){
+
+		
+		
+		return null;
+	}
 	
 
 }

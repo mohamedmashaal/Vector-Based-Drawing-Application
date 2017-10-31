@@ -173,12 +173,11 @@ public class DrawEngineImp implements DrawingEngine {
 	private void saveXML(String path){
 		/*if(shapes.peek().isEmpty())
 			return;*/
-        String mapToString = objectToString(shapes.peek());
-        //System.out.println("Map to XML: \n" + mapToString);
+        String objToString = objectToString(shapes);
         File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
-			pw.write(mapToString);
+			pw.write(objToString);
 			pw.close();
 		}
         catch (Exception e) {
@@ -196,11 +195,12 @@ public class DrawEngineImp implements DrawingEngine {
 				shapesXMLContent.append(in.nextLine());
 			}
 			in.close();
-        ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-        shapes.push(parsedMap);}
-	catch(Exception e) {
-		throw new RuntimeException(path);
-	}
+	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
+	        shapes = parsedObj;
+	        }
+		catch(Exception e) {
+			throw new RuntimeException(path);
+		}
 	}
 	
 	private void saveJSON(String path){
