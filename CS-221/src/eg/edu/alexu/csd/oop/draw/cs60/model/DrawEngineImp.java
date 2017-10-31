@@ -143,6 +143,10 @@ public class DrawEngineImp implements DrawingEngine {
 	@Override
 	public void save(String path) {
 		//throw new RuntimeException(path);
+		if(!path.substring(path.length()-3).equalsIgnoreCase("xml")
+		&& !path.substring(path.length()-4).equalsIgnoreCase("json")){
+			throw new RuntimeException(path);
+		}
 		saveXML(path);
 		saveJSON(path);
 	}
