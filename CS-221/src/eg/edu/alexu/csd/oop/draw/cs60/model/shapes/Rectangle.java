@@ -32,13 +32,25 @@ public class Rectangle extends MainShape {
 	}
 
 
-	@Override
+	/*@Override
 	public void draw(Graphics canvas) {
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(getFillColor());
 		g.fillRect(getPosition().x, getPosition().y, width, height);
 		g.setStroke( new BasicStroke(STROKE));
 		g.drawRect(getPosition().x, getPosition().y, width, height);
+	}*/
+	
+	@Override
+	public void draw(Graphics canvas) {
+		System.out.println(canvas);
+		Graphics2D g = (Graphics2D)canvas ;
+		g.setColor(getFillColor());
+		g.fillRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
+				   getProperties().get("width").intValue(), getProperties().get("height").intValue());
+		g.setStroke( new BasicStroke(STROKE));
+		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
+				   getProperties().get("width").intValue(), getProperties().get("height").intValue());
 	}
 
 	@Override

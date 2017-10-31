@@ -127,31 +127,50 @@ public class DrawEngineImp implements DrawingEngine {
 
 	@Override
 	public void save(String path) {
-		Properties prop = new Properties();
-		for(int i = 0; i < shapes.peek().size(); i++) {
-			prop.setProperty(shapes.peek().get(i).getClass().getSimpleName().toString(),shapes.peek().get(i).getProperties().toString());
-			/*for(Map.Entry<String, Double> entry : shapes.peek().get(i).getProperties().entrySet()) {
-				prop.setProperty(this.getClass().getSimpleName().toString(),entry.toString());
-			}*/
-			System.out.println(prop);
-			//System.out.println("----------------");
+		if(shapes.peek().isEmpty())
+			return;
+        String mapToString = objectToString(shapes.peek());
+        System.out.println("Map to XML: \n" + mapToString);
+        File outputXML = new File(path);
+        try {
+			PrintWriter pw = new PrintWriter(outputXML);
+			pw.print(mapToString);
+			pw.close();
 		}
-		System.out.println("###################################");
-		try {
-			File xmlFile = new File("properities.xml");
-			FileOutputStream xmlFileStream = new FileOutputStream(xmlFile);;
-			Date now = new Date();
-			prop.storeToXML(xmlFileStream, "Created on " + now);
-		}
-		catch(Exception e) {
+        catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void load(String path) {
-		// TODO Auto-generated method stub
-
+		File inputXML = new File(path);
+		StringBuilder shapesXMLContent = new StringBuilder();
+		Scanner in;
+		try {
+			in = new Scanner(inputXML);
+			while(in.hasNextLine()) {
+				shapesXMLContent.append(in.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+        ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+        shapes.push(parsedMap);
 	}
+	
+	private static String objectToString(Object hashMap) {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        XMLEncoder xmlEncoder = new XMLEncoder(bos);
+        xmlEncoder.writeObject(hashMap);
+        xmlEncoder.close();
+        return bos.toString();
+    }
+
+    private static Object stringToObject(String string) {
+        XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(string.getBytes()));
+        return xmlDecoder.readObject();
+    }
 
 }
