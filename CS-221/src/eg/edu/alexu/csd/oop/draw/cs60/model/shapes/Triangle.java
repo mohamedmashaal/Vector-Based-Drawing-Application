@@ -12,7 +12,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Triangle extends MainShape{
-	private static final float STROKE = 2;
+	private static float STROKE = 2;
 	private Point p2 ;
 	private Point p3 ;
 	private int[] xPoints ;
