@@ -9,7 +9,6 @@ public class Canvas extends JPanel {
 	public Canvas() {
 		super();
     	setBackground(new java.awt.Color(255, 255, 255));
-
 	}
 	
 }

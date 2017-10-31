@@ -41,7 +41,7 @@ public class DrawEngineImp implements DrawingEngine {
 		initSupportedShapes();
 	}
 	
-	public void clear() {
+	private void clear() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
@@ -191,6 +191,7 @@ public class DrawEngineImp implements DrawingEngine {
 			e.printStackTrace();
 		}
         ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+        clear();
         shapes.push(parsedMap);
 	}
 	

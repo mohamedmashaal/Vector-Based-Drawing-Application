@@ -15,7 +15,9 @@ public abstract class MainShape implements Shape {
 	private Color fill_color ;
 	
 	public MainShape() {
-		properties = new HashMap<String, Double>();	
+		properties = new HashMap<String, Double>();
+		properties.put("default_x", 0.0);
+		properties.put("default_y", 0.0);
 	}
 	@Override
 	public void setPosition(Point position) {
