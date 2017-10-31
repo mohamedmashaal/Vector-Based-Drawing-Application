@@ -7,6 +7,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -175,12 +177,12 @@ public class DrawEngineImp implements DrawingEngine {
         //System.out.println("Map to XML: \n" + mapToString);
         File outputXML = new File(path);
         try {
-			PrintWriter pw = new PrintWriter(outputXML);
-			pw.print(mapToString);
+			FileWriter pw = new FileWriter(outputXML);
+			pw.write(mapToString);
 			pw.close();
 		}
-        catch (FileNotFoundException e) {
-			e.printStackTrace();
+        catch (Exception e) {
+			throw new RuntimeException();
 		}
 	}
 	
@@ -193,12 +195,13 @@ public class DrawEngineImp implements DrawingEngine {
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine());
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+			in.close();
         ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
         clear();
-        shapes.push(parsedMap);
+        shapes.push(parsedMap);}
+	catch(Exception e) {
+		throw new RuntimeException(path);
+	}
 	}
 	
 	private void saveJSON(String path){
