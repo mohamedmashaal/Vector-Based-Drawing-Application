@@ -31,10 +31,10 @@ public class Square extends MainShape {
 	public void draw(Graphics canvas) {
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(getFillColor());
-		g.fillRect(getPosition().x, getPosition().y, width, width);
+		g.fillRect(getPosition().x, getPosition().y, (int)width, (int)width);
 		g.setStroke( new BasicStroke(STROKE));
 		g.setColor(getColor());
-		g.drawRect(getPosition().x, getPosition().y, width, width);
+		g.drawRect(getPosition().x, getPosition().y, (int)width, (int)width);
 	}
 
 	@Override
