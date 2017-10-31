@@ -59,7 +59,11 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		if(view.getActiveBtns() == 1) {
+			p2 = getMousePosition();
+			//getGraphics().clearRect(getX(), getY(), getWidth(), getHeight());
+			view.getController().draw(p1 , p2);
+			repaint();}
 	}
 
 	@Override
@@ -67,9 +71,10 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		// TODO Auto-generated method stub
 		if(view.getActiveBtns() == 1) {
 		p2 = getMousePosition();
-		getGraphics().clearRect(getX(), getY(), getWidth(), getHeight());
+		//getGraphics().clearRect(getX(), getY(), getWidth(), getHeight());
 		view.getController().draw(p1 , p2);
-		repaint();}
+		//repaint();
+		}
 	}
 
 	@Override

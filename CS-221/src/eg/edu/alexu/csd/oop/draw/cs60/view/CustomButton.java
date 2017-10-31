@@ -19,7 +19,7 @@ public class CustomButton extends JButton {
 	private View view ;
     
 
-	public CustomButton (String text , View view) {
+	public CustomButton (String text , final View view) {
         super(text);
         this.view = view ;
         setBorderPainted(false);
