@@ -15,7 +15,7 @@ public class Circle extends MainShape{
 	private int radius ;
 	
 	public Circle() {
-		
+		super();
 	}
 	public Circle(Point position , int radius) {
 		super();

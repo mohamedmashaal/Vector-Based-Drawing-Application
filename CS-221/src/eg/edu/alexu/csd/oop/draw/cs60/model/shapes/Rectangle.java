@@ -15,7 +15,9 @@ public class Rectangle extends MainShape {
 	private float STROKE = 2;
 	private int width ;
 	private int height ;
-	public Rectangle() {}
+	public Rectangle() {
+		super();
+	}
 	
 	public Rectangle(Point position , int width , int height) {
 		super();

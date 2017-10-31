@@ -15,7 +15,9 @@ public class Ellipse extends MainShape {
 	private int width ;
 	private int height ;
 	
-	public Ellipse() {}
+	public Ellipse() {
+		super();
+	}
 	
 	public Ellipse(Point position , int width , int height) {
 		super();

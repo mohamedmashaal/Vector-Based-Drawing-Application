@@ -9,11 +9,12 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.controller.Controller;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
+import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 
 public class Testing {
-	public static void main(String [] args) {
+	public static void main(String [] args) throws InstantiationException, IllegalAccessException {
 		DrawingEngine engine = DrawEngineImp.getUniqueInstance();
-		Controller cont = new Controller();
+		List<Class<? extends Shape>> list = engine.getSupportedShapes();
 		/*Shape Z = new Circle();
 		List<Class<? extends Shape>> list = engine.getSupportedShapes();
 		for(Class x :list) {

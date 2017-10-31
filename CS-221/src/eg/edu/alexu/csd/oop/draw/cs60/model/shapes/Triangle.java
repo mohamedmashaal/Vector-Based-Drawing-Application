@@ -18,6 +18,10 @@ public class Triangle extends MainShape{
 	private int[] xPoints ;
 	private int[] yPoints ;
 	
+	public Triangle() {
+		super();
+	}
+	
 	public Triangle(Point p1 , Point p2 , Point p3 ) {
 		setPosition(p1);
 		this.p2 = p2 ;

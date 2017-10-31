@@ -13,7 +13,9 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 public class Square extends MainShape {
 	private float STROKE = 2;
 	private int width ;
-	public Square() {}
+	public Square() {
+		super();
+	}
 	
 	public Square(Point position , int width) {
 		super();
