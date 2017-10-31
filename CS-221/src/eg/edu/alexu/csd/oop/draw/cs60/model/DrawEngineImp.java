@@ -35,8 +35,8 @@ public class DrawEngineImp implements DrawingEngine {
 	private List<Class<? extends Shape>> supportedShapes ;
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
-	//private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
-	public DrawEngineImp() {
+	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
+	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
@@ -60,9 +60,9 @@ public class DrawEngineImp implements DrawingEngine {
 		supportedShapes.add(Triangle.class);
 	}
 
-	//public static DrawEngineImp getUniqueInstance() {
-	//	return uniqueInstance;
-	//}
+	public static DrawEngineImp getUniqueInstance() {
+		return uniqueInstance;
+	}
 	
 	@Override
 	public void refresh(Graphics canvas) {
@@ -197,7 +197,6 @@ public class DrawEngineImp implements DrawingEngine {
 			}
 			in.close();
         ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-        clear();
         shapes.push(parsedMap);}
 	catch(Exception e) {
 		throw new RuntimeException(path);
