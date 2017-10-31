@@ -185,6 +185,7 @@ public class DrawEngineImp implements DrawingEngine {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
 		File inputXML = new File(path);
 		StringBuilder shapesXMLContent = new StringBuilder();

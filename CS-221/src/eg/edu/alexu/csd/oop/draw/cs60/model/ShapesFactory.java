@@ -55,9 +55,9 @@ public class ShapesFactory {
 			shape = new Square(p1,Math.abs(p2.x-p1.x));
 		}
 		if(shapeName.equalsIgnoreCase("triangle")){
-			
+			Point p3 = new Point(p2.x + 150, p2.y);
+			shape = new Triangle(p1, p2, p3);
 		}
-			shape = new Triangle();
 		
 		return shape;
 	}
