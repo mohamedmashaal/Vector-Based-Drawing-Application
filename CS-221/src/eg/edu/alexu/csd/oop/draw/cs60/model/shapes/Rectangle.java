@@ -12,7 +12,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Rectangle extends MainShape {
-	private static float STROKE = 2;
+	private float STROKE = 2;
 	private int width ;
 	private int height ;
 	public Rectangle() {}

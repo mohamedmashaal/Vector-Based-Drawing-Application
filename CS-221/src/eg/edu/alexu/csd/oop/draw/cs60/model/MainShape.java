@@ -9,7 +9,7 @@ import java.util.Map;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public abstract class MainShape implements Shape {
-	private  Map<String, Double> properties ;
+	private Map<String, Double> properties ;
 	private Point position ;
 	private Color color ;
 	private Color fill_color ;
