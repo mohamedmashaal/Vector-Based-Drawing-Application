@@ -7,7 +7,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,12 +16,6 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 import java.beans.*;
@@ -203,7 +196,8 @@ public class DrawEngineImp implements DrawingEngine {
     }
 
     private Object stringToObject(String string) {
-        XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(string.getBytes()));
+        @SuppressWarnings("resource")
+		XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(string.getBytes()));
         return xmlDecoder.readObject();
     }
 
