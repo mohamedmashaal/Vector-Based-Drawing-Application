@@ -27,7 +27,7 @@ public class ShapesFactory {
 		return shape;
 	}
 	
-public static Shape CreateShape(String shapeName, Point p1, Point p2){
+	public static Shape CreateShape(String shapeName, Point p1, Point p2){
 		
 		Shape shape = null;
 		
@@ -54,7 +54,9 @@ public static Shape CreateShape(String shapeName, Point p1, Point p2){
 			}
 			shape = new Square(p1,Math.abs(p2.x-p1.x));
 		}
-		if(shapeName.equalsIgnoreCase("triangle"))
+		if(shapeName.equalsIgnoreCase("triangle")){
+			
+		}
 			shape = new Triangle();
 		
 		return shape;
