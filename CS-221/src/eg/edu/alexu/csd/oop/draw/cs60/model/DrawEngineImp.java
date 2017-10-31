@@ -197,7 +197,6 @@ public class DrawEngineImp implements DrawingEngine {
 			}
 			in.close();
         ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-        clear();
         shapes.push(parsedMap);}
 	catch(Exception e) {
 		throw new RuntimeException(path);
