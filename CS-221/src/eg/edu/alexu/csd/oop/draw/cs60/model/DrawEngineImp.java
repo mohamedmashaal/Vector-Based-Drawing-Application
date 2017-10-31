@@ -196,13 +196,11 @@ public class DrawEngineImp implements DrawingEngine {
 				shapesXMLContent.append(in.nextLine());
 			}
 			in.close();
-			Stack<ArrayList<Shape>> parsedMap = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
-	        clear();
-	        shapes = parsedMap;
-	    }
-		catch(Exception e) {
-			throw new RuntimeException(path);
-		}
+        ArrayList<Shape> parsedMap = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+        shapes.push(parsedMap);}
+	catch(Exception e) {
+		throw new RuntimeException(path);
+	}
 	}
 	
 	private void saveJSON(String path){

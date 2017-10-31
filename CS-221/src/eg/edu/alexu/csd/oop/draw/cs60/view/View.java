@@ -69,13 +69,7 @@ public class View {
     }
     
     public void createControls() {
-    	circleButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				circleButton.setSelected(true);
-				System.out.println("I'm here");
-			}
-		});
+    	
     }
     
     private void setupMainWindowLayout() {
