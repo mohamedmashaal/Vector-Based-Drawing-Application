@@ -1,12 +1,20 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
-import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
+import eg.edu.alexu.csd.oop.draw.cs60.controller.Controller;
 
 public class View extends JFrame {
-	DrawingEngine model = DrawEngineImp.getUniqueInstance();
+	private DrawingEngine model ;
+	private Controller controller;
 	
 	private JMenuItem aboutMenuItem;
     private JMenuItem contentsMenuItem;
@@ -27,8 +35,15 @@ public class View extends JFrame {
     private JMenuItem pasteMenuItem;
     private JMenuItem saveAsMenuItem;
     private JMenuItem saveMenuItem;
+
+	
     
-    public View() {
+    public View(Controller controller , DrawingEngine model) {
+    	this.model = model;
+    	this.controller = controller;
+    }
+    
+    public void createView() {
     	jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
