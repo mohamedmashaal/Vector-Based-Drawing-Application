@@ -45,7 +45,6 @@ public class Rectangle extends MainShape {
 	
 	@Override
 	public void draw(Graphics canvas) {
-		System.out.println(canvas);
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(getFillColor());
 		g.fillRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 

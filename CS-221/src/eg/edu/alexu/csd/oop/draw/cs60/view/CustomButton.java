@@ -40,7 +40,6 @@ public class CustomButton extends JButton {
 				if(!state) {
 					state = true;
 					view.setActiveBtns(view.getActiveBtns()+1);
-					System.out.println(view.getActiveBtns());
 					setBackground(pressedColor);
 				}
 				else {
