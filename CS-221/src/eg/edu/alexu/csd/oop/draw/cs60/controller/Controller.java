@@ -4,13 +4,11 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
-
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
+import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
-import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
 
@@ -20,11 +18,12 @@ public class Controller implements IController {
 	private ArrayList<CustomButton> btnList ;
 	private Shape currentDraw ;
 	
-	public Controller(DrawingEngine model) {
+	public Controller(DrawEngineImp model) {
 		 this.model = model ;
 		 view = new View(this , model);
 		 view.createView();
 		 view.createControls();
+		 model.addObserver(view);
 	}
 	
 	public void getBtnList () {

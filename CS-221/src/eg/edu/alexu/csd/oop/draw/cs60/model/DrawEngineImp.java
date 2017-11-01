@@ -23,7 +23,9 @@ import java.util.Scanner;
 import java.beans.*;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
+import eg.edu.alexu.csd.oop.draw.Observer;
 import eg.edu.alexu.csd.oop.draw.Shape;
+import eg.edu.alexu.csd.oop.draw.Subject;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Ellipse;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
@@ -31,7 +33,8 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 
-public class DrawEngineImp implements DrawingEngine {
+public class DrawEngineImp implements DrawingEngine , Subject {
+	private List<Observer> observers ;
 	private List<Class<? extends Shape>> supportedShapes ;
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
@@ -40,6 +43,7 @@ public class DrawEngineImp implements DrawingEngine {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
+		observers = new ArrayList<Observer>();
 		initSupportedShapes();
 	}
 	
@@ -82,6 +86,7 @@ public class DrawEngineImp implements DrawingEngine {
 			shapes.push(new ArrayList<Shape>(shapes.peek()));
 		}	
 		shapes.peek().add(shape);
+		notifyObservers();
 	}
 
 	@Override
@@ -98,6 +103,7 @@ public class DrawEngineImp implements DrawingEngine {
 			}	
 			shapes.peek().remove(index);
 		}
+		notifyObservers();
 	}
 
 	@Override
@@ -113,6 +119,7 @@ public class DrawEngineImp implements DrawingEngine {
 			}	
 			shapes.peek().set(index, newShape);
 		}
+		notifyObservers();
 	}
 	
 	public void dragDrawShape(Shape oldShape, Shape newShape) {
@@ -141,13 +148,14 @@ public class DrawEngineImp implements DrawingEngine {
 	public void undo() {
 		if(shapes.size() > 1)
 			redoShapes.push(shapes.pop());
-		
+		notifyObservers();
 	}
 
 	@Override
 	public void redo() {
 		if(!redoShapes.empty())
 			shapes.push(redoShapes.pop());
+		notifyObservers();
 	}
 
 	@Override
@@ -233,5 +241,26 @@ public class DrawEngineImp implements DrawingEngine {
 		XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(string.getBytes()));
         return xmlDecoder.readObject();
     }
+
+
+	@Override
+	public void notifyObservers() {
+		for(Observer x : observers) {
+			x.update();
+		}
+	}
+
+	@Override
+	public void addObserver(Observer observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(Observer observer) {
+		int index = observers.indexOf(observer);
+		if(index >= 0) {
+			observers.remove(observer);
+		}
+	}
 
 }

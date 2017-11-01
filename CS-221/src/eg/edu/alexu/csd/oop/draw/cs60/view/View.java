@@ -5,9 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -15,14 +13,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
-import eg.edu.alexu.csd.oop.draw.DrawingEngine;
+import eg.edu.alexu.csd.oop.draw.Observer;
+import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.controller.Controller;
+import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
 
-public class View {
-	private DrawingEngine model ;
-	public DrawingEngine getModel() {
-		return model;
-	}
+public class View implements Observer{
+	private DrawEngineImp model ;
 
 	private Controller controller;
 	
@@ -50,12 +47,10 @@ public class View {
     private JMenu helpMenu;
     private JMenuItem aboutMenuItem;
     private JMenuItem contentsMenuItem;
-    private JList<String> jList1;
+    private ShapeList<Shape> shapesList;
     private JScrollPane jScrollPane1;
-
-	private ArrayList <Boolean> buttonsState ;
     
-    public View(Controller controller , DrawingEngine model) {
+    public View(Controller controller , DrawEngineImp model) {
     	this.model = model;
     	this.controller = controller;
     }
@@ -110,13 +105,13 @@ public class View {
 
 	private void setupShapesList() {
     	jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        shapesList = new ShapeList<>();
+        /*shapesList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        });*/
+        jScrollPane1.setViewportView(shapesList);
 	}
 
 	private void setupBtnContainer() {
@@ -264,6 +259,10 @@ public class View {
 		return canvas;
 	}
     
+	public DrawEngineImp getModel() {
+		return model;
+	}
+	
 	public Controller getController() {
 		return controller;
 	}
@@ -279,6 +278,12 @@ public class View {
 	public ArrayList<CustomButton> getBtnList() {
 		// TODO Auto-generated method stub
 		return btnList;
+	}
+
+	@Override
+	public void update() {
+		shapesList.update(model.getShapes());
+		canvas.repaint();
 	}
     
 }
