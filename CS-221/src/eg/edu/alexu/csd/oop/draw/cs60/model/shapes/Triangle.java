@@ -15,8 +15,8 @@ public class Triangle extends MainShape{
 	private float STROKE = 2;
 	private Point p2 ;
 	private Point p3 ;
-	private int[] xPoints ;
-	private int[] yPoints ;
+	private int[] xPoints = new int [3];
+	private int[] yPoints = new int [3];
 	
 	public Triangle() {
 		super();
