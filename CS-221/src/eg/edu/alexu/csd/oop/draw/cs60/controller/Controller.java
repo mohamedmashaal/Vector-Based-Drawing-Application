@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
+import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
 
-public class Controller {
+public class Controller implements IController {
 	private View view ;
 	private DrawingEngine model ;
 	private ArrayList<CustomButton> btnList ;
@@ -40,13 +41,10 @@ public class Controller {
 		Shape newCurrent = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		newCurrent.setColor(Color.BLUE);
 		newCurrent.setFillColor(Color.RED);
-		model.updateShape(currentDraw, newCurrent);
+		model.dragDrawShape(currentDraw, newCurrent);
 		currentDraw = newCurrent ;
 	}
 	
-	private int getdistance(Point p1 ,Point p2) {
-		return (int)Math.sqrt(Math.pow(Math.abs(p1.x - p2.x),2) + Math.pow(Math.abs(p1.y - p2.y),2));
-	}
 	
 	private String getCurrentActive() {
 		getBtnList();
@@ -57,6 +55,17 @@ public class Controller {
 			}
 		}
 		return shape ;
+	}
+
+	public void undo() {
+		model.undo();
+		view.getCanvas().repaint();
+	}
+
+	public void redo() {
+		model.redo();
+		view.getCanvas().repaint();
+		
 	}
 	
 }

@@ -114,7 +114,15 @@ public class DrawEngineImp implements DrawingEngine {
 			shapes.peek().set(index, newShape);
 		}
 	}
-
+	
+	public void dragDrawShape(Shape oldShape, Shape newShape) {
+		// TODO Auto-generated method stub
+		int index = shapes.peek().indexOf(oldShape);
+		if(index >= 0){
+			shapes.peek().set(index, newShape);
+		}
+	}
+	
 	@Override
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub

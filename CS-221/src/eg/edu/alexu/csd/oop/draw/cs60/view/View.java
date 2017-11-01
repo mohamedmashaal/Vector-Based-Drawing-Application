@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.draw.cs60.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -12,6 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.KeyStroke;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.cs60.controller.Controller;
@@ -34,24 +36,22 @@ public class View {
 	private CustomButton rectButton;
 	private CustomButton squareButton;
 	private CustomButton triangleButton;
-	private JMenuItem aboutMenuItem;
-    private JMenuItem contentsMenuItem;
-    private JMenuItem copyMenuItem;
-    private JMenuItem cutMenuItem;
-    private JMenuItem deleteMenuItem;
-    private JMenu editMenu;
-    private JMenuItem exitMenuItem;
-    private JMenu fileMenu;
-    private JMenu helpMenu;
-    private JList<String> jList1;
-    private JPanel canvas;
+	private JPanel canvas;
 	private JPanel btnContainer;
-    private JScrollPane jScrollPane1;
-    private JMenuBar menuBar;
+	private JMenuBar menuBar;
+    private JMenu editMenu;
+    private JMenuItem undoMenuItem;
+    private JMenuItem redoMenuItem;
+    private JMenu fileMenu;
     private JMenuItem openMenuItem;
-    private JMenuItem pasteMenuItem;
     private JMenuItem saveAsMenuItem;
     private JMenuItem saveMenuItem;
+    private JMenuItem exitMenuItem;
+    private JMenu helpMenu;
+    private JMenuItem aboutMenuItem;
+    private JMenuItem contentsMenuItem;
+    private JList<String> jList1;
+    private JScrollPane jScrollPane1;
 
 	private ArrayList <Boolean> buttonsState ;
     
@@ -173,10 +173,8 @@ public class View {
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
+        redoMenuItem = new javax.swing.JMenuItem();
+        undoMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentsMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -207,21 +205,28 @@ public class View {
         editMenu.setMnemonic('e');
         editMenu.setText("Edit");
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
-
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
-
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
+        
+        undoMenuItem.setMnemonic('u');
+        undoMenuItem.setText("Undo");
+        undoMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,ActionEvent.CTRL_MASK));
+        undoMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.undo();
+			}
+		});
+        editMenu.add(undoMenuItem);
+        
+        redoMenuItem.setMnemonic('r');
+        redoMenuItem.setText("Redo");
+        redoMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y,ActionEvent.CTRL_MASK));
+        redoMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.redo();
+			}
+		});
+        editMenu.add(redoMenuItem);
 
         menuBar.add(editMenu);
 

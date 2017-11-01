@@ -7,7 +7,7 @@ public interface DrawingEngine {
 	 public void addShape(Shape shape);
 	 public void removeShape(Shape shape);
 	 public void updateShape(Shape oldShape, Shape newShape); 
-	 
+	 public void dragDrawShape(Shape oldShape, Shape newShape); 
 	 /* return the created shapes objects */
 	 public Shape[] getShapes();
 	 /* return the classes (types) of supported shapes that can
