@@ -8,6 +8,7 @@ import javax.swing.JButton;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Shape;
+import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
@@ -29,17 +30,18 @@ public class Controller {
 		this.btnList = view.getBtnList();
 	}
 	public void draw(Point p1, Point p2) {
-		currentDraw = new Circle(p1 ,getdistance(p1, p2));
+		currentDraw = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		currentDraw.setColor(Color.BLUE);
 		currentDraw.setFillColor(Color.RED);
 		model.addShape(currentDraw);
 	}
 	
 	public void dragDraw(Point p1, Point p2) {
-		Shape newCurrent = new Circle(p1 , getdistance(p1, p2));
+		Shape newCurrent = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		newCurrent.setColor(Color.BLUE);
 		newCurrent.setFillColor(Color.RED);
 		model.updateShape(currentDraw, newCurrent);
+		currentDraw = newCurrent ;
 	}
 	
 	private int getdistance(Point p1 ,Point p2) {

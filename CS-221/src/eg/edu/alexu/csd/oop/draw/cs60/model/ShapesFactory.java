@@ -32,7 +32,7 @@ public class ShapesFactory {
 		Shape shape = null;
 		
 		if(shapeName.equalsIgnoreCase("circle"))
-			shape = new Circle(p1, Math.sqrt((p1.x-p2.x)*(p1.x-p2.x)-(p1.y-p2.y)*(p1.y-p2.y)));
+			shape = new Circle(p1, Math.sqrt(Math.pow(Math.abs(p1.x - p2.x),2) + Math.pow(Math.abs(p1.y - p2.y),2)));
 		if(shapeName.equalsIgnoreCase("ellipse"))
 			shape = new Ellipse(p1, Math.sqrt((p1.x-p2.x)*(p1.x-p2.x)-(p1.y-p2.y)*(p1.y-p2.y)),
 								Math.sqrt((p1.x-p2.x)*(p1.x-p2.x)-(p1.y-p2.y)*(p1.y-p2.y)));

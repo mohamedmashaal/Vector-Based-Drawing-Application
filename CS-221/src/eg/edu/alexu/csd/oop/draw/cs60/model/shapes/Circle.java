@@ -44,11 +44,11 @@ public class Circle extends MainShape{
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(new Color(getProperties().get("color").intValue()));
-		g.fillOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
+		g.fillOval(getProperties().get("x").intValue()-getProperties().get("radius").intValue(), getProperties().get("y").intValue()-getProperties().get("radius").intValue(), 
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
 		g.setStroke( new BasicStroke(STROKE));
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
-		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
+		g.drawOval(getProperties().get("x").intValue()-getProperties().get("radius").intValue(), getProperties().get("y").intValue()-getProperties().get("radius").intValue(),
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
 	}
 	
