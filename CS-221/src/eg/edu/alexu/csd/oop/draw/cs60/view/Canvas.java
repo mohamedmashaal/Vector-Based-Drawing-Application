@@ -63,7 +63,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 			p2 = e.getPoint();
 			view.getController().draw(p1 , p2);
 			//repaint();
-			}	
+		}	
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		p2 = getMousePosition();
 		setBackground(Color.WHITE);
 		repaint();
-		view.getController().draw(p1 , p2);
+		view.getController().dragDraw(p1 , p2);
 		}
 	}
 
