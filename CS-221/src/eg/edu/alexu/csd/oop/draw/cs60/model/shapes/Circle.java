@@ -47,6 +47,7 @@ public class Circle extends MainShape{
 		g.fillOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
 		g.setStroke( new BasicStroke(STROKE));
+		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
 	}

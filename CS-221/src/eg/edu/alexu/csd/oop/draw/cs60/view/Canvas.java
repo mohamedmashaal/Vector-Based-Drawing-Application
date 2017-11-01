@@ -17,6 +17,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.clearRect(0, 0, getWidth(), getHeight());
 		view.getModel().refresh(g);
 	}
 	
@@ -71,9 +72,8 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		// TODO Auto-generated method stub
 		if(view.getActiveBtns() == 1) {
 		p2 = getMousePosition();
-		setBackground(Color.WHITE);
 		repaint();
-		view.getController().draw(p1 , p2);
+		view.getController().dragDraw(p1 , p2);
 		}
 	}
 
