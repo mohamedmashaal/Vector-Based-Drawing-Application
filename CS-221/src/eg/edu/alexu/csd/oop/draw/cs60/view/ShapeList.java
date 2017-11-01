@@ -1,7 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
 import javax.swing.JList;
-import javax.swing.ListModel;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
 

@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
