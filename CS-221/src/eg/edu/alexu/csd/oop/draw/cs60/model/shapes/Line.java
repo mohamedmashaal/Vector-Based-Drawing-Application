@@ -1,5 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model.shapes;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -10,6 +12,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Line extends MainShape {
+	private float STROKE = 2;
 	private Point end ;
 	public Line() {
 		super();
@@ -29,7 +32,9 @@ public class Line extends MainShape {
 	@Override
 	public void draw(Graphics canvas) {
 		Graphics2D g = (Graphics2D)canvas ;
-		g.setColor(getColor());
+		g.setColor(new Color(getProperties().get("color").intValue()));
+		g.setStroke( new BasicStroke(STROKE));
+		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.drawLine(getPosition().x, getPosition().y, end.x, end.y);
 	}
 

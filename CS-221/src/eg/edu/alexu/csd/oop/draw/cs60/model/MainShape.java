@@ -68,7 +68,7 @@ public abstract class MainShape implements Shape {
 		// TODO Auto-generated method stub
 		//properties.put("fill-color", new Double(color.getRGB()));
 		this.fill_color = color ;
-		properties.put("color", color.getRGB()*1.0);
+		properties.put("fill_color", color.getRGB()*1.0);
 	}
 
 	@Override
