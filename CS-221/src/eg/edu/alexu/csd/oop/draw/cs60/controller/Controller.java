@@ -14,7 +14,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.view.View;
 
 public class Controller implements IController {
 	private View view ;
-	private DrawingEngine model ;
+	private DrawEngineImp model ;
 	private ArrayList<CustomButton> btnList ;
 	private Shape currentDraw ;
 	
