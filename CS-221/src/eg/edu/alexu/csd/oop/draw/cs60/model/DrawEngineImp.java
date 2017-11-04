@@ -73,9 +73,26 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		// TODO Auto-generated method stub
 		for(Shape x : shapes.peek()) {
 			x.draw(canvas);
+			if(x.isSelected()) {
+				x.drawBonds(canvas);
+			}
 		}
 	}
-
+	
+	public void setSelected() {
+		for(Shape x : getShapes()) {
+			x.setSelected(false);
+		}
+	}
+	
+	public void setSelected(int [] indices) {
+		Shape [] shapes = getShapes();
+		for(Integer x : indices) {
+			shapes[x].setSelected(true);
+		}
+		notifyObserversSelection();
+	}
+	
 	@Override
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
@@ -261,6 +278,13 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		int index = observers.indexOf(observer);
 		if(index >= 0) {
 			observers.remove(observer);
+		}
+	}
+
+	@Override
+	public void notifyObserversSelection() {
+		for(Observer x : observers) {
+			x.updateSelected();
 		}
 	}
 

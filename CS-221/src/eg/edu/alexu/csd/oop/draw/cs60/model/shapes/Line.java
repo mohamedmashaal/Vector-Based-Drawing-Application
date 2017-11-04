@@ -49,4 +49,17 @@ public class Line extends MainShape {
 		clone.setProperties(clone_prop);
 		return clone;
 	}
+
+	@Override
+	public Point[] getBonds() {
+		Point p1 = new Point();
+		Point p2 = new Point();
+		int x1 = this.getProperties().get("x1").intValue();
+		int x2 = this.getProperties().get("x2").intValue();
+		int y1 = this.getProperties().get("y1").intValue();
+		int y2 = this.getProperties().get("y2").intValue();
+		p1.setLocation(Math.min(x1, x2), Math.min(y1, y2));
+		p2.setLocation(Math.max(x1, x2), Math.max(y1, y2));
+		return new Point [] {p1,p2};
+	}
 }

@@ -108,7 +108,7 @@ public class View implements Observer{
 
 	private void setupShapesList() {
     	jScrollPane1 = new javax.swing.JScrollPane();
-        shapesList = new ShapeList<>();
+        shapesList = new ShapeList<>(this);
         /*shapesList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -316,6 +316,11 @@ public class View implements Observer{
 	@Override
 	public void update() {
 		shapesList.update(model.getShapes());
+		canvas.repaint();
+	}
+
+	@Override
+	public void updateSelected() {
 		canvas.repaint();
 	}
     

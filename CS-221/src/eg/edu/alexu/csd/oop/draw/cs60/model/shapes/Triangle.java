@@ -69,4 +69,17 @@ public class Triangle extends MainShape{
 		return clone;
 		}
 
+	@Override
+	public Point[] getBonds() {
+		int x1 =getProperties().get("x1").intValue();
+		int x2 =getProperties().get("x2").intValue();
+		int x3 =getProperties().get("x3").intValue();
+		int y1 =getProperties().get("y1").intValue();
+		int y2 =getProperties().get("y2").intValue();
+		int y3 =getProperties().get("y3").intValue();
+		Point p1 = new Point(Math.min(Math.min(x1, x2), x3),Math.min(Math.min(y1, y2), y3));
+		Point p2 = new Point(Math.max(Math.max(x1, x2), x3),Math.max(Math.max(y1, y2), y3));
+		return new Point[] {p1,p2};
+	}
+
 }

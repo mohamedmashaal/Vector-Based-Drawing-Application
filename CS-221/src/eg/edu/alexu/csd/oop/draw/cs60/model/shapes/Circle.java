@@ -62,4 +62,10 @@ public class Circle extends MainShape{
 		clone.setProperties(clone_prop);
 		return clone;
 	}
+	@Override
+	public Point[] getBonds() {
+		Point p1 = new Point(getProperties().get("x").intValue()-getProperties().get("radius").intValue(),getProperties().get("y").intValue()-getProperties().get("radius").intValue());
+		Point p2 = new Point(getProperties().get("x").intValue()+getProperties().get("radius").intValue(),getProperties().get("y").intValue()+getProperties().get("radius").intValue());
+		return new Point [] {p1,p2};
+	}
 }

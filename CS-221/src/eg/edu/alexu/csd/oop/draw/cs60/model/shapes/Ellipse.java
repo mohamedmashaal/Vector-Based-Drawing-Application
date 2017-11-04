@@ -54,4 +54,11 @@ public class Ellipse extends MainShape {
 		return clone;
 	}
 
+	@Override
+	public Point[] getBonds() {
+		Point p1 = new Point(getProperties().get("x").intValue(),getProperties().get("y").intValue());
+		Point p2 = new Point(p1.x+getProperties().get("width").intValue() , p1.y+getProperties().get("height").intValue());
+		return new Point [] {p1,p2};
+	}
+
 }

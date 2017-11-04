@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ public abstract class MainShape implements Shape {
 	private Point position ;
 	private Color color ;
 	private Color fill_color ;
-	
+	private boolean selected = false ;
 	public MainShape() {
 		properties = new HashMap<String, Double>();
 		properties.put("default_x", 0.0);
@@ -79,7 +80,25 @@ public abstract class MainShape implements Shape {
 	}
 
 	@Override
+	public boolean isSelected() {
+		return selected;
+	}
+	
+	@Override
+	public void setSelected(boolean selected) {
+		this.selected = selected ;
+	}
+	
+	@Override
 	public abstract void draw(Graphics canvas);
 	
 	public abstract Object clone() throws CloneNotSupportedException;
+	
+	public void drawBonds(Graphics canvas) {
+		int margin = 5 ;
+		Graphics2D g = (Graphics2D)canvas;
+		Point[] bonds = getBonds();
+		g.setColor(Color.BLACK);
+		g.drawRect(bonds[0].x-margin, bonds[0].y-margin, bonds[1].x - bonds[0].x + 2 *margin, bonds[1].y - bonds[0].y + 2 * margin );
+	}
 }

@@ -33,9 +33,12 @@ public class ShapesFactory {
 		
 		if(shapeName.equalsIgnoreCase("circle"))
 			shape = new Circle(p1, Math.sqrt(Math.pow(Math.abs(p1.x - p2.x),2) + Math.pow(Math.abs(p1.y - p2.y),2)));
-		if(shapeName.equalsIgnoreCase("ellipse"))
-			shape = new Ellipse(p1, Math.abs(p1.x - p2.x),
-								Math.abs(p1.y-p2.y));
+		if(shapeName.equalsIgnoreCase("ellipse")) {
+			int x = Math.min(p1.x, p2.x);
+			int y = Math.min(p1.y, p2.y);
+			shape = new Ellipse(new Point(x,y), Math.abs(p1.x - p2.x),
+					Math.abs(p1.y-p2.y));
+		}	
 		if(shapeName.equalsIgnoreCase("rectangle")){
 			int x = Math.min(p1.x, p2.x);
 			int y = Math.min(p1.y, p2.y);

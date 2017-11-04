@@ -51,4 +51,11 @@ public class Square extends MainShape {
 		clone.setProperties(clone_prop);
 		return clone;
 	}
+
+	@Override
+	public Point[] getBonds() {
+		Point p1 = new Point(getProperties().get("x").intValue(),getProperties().get("y").intValue());
+		Point p2 = new Point(p1.x+getProperties().get("width").intValue(),p1.y+getProperties().get("width").intValue());
+		return new Point[] {p1,p2};
+	}
 }
