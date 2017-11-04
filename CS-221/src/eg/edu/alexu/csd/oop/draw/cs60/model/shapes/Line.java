@@ -35,7 +35,7 @@ public class Line extends MainShape {
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.setStroke( new BasicStroke(STROKE));
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
-		g.drawLine(getPosition().x, getPosition().y, end.x, end.y);
+		g.drawLine(getProperties().get("x1").intValue(), getProperties().get("y1").intValue(), getProperties().get("x2").intValue(), getProperties().get("y2").intValue());
 	}
 
 	@Override

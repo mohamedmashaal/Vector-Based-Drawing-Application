@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model.shapes;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -34,11 +35,11 @@ public class Ellipse extends MainShape {
 	public void draw(Graphics canvas) {
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D)canvas ;
-		g.setColor(getFillColor());
-		g.fillOval(getPosition().x, getPosition().y, (int)width, (int)height);
+		g.setColor(new Color(getProperties().get("fill_color").intValue()));
+		g.fillOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), getProperties().get("width").intValue(), getProperties().get("height").intValue());
 		g.setStroke( new BasicStroke(STROKE));
-		g.setColor(getColor());
-		g.drawOval(getPosition().x, getPosition().y, (int)width, (int)height);
+		g.setColor(new Color(getProperties().get("color").intValue()));
+		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), getProperties().get("width").intValue(), getProperties().get("height").intValue());
 	}
 
 	@Override

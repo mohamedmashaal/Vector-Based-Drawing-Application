@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model.shapes;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -45,11 +46,15 @@ public class Triangle extends MainShape{
 	public void draw(Graphics canvas) {
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D)canvas ;
-		g.setColor(getFillColor());
-		g.fillPolygon(xPoints, yPoints, xPoints.length);
+		g.setColor(new Color(getProperties().get("fill_color").intValue()));
+		g.fillPolygon(new int [] {getProperties().get("x1").intValue(),getProperties().get("x2").intValue(),getProperties().get("x3").intValue()},
+				new int [] {getProperties().get("y1").intValue(),getProperties().get("y2").intValue(),getProperties().get("y3").intValue()},
+				3);
 		g.setStroke( new BasicStroke(STROKE));
-		g.setColor(getColor());
-		g.drawPolygon(xPoints, yPoints, xPoints.length);
+		g.setColor(new Color(getProperties().get("color").intValue()));
+		g.drawPolygon(new int [] {getProperties().get("x1").intValue(),getProperties().get("x2").intValue(),getProperties().get("x3").intValue()},
+				new int [] {getProperties().get("y1").intValue(),getProperties().get("y2").intValue(),getProperties().get("y3").intValue()},
+				3);
 	}
 
 	@Override

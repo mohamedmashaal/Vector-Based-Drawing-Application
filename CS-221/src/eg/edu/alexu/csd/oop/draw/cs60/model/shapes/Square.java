@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model.shapes;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -30,11 +31,13 @@ public class Square extends MainShape {
 	@Override
 	public void draw(Graphics canvas) {
 		Graphics2D g = (Graphics2D)canvas ;
-		g.setColor(getFillColor());
-		g.fillRect(getPosition().x, getPosition().y, (int)width, (int)width);
+		g.setColor(new Color(getProperties().get("fill_color").intValue()));
+		g.fillRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
+				   getProperties().get("width").intValue(),getProperties().get("width").intValue());
 		g.setStroke( new BasicStroke(STROKE));
-		g.setColor(getColor());
-		g.drawRect(getPosition().x, getPosition().y, (int)width, (int)width);
+		g.setColor(new Color(getProperties().get("color").intValue()));
+		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
+				   getProperties().get("width").intValue(),getProperties().get("width").intValue());
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -39,8 +40,9 @@ public class View implements Observer{
     private JMenu editMenu;
     private JMenuItem undoMenuItem;
     private JMenuItem redoMenuItem;
+    private JMenuItem deleteMenuItem;
     private JMenu fileMenu;
-    private JMenuItem openMenuItem;
+    private JMenuItem loadMenuItem;
     private JMenuItem saveAsMenuItem;
     private JMenuItem saveMenuItem;
     private JMenuItem exitMenuItem;
@@ -49,6 +51,7 @@ public class View implements Observer{
     private JMenuItem contentsMenuItem;
     private ShapeList<Shape> shapesList;
     private JScrollPane jScrollPane1;
+	
     
     public View(Controller controller , DrawEngineImp model) {
     	this.model = model;
@@ -163,13 +166,14 @@ public class View implements Observer{
 	private void createMenuBar() {
     	menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
+        loadMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         redoMenuItem = new javax.swing.JMenuItem();
         undoMenuItem = new javax.swing.JMenuItem();
+        deleteMenuItem = new JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentsMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -177,12 +181,25 @@ public class View implements Observer{
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        fileMenu.add(openMenuItem);
+        loadMenuItem.setMnemonic('o');
+        loadMenuItem.setText("Load");
+        loadMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.load();
+			}
+		});
+        fileMenu.add(loadMenuItem);
 
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Save");
+        saveMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
+        saveMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.save();
+			}
+		});
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
@@ -223,6 +240,17 @@ public class View implements Observer{
 		});
         editMenu.add(redoMenuItem);
 
+        deleteMenuItem.setMnemonic('d');
+        deleteMenuItem.setText("Dlete Shape");
+        deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D,ActionEvent.CTRL_MASK));
+        deleteMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.delete();
+			}
+		});
+        editMenu.add(deleteMenuItem);
+        
         menuBar.add(editMenu);
 
         helpMenu.setMnemonic('h');
@@ -278,6 +306,11 @@ public class View implements Observer{
 	public ArrayList<CustomButton> getBtnList() {
 		// TODO Auto-generated method stub
 		return btnList;
+	}
+	
+	public ShapeList<Shape> getShapeList() {
+		// TODO Auto-generated method stub
+		return shapesList;
 	}
 
 	@Override

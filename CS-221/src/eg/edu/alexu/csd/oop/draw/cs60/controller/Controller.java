@@ -58,13 +58,28 @@ public class Controller implements IController {
 
 	public void undo() {
 		model.undo();
-		view.getCanvas().repaint();
 	}
 
 	public void redo() {
 		model.redo();
-		view.getCanvas().repaint();
-		
+	}
+
+	public void load() {
+		// TODO Auto-generated method stub
+		model.load("file.xml");
+	}
+
+	public void save() {
+		// TODO Auto-generated method stub
+		model.save("file.xml");
+	}
+
+	public void delete() {
+		// TODO Auto-generated method stub
+		int index = view.getShapeList().getSelectedIndex();
+		if(index >= 0) {
+			model.removeShape(model.getShapes()[index]);
+		}
 	}
 	
 }
