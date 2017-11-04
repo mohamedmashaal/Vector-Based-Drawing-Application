@@ -3,6 +3,8 @@ package eg.edu.alexu.csd.oop.draw.cs60.controller;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.IController;
@@ -73,10 +75,7 @@ public class Controller implements IController {
 	}
 
 	public void delete() {
-		int index = view.getShapeList().getSelectedIndex();
-		if(index >= 0) {
-			model.removeShape(model.getShapes()[index]);
-		}
+		model.removeShapes(view.getShapeList().getSelectedIndices());
 	}
 
 	public void shapeSelected() {

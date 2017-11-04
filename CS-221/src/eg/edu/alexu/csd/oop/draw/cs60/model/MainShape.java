@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -96,9 +97,12 @@ public abstract class MainShape implements Shape {
 	
 	public void drawBonds(Graphics canvas) {
 		int margin = 5 ;
+		float dash1[] = { 10.0f };
+		  BasicStroke dashed = new BasicStroke(1.0f,
+		      BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
 		Graphics2D g = (Graphics2D)canvas;
 		Point[] bonds = getBonds();
-		g.setColor(Color.BLACK);
+		g.setStroke(dashed);
 		g.drawRect(bonds[0].x-margin, bonds[0].y-margin, bonds[1].x - bonds[0].x + 2 *margin, bonds[1].y - bonds[0].y + 2 * margin );
 	}
 }
