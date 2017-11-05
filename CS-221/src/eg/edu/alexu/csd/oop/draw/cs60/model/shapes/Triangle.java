@@ -39,6 +39,10 @@ public class Triangle extends MainShape{
 		this.getProperties().put("y2", p2.getY());
 		this.getProperties().put("x3", p3.getX());
 		this.getProperties().put("y3", p3.getY());
+		getProperties().put("bond_1_x", getBonds()[0].getX());
+		getProperties().put("bond_1_y", getBonds()[0].getY());
+		getProperties().put("bond_2_x", getBonds()[1].getX());
+		getProperties().put("bond_2_y", getBonds()[1].getY());
 	}
 	
 	
@@ -55,6 +59,9 @@ public class Triangle extends MainShape{
 		g.drawPolygon(new int [] {getProperties().get("x1").intValue(),getProperties().get("x2").intValue(),getProperties().get("x3").intValue()},
 				new int [] {getProperties().get("y1").intValue(),getProperties().get("y2").intValue(),getProperties().get("y3").intValue()},
 				3);
+		if(getProperties().get("selected").intValue() == 1) {
+			drawBonds(canvas);
+		}
 	}
 
 	@Override

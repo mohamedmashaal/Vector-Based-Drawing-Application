@@ -26,6 +26,10 @@ public class Line extends MainShape {
 		this.getProperties().put("y1", p1.getY());
 		this.getProperties().put("x2", p2.getX());
 		this.getProperties().put("y2", p2.getY());
+		getProperties().put("bond_1_x", getBonds()[0].getX());
+		getProperties().put("bond_1_y", getBonds()[0].getY());
+		getProperties().put("bond_2_x", getBonds()[1].getX());
+		getProperties().put("bond_2_y", getBonds()[1].getY());
 	}
 	
 	
@@ -36,6 +40,9 @@ public class Line extends MainShape {
 		g.setStroke( new BasicStroke(STROKE));
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.drawLine(getProperties().get("x1").intValue(), getProperties().get("y1").intValue(), getProperties().get("x2").intValue(), getProperties().get("y2").intValue());
+		if(getProperties().get("selected").intValue() == 1) {
+			drawBonds(canvas);
+		}
 	}
 
 	@Override

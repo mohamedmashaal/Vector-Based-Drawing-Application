@@ -15,9 +15,10 @@ public abstract class MainShape implements Shape {
 	private Point position ;
 	private Color color ;
 	private Color fill_color ;
-	private boolean selected = false ;
+	//private boolean selected = false ;
 	public MainShape() {
 		properties = new HashMap<String, Double>();
+		properties.put("selected" , 0.0);
 		properties.put("default_x", 0.0);
 		properties.put("default_y", 0.0);
 		properties.put("default_color", Color.BLACK.getRGB()*1.0);
@@ -81,14 +82,14 @@ public abstract class MainShape implements Shape {
 	}
 
 	
-	public boolean isSelected() {
+	/*public boolean isSelected() {
 		return selected;
-	}
+	}*/
 	
 	
-	public void setSelected(boolean selected) {
+	/*public void setSelected(boolean selected) {
 		this.selected = selected ;
-	}
+	}*/
 	
 	@Override
 	public abstract void draw(Graphics canvas);

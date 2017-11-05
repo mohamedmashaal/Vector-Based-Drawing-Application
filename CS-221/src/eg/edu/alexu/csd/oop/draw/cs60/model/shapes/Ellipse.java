@@ -29,6 +29,10 @@ public class Ellipse extends MainShape {
 		getProperties().put("y", position.getY());
 		getProperties().put("width", new Double(width));
 		getProperties().put("height", new Double(height));
+		getProperties().put("bond_1_x", getBonds()[0].getX());
+		getProperties().put("bond_1_y", getBonds()[0].getY());
+		getProperties().put("bond_2_x", getBonds()[1].getX());
+		getProperties().put("bond_2_y", getBonds()[1].getY());
 	}
 	
 	@Override
@@ -40,6 +44,9 @@ public class Ellipse extends MainShape {
 		g.setStroke( new BasicStroke(STROKE));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), getProperties().get("width").intValue(), getProperties().get("height").intValue());
+		if(getProperties().get("selected").intValue() == 1) {
+			drawBonds(canvas);
+		}
 	}
 
 	@Override
