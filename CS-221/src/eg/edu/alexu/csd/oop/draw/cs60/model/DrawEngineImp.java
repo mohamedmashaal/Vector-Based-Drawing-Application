@@ -80,7 +80,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		Point p2 = null;
 		for(Shape x : getShapes()) {
 			//if(x.isSelected()) {
-			if(x.getProperties().get("selected").intValue() == 1) {
+			if(x.getProperties() != null && x.getProperties().get("selected").intValue() == 1) {
 				Point [] bonds = new Point[] {new Point(x.getProperties().get("bond_1_x").intValue(),x.getProperties().get("bond_1_y").intValue()) ,new Point(x.getProperties().get("bond_2_x").intValue(),x.getProperties().get("bond_2_y").intValue())};
 				if(p1 == null ) {
 				p1 = bonds[0];
