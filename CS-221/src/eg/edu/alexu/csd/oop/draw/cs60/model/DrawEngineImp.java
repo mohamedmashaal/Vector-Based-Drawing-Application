@@ -30,21 +30,21 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Observer> observers ;
 	private List<Class<? extends Shape>> supportedShapes ;
-	private Stack<ArrayList<MainShape>> shapes ;
-	private Stack<ArrayList<MainShape>> redoShapes ;
+	private Stack<ArrayList<Shape>> shapes ;
+	private Stack<ArrayList<Shape>> redoShapes ;
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
 	private DrawEngineImp() {
-		shapes = new Stack<ArrayList<MainShape>>();
-		shapes.push(new ArrayList<MainShape>());
-		redoShapes = new Stack<ArrayList<MainShape>>();
+		shapes = new Stack<ArrayList<Shape>>();
+		shapes.push(new ArrayList<Shape>());
+		redoShapes = new Stack<ArrayList<Shape>>();
 		observers = new ArrayList<Observer>();
 		initSupportedShapes();
 	}
 	
 	private void clear() {
-		shapes = new Stack<ArrayList<MainShape>>();
-		shapes.push(new ArrayList<MainShape>());
-		redoShapes = new Stack<ArrayList<MainShape>>();
+		shapes = new Stack<ArrayList<Shape>>();
+		shapes.push(new ArrayList<Shape>());
+		redoShapes = new Stack<ArrayList<Shape>>();
 		initSupportedShapes();
 	}
 	
@@ -67,8 +67,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		// TODO Auto-generated method stub
 		for(Shape x : shapes.peek()) {
 			x.draw(canvas);
-			if(((MainShape)x).isSelected()) {
-				((MainShape)x).drawBonds(canvas);
+			if(x.isSelected()) {
+				x.drawBonds(canvas);
 			}
 		}
 		drawFullBonds(canvas);
@@ -78,8 +78,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		Point p1 = null;
 		Point p2 = null;
 		for(Shape x : getShapes()) {
-			if(((MainShape)x).isSelected()) {
-				Point [] bonds = ((MainShape)x).getBonds();
+			if(x.isSelected()) {
+				Point [] bonds = x.getBonds();
 				if(p1 == null ) {
 				p1 = bonds[0];
 				p2= bonds [1];
@@ -102,17 +102,17 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 	public void setSelected() {
 		for(Shape x : getShapes()) {
-			((MainShape)x).setSelected(false);
+			x.setSelected(false);
 		}
 	}
 	
 	public void setSelected(int [] indices) {
 		for(Integer x : indices)
-			System.out.print(x+" ");
+		System.out.print(x+" ");
 		System.out.println();
 		Shape [] shapes = getShapes();
 		for(Integer x : indices) {
-			((MainShape)shapes[x]).setSelected(true);
+			shapes[x].setSelected(true);
 		}
 		notifyObserversSelection();
 	}
@@ -121,12 +121,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
 		if(shapes.size() <= 20)
-			shapes.push(new ArrayList<MainShape>(shapes.peek()));
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
 		else {
 			shapes.remove(0);
-			shapes.push(new ArrayList<MainShape>(shapes.peek()));
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
 		}	
-		shapes.peek().add((MainShape)shape);
+		shapes.peek().add(shape);
 		notifyObservers();
 	}
 
@@ -136,11 +136,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		int index = shapes.peek().indexOf(shape);
 		if(index >= 0) {
 			if(shapes.size() <= 20) {
-				shapes.push(new ArrayList<MainShape>(shapes.peek()));
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			}
 			else {
 				shapes.remove(0);
-				shapes.push(new ArrayList<MainShape>(shapes.peek()));
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			}	
 			shapes.peek().remove(index);
 		}
@@ -152,11 +152,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		Arrays.sort(indices);
 		if(indices.length > 0) {
 			if(shapes.size() <= 20) {
-				shapes.push(new ArrayList<MainShape>(shapes.peek()));
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			}
 			else {
 				shapes.remove(0);
-				shapes.push(new ArrayList<MainShape>(shapes.peek()));
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			}
 			for(int i = indices.length-1 ; i >=0 ; i --) {
 			shapes.peek().remove(getShapes()[indices[i]]);}
@@ -170,12 +170,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
 			if(shapes.size() <= 20)
-				shapes.push(new ArrayList<MainShape>(shapes.peek()));
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			else {
 				shapes.remove(0);
-				shapes.push(new ArrayList<MainShape>(shapes.peek()));
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			}	
-			shapes.peek().set(index, (MainShape)newShape);
+			shapes.peek().set(index, newShape);
 		}
 		notifyObservers();
 	}
@@ -184,7 +184,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
-			shapes.peek().set(index, (MainShape)newShape);
+			shapes.peek().set(index, newShape);
 		}
 	}
 	
@@ -270,7 +270,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				shapesXMLContent.append(in.nextLine());
 			}
 			in.close();
-	        Stack<ArrayList<MainShape>> parsedObj = (Stack<ArrayList<MainShape>>) stringToObject(shapesXMLContent.toString());
+	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
 	        shapes = parsedObj;
 	        notifyObservers();
 	        }
