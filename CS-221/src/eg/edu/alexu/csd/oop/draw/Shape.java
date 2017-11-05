@@ -22,8 +22,8 @@ public interface Shape {
 	/* create a deep clone of the shape */
 	public Object clone() throws CloneNotSupportedException;
 	
-	public java.awt.Point [] getBonds();
-	public boolean isSelected();
+	//public java.awt.Point [] getBonds();
+	/*public boolean isSelected();
 	public void setSelected(boolean selected);
-	public void drawBonds(Graphics canvas);
+	public void drawBonds(Graphics canvas);*/
 }
