@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Ext_Lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/CS-221/src/Ext_Lib/guava-21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/CS-221/src/Ext_Lib/javassist.jar!/" />
+      <root url="jar://$PROJECT_DIR$/CS-221/src/Ext_Lib/reflections-0.9.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

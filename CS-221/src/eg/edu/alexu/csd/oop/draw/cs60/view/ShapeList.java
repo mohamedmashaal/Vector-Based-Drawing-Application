@@ -7,7 +7,10 @@ import javax.swing.event.ListSelectionListener;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
 
-public class ShapeList<T> extends JList<Shape> {
+import java.util.HashMap;
+import java.util.Map;
+
+public class ShapeList<T> extends JList<String> {
 	View view ;
 	public ShapeList(final View view) {
 		super();
@@ -35,7 +38,9 @@ public class ShapeList<T> extends JList<Shape> {
 		        }
 
 		      });
-		setListData(new Shape [0]);
+
+		String[] indexedShapes = new String[0];
+		setListData(new String [0]);
 		addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
@@ -45,6 +50,19 @@ public class ShapeList<T> extends JList<Shape> {
 	}
 	
 	public void update(Shape[] shapes) {
-		setListData(shapes);
+	    String[] indexedShapes = new String[shapes.length];
+	    Map<String, Integer> freqOfShapes = new HashMap<String, Integer>();
+	    int i = 0;
+	    for(Shape x : shapes){
+	        String shapeName = x.getClass().getSimpleName();
+	        try{
+	            freqOfShapes.put(shapeName,freqOfShapes.get(shapeName)+1);
+            }
+            catch (Exception e){
+                freqOfShapes.put(shapeName,1);
+            }
+	        indexedShapes[i++] = shapeName + freqOfShapes.get(shapeName);
+        }
+		setListData(indexedShapes);
 	}
 }

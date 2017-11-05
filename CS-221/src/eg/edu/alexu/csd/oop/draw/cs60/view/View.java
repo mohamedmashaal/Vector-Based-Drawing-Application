@@ -5,14 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import javax.swing.AbstractButton;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
 import eg.edu.alexu.csd.oop.draw.Observer;
 import eg.edu.alexu.csd.oop.draw.Shape;

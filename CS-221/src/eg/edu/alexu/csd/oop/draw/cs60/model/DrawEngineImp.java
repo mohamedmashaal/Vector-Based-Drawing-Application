@@ -108,7 +108,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	public void setSelected(int [] indices) {
 		for(Integer x : indices)
-		System.out.print(x+" ");
+			System.out.print(x+" ");
 		System.out.println();
 		Shape [] shapes = getShapes();
 		for(Integer x : indices) {
