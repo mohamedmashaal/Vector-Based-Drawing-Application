@@ -30,21 +30,21 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Observer> observers ;
 	private List<Class<? extends Shape>> supportedShapes ;
-	private Stack<ArrayList<Shape>> shapes ;
-	private Stack<ArrayList<Shape>> redoShapes ;
+	private Stack<ArrayList<MainShape>> shapes ;
+	private Stack<ArrayList<MainShape>> redoShapes ;
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
 	private DrawEngineImp() {
-		shapes = new Stack<ArrayList<Shape>>();
-		shapes.push(new ArrayList<Shape>());
-		redoShapes = new Stack<ArrayList<Shape>>();
+		shapes = new Stack<ArrayList<MainShape>>();
+		shapes.push(new ArrayList<MainShape>());
+		redoShapes = new Stack<ArrayList<MainShape>>();
 		observers = new ArrayList<Observer>();
 		initSupportedShapes();
 	}
 	
 	private void clear() {
-		shapes = new Stack<ArrayList<Shape>>();
-		shapes.push(new ArrayList<Shape>());
-		redoShapes = new Stack<ArrayList<Shape>>();
+		shapes = new Stack<ArrayList<MainShape>>();
+		shapes.push(new ArrayList<MainShape>());
+		redoShapes = new Stack<ArrayList<MainShape>>();
 		initSupportedShapes();
 	}
 	
@@ -121,12 +121,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void addShape(Shape shape) {
 		// TODO Auto-generated method stub
 		if(shapes.size() <= 20)
-			shapes.push(new ArrayList<Shape>(shapes.peek()));
+			shapes.push(new ArrayList<MainShape>(shapes.peek()));
 		else {
 			shapes.remove(0);
-			shapes.push(new ArrayList<Shape>(shapes.peek()));
+			shapes.push(new ArrayList<MainShape>(shapes.peek()));
 		}	
-		shapes.peek().add(shape);
+		shapes.peek().add((MainShape)shape);
 		notifyObservers();
 	}
 
@@ -136,11 +136,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		int index = shapes.peek().indexOf(shape);
 		if(index >= 0) {
 			if(shapes.size() <= 20) {
-				shapes.push(new ArrayList<Shape>(shapes.peek()));
+				shapes.push(new ArrayList<MainShape>(shapes.peek()));
 			}
 			else {
 				shapes.remove(0);
-				shapes.push(new ArrayList<Shape>(shapes.peek()));
+				shapes.push(new ArrayList<MainShape>(shapes.peek()));
 			}	
 			shapes.peek().remove(index);
 		}
@@ -152,11 +152,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		Arrays.sort(indices);
 		if(indices.length > 0) {
 			if(shapes.size() <= 20) {
-				shapes.push(new ArrayList<Shape>(shapes.peek()));
+				shapes.push(new ArrayList<MainShape>(shapes.peek()));
 			}
 			else {
 				shapes.remove(0);
-				shapes.push(new ArrayList<Shape>(shapes.peek()));
+				shapes.push(new ArrayList<MainShape>(shapes.peek()));
 			}
 			for(int i = indices.length-1 ; i >=0 ; i --) {
 			shapes.peek().remove(getShapes()[indices[i]]);}
@@ -170,12 +170,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
 			if(shapes.size() <= 20)
-				shapes.push(new ArrayList<Shape>(shapes.peek()));
+				shapes.push(new ArrayList<MainShape>(shapes.peek()));
 			else {
 				shapes.remove(0);
-				shapes.push(new ArrayList<Shape>(shapes.peek()));
+				shapes.push(new ArrayList<MainShape>(shapes.peek()));
 			}	
-			shapes.peek().set(index, newShape);
+			shapes.peek().set(index, (MainShape)newShape);
 		}
 		notifyObservers();
 	}
@@ -184,7 +184,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
-			shapes.peek().set(index, newShape);
+			shapes.peek().set(index, (MainShape)newShape);
 		}
 	}
 	
@@ -270,7 +270,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				shapesXMLContent.append(in.nextLine());
 			}
 			in.close();
-	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
+	        Stack<ArrayList<MainShape>> parsedObj = (Stack<ArrayList<MainShape>>) stringToObject(shapesXMLContent.toString());
 	        shapes = parsedObj;
 	        notifyObservers();
 	        }
