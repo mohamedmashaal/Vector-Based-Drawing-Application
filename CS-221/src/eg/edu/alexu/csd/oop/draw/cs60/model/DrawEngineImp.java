@@ -95,8 +95,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}
 		}
 		int margin = 10 ;
-		Graphics2D g = (Graphics2D)canvas ;
 		if(p1 != null) {
+			Graphics2D g = (Graphics2D)canvas ;
 			g.setStroke( new BasicStroke(2));
 			g.drawRect(p1.x - margin, p1.y - margin ,p2.x - p1.x + 2 *margin, p2.y - p1.y + 2 * margin);
 		}
