@@ -67,8 +67,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		// TODO Auto-generated method stub
 		for(Shape x : shapes.peek()) {
 			x.draw(canvas);
-			if(x.isSelected()) {
-				x.drawBonds(canvas);
+			if(((MainShape)x).isSelected()) {
+				((MainShape)x).drawBonds(canvas);
 			}
 		}
 		drawFullBonds(canvas);
@@ -78,8 +78,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		Point p1 = null;
 		Point p2 = null;
 		for(Shape x : getShapes()) {
-			if(x.isSelected()) {
-				Point [] bonds = x.getBonds();
+			if(((MainShape)x).isSelected()) {
+				Point [] bonds = ((MainShape)x).getBonds();
 				if(p1 == null ) {
 				p1 = bonds[0];
 				p2= bonds [1];
@@ -102,7 +102,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 	public void setSelected() {
 		for(Shape x : getShapes()) {
-			x.setSelected(false);
+			((MainShape)x).setSelected(false);
 		}
 	}
 	
@@ -112,7 +112,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		System.out.println();
 		Shape [] shapes = getShapes();
 		for(Integer x : indices) {
-			shapes[x].setSelected(true);
+			((MainShape)shapes[x]).setSelected(true);
 		}
 		notifyObserversSelection();
 	}
