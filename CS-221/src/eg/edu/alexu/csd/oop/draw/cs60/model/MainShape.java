@@ -80,12 +80,12 @@ public abstract class MainShape implements Shape {
 		return fill_color ;
 	}
 
-	@Override
+	
 	public boolean isSelected() {
 		return selected;
 	}
 	
-	@Override
+	
 	public void setSelected(boolean selected) {
 		this.selected = selected ;
 	}
@@ -105,4 +105,5 @@ public abstract class MainShape implements Shape {
 		g.setStroke(dashed);
 		g.drawRect(bonds[0].x-margin, bonds[0].y-margin, bonds[1].x - bonds[0].x + 2 *margin, bonds[1].y - bonds[0].y + 2 * margin );
 	}
+	public abstract Point [] getBonds();
 }

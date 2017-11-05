@@ -21,4 +21,5 @@ public interface Shape extends MinorShape {
 	 
 	/* create a deep clone of the shape */
 	public Object clone() throws CloneNotSupportedException;
+
 }
