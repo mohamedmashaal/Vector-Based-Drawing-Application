@@ -24,6 +24,7 @@ public class Triangle extends MainShape{
 	}
 	
 	public Triangle(Point p1 , Point p2 , Point p3 ) {
+		super();
 		setPosition(p1);
 		this.p2 = p2 ;
 		this.p3 = p3 ;
