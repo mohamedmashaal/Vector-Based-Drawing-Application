@@ -2,7 +2,7 @@ package eg.edu.alexu.csd.oop.draw;
 
 import java.awt.Graphics;
 
-public interface Shape {
+public interface Shape extends MinorShape {
 	public void setPosition(java.awt.Point position);
 	public java.awt.Point getPosition(); 
 	 
@@ -21,9 +21,4 @@ public interface Shape {
 	 
 	/* create a deep clone of the shape */
 	public Object clone() throws CloneNotSupportedException;
-	
-	public java.awt.Point [] getBonds();
-	public boolean isSelected();
-	public void setSelected(boolean selected);
-	public void drawBonds(Graphics canvas);
 }
