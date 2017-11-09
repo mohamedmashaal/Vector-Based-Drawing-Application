@@ -198,10 +198,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	@Override
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub
-		if(shapes.peek().isEmpty()) {
+		/*if(shapes.peek().isEmpty()) {
 			return null;
-		}
-		return shapes.peek().toArray(new Shape[0]);
+		}*/
+		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
 	}
 	
 	@Override
