@@ -276,7 +276,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}
 			in.close();
 	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
-	        shapes.push(parsedObj.peek());
 	        notifyObservers();
 	        }
 		catch(Exception e) {
