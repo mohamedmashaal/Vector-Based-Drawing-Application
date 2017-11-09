@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
+import javax.management.RuntimeErrorException;
+
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Observer;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -239,7 +241,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void load(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			loadXML(path);
+			throw  new RuntimeException("I went into it");
+			//loadXML(path);
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
