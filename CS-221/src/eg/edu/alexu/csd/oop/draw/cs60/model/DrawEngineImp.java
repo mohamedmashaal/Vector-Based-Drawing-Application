@@ -198,6 +198,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	@Override
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub
+		if(shapes.peek().isEmpty()) {
+			return null;
+		}
 		return shapes.peek().toArray(new Shape[0]);
 	}
 	
@@ -260,10 +263,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			FileWriter pw = new FileWriter(outputXML);
 			pw.write(objToString);
 			pw.close();
-			throw new RuntimeException(objToString);
 		}
         catch (Exception e) {
-        	throw new RuntimeException(objToString);
+        	throw new RuntimeException(e);
 		}
 	}
 	
@@ -278,12 +280,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				shapesXMLContent.append(in.nextLine());
 			}
 			in.close();
-			throw new RuntimeException(shapesXMLContent.toString());
-	        //Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
-			//notifyObservers();
+	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
+	        shapes.push(parsedObj.peek());
+			notifyObservers();
 	        }
 		catch(Exception e) {
-			throw new RuntimeException(shapesXMLContent.toString());
+			throw new RuntimeException(e);
 		}
 	}
 	
