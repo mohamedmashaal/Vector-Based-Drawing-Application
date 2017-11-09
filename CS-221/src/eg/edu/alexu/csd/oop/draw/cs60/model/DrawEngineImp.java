@@ -199,7 +199,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub
 		if(shapes.peek().isEmpty()) {
-			return new Shape[0];
+			return null;
 		}
 		return shapes.peek().toArray(new Shape[0]);
 	}
