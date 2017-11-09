@@ -174,12 +174,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
 			redoShapes = new Stack<>();
-			/*if(shapes.size() <= 20)
+			if(shapes.size() <= 20)
 				shapes.push(new ArrayList<Shape>(shapes.peek()));
 			else {
 				shapes.remove(0);
 				shapes.push(new ArrayList<Shape>(shapes.peek()));
-			}*/	
+			}	
 			shapes.peek().set(index, newShape);
 		}
 		notifyObservers();
@@ -276,9 +276,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}
 			in.close();
 	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
-	        shapes = new Stack<>();
-	        shapes.push(parsedObj.peek());
-	        redoShapes = new Stack<>();
+
 	        notifyObservers();
 	        }
 		catch(Exception e) {
