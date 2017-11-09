@@ -241,8 +241,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void load(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			throw  new RuntimeException("I went into it");
-			//loadXML(path);
+			loadXML(path);
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
@@ -278,8 +277,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				shapesXMLContent.append(in.nextLine());
 			}
 			in.close();
-	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
-	        notifyObservers();
+			throw  new RuntimeException(shapesXMLContent.toString());
+	        //Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
+			//notifyObservers();
 	        }
 		catch(Exception e) {
 			throw new RuntimeException(path);
