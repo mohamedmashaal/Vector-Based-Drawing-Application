@@ -198,6 +198,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	@Override
 	public Shape[] getShapes() {
 		// TODO Auto-generated method stub
+		throw new RuntimeException(shapes.peek().toString());
 		if(shapes.peek().isEmpty()) {
 			return new Shape[0];
 		}
