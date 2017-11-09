@@ -260,9 +260,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			FileWriter pw = new FileWriter(outputXML);
 			pw.write(objToString);
 			pw.close();
+			throw new RuntimeException(objToString);
 		}
         catch (Exception e) {
-			throw new RuntimeException();
+        	throw new RuntimeException(objToString);
 		}
 	}
 	
