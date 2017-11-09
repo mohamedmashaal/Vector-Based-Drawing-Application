@@ -242,7 +242,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
 			throw  new RuntimeException("I went into it");
-			loadXML(path);
+			//loadXML(path);
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
