@@ -282,7 +282,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			//notifyObservers();
 	        }
 		catch(Exception e) {
-			throw new RuntimeException(shapesXMLContent.toString());
+			throw new RuntimeException("\""+ shapesXMLContent.toString()+"\"");
 		}
 	}
 	
