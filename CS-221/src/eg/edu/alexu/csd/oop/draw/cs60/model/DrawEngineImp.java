@@ -21,6 +21,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
+import org.omg.SendingContext.RunTime;
 
 public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Observer> observers ;
@@ -257,9 +258,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveXML(String path){
+		throw new RuntimeException(path);
 		/*if(shapes.peek().isEmpty())
 			return;*/
-		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
+		/*ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
 		for(int i=0; i<arrayOfShapes.size(); i++){
 			if(arrayOfShapes.get(i).getProperties() == null){
 				arrayOfShapes.remove(i);
@@ -274,7 +276,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
         catch (Exception e) {
         	throw new RuntimeException(e);
-		}
+		}*/
 	}
 	
 	@SuppressWarnings("unchecked")
