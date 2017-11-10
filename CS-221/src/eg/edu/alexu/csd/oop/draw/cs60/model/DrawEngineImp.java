@@ -259,7 +259,13 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private void saveXML(String path){
 		/*if(shapes.peek().isEmpty())
 			return;*/
-        String objToString = objectToString(shapes.peek());
+		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
+		for(int i=0; i<arrayOfShapes.size(); i++){
+			if(arrayOfShapes.get(i).getProperties() == null){
+				arrayOfShapes.remove(i);
+			}
+		}
+        String objToString = objectToString(arrayOfShapes);
         File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
