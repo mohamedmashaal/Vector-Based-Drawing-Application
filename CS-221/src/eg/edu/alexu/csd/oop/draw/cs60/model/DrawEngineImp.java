@@ -202,8 +202,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	@Override
 	public Shape[] getShapes() {
-		//if(shapes.size() == 2)
-			//throw new RuntimeException(shapes.peek().toString());
+		if(shapes.size() == 2)
+			throw new RuntimeException(shapes.peek().toString());
 		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
 	}
 	
@@ -270,8 +270,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	private void saveXML(String path){
 		//throw new RuntimeException(path);
-		if(shapes.peek().isEmpty())
-			return;
+		/*if(shapes.peek().isEmpty())
+			return;*/
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
 		/*for(int i=0; i<arrayOfShapes.size(); i++){
 			if(arrayOfShapes.get(i).getProperties() == null){
