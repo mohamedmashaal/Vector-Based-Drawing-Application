@@ -21,6 +21,7 @@ public class JoeSONParser {
             parsedArray.append("},\n");
         }
         parsedArray.append("}\n");
+        
         return parsedArray.toString();
     }
 
@@ -89,6 +90,7 @@ public class JoeSONParser {
             }
 
             arrayOfMap.add(map);
+            in.close();
         }
 
 

@@ -66,12 +66,13 @@ public class Controller implements IController {
 	public void getBtnList () {
 		this.btnList = view.getBtnList();
 	}
+
 	public void draw(Point p1, Point p2) {
 		currentDraw = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		currentDraw.setColor(color);
 		currentDraw.setFillColor(fill_color);
 		model.addShape(currentDraw);
-		save();
+		load();
 	}
 	
 	public void dragDraw(Point p1, Point p2) {
