@@ -270,8 +270,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	private void saveXML(String path){
 		//throw new RuntimeException(path);
-		/*if(shapes.peek().isEmpty())
-			return;*/
+		if(shapes.peek().isEmpty())
+			return;
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
 		for(int i=0; i<arrayOfShapes.size(); i++){
 			if(arrayOfShapes.get(i).getProperties() == null){
