@@ -15,38 +15,15 @@
       <file leaf-file-name="DrawEngineImp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="319" column="60" lean-forward="false" selection-start-line="319" selection-start-column="60" selection-end-line="319" selection-end-column="60" />
+            <state relative-caret-position="398">
+              <caret line="301" column="20" lean-forward="false" selection-start-line="301" selection-start-column="20" selection-end-line="301" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2023#2024#0" expanded="true" />
                 <element signature="e#2051#2052#0" expanded="true" />
-                <marker date="1510338188376" expanded="false" signature="8218:8234" ph="&lt;~&gt;" />
-                <marker date="1510338188376" expanded="false" signature="10991:11020" ph="/resource/" />
+                <element signature="e#8218#8234#0" expanded="true" />
+                <marker date="1510339914299" expanded="false" signature="10994:11023" ph="/resource/" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ColorPicker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/ColorPicker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-              <folding>
-                <element signature="e#724#725#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/Canvas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -54,7 +31,7 @@
       <file leaf-file-name="JoeSONParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/JoeSONParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1224">
+            <state relative-caret-position="713">
               <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,28 +63,6 @@
                 <element signature="e#2587#2588#0" expanded="true" />
                 <element signature="e#2654#2655#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainEntry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/main/MainEntry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <element signature="e#313#314#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/Shape.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -230,6 +185,16 @@
               <item name="draw" type="462c0819:PsiDirectoryNode" />
               <item name="cs60" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Paint Repo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS-221" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="oop" type="462c0819:PsiDirectoryNode" />
+              <item name="draw" type="462c0819:PsiDirectoryNode" />
+              <item name="cs60" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="shapes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Paint Repo" type="b2602c69:ProjectViewProjectNode" />
@@ -508,8 +473,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2023#2024#0" expanded="true" />
             <element signature="e#2051#2052#0" expanded="true" />
-            <marker date="1510338188376" expanded="false" signature="8218:8234" ph="&lt;~&gt;" />
-            <marker date="1510338188376" expanded="false" signature="10991:11020" ph="/resource/" />
+            <element signature="e#8218#8234#0" expanded="true" />
+            <marker date="1510339914299" expanded="false" signature="10994:11023" ph="/resource/" />
           </folding>
         </state>
       </provider>
@@ -573,8 +538,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2023#2024#0" expanded="true" />
             <element signature="e#2051#2052#0" expanded="true" />
-            <marker date="1510338188376" expanded="false" signature="8218:8234" ph="&lt;~&gt;" />
-            <marker date="1510338188376" expanded="false" signature="10991:11020" ph="/resource/" />
+            <element signature="e#8218#8234#0" expanded="true" />
+            <marker date="1510339914299" expanded="false" signature="10994:11023" ph="/resource/" />
           </folding>
         </state>
       </provider>
@@ -607,14 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="61" column="23" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="62" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/MainShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -704,6 +661,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/MainShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/shapes/Circle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/ColorPicker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -715,9 +688,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/ViewTryout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1150">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/JoeSONParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
+        <state relative-caret-position="713">
           <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -727,14 +708,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="319" column="60" lean-forward="false" selection-start-line="319" selection-start-column="60" selection-end-line="319" selection-end-column="60" />
+        <state relative-caret-position="398">
+          <caret line="301" column="20" lean-forward="false" selection-start-line="301" selection-start-column="20" selection-end-line="301" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2023#2024#0" expanded="true" />
             <element signature="e#2051#2052#0" expanded="true" />
-            <marker date="1510338188376" expanded="false" signature="8218:8234" ph="&lt;~&gt;" />
-            <marker date="1510338188376" expanded="false" signature="10991:11020" ph="/resource/" />
+            <element signature="e#8218#8234#0" expanded="true" />
+            <marker date="1510339914299" expanded="false" signature="10994:11023" ph="/resource/" />
           </folding>
         </state>
       </provider>

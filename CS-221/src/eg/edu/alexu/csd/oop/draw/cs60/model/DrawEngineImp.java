@@ -283,8 +283,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveJSON(String path){
-		throw new RuntimeException(path);
-		/*ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
+		//throw new RuntimeException(path);
+		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
 		Map<String, Integer> freqOfShapes = new HashMap<>();
 		for(Shape shape : shapes.peek()){
 			// calculation of frequency (for indexing purpose)
@@ -297,7 +297,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}
 
 			Map<String, String> newMap = new HashMap<String, String>();
-			for(Map.Entry entry : shape.getProperties().entrySet()){
+			for(Map.Entry entry : shape
+					.getProperties()
+					.entrySet()){
 				newMap.put(entry.getKey().toString(), entry.getValue().toString());
 			}
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
@@ -317,7 +319,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			throw new RuntimeException(e);
 		}
 
-		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);*/
+		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);
 	}
 	
 	private void loadJSON(String path){
@@ -358,8 +360,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 				System.out.println("Here: " + shapeName);
 				Shape loadedShape = shapesFactory.CreateShape(shapeName);
-				loadedShape.
-						setProperties(tempMap);
+				loadedShape.setProperties(tempMap);
 				loadedShapes.add(loadedShape);
 				System.out.println("--line 352");
 			}
