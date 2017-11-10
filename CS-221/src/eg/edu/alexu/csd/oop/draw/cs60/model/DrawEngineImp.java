@@ -306,12 +306,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}
 
 			Map<String, String> newMap = new HashMap<String, String>();
-			for(Map.Entry
-					entry
-					: shape
-					.getProperties()
-					.entrySet()){
-				newMap.put(entry.getKey().toString(), entry.getValue().toString());
+			try {
+				for(Map.Entry entry : shape.getProperties().entrySet()){
+                    newMap.put(entry.getKey().toString(), entry.getValue().toString());
+                }
+			} catch (Exception e) {
+				throw new RuntimeException(shape.getClass().getSimpleName());
 			}
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
 			arrayListofShapeMap.add(newMap);
