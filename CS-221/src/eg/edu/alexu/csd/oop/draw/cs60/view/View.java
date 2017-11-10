@@ -313,7 +313,7 @@ public class View implements Observer{
         importMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PluginImporter importer = new PluginImporter(getView());
+				new PluginImporter(getView());
 			}
 		});
         PlugninMenu.add(importMenuItem);
@@ -387,5 +387,11 @@ public class View implements Observer{
 	
 	private View getView() {
 		return this;
+	}
+
+	@Override
+	public void updateSupportedShapes() {
+		// TODO Auto-generated method stub
+		
 	}
 }
