@@ -21,6 +21,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
+import org.omg.SendingContext.RunTime;
 
 public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Observer> observers ;
@@ -268,6 +269,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveXML(String path){
+		//throw new RuntimeException(path);
 		/*if(shapes.peek().isEmpty())
 			return;*/
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
@@ -287,7 +289,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
         	throw new RuntimeException(e);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
 		File inputXML = new File(path);
@@ -296,7 +298,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		try {
 			in = new Scanner(inputXML);
 			while(in.hasNextLine()) {
-				shapesXMLContent.append(in.nextLine());
+				shapesXMLContent.append(in.nextLine() + "\n");
 			}
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
 			clear();
@@ -307,7 +309,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	private void saveJSON(String path){
 		//throw new RuntimeException(path);
 		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
@@ -350,7 +352,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);
 	}
-	
+
 	private void loadJSON(String path){
 		//System.out.println("--line 327");
 		File inputJSON = new File(path);
