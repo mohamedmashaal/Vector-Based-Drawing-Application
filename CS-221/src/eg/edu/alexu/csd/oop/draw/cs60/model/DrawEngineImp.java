@@ -21,7 +21,6 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
-import jdk.nashorn.internal.scripts.JS;
 
 public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Observer> observers ;
