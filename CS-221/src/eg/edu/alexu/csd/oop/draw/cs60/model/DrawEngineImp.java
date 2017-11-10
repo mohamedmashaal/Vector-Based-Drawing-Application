@@ -24,6 +24,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
+import jdk.nashorn.internal.scripts.JS;
 
 public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Observer> observers ;
@@ -32,6 +33,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private Stack<ArrayList<Shape>> redoShapes ;
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
 	private JoeSONParser JSONParser = new JoeSONParser();
+	private ShapesFactory shapesFactory = new ShapesFactory();
+
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
@@ -273,7 +276,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine());
 			}
-			in.close();
+			//in.close();
 	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
 	        shapes.push(parsedObj.peek());
 			notifyObservers();
@@ -321,7 +324,42 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void loadJSON(String path){
-		// TODO to be implemented
+		System.out.println("--line 327");
+		File inputJSON = new File(path);
+		StringBuilder shapesJSONContent = new StringBuilder();
+		Scanner in;
+		try {
+			in = new Scanner(inputJSON);
+			while(in.hasNextLine()) {
+				shapesJSONContent.append(in.nextLine() + "\n");
+			}
+			//in.close();
+			System.out.println(shapesJSONContent);
+			ArrayList<Map<String,String>> parsedObj = JSONParser.parseJSONIntoArrayOfMaps(shapesJSONContent.toString());
+			//shapes.push(parsedObj.peek());
+			ArrayList<Shape> loadedShapes = new ArrayList<>();
+
+			for(Map<String,String> map : parsedObj){
+				Map<String,Double> tempMap = new HashMap<>();
+				for(Map.Entry entry : map.entrySet()){
+					tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));
+				}
+				String shapeName = map.get("id");
+				shapeName.replace("[0-9]","");
+				System.out.println(shapeName);
+				Shape loadedShape = shapesFactory.CreateShape(shapeName);
+				loadedShape.setProperties(tempMap);
+				loadedShapes.add(loadedShape);
+				System.out.println("--line 352");
+			}
+			shapes = new Stack<>();
+			shapes.push(loadedShapes);
+			notifyObservers();
+			System.out.println("--line 357");
+		}
+		catch(Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	private String objectToString(Object hashMap) {
