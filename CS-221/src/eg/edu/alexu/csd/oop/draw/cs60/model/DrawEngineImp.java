@@ -259,7 +259,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private void saveXML(String path){
 		/*if(shapes.peek().isEmpty())
 			return;*/
-        String objToString = objectToString(shapes);
+        String objToString = objectToString(shapes.peek());
         File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
@@ -281,9 +281,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine());
 			}
-			//in.close();
-	        Stack<ArrayList<Shape>> parsedObj = (Stack<ArrayList<Shape>>) stringToObject(shapesXMLContent.toString());
-	        shapes.push(parsedObj.peek());
+	        ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+			shapes = new Stack<>();
+			shapes.push(parsedObj);
 			notifyObservers();
 	        }
 		catch(Exception e) {
@@ -374,7 +374,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				try {
 					loadedShape.setProperties(tempMap);
 				} catch (Exception e) {
-					
+
 				}
 				loadedShapes.add(loadedShape);
 				System.out.println("--line 352");
