@@ -203,8 +203,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	@Override
 	public Shape[] getShapes() {
 		//if(shapes.size() == 2)
-			throw new RuntimeException(shapes.peek().toString());
-		//return shapes.peek().toArray(new Shape[shapes.peek().size()]);
+			//throw new RuntimeException(shapes.peek().toString());
+		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
 	}
 	
 	@Override
