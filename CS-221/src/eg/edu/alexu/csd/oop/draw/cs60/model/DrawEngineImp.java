@@ -305,7 +305,17 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
 
 		String parsedObject = JSONParser.parseArrayOfMapsIntoJSON(arrayListofShapeMap);
-		System.out.println(parsedObject);
+		//System.out.println(parsedObject);
+
+		File outputXML = new File(path);
+		try {
+			FileWriter pw = new FileWriter(outputXML);
+			pw.write(parsedObject);
+			pw.close();
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	private void loadJSON(String path){
