@@ -24,8 +24,9 @@ public class JoeSONParser {
 
     public ArrayList<Map<String,String>> parseJSONIntoArrayOfMaps(String jsonFormatted){
         ArrayList<Map<String,String>> arrayOfMap = new ArrayList<>();
-        
 
+
+        return arrayOfMap;
     }
 
 
