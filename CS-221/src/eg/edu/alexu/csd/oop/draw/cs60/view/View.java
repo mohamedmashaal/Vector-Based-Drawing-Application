@@ -360,7 +360,7 @@ public class View implements Observer{
 	public void updateSelected() {
 		canvas.repaint();
 	}
-
+	
 	public Frame getMainWindow() {
 		return mainWindow;
 	}

@@ -12,6 +12,8 @@ import java.util.Collections;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
+import com.sun.javafx.menu.CustomMenuItemBase;
+
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -42,6 +44,10 @@ public class Controller implements IController {
 	public void setFill_color(Color fill_color) {
 		this.fill_color = fill_color;
 		view.getColorPicker().setBackground(fill_color);
+		getBtnList();
+		for(CustomButton x : btnList) {
+			x.setPressedColor(fill_color);
+		}
 	}
 
 	public Color getColor() {
@@ -51,6 +57,10 @@ public class Controller implements IController {
 	public void setColor(Color color) {
 		this.color = color;
 		view.getColorPicker().setBorder(new LineBorder(color,5));
+		getBtnList();
+		for(CustomButton x : btnList) {
+			x.setNormalColor(color);
+		}
 	}
 	
 	public void getBtnList () {

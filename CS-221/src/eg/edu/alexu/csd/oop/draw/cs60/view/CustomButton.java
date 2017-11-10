@@ -10,7 +10,7 @@ import javax.swing.JButton;
 
 public class CustomButton extends JButton {
     private Color pressedColor = Color.RED;
-    private Color normalColor = Color.BLUE;
+	private Color normalColor = Color.BLUE;
     private Boolean state = false ;
     public Boolean getState() {
 		return state;
@@ -22,6 +22,8 @@ public class CustomButton extends JButton {
 	public CustomButton (String text , final View view) {
         super(text);
         this.view = view ;
+        setNormalColor(view.getController().getColor());
+        setPressedColor(view.getController().getFill_color());
         setBorderPainted(false);
         setFocusPainted(false);
 
@@ -51,4 +53,18 @@ public class CustomButton extends JButton {
 			}
 		});
     }
+	
+	public void setPressedColor(Color pressedColor) {
+		this.pressedColor = pressedColor;
+		if(state) {
+			this.setBackground(pressedColor);
+		}
+	}
+
+	public void setNormalColor(Color normalColor) {
+		this.normalColor = normalColor;
+		if(!state) {
+			this.setBackground(normalColor);
+		}
+	}
 }
