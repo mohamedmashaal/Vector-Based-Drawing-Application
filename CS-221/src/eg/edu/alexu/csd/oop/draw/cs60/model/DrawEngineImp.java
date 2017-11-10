@@ -24,7 +24,6 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
-import jdk.nashorn.internal.scripts.JS;
 
 public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Observer> observers ;
@@ -185,6 +184,15 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			shapes.peek().set(index, newShape);
 		}
 		notifyObservers();
+	}
+	
+	public void addShapeDrag(Shape shape) {
+		shapes.peek().add(shape);
+	}
+	
+	public void removeShapeDrag(Shape shape) {
+		int index = shapes.peek().indexOf(shape);
+		shapes.peek().remove(index);
 	}
 	
 	public void dragDrawShape(Shape oldShape, Shape newShape) {

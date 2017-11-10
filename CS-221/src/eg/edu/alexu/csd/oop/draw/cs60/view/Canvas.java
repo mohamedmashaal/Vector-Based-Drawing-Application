@@ -61,16 +61,21 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		// TODO Auto-generated method stub
 		if(view.getActiveBtns() == 1) {
 			p2 = e.getPoint();
-			view.getController().dragDraw(p1 , p2);
-			repaint();
-		}	
+			if(p1.equals(p2)) {
+				view.getController().removeCurrentDraw();
+			}
+			else {				
+				view.getController().removeCurrentDraw();
+				view.getController().draw(p1, p2);}
+		}
+		repaint();
 	}
 
 	@Override
-	public void mouseDragged(MouseEvent arg0) {
+	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if(view.getActiveBtns() == 1) {
-		p2 = getMousePosition();
+		p2 = e.getPoint();
 		view.getController().dragDraw(p1 , p2);
 		repaint();
 		}

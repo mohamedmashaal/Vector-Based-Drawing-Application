@@ -71,8 +71,11 @@ public class Controller implements IController {
 		currentDraw = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		currentDraw.setColor(color);
 		currentDraw.setFillColor(fill_color);
-		model.addShape(currentDraw);
-		load();
+		if(p1.equals(p2)) {
+			model.addShapeDrag(currentDraw);}
+		else {
+			model.addShape(currentDraw);
+		}
 	}
 	
 	public void dragDraw(Point p1, Point p2) {
@@ -120,5 +123,8 @@ public class Controller implements IController {
 		model.setSelected(view.getShapeList().getSelectedIndices());
 	}
 	
+	public void removeCurrentDraw() {
+		model.removeShapeDrag(currentDraw);
+	}
 	
 }
