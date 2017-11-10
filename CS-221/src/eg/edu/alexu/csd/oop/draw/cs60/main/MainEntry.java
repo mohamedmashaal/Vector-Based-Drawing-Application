@@ -10,22 +10,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
 
 public class MainEntry {
 	public static void main(String [] args) {
-		Controller controller = new Controller(DrawEngineImp.getUniqueInstance());
 
-		/*DrawingEngine de = new DrawEngineImp();
-		de.addShape(new Circle());
-		de.addShape(new Rectangle());
-		de.addShape(new Triangle());
-		de.addShape(new Line());
-		de.addShape(new Rectangle());
-
-		System.out.println(de.getShapes().length);
-
-		de.save("test.XmL");
-
-		DrawingEngine de2 = new DrawEngineImp();
-		de2.load("test.XmL");
-		System.out.println(de.getShapes().length);*/
-
+		//Controller controller = new Controller(DrawEngineImp.getUniqueInstance());
 	}
 }

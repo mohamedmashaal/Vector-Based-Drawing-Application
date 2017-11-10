@@ -17,7 +17,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 
 public class ViewTryout extends JPanel implements MouseMotionListener, MouseListener{
-	DrawingEngine engine = DrawEngineImp.getUniqueInstance();
+	//DrawingEngine engine = DrawEngineImp.getUniqueInstance();
 	
 	Point p = null;
 	Point p2 = null;

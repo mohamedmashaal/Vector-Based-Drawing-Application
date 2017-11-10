@@ -3,6 +3,9 @@ package eg.edu.alexu.csd.oop.draw.cs60.controller;
 import java.awt.Color;
 import java.awt.Point;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 
 import javax.swing.border.LineBorder;
@@ -119,9 +122,15 @@ public class Controller implements IController {
 		model.removeShapeDrag(currentDraw);
 	}
 
-	public void imp(File file) {
-		
-		
+	public void imp(File file) throws MalformedURLException, ClassNotFoundException {
+		if(file != null && file.getName().substring(file.getName().length()-5).toLowerCase().equals("class")) {
+			URL classUrl;
+			System.out.println(file.toURI().toURL());
+//	        classUrl = new URL(file.toURI().toURL());
+	        URLClassLoader loader = new URLClassLoader(new URL[]{new File(file.getParent()).toURI().toURL()});
+	        Class <? extends Shape> cs = (Class<? extends Shape>) loader.loadClass("Test");
+	        System.out.println(cs.getName());
+		}
 	}
 	
 }
