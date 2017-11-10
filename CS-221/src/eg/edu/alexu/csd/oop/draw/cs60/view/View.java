@@ -46,6 +46,8 @@ public class View implements Observer{
     private JMenuItem saveAsMenuItem;
     private JMenuItem saveMenuItem;
     private JMenuItem exitMenuItem;
+    private JMenu PlugninMenu;
+    private JMenuItem importMenuItem;
     private JMenu helpMenu;
     private JMenuItem aboutMenuItem;
     private JMenuItem contentsMenuItem;
@@ -214,6 +216,8 @@ public class View implements Observer{
         helpMenu = new javax.swing.JMenu();
         contentsMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        PlugninMenu = new javax.swing.JMenu();
+        importMenuItem = new JMenuItem();
         
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -300,8 +304,21 @@ public class View implements Observer{
         aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("About");
         helpMenu.add(aboutMenuItem);
-
         menuBar.add(helpMenu);
+        PlugninMenu.setMnemonic('p');
+        PlugninMenu.setText("Plugins");
+        
+        importMenuItem.setText("Import");
+        importMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I,ActionEvent.CTRL_MASK));
+        importMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PluginImporter importer = new PluginImporter(getView());
+			}
+		});
+        PlugninMenu.add(importMenuItem);
+        
+        menuBar.add(PlugninMenu);
 	}
 
 	private void createBtns() {
@@ -367,6 +384,8 @@ public class View implements Observer{
 	public ColorPicker getColorPicker() {
 		return colorPicker;
 	}
-
 	
+	private View getView() {
+		return this;
+	}
 }
