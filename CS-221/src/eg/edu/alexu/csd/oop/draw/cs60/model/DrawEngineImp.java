@@ -193,7 +193,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	public void dragDrawShape(Shape oldShape, Shape newShape) {
-		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
 			shapes.peek().set(index, newShape);
@@ -202,8 +201,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	@Override
 	public Shape[] getShapes() {
-		// TODO Auto-generated method stub
-		return shapes.peek().toArray(new Shape[0]);
+		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
 	}
 	
 	@Override
