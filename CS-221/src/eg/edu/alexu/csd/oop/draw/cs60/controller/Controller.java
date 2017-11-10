@@ -1,18 +1,12 @@
 package eg.edu.alexu.csd.oop.draw.cs60.controller;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Insets;
 import java.awt.Point;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
@@ -123,6 +117,11 @@ public class Controller implements IController {
 	
 	public void removeCurrentDraw() {
 		model.removeShapeDrag(currentDraw);
+	}
+
+	public void imp(File file) {
+		
+		
 	}
 	
 }
