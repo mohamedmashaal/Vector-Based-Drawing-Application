@@ -10,11 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 import javax.management.RuntimeErrorException;
 
@@ -35,6 +31,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
+	private JoeSONParser JSONParser = new JoeSONParser();
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
@@ -287,7 +284,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveJSON(String path){
-		// TODO to be implemented
+		ArrayList<Map<String, Double>> arrayListofShapeMap = new ArrayList<>();
+		for(Shape shape : shapes.peek()){
+			arrayListofShapeMap.add(shape.getProperties());
+		}
+
+		JSONParser.parseArrayOfMapsIntoJSON(arrayListofShapeMap);
 	}
 	
 	private void loadJSON(String path){
