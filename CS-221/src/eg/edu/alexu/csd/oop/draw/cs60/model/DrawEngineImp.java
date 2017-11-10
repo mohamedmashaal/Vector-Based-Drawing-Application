@@ -311,7 +311,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
                     newMap.put(entry.getKey().toString(), entry.getValue().toString());
                 }
 			} catch (Exception e) {
-				throw new RuntimeException(shape.getProperties().toString());
+				
 			}
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
 			arrayListofShapeMap.add(newMap);
