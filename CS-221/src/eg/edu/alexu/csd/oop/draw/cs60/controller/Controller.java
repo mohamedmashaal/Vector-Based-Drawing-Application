@@ -68,7 +68,7 @@ public class Controller implements IController {
 	}
 
 	public void load() {
-		model.load("file.xml");
+		model.load("file.json");
 	}
 
 	public void save() {
