@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
 
 public class ColorPicker extends JButton {
 	private View view ;
-	public ColorPicker([final View view) {
+	public ColorPicker(final View view) {
 		this.view = view ;
         setFocusPainted(false);
         setContentAreaFilled(false);
