@@ -311,7 +311,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
                     newMap.put(entry.getKey().toString(), entry.getValue().toString());
                 }
 			} catch (Exception e) {
-				
+
 			}
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
 			arrayListofShapeMap.add(newMap);
@@ -371,7 +371,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 				System.out.println("Here: " + shapeName);
 				Shape loadedShape = shapesFactory.CreateShape(shapeName);
-				loadedShape.setProperties(tempMap);
+				try {
+					loadedShape.setProperties(tempMap);
+				} catch (Exception e) {
+					
+				}
 				loadedShapes.add(loadedShape);
 				System.out.println("--line 352");
 			}
