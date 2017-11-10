@@ -21,7 +21,7 @@ public class JoeSONParser {
             parsedArray.append("},\n");
         }
         parsedArray.append("}\n");
-        
+
         return parsedArray.toString();
     }
 
@@ -29,6 +29,7 @@ public class JoeSONParser {
     public ArrayList<Map<String,String>> parseJSONIntoArrayOfMaps(String jsonFormatted){
         ArrayList<Map<String,String>> arrayOfMap = new ArrayList<>();
         Scanner in = new Scanner(jsonFormatted);
+        System.out.println("OKKKK " + jsonFormatted);
         in.nextLine(); // as first line has only an open curly bracket "{"
 
         while(in.hasNextLine()){
@@ -90,7 +91,7 @@ public class JoeSONParser {
             }
 
             arrayOfMap.add(map);
-            in.close();
+            //in.close();
         }
 
 

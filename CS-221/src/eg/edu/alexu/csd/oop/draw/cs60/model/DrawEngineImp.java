@@ -6,10 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.*;
 
 import javax.management.RuntimeErrorException;
@@ -295,7 +292,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveJSON(String path){
-		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
+		throw new RuntimeException(path);
+		/*ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
 		Map<String, Integer> freqOfShapes = new HashMap<>();
 		for(Shape shape : shapes.peek()){
 			// calculation of frequency (for indexing purpose)
@@ -328,20 +326,23 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			throw new RuntimeException(e);
 		}
 
-		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);
+		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);*/
 	}
 	
 	private void loadJSON(String path){
 		System.out.println("--line 327");
 		File inputJSON = new File(path);
 		StringBuilder shapesJSONContent = new StringBuilder();
-		Scanner in;
+		//try {
+		Scanner in = null;
 		try {
 			in = new Scanner(inputJSON);
-			while(in.hasNextLine()) {
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		while(in.hasNextLine()) {
 				shapesJSONContent.append(in.nextLine() + "\n");
 			}
-			//in.close();
 			System.out.println(shapesJSONContent);
 			ArrayList<Map<String,String>> parsedObj = JSONParser.parseJSONIntoArrayOfMaps(shapesJSONContent.toString());
 			//shapes.push(parsedObj.peek());
@@ -350,13 +351,24 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			for(Map<String,String> map : parsedObj){
 				Map<String,Double> tempMap = new HashMap<>();
 				for(Map.Entry entry : map.entrySet()){
+					if(entry.getKey().toString().equals("id"))
+						continue;
 					tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));
+					System.out.println(entry.getKey().toString() + " " + Double.parseDouble(entry.getValue().toString()));
 				}
-				String shapeName = map.get("id");
-				shapeName.replace("[0-9]","");
-				System.out.println(shapeName);
+				String tempShapeName = map.get("id");
+				String shapeName = "";
+				System.out.println("Here: " + shapeName);
+				for(int i=0; i<tempShapeName.length(); i++){
+					if(tempShapeName.charAt(i) >= '0' && tempShapeName.charAt(i) <= '9')
+						break;
+					shapeName += tempShapeName.charAt(i);
+				}
+
+				System.out.println("Here: " + shapeName);
 				Shape loadedShape = shapesFactory.CreateShape(shapeName);
-				loadedShape.setProperties(tempMap);
+				loadedShape.
+						setProperties(tempMap);
 				loadedShapes.add(loadedShape);
 				System.out.println("--line 352");
 			}
@@ -364,10 +376,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			shapes.push(loadedShapes);
 			notifyObservers();
 			System.out.println("--line 357");
-		}
-		catch(Exception e) {
+		//}
+		/*catch(Exception e) {
 			throw new RuntimeException(e);
-		}
+		}*/
 	}
 	
 	private String objectToString(Object hashMap) {
