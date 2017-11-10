@@ -102,11 +102,11 @@ public class Controller implements IController {
 	}
 
 	public void load() {
-		model.load("file.json");
+		model.load("file.xml");
 	}
 
 	public void save() {
-		model.save("file.json");
+		model.save("file.xml");
 	}
 
 	public void delete() {

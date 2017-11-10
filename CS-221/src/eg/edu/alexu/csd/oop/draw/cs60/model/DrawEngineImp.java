@@ -31,7 +31,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private JoeSONParser JSONParser = new JoeSONParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
 
-	private DrawEngineImp() {
+	public DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
@@ -193,7 +193,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	public void dragDrawShape(Shape oldShape, Shape newShape) {
-		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
 		if(index >= 0){
 			shapes.peek().set(index, newShape);
@@ -202,8 +201,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	@Override
 	public Shape[] getShapes() {
-		// TODO Auto-generated method stub
-		return shapes.peek().toArray(new Shape[0]);
+		if(shapes.size() == 2)
+			throw new RuntimeException(shapes.peek().toString());
+		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
 	}
 	
 	@Override
@@ -270,7 +270,13 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private void saveXML(String path){
 		/*if(shapes.peek().isEmpty())
 			return;*/
-        String objToString = objectToString(shapes.peek());
+		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
+		for(int i=0; i<arrayOfShapes.size(); i++){
+			if(arrayOfShapes.get(i).getProperties() == null){
+				arrayOfShapes.remove(i);
+			}
+		}
+        String objToString = objectToString(arrayOfShapes);
         File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
@@ -293,10 +299,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				shapesXMLContent.append(in.nextLine());
 			}
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-			shapes = new Stack<>();
+			clear();
 			shapes.push(parsedObj);
 			notifyObservers();
-	        }
+		}
 		catch(Exception e) {
 			throw new RuntimeException(e);
 		}
