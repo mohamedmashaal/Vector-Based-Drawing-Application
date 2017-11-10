@@ -62,7 +62,6 @@ public class Controller implements IController {
 		currentDraw.setColor(color);
 		currentDraw.setFillColor(fill_color);
 		model.addShape(currentDraw);
-		load();
 	}
 	
 	public void dragDraw(Point p1, Point p2) {
