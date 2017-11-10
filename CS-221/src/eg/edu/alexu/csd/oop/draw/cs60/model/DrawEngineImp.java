@@ -306,13 +306,14 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}
 
 			Map<String, String> newMap = new HashMap<String, String>();
-			try {
+			if(shape.getProperties() != null)
+			//try {
 				for(Map.Entry entry : shape.getProperties().entrySet()){
                     newMap.put(entry.getKey().toString(), entry.getValue().toString());
                 }
-			} catch (Exception e) {
+			//} catch (Exception e) {
 
-			}
+			//}
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
 			arrayListofShapeMap.add(newMap);
 		}
@@ -334,7 +335,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void loadJSON(String path){
-		System.out.println("--line 327");
+		//System.out.println("--line 327");
 		File inputJSON = new File(path);
 		StringBuilder shapesJSONContent = new StringBuilder();
 		//try {
@@ -358,31 +359,33 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 					if(entry.getKey().toString().equals("id"))
 						continue;
 					tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));
-					System.out.println(entry.getKey().toString() + " " + Double.parseDouble(entry.getValue().toString()));
+					//System.out.println(entry.getKey().toString() + " " + Double.parseDouble(entry.getValue().toString()));
 				}
 				String tempShapeName = map.get("id");
 				String shapeName = "";
-				System.out.println("Here: " + shapeName);
+				//System.out.println("Here: " + shapeName);
 				for(int i=0; i<tempShapeName.length(); i++){
 					if(tempShapeName.charAt(i) >= '0' && tempShapeName.charAt(i) <= '9')
 						break;
 					shapeName += tempShapeName.charAt(i);
 				}
 
-				System.out.println("Here: " + shapeName);
+				//System.out.println("Here: " + shapeName);
 				Shape loadedShape = shapesFactory.CreateShape(shapeName);
-				try {
-					loadedShape.setProperties(tempMap);
-				} catch (Exception e) {
 
-				}
+				if(tempMap != null)
+				//try {
+					loadedShape.setProperties(tempMap);
+				//} catch (Exception e) {
+
+				//}
 				loadedShapes.add(loadedShape);
-				System.out.println("--line 352");
+				//System.out.println("--line 352");
 			}
 			shapes = new Stack<>();
 			shapes.push(loadedShapes);
 			notifyObservers();
-			System.out.println("--line 357");
+			//System.out.println("--line 357");
 		//}
 		/*catch(Exception e) {
 			throw new RuntimeException(e);
