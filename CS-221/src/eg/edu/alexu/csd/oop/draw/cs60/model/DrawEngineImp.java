@@ -306,7 +306,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}
 
 			Map<String, String> newMap = new HashMap<String, String>();
-			for(Map.Entry entry : shape
+			for(Map.Entry entry
+					: shape
 					.getProperties()
 					.entrySet()){
 				newMap.put(entry.getKey().toString(), entry.getValue().toString());
