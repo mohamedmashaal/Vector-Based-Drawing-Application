@@ -28,7 +28,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private List<Class<? extends Shape>> supportedShapes ;
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
-	//private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
+	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
 	private JoeSONParser JSONParser = new JoeSONParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
 
@@ -57,9 +57,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		supportedShapes.add(Triangle.class);
 	}
 
-	//public static DrawEngineImp getUniqueInstance() {
-		//return uniqueInstance;
-	//}
+	public static DrawEngineImp getUniqueInstance() {
+		return uniqueInstance;
+	}
 	
 	@Override
 	public void refresh(Graphics canvas) {
