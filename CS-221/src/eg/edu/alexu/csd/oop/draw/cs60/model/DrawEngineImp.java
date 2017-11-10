@@ -288,10 +288,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				shapesXMLContent.append(in.nextLine());
 			}
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-			shapes = new Stack<>();
+			clear();
 			shapes.push(parsedObj);
 			notifyObservers();
-	        }
+		}
 		catch(Exception e) {
 			throw new RuntimeException(e);
 		}
