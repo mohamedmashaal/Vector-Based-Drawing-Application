@@ -15,6 +15,7 @@ public class ShapeList<T> extends JList<String> {
 	public ShapeList(final View view) {
 		super();
 		this.view = view ;
+		this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		setSelectionModel(new DefaultListSelectionModel() {
 		      public void setSelectionInterval(int index0, int index1) {
 		          if (index0 == index1) {

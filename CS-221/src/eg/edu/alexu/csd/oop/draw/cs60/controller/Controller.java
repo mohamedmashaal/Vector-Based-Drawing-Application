@@ -24,7 +24,6 @@ public class Controller implements IController {
 		 this.model = model ;
 		 view = new View(this , model);
 		 view.createView();
-		 view.createControls();
 		 model.addObserver(view);
 	}
 	
