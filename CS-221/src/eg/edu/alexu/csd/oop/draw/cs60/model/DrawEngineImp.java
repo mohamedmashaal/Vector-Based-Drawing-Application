@@ -10,11 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 import javax.management.RuntimeErrorException;
 
@@ -35,6 +31,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private Stack<ArrayList<Shape>> shapes ;
 	private Stack<ArrayList<Shape>> redoShapes ;
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
+	private JoeSONParser JSONParser = new JoeSONParser();
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
@@ -287,7 +284,40 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveJSON(String path){
-		// TODO to be implemented
+		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
+		Map<String, Integer> freqOfShapes = new HashMap<>();
+		for(Shape shape : shapes.peek()){
+			// calculation of frequency (for indexing purpose)
+			String shapeName = shape.getClass().getSimpleName();
+			try{
+				freqOfShapes.put(shapeName,freqOfShapes.get(shapeName)+1);
+			}
+			catch (Exception e){
+				freqOfShapes.put(shapeName,1);
+			}
+
+			Map<String, String> newMap = new HashMap<String, String>();
+			for(Map.Entry entry : shape.getProperties().entrySet()){
+				newMap.put(entry.getKey().toString(), entry.getValue().toString());
+			}
+			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
+			arrayListofShapeMap.add(newMap);
+		}
+
+		String parsedObject = JSONParser.parseArrayOfMapsIntoJSON(arrayListofShapeMap);
+		System.out.println(parsedObject + "\n---------------------------\n");
+
+		File outputXML = new File(path);
+		try {
+			FileWriter pw = new FileWriter(outputXML);
+			pw.write(parsedObject);
+			pw.close();
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
+		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);
 	}
 	
 	private void loadJSON(String path){

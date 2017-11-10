@@ -1,0 +1,20 @@
+{
+"Circle1" :
+{
+"color" : "-1.6776961E7",
+"bond_1_y" : "199.0",
+"bond_2_x" : "188.0",
+"bond_1_x" : "188.0",
+"default_y" : "0.0",
+"default_x" : "0.0",
+"default_color" : "-1.6777216E7",
+"x" : "188.0",
+"y" : "199.0",
+"bond_2_y" : "199.0",
+"id" : "Circle1",
+"radius" : "0.0",
+"selected" : "0.0",
+"default_fill_color" : "-65536.0",
+"fill_color" : "-65536.0",
+},
+}

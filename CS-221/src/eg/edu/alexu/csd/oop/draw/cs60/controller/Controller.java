@@ -35,6 +35,7 @@ public class Controller implements IController {
 		currentDraw.setColor(Color.BLUE);
 		currentDraw.setFillColor(Color.RED);
 		model.addShape(currentDraw);
+		save();
 	}
 	
 	public void dragDraw(Point p1, Point p2) {
@@ -66,11 +67,11 @@ public class Controller implements IController {
 	}
 
 	public void load() {
-		model.load("file.xml");
+		model.load("file.json");
 	}
 
 	public void save() {
-		model.save("file.xml");
+		model.save("file.json");
 	}
 
 	public void delete() {
