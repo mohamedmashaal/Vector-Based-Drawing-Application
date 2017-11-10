@@ -283,7 +283,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveJSON(String path){
-		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
+		throw new RuntimeException(path);
+		/*ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
 		Map<String, Integer> freqOfShapes = new HashMap<>();
 		for(Shape shape : shapes.peek()){
 			// calculation of frequency (for indexing purpose)
@@ -316,7 +317,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			throw new RuntimeException(e);
 		}
 
-		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);
+		JSONParser.parseJSONIntoArrayOfMaps(parsedObject);*/
 	}
 	
 	private void loadJSON(String path){
