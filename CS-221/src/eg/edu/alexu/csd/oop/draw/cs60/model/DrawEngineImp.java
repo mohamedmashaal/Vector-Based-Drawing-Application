@@ -278,8 +278,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 //				arrayOfShapes.remove(i);
 //			}
 //		}
-        String objToString = objectToString(arrayOfShapes);
-        File outputXML = new File(path);
+        //String objToString = objectToString(arrayOfShapes , path);
+		objectToString(arrayOfShapes , path);
+		/*File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
 			pw.write(objToString);
@@ -287,20 +288,35 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
         catch (Exception e) {
         	throw new RuntimeException(e);
+		}*/
+	}
+
+	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
+		XMLEncoder e;
+		try {
+			e = new XMLEncoder(
+			        new BufferedOutputStream(
+			            new FileOutputStream(path)));
+			e.writeObject(arrayOfShapes);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
+		return ;
 	}
 
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
-		File inputXML = new File(path);
+		/*File inputXML = new File(path);
 		StringBuilder shapesXMLContent = new StringBuilder();
-		Scanner in;
+		Scanner in;*/
 		try {
-			in = new Scanner(inputXML);
+			/*in = new Scanner(inputXML);
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine() + "\n");
-			}
-			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+			}*/
+			//ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
 			clear();
 			shapes.push(parsedObj);
 			notifyObservers();
@@ -338,7 +354,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
 
 		String parsedObject = JSONParser.parseArrayOfMapsIntoJSON(arrayListofShapeMap);
-		System.out.println(parsedObject + "\n---------------------------\n");
 
 		File outputXML = new File(path);
 		try {
@@ -419,10 +434,17 @@ public class DrawEngineImp implements DrawingEngine , Subject {
         return bos.toString();
     }
 
-    private Object stringToObject(String string) {
+    private Object stringToObject(String path) {
         @SuppressWarnings("resource")
-		XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(string.getBytes()));
-        return xmlDecoder.readObject();
+		XMLDecoder xmlDecoder;
+		try {
+			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
+			return xmlDecoder.readObject();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
     }
 
 
