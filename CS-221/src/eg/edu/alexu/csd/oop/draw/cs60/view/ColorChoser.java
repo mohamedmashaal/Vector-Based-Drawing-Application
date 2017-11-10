@@ -47,6 +47,7 @@ public class ColorChoser extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				view.getController().setColor(color);
 				view.getController().setFill_color(fill_color);
+				dispose();
 			}
 		});
 		selectFillColor = new JButton("Select Color");

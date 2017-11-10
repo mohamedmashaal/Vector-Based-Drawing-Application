@@ -183,6 +183,15 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		notifyObservers();
 	}
 	
+	public void addShapeDrag(Shape shape) {
+		shapes.peek().add(shape);
+	}
+	
+	public void removeShapeDrag(Shape shape) {
+		int index = shapes.peek().indexOf(shape);
+		shapes.peek().remove(index);
+	}
+	
 	public void dragDrawShape(Shape oldShape, Shape newShape) {
 		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
