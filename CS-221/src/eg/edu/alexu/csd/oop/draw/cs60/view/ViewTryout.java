@@ -36,8 +36,8 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 	@Override
 	public void paint(Graphics g) {
 		if(!load){
-			engine.load("testdraw.xml");
-			engine.refresh(g);
+			//engine.load("testdraw.xml");
+			//engine.refresh(g);
 			load = true;
 		}
 		addMouseListener(this);
@@ -52,8 +52,8 @@ public class ViewTryout extends JPanel implements MouseMotionListener, MouseList
 			}
 			rect = new Rectangle(p,Math.abs(p2.x-p.x),Math.abs(p2.y-p.y));
 			rect.setColor(new Color(rand.nextInt()));
-			engine.addShape(rect);
-			engine.refresh(g);
+			//engine.addShape(rect);
+			//engine.refresh(g);
 		}
 		//if(!save) {
 			//engine.save("0.6798829240056644_testDraw.XmL");
