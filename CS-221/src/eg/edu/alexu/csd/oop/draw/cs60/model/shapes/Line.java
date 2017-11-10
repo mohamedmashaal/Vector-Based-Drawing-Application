@@ -12,7 +12,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Line extends MainShape {
-	private float STROKE = 2;
 	private Point end ;
 	public Line() {
 		super();
@@ -37,7 +36,7 @@ public class Line extends MainShape {
 	public void draw(Graphics canvas) {
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(new Color(getProperties().get("color").intValue()));
-		g.setStroke( new BasicStroke(STROKE));
+		g.setStroke( new BasicStroke(getStorke()));
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.drawLine(getProperties().get("x1").intValue(), getProperties().get("y1").intValue(), getProperties().get("x2").intValue(), getProperties().get("y2").intValue());
 		if(getProperties().get("selected").intValue() == 1) {

@@ -13,74 +13,64 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 public abstract class MainShape implements Shape {
 	private Map<String, Double> properties ;
 	private Point position ;
-	private Color color ;
-	private Color fill_color ;
+	private float storke = 2;
+	private Color default_color = Color.BLUE;
+	private Color default_fill_color = Color.RED;
 	//private boolean selected = false ;
 	public MainShape() {
 		properties = new HashMap<String, Double>();
 		properties.put("selected" , 0.0);
 		properties.put("default_x", 0.0);
 		properties.put("default_y", 0.0);
-		properties.put("default_color", Color.BLACK.getRGB()*1.0);
-		properties.put("default_fill_color", Color.RED.getRGB()*1.0);
+		properties.put("color", default_color.getRGB()*1.0);
+		properties.put("fill_color", default_fill_color.getRGB()*1.0);
 	}
 	@Override
 	public void setPosition(Point position) {
-		// TODO Auto-generated method stub
-		/*properties.put("x1", position.getX());
-		properties.put("y1", position.getY());*/
 		this.position = position ;
 	}
 
 	@Override
 	public Point getPosition() {
-		//Point point = new Point(properties.get("x1").intValue(),properties.get("y1").intValue());
-		//return point;
 		return position ;
 	}
 
 	@Override
 	public void setProperties(Map<String, Double> properties) {
-		// TODO Auto-generated method stub
 		this.properties = properties ;
 	}
 
 	@Override
 	public Map<String, Double> getProperties() {
-		// TODO Auto-generated method stub
 		return properties;
 	}
 
 	@Override
 	public void setColor(Color color) {
-		// TODO Auto-generated method stub
-		//properties.put("color", new Double(color.getRGB()));
-		this.color = color ;
 		properties.put("color", color.getRGB()*1.0);
 	}
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
-		//return new Color(properties.get("color").intValue());
-		return color ;
+		return new Color(properties.get("color").intValue());
 	}
 
 	@Override
 	public void setFillColor(Color color) {
-		// TODO Auto-generated method stub
-		//properties.put("fill-color", new Double(color.getRGB()));
-		this.fill_color = color ;
 		properties.put("fill_color", color.getRGB()*1.0);
 	}
 
 	@Override
 	public Color getFillColor() {
-		// TODO Auto-generated method stub
-		//return new Color(properties.get("fill-color").intValue());
-		return fill_color ;
+		return new Color(getProperties().get("fill_color").intValue()) ;
 	}
 
+	public float getStorke() {
+		return storke;
+	}
+	public void setStorke(float storke) {
+		this.storke = storke;
+	}
 	
 	/*public boolean isSelected() {
 		return selected;

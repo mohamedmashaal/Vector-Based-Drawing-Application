@@ -1,10 +1,16 @@
 package eg.edu.alexu.csd.oop.draw.cs60.controller;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.IController;
@@ -19,13 +25,32 @@ public class Controller implements IController {
 	private DrawEngineImp model ;
 	private ArrayList<CustomButton> btnList ;
 	private Shape currentDraw ;
+	private Color fill_color = Color.RED;
+	private Color color = Color.BLUE;
 	
 	public Controller(DrawEngineImp model) {
 		 this.model = model ;
 		 view = new View(this , model);
 		 view.createView();
-		 view.createControls();
 		 model.addObserver(view);
+	}
+	
+	public Color getFill_color() {
+		return fill_color;
+	}
+
+	public void setFill_color(Color fill_color) {
+		this.fill_color = fill_color;
+		view.getColorPicker().setBackground(fill_color);
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+		view.getColorPicker().setBorder(new LineBorder(color,5));
 	}
 	
 	public void getBtnList () {
@@ -34,16 +59,16 @@ public class Controller implements IController {
 
 	public void draw(Point p1, Point p2) {
 		currentDraw = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
-		currentDraw.setColor(Color.BLUE);
-		currentDraw.setFillColor(Color.RED);
+		currentDraw.setColor(color);
+		currentDraw.setFillColor(fill_color);
 		model.addShape(currentDraw);
 		load();
 	}
 	
 	public void dragDraw(Point p1, Point p2) {
 		Shape newCurrent = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
-		newCurrent.setColor(Color.BLUE);
-		newCurrent.setFillColor(Color.RED);
+		newCurrent.setColor(color);
+		newCurrent.setFillColor(fill_color);
 		model.dragDrawShape(currentDraw, newCurrent);
 		currentDraw = newCurrent ;
 	}
@@ -84,5 +109,6 @@ public class Controller implements IController {
 		model.setSelected();
 		model.setSelected(view.getShapeList().getSelectedIndices());
 	}
+	
 	
 }

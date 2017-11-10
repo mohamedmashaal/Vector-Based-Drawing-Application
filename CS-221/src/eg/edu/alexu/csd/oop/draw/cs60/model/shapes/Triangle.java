@@ -13,7 +13,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Triangle extends MainShape{
-	private float STROKE = 2;
 	private Point p2 ;
 	private Point p3 ;
 	private int[] xPoints = new int [3];
@@ -55,7 +54,7 @@ public class Triangle extends MainShape{
 		g.fillPolygon(new int [] {getProperties().get("x1").intValue(),getProperties().get("x2").intValue(),getProperties().get("x3").intValue()},
 				new int [] {getProperties().get("y1").intValue(),getProperties().get("y2").intValue(),getProperties().get("y3").intValue()},
 				3);
-		g.setStroke( new BasicStroke(STROKE));
+		g.setStroke( new BasicStroke(getStorke()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawPolygon(new int [] {getProperties().get("x1").intValue(),getProperties().get("x2").intValue(),getProperties().get("x3").intValue()},
 				new int [] {getProperties().get("y1").intValue(),getProperties().get("y2").intValue(),getProperties().get("y3").intValue()},

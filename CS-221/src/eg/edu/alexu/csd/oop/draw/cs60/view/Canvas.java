@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -22,6 +23,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	
 	public Canvas(View view) {
 		super();
+		this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 		this.view = view ;
     	setBackground(new java.awt.Color(255, 255, 255));
     	addMouseListener(this);

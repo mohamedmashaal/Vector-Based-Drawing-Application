@@ -14,7 +14,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Rectangle extends MainShape {
-	private float STROKE = 2;
 	private double width ;
 	private double height ;
 	public Rectangle() {
@@ -45,7 +44,7 @@ public class Rectangle extends MainShape {
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.fillRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
 				   getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		g.setStroke( new BasicStroke(STROKE));
+		g.setStroke( new BasicStroke(getStorke()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
 				   getProperties().get("width").intValue(), getProperties().get("height").intValue());
