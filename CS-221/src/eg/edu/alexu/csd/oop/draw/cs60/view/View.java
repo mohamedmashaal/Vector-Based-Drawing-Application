@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.oop.draw.cs60.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -53,7 +54,7 @@ public class View implements Observer{
     private StorkeSlider storkeSlider ;
     private JLabel storkeLabel ;
     private ColorPicker colorPicker ;
-    private JPanel leftContainer ;
+	private JPanel leftContainer ;
 	
     
     public View(Controller controller , DrawEngineImp model) {
@@ -99,8 +100,8 @@ public class View implements Observer{
 	}
 
 	private void createColorSlider() {
-		colorPicker = new ColorPicker();
-		storkeSlider = new StorkeSlider();
+		colorPicker = new ColorPicker(this);
+		storkeSlider = new StorkeSlider(this);
 		storkeLabel = new JLabel("Storke");
 		storkeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		storkeLabel.setFocusable(false);
@@ -359,5 +360,13 @@ public class View implements Observer{
 	public void updateSelected() {
 		canvas.repaint();
 	}
-    
+
+	public Frame getMainWindow() {
+		return mainWindow;
+	}
+	public ColorPicker getColorPicker() {
+		return colorPicker;
+	}
+
+	
 }

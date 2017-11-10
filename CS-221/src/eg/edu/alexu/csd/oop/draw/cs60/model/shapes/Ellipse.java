@@ -12,7 +12,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Ellipse extends MainShape {
-	private float STROKE = 2;
 	private double width ;
 	private double height ;
 	
@@ -41,7 +40,7 @@ public class Ellipse extends MainShape {
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.fillOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		g.setStroke( new BasicStroke(STROKE));
+		g.setStroke( new BasicStroke(getStorke()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), getProperties().get("width").intValue(), getProperties().get("height").intValue());
 		if(getProperties().get("selected").intValue() == 1) {
