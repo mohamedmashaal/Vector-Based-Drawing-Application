@@ -373,7 +373,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				//System.out.println("Here: " + shapeName);
 				Shape loadedShape = shapesFactory.CreateShape(shapeName);
 
-				if(tempMap != null)
+				if(loadedShape != null)
 				//try {
 					loadedShape.setProperties(tempMap);
 				//} catch (Exception e) {
