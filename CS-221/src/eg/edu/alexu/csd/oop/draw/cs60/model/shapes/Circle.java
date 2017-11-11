@@ -1,10 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model.shapes;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,10 +46,15 @@ public class Circle extends MainShape{
 	public void draw(Graphics canvas) {
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D)canvas ;
+
+		//getProperties().put("stroke_width", 1.0);
+
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.fillOval(getProperties().get("x").intValue()-getProperties().get("radius").intValue(), getProperties().get("y").intValue()-getProperties().get("radius").intValue(), 
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
-		g.setStroke( new BasicStroke(getStorke()));
+		//g.setStroke( new BasicStroke(getStorke()));
+		g.setStroke(((Graphics2D) canvas).getStroke());
+		System.out.println("in : " + ((Graphics2D) canvas).getStroke());
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawOval(getProperties().get("x").intValue()-getProperties().get("radius").intValue(), getProperties().get("y").intValue()-getProperties().get("radius").intValue(),
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
