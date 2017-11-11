@@ -299,7 +299,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private void loadXML(String path){
 		try {
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
-			clear();
+			shapes = new Stack<>();
 			shapes.push(parsedObj);			
 			notifyObservers();
 		}
@@ -417,7 +417,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			Object x =xmlDecoder.readObject();
 			return x ;
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
