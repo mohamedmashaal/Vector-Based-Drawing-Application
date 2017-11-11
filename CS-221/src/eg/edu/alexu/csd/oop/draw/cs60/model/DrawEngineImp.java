@@ -272,14 +272,14 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		//throw new RuntimeException(path);
 		/*if(shapes.peek().isEmpty())
 			return;*/
-		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
+		ArrayList<Shape> arrayOfShapes = shapes.peek();
 //		for(int i=0; i<arrayOfShapes.size(); i++){
 //			if(arrayOfShapes.get(i).getProperties() == null){
 //				arrayOfShapes.remove(i);
 //			}
 //		}
         //String objToString = objectToString(arrayOfShapes , path);
-		objectToString(arrayOfShapes , path);
+			objectToString(arrayOfShapes , path);
 		/*File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
@@ -298,13 +298,27 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			        new BufferedOutputStream(
 			            new FileOutputStream(path)));
 			e.writeObject(arrayOfShapes);
+			e.close();
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return ;
 	}
-
+	
+	private Object stringToObject(String path) {
+        @SuppressWarnings("resource")
+		XMLDecoder xmlDecoder;
+		try {
+			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
+			return xmlDecoder.readObject();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+    }
+	
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
 		/*File inputXML = new File(path);
@@ -434,18 +448,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
         return bos.toString();
     }
 
-    private Object stringToObject(String path) {
-        @SuppressWarnings("resource")
-		XMLDecoder xmlDecoder;
-		try {
-			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
-			return xmlDecoder.readObject();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-    }
 
 
 	@Override
