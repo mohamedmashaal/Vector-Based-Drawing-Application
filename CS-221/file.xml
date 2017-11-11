@@ -9,14 +9,14 @@
        <string>x</string>
        <void method="set">
         <object idref="Point0"/>
-        <int>211</int>
+        <int>146</int>
        </void>
       </void>
       <void class="java.awt.Point" method="getField">
        <string>y</string>
        <void method="set">
         <object idref="Point0"/>
-        <int>152</int>
+        <int>88</int>
        </void>
       </void>
      </object>
@@ -24,51 +24,51 @@
     <void property="properties">
      <void method="put">
       <string>bond_1_y</string>
-      <double>109.0</double>
+      <double>44.0</double>
      </void>
      <void method="put">
       <string>bond_2_x</string>
-      <double>254.0</double>
+      <double>190.0</double>
      </void>
      <void method="put">
       <string>bond_1_x</string>
-      <double>168.0</double>
+      <double>102.0</double>
      </void>
      <void method="put">
       <string>x</string>
-      <double>211.0</double>
+      <double>146.0</double>
      </void>
      <void method="put">
       <string>y</string>
-      <double>152.0</double>
+      <double>88.0</double>
      </void>
      <void method="put">
       <string>bond_2_y</string>
-      <double>195.0</double>
+      <double>132.0</double>
      </void>
      <void method="put">
       <string>radius</string>
-      <double>43.41658669218482</double>
+      <double>44.94441010848846</double>
      </void>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle1">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Ellipse" id="Ellipse0">
     <void property="position">
      <object class="java.awt.Point" id="Point1">
       <void class="java.awt.Point" method="getField">
        <string>x</string>
        <void method="set">
         <object idref="Point1"/>
-        <int>339</int>
+        <int>254</int>
        </void>
       </void>
       <void class="java.awt.Point" method="getField">
        <string>y</string>
        <void method="set">
         <object idref="Point1"/>
-        <int>196</int>
+        <int>74</int>
        </void>
       </void>
      </object>
@@ -76,51 +76,55 @@
     <void property="properties">
      <void method="put">
       <string>bond_1_y</string>
-      <double>130.0</double>
+      <double>74.0</double>
      </void>
      <void method="put">
       <string>bond_2_x</string>
-      <double>405.0</double>
+      <double>413.0</double>
      </void>
      <void method="put">
       <string>bond_1_x</string>
-      <double>273.0</double>
+      <double>254.0</double>
      </void>
      <void method="put">
       <string>x</string>
-      <double>339.0</double>
+      <double>254.0</double>
+     </void>
+     <void method="put">
+      <string>width</string>
+      <double>159.0</double>
      </void>
      <void method="put">
       <string>y</string>
-      <double>196.0</double>
+      <double>74.0</double>
      </void>
      <void method="put">
       <string>bond_2_y</string>
-      <double>262.0</double>
+      <double>144.0</double>
      </void>
      <void method="put">
-      <string>radius</string>
-      <double>66.21933252457322</double>
+      <string>height</string>
+      <double>70.0</double>
      </void>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle2">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Ellipse" id="Ellipse1">
     <void property="position">
      <object class="java.awt.Point" id="Point2">
       <void class="java.awt.Point" method="getField">
        <string>x</string>
        <void method="set">
         <object idref="Point2"/>
-        <int>161</int>
+        <int>234</int>
        </void>
       </void>
       <void class="java.awt.Point" method="getField">
        <string>y</string>
        <void method="set">
         <object idref="Point2"/>
-        <int>343</int>
+        <int>310</int>
        </void>
       </void>
      </object>
@@ -128,51 +132,55 @@
     <void property="properties">
      <void method="put">
       <string>bond_1_y</string>
-      <double>254.0</double>
+      <double>310.0</double>
      </void>
      <void method="put">
       <string>bond_2_x</string>
-      <double>250.0</double>
+      <double>311.0</double>
      </void>
      <void method="put">
       <string>bond_1_x</string>
-      <double>72.0</double>
+      <double>234.0</double>
      </void>
      <void method="put">
       <string>x</string>
-      <double>161.0</double>
+      <double>234.0</double>
+     </void>
+     <void method="put">
+      <string>width</string>
+      <double>77.0</double>
      </void>
      <void method="put">
       <string>y</string>
-      <double>343.0</double>
+      <double>310.0</double>
      </void>
      <void method="put">
       <string>bond_2_y</string>
-      <double>432.0</double>
+      <double>427.0</double>
      </void>
      <void method="put">
-      <string>radius</string>
-      <double>89.89994438263018</double>
+      <string>height</string>
+      <double>117.0</double>
      </void>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle3">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Ellipse" id="Ellipse2">
     <void property="position">
      <object class="java.awt.Point" id="Point3">
       <void class="java.awt.Point" method="getField">
        <string>x</string>
        <void method="set">
         <object idref="Point3"/>
-        <int>375</int>
+        <int>399</int>
        </void>
       </void>
       <void class="java.awt.Point" method="getField">
        <string>y</string>
        <void method="set">
         <object idref="Point3"/>
-        <int>399</int>
+        <int>278</int>
        </void>
       </void>
      </object>
@@ -180,51 +188,55 @@
     <void property="properties">
      <void method="put">
       <string>bond_1_y</string>
-      <double>287.0</double>
+      <double>278.0</double>
      </void>
      <void method="put">
       <string>bond_2_x</string>
-      <double>487.0</double>
+      <double>463.0</double>
      </void>
      <void method="put">
       <string>bond_1_x</string>
-      <double>263.0</double>
-     </void>
-     <void method="put">
-      <string>x</string>
-      <double>375.0</double>
-     </void>
-     <void method="put">
-      <string>y</string>
       <double>399.0</double>
      </void>
      <void method="put">
-      <string>bond_2_y</string>
-      <double>511.0</double>
+      <string>x</string>
+      <double>399.0</double>
      </void>
      <void method="put">
-      <string>radius</string>
-      <double>112.6809655620682</double>
+      <string>width</string>
+      <double>64.0</double>
+     </void>
+     <void method="put">
+      <string>y</string>
+      <double>278.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_y</string>
+      <double>414.0</double>
+     </void>
+     <void method="put">
+      <string>height</string>
+      <double>136.0</double>
      </void>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle4">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Ellipse" id="Ellipse3">
     <void property="position">
      <object class="java.awt.Point" id="Point4">
       <void class="java.awt.Point" method="getField">
        <string>x</string>
        <void method="set">
         <object idref="Point4"/>
-        <int>499</int>
+        <int>205</int>
        </void>
       </void>
       <void class="java.awt.Point" method="getField">
        <string>y</string>
        <void method="set">
         <object idref="Point4"/>
-        <int>191</int>
+        <int>222</int>
        </void>
       </void>
      </object>
@@ -232,83 +244,35 @@
     <void property="properties">
      <void method="put">
       <string>bond_1_y</string>
-      <double>153.0</double>
+      <double>222.0</double>
      </void>
      <void method="put">
       <string>bond_2_x</string>
-      <double>537.0</double>
+      <double>324.0</double>
      </void>
      <void method="put">
       <string>bond_1_x</string>
-      <double>461.0</double>
+      <double>205.0</double>
      </void>
      <void method="put">
       <string>x</string>
-      <double>499.0</double>
+      <double>205.0</double>
+     </void>
+     <void method="put">
+      <string>width</string>
+      <double>119.0</double>
      </void>
      <void method="put">
       <string>y</string>
-      <double>191.0</double>
+      <double>222.0</double>
      </void>
      <void method="put">
       <string>bond_2_y</string>
-      <double>229.0</double>
+      <double>237.0</double>
      </void>
      <void method="put">
-      <string>radius</string>
-      <double>38.01315561749642</double>
-     </void>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle5">
-    <void property="position">
-     <object class="java.awt.Point" id="Point5">
-      <void class="java.awt.Point" method="getField">
-       <string>x</string>
-       <void method="set">
-        <object idref="Point5"/>
-        <int>451</int>
-       </void>
-      </void>
-      <void class="java.awt.Point" method="getField">
-       <string>y</string>
-       <void method="set">
-        <object idref="Point5"/>
-        <int>75</int>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void property="properties">
-     <void method="put">
-      <string>bond_1_y</string>
-      <double>45.0</double>
-     </void>
-     <void method="put">
-      <string>bond_2_x</string>
-      <double>481.0</double>
-     </void>
-     <void method="put">
-      <string>bond_1_x</string>
-      <double>421.0</double>
-     </void>
-     <void method="put">
-      <string>x</string>
-      <double>451.0</double>
-     </void>
-     <void method="put">
-      <string>y</string>
-      <double>75.0</double>
-     </void>
-     <void method="put">
-      <string>bond_2_y</string>
-      <double>105.0</double>
-     </void>
-     <void method="put">
-      <string>radius</string>
-      <double>30.870698080866262</double>
+      <string>height</string>
+      <double>15.0</double>
      </void>
     </void>
    </object>
