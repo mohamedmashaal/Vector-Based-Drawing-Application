@@ -284,15 +284,21 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
 		XMLEncoder e= null ;
+		StringBuilder x = null;
 		try {
 			e = new XMLEncoder(
 			        new BufferedOutputStream(
 			            new FileOutputStream(path)));
 			e.writeObject(arrayOfShapes);
-			throw new RuntimeException(e.toString());
+			Scanner sc = new Scanner(new File(path));
+			x = new StringBuilder();
+			while(sc.hasNext()) {
+				x.append(sc.next());
+			}
+			throw new RuntimeException(x.toString());
 			//e.close();
 		} catch (FileNotFoundException e1) {
-			throw new RuntimeException(e.toString());
+			throw new RuntimeException(x.toString());
 			//e1.printStackTrace();
 		}
 		//return ;
