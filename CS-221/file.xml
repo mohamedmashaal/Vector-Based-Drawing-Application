@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_151" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle0">
+    <void property="position">
+     <object class="java.awt.Point" id="Point0">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point0"/>
+        <int>118</int>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point0"/>
+        <int>89</int>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void property="properties">
+     <void method="put">
+      <string>bond_1_y</string>
+      <double>44.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_x</string>
+      <double>163.0</double>
+     </void>
+     <void method="put">
+      <string>bond_1_x</string>
+      <double>73.0</double>
+     </void>
+     <void method="put">
+      <string>x</string>
+      <double>118.0</double>
+     </void>
+     <void method="put">
+      <string>y</string>
+      <double>89.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_y</string>
+      <double>134.0</double>
+     </void>
+     <void method="put">
+      <string>radius</string>
+      <double>45.45327270945405</double>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle1">
+    <void property="position">
+     <object class="java.awt.Point" id="Point1">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point1"/>
+        <int>264</int>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point1"/>
+        <int>179</int>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void property="properties">
+     <void method="put">
+      <string>bond_1_y</string>
+      <double>85.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_x</string>
+      <double>358.0</double>
+     </void>
+     <void method="put">
+      <string>bond_1_x</string>
+      <double>170.0</double>
+     </void>
+     <void method="put">
+      <string>x</string>
+      <double>264.0</double>
+     </void>
+     <void method="put">
+      <string>y</string>
+      <double>179.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_y</string>
+      <double>273.0</double>
+     </void>
+     <void method="put">
+      <string>radius</string>
+      <double>94.04786015641186</double>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle2">
+    <void property="position">
+     <object class="java.awt.Point" id="Point2">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point2"/>
+        <int>427</int>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point2"/>
+        <int>302</int>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void property="properties">
+     <void method="put">
+      <string>bond_1_y</string>
+      <double>212.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_x</string>
+      <double>517.0</double>
+     </void>
+     <void method="put">
+      <string>bond_1_x</string>
+      <double>337.0</double>
+     </void>
+     <void method="put">
+      <string>x</string>
+      <double>427.0</double>
+     </void>
+     <void method="put">
+      <string>y</string>
+      <double>302.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_y</string>
+      <double>392.0</double>
+     </void>
+     <void method="put">
+      <string>radius</string>
+      <double>90.4267659490264</double>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle3">
+    <void property="position">
+     <object class="java.awt.Point" id="Point3">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point3"/>
+        <int>200</int>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point3"/>
+        <int>428</int>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void property="properties">
+     <void method="put">
+      <string>bond_1_y</string>
+      <double>384.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_x</string>
+      <double>244.0</double>
+     </void>
+     <void method="put">
+      <string>bond_1_x</string>
+      <double>156.0</double>
+     </void>
+     <void method="put">
+      <string>x</string>
+      <double>200.0</double>
+     </void>
+     <void method="put">
+      <string>y</string>
+      <double>428.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_y</string>
+      <double>472.0</double>
+     </void>
+     <void method="put">
+      <string>radius</string>
+      <double>44.94441010848846</double>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle" id="Circle4">
+    <void property="position">
+     <object class="java.awt.Point" id="Point4">
+      <void class="java.awt.Point" method="getField">
+       <string>x</string>
+       <void method="set">
+        <object idref="Point4"/>
+        <int>143</int>
+       </void>
+      </void>
+      <void class="java.awt.Point" method="getField">
+       <string>y</string>
+       <void method="set">
+        <object idref="Point4"/>
+        <int>322</int>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void property="properties">
+     <void method="put">
+      <string>bond_1_y</string>
+      <double>280.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_x</string>
+      <double>185.0</double>
+     </void>
+     <void method="put">
+      <string>bond_1_x</string>
+      <double>101.0</double>
+     </void>
+     <void method="put">
+      <string>x</string>
+      <double>143.0</double>
+     </void>
+     <void method="put">
+      <string>y</string>
+      <double>322.0</double>
+     </void>
+     <void method="put">
+      <string>bond_2_y</string>
+      <double>364.0</double>
+     </void>
+     <void method="put">
+      <string>radius</string>
+      <double>42.720018726587654</double>
+     </void>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
