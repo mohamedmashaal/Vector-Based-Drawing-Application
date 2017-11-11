@@ -12,7 +12,7 @@ public class StrokeSlider extends JSlider {
 	static final int STK_MAX = 30;
 	static final int STK_INIT = 2;
 	
-	private View view ;
+	private final View view ;
 	public StrokeSlider(View view) {
 		super(JSlider.HORIZONTAL,STK_MIN,STK_MAX,STK_INIT);
 		this.view = view;
