@@ -21,6 +21,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
+import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import org.omg.SendingContext.RunTime;
 
 public class DrawEngineImp implements DrawingEngine , Subject {
@@ -32,6 +33,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private JoeSONParser JSONParser = new JoeSONParser();
 	private XMLParser xmlParser = new XMLParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
+	private ArrayList<CustomButton> btnList ;
 
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
@@ -100,7 +102,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			g.setStroke( new BasicStroke(2));
 			g.drawRect(p1.x - margin, p1.y - margin ,p2.x - p1.x + 2 *margin, p2.y - p1.y + 2 * margin);
 		}
-		}
+
+	}
 
 	public void setSelected() {
 		for(Shape x : getShapes()) {

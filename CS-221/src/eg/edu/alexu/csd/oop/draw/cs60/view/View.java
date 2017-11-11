@@ -1,18 +1,14 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Frame;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import eg.edu.alexu.csd.oop.draw.Observer;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -53,8 +49,8 @@ public class View implements Observer{
     private JMenuItem contentsMenuItem;
     private ShapeList<Shape> shapesList;
     private JScrollPane jScrollPane1;
-    private StorkeSlider storkeSlider ;
-    private JLabel storkeLabel ;
+    private StrokeSlider strokeSlider;
+    private JLabel strokeLabel ;
     private ColorPicker colorPicker ;
 	private JPanel leftContainer ;
 	
@@ -83,8 +79,8 @@ public class View implements Observer{
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(storkeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(storkeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(strokeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(strokeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(colorPicker, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -92,9 +88,9 @@ public class View implements Observer{
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(colorPicker, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(storkeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(strokeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(storkeLabel)
+                .addComponent(strokeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE))
         );
@@ -103,10 +99,17 @@ public class View implements Observer{
 
 	private void createColorSlider() {
 		colorPicker = new ColorPicker(this);
-		storkeSlider = new StorkeSlider(this);
-		storkeLabel = new JLabel("Storke");
-		storkeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		storkeLabel.setFocusable(false);
+		strokeSlider = new StrokeSlider(this);
+		strokeLabel = new JLabel("Storke");
+		strokeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		strokeLabel.setFocusable(false);
+
+		strokeSlider.setValue(20);
+		strokeSlider.addChangeListener(changeEvent -> {
+            controller.changeStroke(strokeSlider.getValue()/10.0);
+            System.out.println(strokeSlider.getValue()/10.0);
+        });
+
 	}
 
 	private void setupMainWindow() {
@@ -282,7 +285,7 @@ public class View implements Observer{
         editMenu.add(redoMenuItem);
 
         deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Dlete Shape");
+        deleteMenuItem.setText("Delete Shape");
         deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D,ActionEvent.CTRL_MASK));
         deleteMenuItem.addActionListener(new ActionListener() {
 			@Override
@@ -397,4 +400,5 @@ public class View implements Observer{
 		btnContainer.add(plugin);
 		btnContainer.revalidate();
 	}
+
 }

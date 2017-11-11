@@ -1,7 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.controller;
 
-import java.awt.Color;
-import java.awt.Point;
+import java.awt.*;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -13,10 +12,10 @@ import javax.swing.border.LineBorder;
 import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
-import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
+import eg.edu.alexu.csd.oop.draw.cs60.view.StrokeSlider;
 
 public class Controller implements IController {
 	private View view ;
@@ -25,12 +24,14 @@ public class Controller implements IController {
 	private Shape currentDraw ;
 	private Color fill_color = Color.RED;
 	private Color color = Color.BLUE;
+	private StrokeSlider strokeSlider;
 	
 	public Controller(DrawEngineImp model) {
 		 this.model = model ;
 		 view = new View(this , model);
 		 view.createView();
 		 model.addObserver(view);
+		 strokeSlider = new StrokeSlider(view);
 	}
 	
 	public Color getFill_color() {
@@ -121,6 +122,10 @@ public class Controller implements IController {
 	
 	public void removeCurrentDraw() {
 		model.removeShapeDrag(currentDraw);
+	}
+
+	public void changeStroke(double value){
+		strokeSlider.changeStroke((float) value);
 	}
 
 	public void imp(File file) throws MalformedURLException, ClassNotFoundException {

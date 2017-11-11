@@ -13,6 +13,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	private View view ;
 	private Point p1 ;
 	private Point p2 ;
+	private float stroke = 2;
 	
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -84,6 +85,10 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+	}
+
+	public void setStroke(float value){
+		this.stroke = value;
 	}
 	
 	
