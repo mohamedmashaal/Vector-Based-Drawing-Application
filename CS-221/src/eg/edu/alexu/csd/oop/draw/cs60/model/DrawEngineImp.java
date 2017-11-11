@@ -328,15 +328,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			/*in = new Scanner(inputXML);
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine() + "\n");
-<<<<<<< HEAD
-			}
-			//System.out.println(shapesXMLContent);
-			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-=======
 			}*/
 			//ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
->>>>>>> 1d6c78397132806cc6389009b2bb1c78ae038e14
 			clear();
 			shapes.push(parsedObj);
 			notifyObservers();
