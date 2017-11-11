@@ -55,7 +55,7 @@ public class XMLParser {
                 Transformer tr = TransformerFactory.newInstance().newTransformer();
                 tr.setOutputProperty(OutputKeys.INDENT, "yes");
                 tr.setOutputProperty(OutputKeys.METHOD, "xml");
-                tr.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+                tr.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
                 //tr.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "shapes.dtd");
                 tr.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
 
@@ -114,12 +114,12 @@ System.out.println("Name : " + shapeNode.getNodeName() + " -- " + shapeNode.getT
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }
-        StringBuilder x = new StringBuilder();
-        for(Map z : shapesMaps) {
-        	x.append(z.keySet().toString()+ "\n");
-        }
-        throw new RuntimeException(x.toString());
-        //return shapesMaps;
+//        StringBuilder x = new StringBuilder();
+//        for(Map z : shapesMaps) {
+//        	x.append(z.keySet().toString()+ "\n");
+//        }
+//        throw new RuntimeException("Before" + x.toString()+"After");
+        return shapesMaps;
     }
 
 }
