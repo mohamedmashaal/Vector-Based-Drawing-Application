@@ -8,9 +8,12 @@ import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.*;
+import javax.xml.*;
 
 import javax.management.RuntimeErrorException;
+import javax.xml.parsers.DocumentBuilder;
 
+import com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl;
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Observer;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -269,72 +272,24 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveXML(String path){
-		//throw new RuntimeException(path);
-		/*if(shapes.peek().isEmpty())
-			return;*/
 		ArrayList<Shape> arrayOfShapes = shapes.peek();
 		for(int i=0; i<arrayOfShapes.size(); i++){
 			if(arrayOfShapes.get(i).getProperties() == null || arrayOfShapes.get(i).getPosition() == null){
 				arrayOfShapes.remove(i);
 			}
 		}
-        //String objToString = objectToString(arrayOfShapes , path);
-		objectToString(arrayOfShapes , path);
-		/*File outputXML = new File(path);
-        try {
-			FileWriter pw = new FileWriter(outputXML);
-			pw.write(objToString);
-			pw.close();
-		}
-        catch (Exception e) {
-        	throw new RuntimeException(e);
-		}*/
+		//objectToString(arrayOfShapes , path);
+		//DocumentBuilder docBuilder = new DocumentBuilderImpl();
 	}
-
-	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
-		XMLEncoder e;
-		try {
-			e = new XMLEncoder(
-			        new BufferedOutputStream(
-			            new FileOutputStream(path)));
-			e.writeObject(arrayOfShapes);
-			e.close();
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		return ;
-	}
-	
-	private Object stringToObject(String path) {
-        @SuppressWarnings("resource")
-		XMLDecoder xmlDecoder;
-		try {
-			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
-			return xmlDecoder.readObject();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-    }
 	
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
-		/*File inputXML = new File(path);
-		StringBuilder shapesXMLContent = new StringBuilder();
-		Scanner in;*/
 		try {
-			/*in = new Scanner(inputXML);
-			while(in.hasNextLine()) {
-				shapesXMLContent.append(in.nextLine() + "\n");
-			}*/
-			//ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
 			clear();
 			for(Shape x : parsedObj) {
 				addShape(x);
 			}
-			//shapes.push(parsedObj);
 			notifyObservers();
 		}
 		catch(Exception e) {
@@ -433,6 +388,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				//System.out.println("--line 352");
 			}
 			shapes = new Stack<>();
+			shapes.push(new ArrayList<>());
 			shapes.push(loadedShapes);
 			notifyObservers();
 			//System.out.println("--line 357");
@@ -441,16 +397,33 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			throw new RuntimeException(e);
 		}*/
 	}
-	
-	private String objectToString(Object hashMap) {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        XMLEncoder xmlEncoder = new XMLEncoder(bos);
-        xmlEncoder.writeObject(hashMap);
-        xmlEncoder.close();
-        return bos.toString();
-    }
 
+	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
+		XMLEncoder e;
+		try {
+			e = new XMLEncoder(
+					new BufferedOutputStream(
+							new FileOutputStream(path)));
+			e.writeObject(arrayOfShapes);
+			e.close();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		return ;
+	}
 
+	private Object stringToObject(String path) {
+		@SuppressWarnings("resource")
+		XMLDecoder xmlDecoder;
+		try {
+			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
+			return xmlDecoder.readObject();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	@Override
 	public void notifyObservers() {
