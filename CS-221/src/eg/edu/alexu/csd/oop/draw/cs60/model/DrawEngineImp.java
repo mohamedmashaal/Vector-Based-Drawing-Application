@@ -290,6 +290,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			        new BufferedOutputStream(
 			            new FileOutputStream(path)));
 			e.writeObject(arrayOfShapes);
+			e.close();
 			Scanner sc = new Scanner(new File(path));
 			x = new StringBuilder();
 			while(sc.hasNext()) {
