@@ -13,6 +13,7 @@ import javax.swing.border.LineBorder;
 import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
+import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
@@ -125,19 +126,22 @@ public class Controller implements IController {
 	public void imp(File file) throws MalformedURLException, ClassNotFoundException {
 		if(file != null && file.getName().substring(file.getName().length()-5).toLowerCase().equals("class")) {
 			URL classUrl;
-			System.out.println(file.toURI().toURL());
+			System.out.println(new File(file.getParent()).toURI().toURL());
 //	        classUrl = new URL(file.toURI().toURL());
-	        URLClassLoader loader = new URLClassLoader(new URL[]{new File(file.getParent()).toURI().toURL()});
-	        Class <? extends Shape> cs = (Class<? extends Shape>) loader.loadClass(file.getName().substring(0,file.getName().indexOf('.')));
+			//URLClassLoader loader = ClassLoader.getSystemClassLoader();
+	        URLClassLoader loader = new URLClassLoader(new URL[]{new File(file.getParent()).toURI().toURL()},ClassLoader.getSystemClassLoader());
+	        System.out.println(file.getName().substring(0,file.getName().indexOf('.')));
+	        Class <Shape> cs = (Class<Shape>) loader.loadClass(file.getName().substring(0,file.getName().indexOf('.')));
 	        try {
-				System.out.println(cs.getField("storke"));
-			} catch (NoSuchFieldException e) {
+				System.out.println(cs.newInstance().toString());
+			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (SecurityException e) {
+			} catch (IllegalAccessException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	        model.addSupportedShape(cs);
 		}
 	}
 	

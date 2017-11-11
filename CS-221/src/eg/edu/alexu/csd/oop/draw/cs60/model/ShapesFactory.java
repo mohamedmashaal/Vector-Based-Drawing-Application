@@ -1,6 +1,10 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.Point;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.*;
@@ -57,6 +61,21 @@ public class ShapesFactory {
 			int x = p1.x < p2.x ? p1.x + width/2 : p1.x - width/2 ;
 			int x2 = p1.x < p2.x ? p2.x - width : p2.x + width ;
 			shape = new Triangle(new Point(x , p1.y), p2, new Point(x2 , p2.y));
+		}
+		else {
+			DrawEngineImp engine = DrawEngineImp.getUniqueInstance();
+			List<Class<? extends Shape>> supported = engine.getSupportedShapes();
+			for(Class<? extends Shape> x : supported) {
+				if(x.getName().equalsIgnoreCase(shapeName)) {
+					try {
+						Constructor<? extends Shape> cons = x.getConstructor(Point.class , double.class);
+						return cons.newInstance(p1, Math.sqrt(Math.pow(Math.abs(p1.x - p2.x),2) + Math.pow(Math.abs(p1.y - p2.y),2)));
+					} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+						e.printStackTrace();
+					}
+					
+				}
+			}
 		}
 		return shape;
 	}

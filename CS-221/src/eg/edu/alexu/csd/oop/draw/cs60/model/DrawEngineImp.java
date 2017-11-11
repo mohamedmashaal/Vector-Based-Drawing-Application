@@ -218,12 +218,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	public void addSupportedShape(Class<? extends Shape> shape) {
 		supportedShapes.add(shape);
-		notifyObserversPlugin();
+		notifyObserversPlugin(shape);
 	}
 	
-	private void notifyObserversPlugin() {
+	private void notifyObserversPlugin(Class<? extends Shape> shape) {
 		for(Observer x : observers) {
-			x.updateSupportedShapes();
+			x.updateSupportedShapes(shape);
 		}
 	}
 

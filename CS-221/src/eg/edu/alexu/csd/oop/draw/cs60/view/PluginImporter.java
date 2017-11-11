@@ -35,7 +35,6 @@ public class PluginImporter extends JFileChooser{
 		int returnVal = showDialog(view.getMainWindow(), "Import");
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 			try {
-				System.out.println(getSelectedFile().getName());
 				view.getController().imp(getSelectedFile());
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block

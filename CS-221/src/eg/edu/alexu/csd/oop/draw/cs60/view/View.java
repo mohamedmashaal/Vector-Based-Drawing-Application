@@ -390,8 +390,11 @@ public class View implements Observer{
 	}
 
 	@Override
-	public void updateSupportedShapes() {
+	public void updateSupportedShapes(Class<? extends Shape> shape) {
 		// TODO Auto-generated method stub
-		
+		CustomButton plugin = new CustomButton(shape.getName(), this);
+		btnList.add(plugin);
+		btnContainer.add(plugin);
+		btnContainer.revalidate();
 	}
 }
