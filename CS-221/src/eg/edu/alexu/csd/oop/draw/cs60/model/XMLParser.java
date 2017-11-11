@@ -55,7 +55,7 @@ public class XMLParser {
                 Transformer tr = TransformerFactory.newInstance().newTransformer();
                 tr.setOutputProperty(OutputKeys.INDENT, "yes");
                 tr.setOutputProperty(OutputKeys.METHOD, "xml");
-                tr.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
+                //tr.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
                 //tr.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "shapes.dtd");
                 tr.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
 
