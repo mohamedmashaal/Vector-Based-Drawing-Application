@@ -66,7 +66,7 @@ public class ShapesFactory {
 			DrawEngineImp engine = DrawEngineImp.getUniqueInstance();
 			List<Class<? extends Shape>> supported = engine.getSupportedShapes();
 			for(Class<? extends Shape> x : supported) {
-				if(x.getName().equalsIgnoreCase(shapeName)) {
+				if(x.getSimpleName().equalsIgnoreCase(shapeName)) {
 					try {
 						//Constructor<? extends Shape> ctor = x.getConstructor();
 						//Shape doRun = ctor.newInstance();

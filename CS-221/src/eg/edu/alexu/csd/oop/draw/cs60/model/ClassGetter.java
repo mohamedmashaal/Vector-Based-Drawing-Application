@@ -31,9 +31,6 @@ public class ClassGetter {
                 .filter(name -> name.endsWith(".class"))
                 .map(name -> name.replace(".class", "").replaceAll("/", "."))
                 .collect(Collectors.toSet());
-            for(String x : moduleClasses) {
-            	System.out.println(x);
-            }
         } catch(IOException e) {
             throw new IllegalArgumentException(String.format("Unexpected error while reading module jar: %s", e.getMessage()));
         }
@@ -55,7 +52,6 @@ public class ClassGetter {
 				ClassLoader loader =  URLClassLoader.newInstance(new URL[] {url}, mainClassLoader);
 				toAdd = loader.getClass().forName(x, true, loader);
 				if(!toAdd.isInterface() &&!Modifier.isAbstract(toAdd.getModifiers())&&toAdd.newInstance() instanceof Shape) {
-	        		System.out.println("It is ");
 					classes.add((Class<? extends Shape>) toAdd);
 	        	}
 			} catch (ClassNotFoundException e) {

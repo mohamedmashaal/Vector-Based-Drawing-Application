@@ -397,7 +397,7 @@ public class View implements Observer{
 	public void updateSupportedShapes() {
 		List<Class<? extends Shape>> supported = getModel().getSupportedShapes();
 		for(int i = 6 ; i < supported.size() ; i++ ) {
-			CustomButton plugin = new CustomButton(supported.get(i).getName(), this);
+			CustomButton plugin = new CustomButton(supported.get(i).getSimpleName(), this);
 			btnList.add(plugin);
 			btnContainer.add(plugin);
 			btnContainer.revalidate();
