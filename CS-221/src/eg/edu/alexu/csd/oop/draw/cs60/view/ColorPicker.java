@@ -17,7 +17,7 @@ public class ColorPicker extends JButton {
         setOpaque(true);
 
         setBackground(view.getController().getFill_color());
-        setBorder(javax.swing.BorderFactory.createLineBorder(view.getController().getColor(), 5));
+        setBorder(javax.swing.BorderFactory.createLineBorder(view.getController().getColor(), view.getController().getStroke()));
 
         addActionListener(new ActionListener() {
 			

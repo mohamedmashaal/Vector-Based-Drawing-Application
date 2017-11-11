@@ -46,15 +46,10 @@ public class Circle extends MainShape{
 	public void draw(Graphics canvas) {
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D)canvas ;
-
-		//getProperties().put("stroke_width", 1.0);
-
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.fillOval(getProperties().get("x").intValue()-getProperties().get("radius").intValue(), getProperties().get("y").intValue()-getProperties().get("radius").intValue(), 
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
-		//g.setStroke( new BasicStroke(getStorke()));
-		g.setStroke(((Graphics2D) canvas).getStroke());
-		System.out.println("in : " + ((Graphics2D) canvas).getStroke());
+		g.setStroke(new BasicStroke(getProperties().get("stroke").floatValue()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawOval(getProperties().get("x").intValue()-getProperties().get("radius").intValue(), getProperties().get("y").intValue()-getProperties().get("radius").intValue(),
 				getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);

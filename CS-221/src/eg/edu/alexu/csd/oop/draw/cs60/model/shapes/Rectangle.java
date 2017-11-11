@@ -44,7 +44,7 @@ public class Rectangle extends MainShape {
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.fillRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
 				   getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		g.setStroke( new BasicStroke(getStorke()));
+		g.setStroke( new BasicStroke(getProperties().get("stroke").floatValue()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
 				   getProperties().get("width").intValue(), getProperties().get("height").intValue());

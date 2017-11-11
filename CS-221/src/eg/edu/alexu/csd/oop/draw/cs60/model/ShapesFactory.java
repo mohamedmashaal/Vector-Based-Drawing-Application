@@ -37,26 +37,26 @@ public class ShapesFactory {
 		
 		if(shapeName.equalsIgnoreCase("circle"))
 			shape = new Circle(p1, Math.sqrt(Math.pow(Math.abs(p1.x - p2.x),2) + Math.pow(Math.abs(p1.y - p2.y),2)));
-		if(shapeName.equalsIgnoreCase("ellipse")) {
+		else if(shapeName.equalsIgnoreCase("ellipse")) {
 			int x = Math.min(p1.x, p2.x);
 			int y = Math.min(p1.y, p2.y);
 			shape = new Ellipse(new Point(x,y), Math.abs(p1.x - p2.x),
 					Math.abs(p1.y-p2.y));
 		}	
-		if(shapeName.equalsIgnoreCase("rectangle")){
+		else if(shapeName.equalsIgnoreCase("rectangle")){
 			int x = Math.min(p1.x, p2.x);
 			int y = Math.min(p1.y, p2.y);
 			shape = new Rectangle(new Point(x,y),Math.max(p1.x,p2.x)-x,Math.max(p1.y,p2.y)-y);
 		}
-		if(shapeName.equalsIgnoreCase("line"))
+		else if(shapeName.equalsIgnoreCase("line"))
 			shape = new Line(p1,p2);
-		if(shapeName.equalsIgnoreCase("square")){
+		else if(shapeName.equalsIgnoreCase("square")){
 			int width = Math.max(Math.abs(p1.x - p2.x), Math.abs(p1.y - p2.y));
 			int x = p1.x > p2.x ? p1.x - width : p1.x;
 			int y = p1.y > p2.y ? p1.y - width : p1.y;
 			shape = new Square(new Point(x,y),width);
 		}
-		if(shapeName.equalsIgnoreCase("triangle")){
+		else if(shapeName.equalsIgnoreCase("triangle")){
 			int width = Math.abs(p1.x-p2.x);
 			int x = p1.x < p2.x ? p1.x + width/2 : p1.x - width/2 ;
 			int x2 = p1.x < p2.x ? p2.x - width : p2.x + width ;

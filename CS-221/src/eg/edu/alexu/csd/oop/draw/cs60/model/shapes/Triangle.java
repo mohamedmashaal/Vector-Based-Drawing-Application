@@ -54,7 +54,7 @@ public class Triangle extends MainShape{
 		g.fillPolygon(new int [] {getProperties().get("x1").intValue(),getProperties().get("x2").intValue(),getProperties().get("x3").intValue()},
 				new int [] {getProperties().get("y1").intValue(),getProperties().get("y2").intValue(),getProperties().get("y3").intValue()},
 				3);
-		g.setStroke( new BasicStroke(getStorke()));
+		g.setStroke( new BasicStroke(getProperties().get("stroke").floatValue()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawPolygon(new int [] {getProperties().get("x1").intValue(),getProperties().get("x2").intValue(),getProperties().get("x3").intValue()},
 				new int [] {getProperties().get("y1").intValue(),getProperties().get("y2").intValue(),getProperties().get("y3").intValue()},

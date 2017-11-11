@@ -101,16 +101,9 @@ public class View implements Observer{
 	private void createColorSlider() {
 		colorPicker = new ColorPicker(this);
 		strokeSlider = new StrokeSlider(this);
-		strokeLabel = new JLabel("Storke");
+		strokeLabel = new JLabel("Stroke");
 		strokeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		strokeLabel.setFocusable(false);
-
-		strokeSlider.setValue(20);
-		strokeSlider.addChangeListener(changeEvent -> {
-            controller.changeStroke(strokeSlider.getValue()/10.0);
-            System.out.println(strokeSlider.getValue()/10.0);
-        });
-
 	}
 
 	private void setupMainWindow() {
@@ -162,48 +155,10 @@ public class View implements Observer{
     	for(CustomButton x : btnList) {
     		btnContainer.add(x);
     	}
-    	//btnContainer.revalidate();
-    	/*javax.swing.GroupLayout btnContainerLayout = new javax.swing.GroupLayout(btnContainer);
-        btnContainer.setLayout(btnContainerLayout);
-        btnContainerLayout.setHorizontalGroup(
-            btnContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnContainerLayout.createSequentialGroup()
-                .addComponent(circleButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ellipseButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lineButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rectButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(squareButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(triangleButton)
-                .addGap(0, 217, Short.MAX_VALUE))
-        );
-        btnContainerLayout.setVerticalGroup(
-            btnContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(circleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-            .addComponent(ellipseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(squareButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(triangleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );*/
-		
 	}
 
 	private void setupCanvas() {
     	canvas = new Canvas(this);
-    	/*javax.swing.GroupLayout canvasLayout = new javax.swing.GroupLayout(canvas);
-    	canvasLayout.setHorizontalGroup(
-    			canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 668, Short.MAX_VALUE)
-            );
-    	canvasLayout.setVerticalGroup(
-            	canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 535, Short.MAX_VALUE)
-            );*/
 	}
 
 	private void createMenuBar() {

@@ -9,6 +9,7 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
 
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 import eg.edu.alexu.csd.oop.draw.IController;
@@ -27,14 +28,13 @@ public class Controller implements IController {
 	private Shape currentDraw ;
 	private Color fill_color = Color.RED;
 	private Color color = Color.BLUE;
-	private StrokeSlider strokeSlider;
+	private double stroke = 2 ;
 	
 	public Controller(DrawEngineImp model) {
 		 this.model = model ;
 		 view = new View(this , model);
 		 view.createView();
 		 model.addObserver(view);
-		 strokeSlider = new StrokeSlider(view);
 	}
 	
 	public Color getFill_color() {
@@ -56,7 +56,7 @@ public class Controller implements IController {
 
 	public void setColor(Color color) {
 		this.color = color;
-		view.getColorPicker().setBorder(new LineBorder(color,5));
+		view.getColorPicker().setBorder(new LineBorder(color,new Double(stroke).intValue()));
 		getBtnList();
 		for(CustomButton x : btnList) {
 			x.setNormalColor(color);
@@ -71,6 +71,7 @@ public class Controller implements IController {
 		currentDraw = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		currentDraw.setColor(color);
 		currentDraw.setFillColor(fill_color);
+		currentDraw.getProperties().put("storke",new Double(stroke));
 		if(p1.equals(p2)) {
 			model.addShapeDrag(currentDraw);}
 		else {
@@ -82,6 +83,7 @@ public class Controller implements IController {
 		Shape newCurrent = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		newCurrent.setColor(color);
 		newCurrent.setFillColor(fill_color);
+		newCurrent.getProperties().put("storke",new Double(stroke));
 		model.dragDrawShape(currentDraw, newCurrent);
 		currentDraw = newCurrent ;
 	}
@@ -133,10 +135,15 @@ public class Controller implements IController {
 			ClassGetter getter = ClassGetter.newInstance(jarFile);
 	        model.addSupportedShape(getter.getClasses());
 		}
-		}
-	public void changeStroke(double value){
-		strokeSlider.changeStroke((float) value);
 	}
-	
-	
+
+	public void strokeChange(int value) {
+		stroke = value ;
+		view.getColorPicker().setBorder(new LineBorder(color,new Double(stroke).intValue()));
+	}
+
+	public int getStroke() {
+		return new Double(stroke).intValue();
+	}
+
 }

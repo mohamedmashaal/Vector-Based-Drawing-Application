@@ -13,12 +13,13 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 public abstract class MainShape implements Shape {
 	private Map<String, Double> properties ;
 	private Point position ;
-	private float storke = 2;
+	private float default_stroke = 2;
 	private Color default_color = Color.BLUE;
 	private Color default_fill_color = Color.RED;
 	//private boolean selected = false ;
 	public MainShape() {
 		properties = new HashMap<String, Double>();
+		properties.put("stroke", new Double(default_stroke));
 		properties.put("selected" , 0.0);
 		properties.put("default_x", 0.0);
 		properties.put("default_y", 0.0);
@@ -65,12 +66,12 @@ public abstract class MainShape implements Shape {
 		return new Color(getProperties().get("fill_color").intValue()) ;
 	}
 
-	public float getStorke() {
+/*	public float getStorke() {
 		return storke;
 	}
 	public void setStorke(float storke) {
 		this.storke = storke;
-	}
+	}*/
 	
 	/*public boolean isSelected() {
 		return selected;

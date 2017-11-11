@@ -63,7 +63,7 @@ public class ColorChoser extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				color = colorChooser.getColor();
-				preview.setBorder(new LineBorder(color , 5));
+				preview.setBorder(new LineBorder(color , view.getController().getStroke()));
 			}
 		});
 	}

@@ -40,7 +40,7 @@ public class Ellipse extends MainShape {
 		Graphics2D g = (Graphics2D)canvas ;
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.fillOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		g.setStroke( new BasicStroke(getStorke()));
+		g.setStroke( new BasicStroke(getProperties().get("stroke").floatValue()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(), getProperties().get("width").intValue(), getProperties().get("height").intValue());
 		if(getProperties().get("selected").intValue() == 1) {
