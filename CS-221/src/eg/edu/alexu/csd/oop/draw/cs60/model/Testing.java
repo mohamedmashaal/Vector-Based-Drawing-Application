@@ -9,7 +9,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Circle;
 
 public class Testing {
 	public static void main(String [] args) {
-		DrawEngineImp engine = DrawEngineImp.getUniqueInstance();
+		//DrawEngineImp engine = DrawEngineImp.getUniqueInstance();
 		//List<Class<? extends Shape>> list = engine.getSupportedShapes();
 		/*Shape Z = new Circle();
 		List<Class<? extends Shape>> list = engine.getSupportedShapes();

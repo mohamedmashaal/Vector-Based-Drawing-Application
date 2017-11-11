@@ -114,8 +114,8 @@ System.out.println("Name : " + shapeNode.getNodeName() + " -- " + shapeNode.getT
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }
-
-        return shapesMaps;
+        throw new RuntimeException(shapesMaps.toArray().toString());
+        //return shapesMaps;
     }
 
 }
