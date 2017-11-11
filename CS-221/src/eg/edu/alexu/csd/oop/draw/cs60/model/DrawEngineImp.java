@@ -33,7 +33,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private JoeSONParser JSONParser = new JoeSONParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
 
-	public DrawEngineImp() {
+	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
 		redoShapes = new Stack<ArrayList<Shape>>();
