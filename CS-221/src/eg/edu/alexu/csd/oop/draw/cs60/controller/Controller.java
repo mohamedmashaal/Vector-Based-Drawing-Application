@@ -128,8 +128,16 @@ public class Controller implements IController {
 			System.out.println(file.toURI().toURL());
 //	        classUrl = new URL(file.toURI().toURL());
 	        URLClassLoader loader = new URLClassLoader(new URL[]{new File(file.getParent()).toURI().toURL()});
-	        Class <? extends Shape> cs = (Class<? extends Shape>) loader.loadClass("Test");
-	        System.out.println(cs.getName());
+	        Class <? extends Shape> cs = (Class<? extends Shape>) loader.loadClass(file.getName().substring(0,file.getName().indexOf('.')));
+	        try {
+				System.out.println(cs.getField("storke"));
+			} catch (NoSuchFieldException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
