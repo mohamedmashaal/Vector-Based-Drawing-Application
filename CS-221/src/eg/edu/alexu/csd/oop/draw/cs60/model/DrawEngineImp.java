@@ -272,14 +272,14 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		//throw new RuntimeException(path);
 		/*if(shapes.peek().isEmpty())
 			return;*/
-		ArrayList<Shape> arrayOfShapes = shapes.peek();
-		for(int i=0; i<arrayOfShapes.size(); i++){
-			if(arrayOfShapes.get(i).getProperties() == null || arrayOfShapes.get(i).getPosition() == null){
-				arrayOfShapes.remove(i);
-			}
-		}
+		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
+//		for(int i=0; i<arrayOfShapes.size(); i++){
+//			if(arrayOfShapes.get(i).getProperties() == null || arrayOfShapes.get(i).getPosition() == null){
+//				arrayOfShapes.remove(i);
+//			}
+//		}
         //String objToString = objectToString(arrayOfShapes , path);
-		objectToString(arrayOfShapes , path);
+		objectToString(arrayOfShapes , "new"+path);
 		/*File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
@@ -329,7 +329,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				shapesXMLContent.append(in.nextLine() + "\n");
 			}*/
 			//ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
+			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject("new"+path);
 			clear();
 			shapes.push(parsedObj);
 			
