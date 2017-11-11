@@ -7,6 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -23,14 +25,23 @@ public class ClassGetter {
 
     private ClassGetter(URL url) {
     	this.url = url ;
+    	this.moduleClasses = new HashSet<>();
         try {
             JarURLConnection connection = (JarURLConnection) url.openConnection();
-
-            this.moduleClasses = connection.getJarFile().stream()
+            JarFile file = connection.getJarFile();
+            Enumeration<JarEntry> entries = file.entries();
+            while(entries.hasMoreElements()) {
+            	JarEntry e = entries.nextElement();
+            	if(e.getName().endsWith(".class")) {
+            		String name = e.getName().replace(".class", "").replaceAll("/", ".");
+            		moduleClasses.add(name);
+            	}
+            }
+            /*this.moduleClasses = connection.getJarFile().stream()
                 .map(JarEntry::getName)
                 .filter(name -> name.endsWith(".class"))
                 .map(name -> name.replace(".class", "").replaceAll("/", "."))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toSet());*/
         } catch(IOException e) {
             throw new IllegalArgumentException(String.format("Unexpected error while reading module jar: %s", e.getMessage()));
         }
