@@ -278,7 +278,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private void saveXML(String path){
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
 		objectToString(arrayOfShapes , path);
-		
 	}
 
 
@@ -411,12 +410,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 
 	private Object stringToObject(String path) {
-		@SuppressWarnings("resource")
 		XMLDecoder xmlDecoder;
 		try {
 			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
-			Object x =xmlDecoder.readObject();
 			xmlDecoder.close();
+			Object x =xmlDecoder.readObject();
 			return x ;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
