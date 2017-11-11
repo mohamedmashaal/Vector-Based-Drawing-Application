@@ -278,22 +278,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveXML(String path){
-<<<<<<< HEAD
-		ArrayList<Shape> arrayOfShapes = shapes.peek();
-		for(int i=0; i<arrayOfShapes.size(); i++){
-			if(arrayOfShapes.get(i).getProperties() == null || arrayOfShapes.get(i).getPosition() == null){
-				arrayOfShapes.remove(i);
-			}
-		}
-		//objectToString(arrayOfShapes , path);
-		//DocumentBuilder docBuilder = new DocumentBuilderImpl();
-=======
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
 		objectToString(arrayOfShapes , path);
 		
 	}
 
-	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
+	/*private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
 		XMLEncoder e;
 		try {
 			e = new XMLEncoder(
@@ -305,8 +295,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			e1.printStackTrace();
 		}
 		return ;
->>>>>>> f6e5a6ddbeb6a254a9cdeee9ea148dc1c2ff1f5b
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
