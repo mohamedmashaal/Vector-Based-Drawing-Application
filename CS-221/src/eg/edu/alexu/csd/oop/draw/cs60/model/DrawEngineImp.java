@@ -9,7 +9,6 @@ import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.*;
 import javax.xml.*;
-
 import javax.management.RuntimeErrorException;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
@@ -31,6 +30,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	private Stack<ArrayList<Shape>> redoShapes ;
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp() ;
 	private JoeSONParser JSONParser = new JoeSONParser();
+	private XMLParser xmlParser = new XMLParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
 
 	private DrawEngineImp() {
@@ -245,10 +245,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void save(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			//saveXML(path);
-			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			saveXML(path);
+			/*StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.')));
 			new_path.append(".json");
-			saveJSON(new_path.toString());
+			saveJSON(new_path.toString());*/
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			saveJSON(path);
@@ -262,10 +262,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void load(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			//loadXML(path);
-			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			loadXML(path);
+			/*StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.')));
 			new_path.append(".json");
-			loadJSON(new_path.toString());
+			loadJSON(new_path.toString());*/
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
@@ -277,7 +277,37 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	private void saveXML(String path){
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
-		objectToString(arrayOfShapes , path);
+
+		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
+		Map<String, Integer> freqOfShapes = new HashMap<>();
+		for(Shape shape : shapes.peek()){
+			// calculation of frequency (for indexing purpose)
+			String shapeName = shape.getClass().getSimpleName();
+			try{
+				freqOfShapes.put(shapeName,freqOfShapes.get(shapeName)+1);
+			}
+			catch (Exception e){
+				freqOfShapes.put(shapeName,1);
+			}
+
+			Map<String, String> newMap = new HashMap<String, String>();
+			if(shape.getProperties() != null)
+				//try {
+				for(Map.Entry entry : shape.getProperties().entrySet()){
+					newMap.put(entry.getKey().toString(), entry.getValue().toString());
+				}
+			//} catch (Exception e) {
+
+			//}
+			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
+			arrayListofShapeMap.add(newMap);
+		}
+		try {
+			xmlParser.saveToXML(path, arrayListofShapeMap);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		//objectToString(arrayOfShapes , path);
 	}
 
 
@@ -297,7 +327,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
-		try {
+		/*try {
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
 			shapes = new Stack<>();
 			shapes.push(parsedObj);			
@@ -305,7 +335,59 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
 		catch(Exception e) {
 			throw new RuntimeException(e);
+		}*/
+
+		File inputXML = new File(path);
+		StringBuilder shapesJSONContent = new StringBuilder();
+		//try {
+		Scanner in = null;
+		try {
+			in = new Scanner(inputXML);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
+		while(in.hasNextLine()) {
+			shapesJSONContent.append(in.nextLine() + "\n");
+		}
+		ArrayList<Map<String,String>> parsedObj = xmlParser.readXML(new File(path));
+		//shapes.push(parsedObj.peek());
+		ArrayList<Shape> loadedShapes = new ArrayList<>();
+
+		for(Map<String,String> map : parsedObj){
+			Map<String,Double> tempMap = new HashMap<>();
+			for(Map.Entry entry : map.entrySet()){
+				System.out.println(entry.getKey() + " " + entry.getValue());
+				if(entry.getKey().toString().equals("id"))
+					continue;
+				tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));
+				//System.out.println(entry.getKey().toString() + " " + Double.parseDouble(entry.getValue().toString()));
+			}
+			String tempShapeName = map.get("id");
+			String shapeName = "";
+			for(int i=0; i<tempShapeName.length(); i++){
+				if(tempShapeName.charAt(i) >= '0' && tempShapeName.charAt(i) <= '9')
+					break;
+				shapeName += tempShapeName.charAt(i);
+			}
+
+			Shape loadedShape = shapesFactory.CreateShape(shapeName);
+
+			if(loadedShape != null)
+				//try {
+				loadedShape.setProperties(tempMap);
+			//} catch (Exception e) {
+
+			//}
+			loadedShapes.add(loadedShape);
+		}
+		shapes = new Stack<>();
+		//shapes.push(new ArrayList<Shape>());
+		shapes.push(loadedShapes);
+		notifyObservers();
+		//}
+		/*catch(Exception e) {
+			throw new RuntimeException(e);
+		}*/
 	}
 
 	private void saveJSON(String path){
@@ -336,9 +418,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 		String parsedObject = JSONParser.parseArrayOfMapsIntoJSON(arrayListofShapeMap);
 
-		File outputXML = new File(path);
+		File outputJSON = new File(path);
 		try {
-			FileWriter pw = new FileWriter(outputXML);
+			FileWriter pw = new FileWriter(outputJSON);
 			pw.write(parsedObject);
 			pw.close();
 		}
@@ -350,7 +432,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 
 	private void loadJSON(String path){
-		//System.out.println("--line 327");
 		File inputJSON = new File(path);
 		StringBuilder shapesJSONContent = new StringBuilder();
 		//try {
@@ -377,14 +458,12 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				}
 				String tempShapeName = map.get("id");
 				String shapeName = "";
-				//System.out.println("Here: " + shapeName);
 				for(int i=0; i<tempShapeName.length(); i++){
 					if(tempShapeName.charAt(i) >= '0' && tempShapeName.charAt(i) <= '9')
 						break;
 					shapeName += tempShapeName.charAt(i);
 				}
 
-				//System.out.println("Here: " + shapeName);
 				Shape loadedShape = shapesFactory.CreateShape(shapeName);
 
 				if(loadedShape != null)
@@ -394,13 +473,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 				//}
 				loadedShapes.add(loadedShape);
-				//System.out.println("--line 352");
 			}
 			shapes = new Stack<>();
 			//shapes.push(new ArrayList<Shape>());
 			shapes.push(loadedShapes);
 			notifyObservers();
-			//System.out.println("--line 357");
 		//}
 		/*catch(Exception e) {
 			throw new RuntimeException(e);
