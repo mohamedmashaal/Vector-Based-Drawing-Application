@@ -203,7 +203,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	@Override
 	public Shape[] getShapes() {
 		//if(shapes.size() == 2)
+<<<<<<< HEAD
 		//	throw new RuntimeException(shapes.peek().toString());
+=======
+			//throw new RuntimeException(shapes.peek().toString());
+>>>>>>> 1d6c78397132806cc6389009b2bb1c78ae038e14
 		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
 	}
 	
@@ -272,14 +276,15 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		//throw new RuntimeException(path);
 		/*if(shapes.peek().isEmpty())
 			return;*/
-		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
-		for(int i=0; i<arrayOfShapes.size(); i++){
-			if(arrayOfShapes.get(i).getProperties() == null){
-				arrayOfShapes.remove(i);
-			}
-		}
-        String objToString = objectToString(arrayOfShapes);
-        File outputXML = new File(path);
+		ArrayList<Shape> arrayOfShapes = shapes.peek();
+//		for(int i=0; i<arrayOfShapes.size(); i++){
+//			if(arrayOfShapes.get(i).getProperties() == null){
+//				arrayOfShapes.remove(i);
+//			}
+//		}
+        //String objToString = objectToString(arrayOfShapes , path);
+			objectToString(arrayOfShapes , path);
+		/*File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
 			pw.write(objToString);
@@ -287,21 +292,55 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
         catch (Exception e) {
         	throw new RuntimeException(e);
-		}
+		}*/
 	}
 
+	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
+		XMLEncoder e;
+		try {
+			e = new XMLEncoder(
+			        new BufferedOutputStream(
+			            new FileOutputStream(path)));
+			e.writeObject(arrayOfShapes);
+			e.close();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return ;
+	}
+	
+	private Object stringToObject(String path) {
+        @SuppressWarnings("resource")
+		XMLDecoder xmlDecoder;
+		try {
+			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
+			return xmlDecoder.readObject();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+    }
+	
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
-		File inputXML = new File(path);
+		/*File inputXML = new File(path);
 		StringBuilder shapesXMLContent = new StringBuilder();
-		Scanner in;
+		Scanner in;*/
 		try {
-			in = new Scanner(inputXML);
+			/*in = new Scanner(inputXML);
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine() + "\n");
+<<<<<<< HEAD
 			}
 			//System.out.println(shapesXMLContent);
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+=======
+			}*/
+			//ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
+			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
+>>>>>>> 1d6c78397132806cc6389009b2bb1c78ae038e14
 			clear();
 			shapes.push(parsedObj);
 			notifyObservers();
@@ -339,7 +378,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
 
 		String parsedObject = JSONParser.parseArrayOfMapsIntoJSON(arrayListofShapeMap);
-		System.out.println(parsedObject + "\n---------------------------\n");
 
 		File outputXML = new File(path);
 		try {
@@ -420,11 +458,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
         return bos.toString();
     }
 
-    private Object stringToObject(String string) {
-        @SuppressWarnings("resource")
-		XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(string.getBytes()));
-        return xmlDecoder.readObject();
-    }
 
 
 	@Override
