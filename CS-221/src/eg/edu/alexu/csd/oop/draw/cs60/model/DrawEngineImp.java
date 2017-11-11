@@ -279,7 +279,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 //			}
 //		}
         //String objToString = objectToString(arrayOfShapes , path);
-			objectToString(arrayOfShapes , path);
+		objectToString(arrayOfShapes , path);
 		/*File outputXML = new File(path);
         try {
 			FileWriter pw = new FileWriter(outputXML);
@@ -300,7 +300,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			e.writeObject(arrayOfShapes);
 			e.close();
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return ;
@@ -331,8 +330,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			}*/
 			//ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
-			clear();
-			shapes.push(parsedObj);
+			shapes = new Stack<>();
+			for(Shape x : parsedObj) {
+				addShape(x);
+			}
+			//shapes.push(parsedObj);
 			notifyObservers();
 		}
 		catch(Exception e) {
