@@ -261,10 +261,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void load(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			//loadXML(path);
-			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
-			new_path.append(".json");
-			loadJSON(new_path.toString());
+			loadXML(path);
+			//StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			//new_path.append(".json");
+			//loadJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
@@ -281,15 +281,17 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 
 	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
-		XMLEncoder e;
+		XMLEncoder e = null;
 		try {
 			e = new XMLEncoder(
 			        new BufferedOutputStream(
 			            new FileOutputStream(path)));
 			e.writeObject(arrayOfShapes);
-			e.close();
+			throw new RuntimeException(e.toString());
+			//e.close();
 		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
+			throw new RuntimeException(e.toString());
+			//e1.printStackTrace();
 		}
 		return ;
 	}
