@@ -245,10 +245,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void save(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			//saveXML(path);
-			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.')));
-			new_path.append(".json");
-			saveJSON(new_path.toString());
+			saveXML(path);
+			//StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.')));
+			//new_path.append(".json");
+			//saveJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			saveJSON(path);
@@ -262,10 +262,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void load(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			//loadXML(path);
-			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.')));
-			new_path.append(".json");
-			loadJSON(new_path.toString());
+			loadXML(path);
+			//StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.')));
+			//new_path.append(".json");
+			//loadJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
