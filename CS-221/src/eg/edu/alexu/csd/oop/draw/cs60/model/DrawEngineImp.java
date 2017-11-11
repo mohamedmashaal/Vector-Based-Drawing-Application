@@ -407,7 +407,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				//System.out.println("--line 352");
 			}
 			shapes = new Stack<>();
-			shapes.push(new ArrayList<Shape>());
+			//shapes.push(new ArrayList<Shape>());
 			shapes.push(loadedShapes);
 			notifyObservers();
 			//System.out.println("--line 357");
