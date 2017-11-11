@@ -284,25 +284,16 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 
 	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
 		XMLEncoder e= null ;
-		StringBuilder x = null;
 		try {
 			e = new XMLEncoder(
 			        new BufferedOutputStream(
 			            new FileOutputStream(path)));
 			e.writeObject(arrayOfShapes);
 			e.close();
-			Scanner sc = new Scanner(new File(path));
-			x = new StringBuilder();
-			while(sc.hasNext()) {
-				x.append(sc.next());
-			}
-			throw new RuntimeException(x.toString());
-			//e.close();
 		} catch (FileNotFoundException e1) {
-			throw new RuntimeException(x.toString());
-			//e1.printStackTrace();
+			e1.printStackTrace();
 		}
-		//return ;
+		return ;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -424,7 +415,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		XMLDecoder xmlDecoder;
 		try {
 			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
-			return xmlDecoder.readObject();
+			Object x =xmlDecoder.readObject();
+			xmlDecoder.close();
+			return x ;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
