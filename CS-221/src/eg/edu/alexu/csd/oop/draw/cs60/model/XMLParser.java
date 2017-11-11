@@ -80,6 +80,7 @@ public class XMLParser {
 
 
     public ArrayList<Map<String, String>> readXML(File xml) {
+
         ArrayList<Map<String, String>> shapesMaps = new ArrayList<>();
         Document dom;
         InputStream inputStream;
@@ -103,7 +104,7 @@ public class XMLParser {
             DocumentBuilder db = dbf.newDocumentBuilder();
             // parse using the builder to get the DOM mapping of the
             // XML file
-            dom = db.parse(xml);
+            dom = db.parse(is);
             Element doc = dom.getDocumentElement();
             NodeList rootNode = doc.getChildNodes();
 
