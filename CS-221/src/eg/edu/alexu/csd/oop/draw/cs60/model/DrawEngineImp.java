@@ -247,7 +247,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void save(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			saveXML(path);
+			//saveXML(path);
+			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			new_path.append(".json");
+			saveJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			saveJSON(path);
@@ -261,7 +264,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void load(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			loadXML(path);
+			//loadXML(path);
+			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			new_path.append(".json");
+			loadJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
@@ -272,6 +278,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveXML(String path){
+<<<<<<< HEAD
 		ArrayList<Shape> arrayOfShapes = shapes.peek();
 		for(int i=0; i<arrayOfShapes.size(); i++){
 			if(arrayOfShapes.get(i).getProperties() == null || arrayOfShapes.get(i).getPosition() == null){
@@ -280,6 +287,25 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		}
 		//objectToString(arrayOfShapes , path);
 		//DocumentBuilder docBuilder = new DocumentBuilderImpl();
+=======
+		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
+		objectToString(arrayOfShapes , path);
+		
+	}
+
+	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
+		XMLEncoder e;
+		try {
+			e = new XMLEncoder(
+			        new BufferedOutputStream(
+			            new FileOutputStream(path)));
+			e.writeObject(arrayOfShapes);
+			e.close();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		return ;
+>>>>>>> f6e5a6ddbeb6a254a9cdeee9ea148dc1c2ff1f5b
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -287,9 +313,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		try {
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
 			clear();
-			for(Shape x : parsedObj) {
-				addShape(x);
-			}
+			shapes.push(parsedObj);
+			
 			notifyObservers();
 		}
 		catch(Exception e) {
@@ -298,7 +323,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 
 	private void saveJSON(String path){
-		//throw new RuntimeException(path);
 		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
 		Map<String, Integer> freqOfShapes = new HashMap<>();
 		for(Shape shape : shapes.peek()){
