@@ -108,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="376">
-              <caret line="374" column="45" lean-forward="true" selection-start-line="374" selection-start-column="45" selection-end-line="374" selection-end-column="45" />
+              <caret line="374" column="45" lean-forward="false" selection-start-line="374" selection-start-column="45" selection-end-line="374" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -952,7 +952,7 @@
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
-          <caret line="374" column="45" lean-forward="true" selection-start-line="374" selection-start-column="45" selection-end-line="374" selection-end-column="45" />
+          <caret line="374" column="45" lean-forward="false" selection-start-line="374" selection-start-column="45" selection-end-line="374" selection-end-column="45" />
           <folding />
         </state>
       </provider>
