@@ -203,8 +203,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	@Override
 	public Shape[] getShapes() {
 		//if(shapes.size() == 2)
-			throw new RuntimeException(shapes.peek().toString());
-		//return shapes.peek().toArray(new Shape[shapes.peek().size()]);
+		//	throw new RuntimeException(shapes.peek().toString());
+		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
 	}
 	
 	@Override
@@ -273,11 +273,11 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		/*if(shapes.peek().isEmpty())
 			return;*/
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
-//		for(int i=0; i<arrayOfShapes.size(); i++){
-//			if(arrayOfShapes.get(i).getProperties() == null){
-//				arrayOfShapes.remove(i);
-//			}
-//		}
+		for(int i=0; i<arrayOfShapes.size(); i++){
+			if(arrayOfShapes.get(i).getProperties() == null){
+				arrayOfShapes.remove(i);
+			}
+		}
         String objToString = objectToString(arrayOfShapes);
         File outputXML = new File(path);
         try {
@@ -300,6 +300,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			while(in.hasNextLine()) {
 				shapesXMLContent.append(in.nextLine() + "\n");
 			}
+			//System.out.println(shapesXMLContent);
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
 			clear();
 			shapes.push(parsedObj);
