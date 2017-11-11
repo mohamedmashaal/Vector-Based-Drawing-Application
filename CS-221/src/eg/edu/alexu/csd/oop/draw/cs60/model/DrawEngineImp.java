@@ -8,9 +8,12 @@ import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.*;
+import javax.xml.*;
 
 import javax.management.RuntimeErrorException;
+import javax.xml.parsers.DocumentBuilder;
 
+import com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl;
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Observer;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -244,10 +247,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void save(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			//saveXML(path);
-			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
-			new_path.append(".json");
-			saveJSON(new_path.toString());
+			saveXML(path);
+			//StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			//new_path.append(".json");
+			//saveJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			saveJSON(path);
@@ -280,8 +283,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 		
 	}
 
+
 	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
-		XMLEncoder e = null;
+		XMLEncoder e= null ;
 		try {
 			e = new XMLEncoder(
 			        new BufferedOutputStream(
@@ -293,29 +297,15 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			throw new RuntimeException(e.toString());
 			//e1.printStackTrace();
 		}
-		return ;
+		//return ;
 	}
-	
-	private Object stringToObject(String path) {
-        @SuppressWarnings("resource")
-		XMLDecoder xmlDecoder;
-		try {
-			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
-			return xmlDecoder.readObject();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-    }
 	
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
 		try {
 			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
 			clear();
-			shapes.push(parsedObj);
-			
+			shapes.push(parsedObj);			
 			notifyObservers();
 		}
 		catch(Exception e) {
@@ -413,6 +403,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				//System.out.println("--line 352");
 			}
 			shapes = new Stack<>();
+			shapes.push(new ArrayList<>());
 			shapes.push(loadedShapes);
 			notifyObservers();
 			//System.out.println("--line 357");
@@ -421,16 +412,20 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 			throw new RuntimeException(e);
 		}*/
 	}
-	
-	private String objectToString(Object hashMap) {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        XMLEncoder xmlEncoder = new XMLEncoder(bos);
-        xmlEncoder.writeObject(hashMap);
-        xmlEncoder.close();
-        return bos.toString();
-    }
 
 
+	private Object stringToObject(String path) {
+		@SuppressWarnings("resource")
+		XMLDecoder xmlDecoder;
+		try {
+			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
+			return xmlDecoder.readObject();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	@Override
 	public void notifyObservers() {
