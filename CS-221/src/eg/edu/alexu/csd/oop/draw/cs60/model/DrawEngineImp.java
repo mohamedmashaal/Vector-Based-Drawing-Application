@@ -244,7 +244,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void save(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			saveXML(path);
+			//saveXML(path);
+			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			new_path.append(".json");
+			saveJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			saveJSON(path);
@@ -258,7 +261,10 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	public void load(String path) {
 		//throw new RuntimeException(path);
 		if(path.substring(path.length()-3).equalsIgnoreCase("xml")){
-			loadXML(path);
+			//loadXML(path);
+			StringBuilder new_path = new StringBuilder(path.substring(0, path.indexOf('.'))); 
+			new_path.append(".json");
+			loadJSON(new_path.toString());
 		}
 		else if (path.substring(path.length()-4).equalsIgnoreCase("json")){
 			loadJSON(path);
@@ -269,26 +275,9 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 	
 	private void saveXML(String path){
-		//throw new RuntimeException(path);
-		/*if(shapes.peek().isEmpty())
-			return;*/
 		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
-//		for(int i=0; i<arrayOfShapes.size(); i++){
-//			if(arrayOfShapes.get(i).getProperties() == null || arrayOfShapes.get(i).getPosition() == null){
-//				arrayOfShapes.remove(i);
-//			}
-//		}
-        //String objToString = objectToString(arrayOfShapes , path);
-		objectToString(arrayOfShapes , "new"+path);
-		/*File outputXML = new File(path);
-        try {
-			FileWriter pw = new FileWriter(outputXML);
-			pw.write(objToString);
-			pw.close();
-		}
-        catch (Exception e) {
-        	throw new RuntimeException(e);
-		}*/
+		objectToString(arrayOfShapes , path);
+		
 	}
 
 	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
@@ -320,16 +309,8 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path){
-		/*File inputXML = new File(path);
-		StringBuilder shapesXMLContent = new StringBuilder();
-		Scanner in;*/
 		try {
-			/*in = new Scanner(inputXML);
-			while(in.hasNextLine()) {
-				shapesXMLContent.append(in.nextLine() + "\n");
-			}*/
-			//ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(shapesXMLContent.toString());
-			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject("new"+path);
+			ArrayList<Shape> parsedObj = (ArrayList<Shape>) stringToObject(path);
 			clear();
 			shapes.push(parsedObj);
 			
@@ -341,7 +322,6 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 	}
 
 	private void saveJSON(String path){
-		//throw new RuntimeException(path);
 		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
 		Map<String, Integer> freqOfShapes = new HashMap<>();
 		for(Shape shape : shapes.peek()){
