@@ -68,6 +68,8 @@ public class ShapesFactory {
 			for(Class<? extends Shape> x : supported) {
 				if(x.getName().equalsIgnoreCase(shapeName)) {
 					try {
+						//Constructor<? extends Shape> ctor = x.getConstructor();
+						//Shape doRun = ctor.newInstance();
 						Constructor<? extends Shape> cons = x.getConstructor(Point.class , double.class);
 						return cons.newInstance(p1, Math.sqrt(Math.pow(Math.abs(p1.x - p2.x),2) + Math.pow(Math.abs(p1.y - p2.y),2)));
 					} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
