@@ -80,20 +80,6 @@ public class XMLParser {
 
 
     public ArrayList<Map<String, String>> readXML(File xml) {
-        InputStream inputStream= null;
-        try {
-            inputStream = new FileInputStream(xml);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        Reader reader = null;
-        try {
-            reader = new InputStreamReader(inputStream,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        InputSource is = new InputSource(reader);
-        is.setEncoding("UTF-8");
 
         ArrayList<Map<String, String>> shapesMaps = new ArrayList<>();
         Document dom;
