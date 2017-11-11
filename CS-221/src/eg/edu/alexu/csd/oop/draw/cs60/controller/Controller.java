@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 
 import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
-import eg.edu.alexu.csd.oop.draw.cs60.model.ClassFinder;
+import eg.edu.alexu.csd.oop.draw.cs60.model.ClassGetter;
 import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
@@ -126,35 +126,10 @@ public class Controller implements IController {
 		model.removeShapeDrag(currentDraw);
 	}
 
-	public void imp(File file) throws MalformedURLException, ClassNotFoundException {
-		if(file != null && file.getName().substring(file.getName().length()-5).toLowerCase().equals("class")) {
-			//ClassFinder finder = ClassFinder.newInstance(file);
-			ClassLoader loader = URLClassLoader.newInstance(
-			        new URL[] { new File(file.getParent()).toURI().toURL() },
-			        getClass().getClassLoader()
-			);
-			Class<?> clazz = Class.forName("Test", true, loader);
-			Class<? extends Shape> runClass = clazz.asSubclass(Shape.class);
-			/*URL classUrl;
-			System.out.println(new File(file.getParent()).toURI().toURL());
-//	        classUrl = new URL(file.toURI().toURL());
-			//URLClassLoader loader = ClassLoader.getSystemClassLoader();
-	        URLClassLoader loader = new URLClassLoader(new URL[]{new File(file.getParent()).toURI().toURL()},getClass().getClassLoader());
-	        System.out.println(file.getName().substring(0,file.getName().indexOf('.')));*/
-	        //Class cs = loader.loadClass(file.getName().substring(0,file.getName().indexOf('.')));
-			/*System.out.println(file.getName().substring(0,file.getName().indexOf('.')));
-	        Class cs = finder.loadClass("eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Test");
-			try {
-				System.out.println(cs.newInstance().toString());
-				Shape x = (Shape)cs.newInstance();
-			} catch (InstantiationException e) {
-				// "eg.edu.alexu.csd.oop.draw.cs60.model.shapes."+
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-	        model.addSupportedShape(runClass);
+	public void imp(JarFile jarFile) {
+		if(jarFile != null && jarFile.getName().substring(jarFile.getName().length()-3).toLowerCase().equals("jar")) {
+			ClassGetter getter = ClassGetter.newInstance(jarFile);
+	        model.addSupportedShape(getter.getClasses());
 		}
 	}
 	

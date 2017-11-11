@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -390,11 +391,13 @@ public class View implements Observer{
 	}
 
 	@Override
-	public void updateSupportedShapes(Class<? extends Shape> shape) {
-		// TODO Auto-generated method stub
-		CustomButton plugin = new CustomButton(shape.getName(), this);
-		btnList.add(plugin);
-		btnContainer.add(plugin);
-		btnContainer.revalidate();
+	public void updateSupportedShapes() {
+		List<Class<? extends Shape>> supported = getModel().getSupportedShapes();
+		for(int i = 6 ; i < supported.size() ; i++ ) {
+			CustomButton plugin = new CustomButton(supported.get(i).getName(), this);
+			btnList.add(plugin);
+			btnContainer.add(plugin);
+			btnContainer.revalidate();
+		}
 	}
 }
