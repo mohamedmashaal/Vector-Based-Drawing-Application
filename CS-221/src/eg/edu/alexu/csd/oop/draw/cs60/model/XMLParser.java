@@ -114,7 +114,11 @@ System.out.println("Name : " + shapeNode.getNodeName() + " -- " + shapeNode.getT
         } catch (IOException ioe) {
             System.err.println(ioe.getMessage());
         }
-        throw new RuntimeException(shapesMaps.toArray().toString());
+        StringBuilder x = new StringBuilder();
+        for(Map z : shapesMaps) {
+        	x.append(z.keySet().toString()+ "\n");
+        }
+        throw new RuntimeException(x.toString());
         //return shapesMaps;
     }
 
