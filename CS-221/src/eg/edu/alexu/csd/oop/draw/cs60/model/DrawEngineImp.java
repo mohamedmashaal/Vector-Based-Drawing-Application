@@ -11,9 +11,7 @@ import java.util.*;
 import javax.xml.*;
 
 import javax.management.RuntimeErrorException;
-import javax.xml.parsers.DocumentBuilder;
 
-import com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl;
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Observer;
 import eg.edu.alexu.csd.oop.draw.Shape;
@@ -401,7 +399,7 @@ public class DrawEngineImp implements DrawingEngine , Subject {
 				//System.out.println("--line 352");
 			}
 			shapes = new Stack<>();
-			shapes.push(new ArrayList<>());
+			shapes.push(new ArrayList<Shape>());
 			shapes.push(loadedShapes);
 			notifyObservers();
 			//System.out.println("--line 357");
