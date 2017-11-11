@@ -12,23 +12,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="DrawEngineImp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DrawEngineImp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="-125">
               <caret line="250" column="42" lean-forward="true" selection-start-line="250" selection-start-column="42" selection-end-line="250" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1510412898436" expanded="true" signature="7498:7678" ph="{...}" />
+                <marker date="1510412898436" expanded="true" signature="7715:8761" ph="{...}" />
+                <marker date="1510412898436" expanded="false" signature="8244:8260" ph="&lt;~&gt;" />
+                <marker date="1510412898436" expanded="true" signature="8456:8489" ph="//..." />
+                <marker date="1510412898436" expanded="true" signature="8838:9104" ph="{...}" />
+                <marker date="1510412898436" expanded="false" signature="9108:9138" ph="/unchecked/" />
+                <marker date="1510412898436" expanded="true" signature="9173:11005" ph="{...}" />
+                <marker date="1510412898436" expanded="true" signature="10743:10776" ph="//..." />
+                <marker date="1510412898436" expanded="true" signature="11042:12216" ph="{...}" />
+                <marker date="1510412898436" expanded="false" signature="11503:11519" ph="&lt;~&gt;" />
+                <marker date="1510412898436" expanded="true" signature="11741:11774" ph="//..." />
+                <marker date="1510412898436" expanded="true" signature="12253:13855" ph="{...}" />
+                <marker date="1510412898436" expanded="true" signature="13586:13620" ph="//..." />
+                <marker date="1510412898436" expanded="true" signature="13902:14179" ph="{...}" />
+                <marker date="1510412898436" expanded="true" signature="14223:14278" ph="{...}" />
+                <marker date="1510412898436" expanded="false" signature="14334:14339" ph=" { " />
+                <marker date="1510412898436" expanded="false" signature="14363:14366" ph=" }" />
+                <marker date="1510412898436" expanded="true" signature="14426:14527" ph="{...}" />
+                <marker date="1510412898436" expanded="true" signature="14580:14643" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XMLParser.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XMLParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/XMLParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
-              <caret line="103" column="28" lean-forward="true" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
+              <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,12 +58,11 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="108" column="28" lean-forward="false" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+            <state relative-caret-position="790">
+              <caret line="109" column="28" lean-forward="false" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2503#2504#0" expanded="true" />
-                <element signature="e#2532#2533#0" expanded="true" />
+                <marker date="1510412898435" expanded="true" signature="3935:3944" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -100,8 +118,8 @@
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/ColorPicker.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/main/MainEntry.java" />
-        <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/XMLParser.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java" />
+        <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/XMLParser.java" />
       </list>
     </option>
   </component>
@@ -508,8 +526,7 @@
           <caret line="108" column="28" lean-forward="false" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2503#2504#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <marker date="1510412898435" expanded="true" signature="3935:3944" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -532,6 +549,25 @@
           <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1510412898436" expanded="true" signature="7498:7678" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="7715:8761" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="8244:8260" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="8456:8489" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="8838:9104" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="9108:9138" ph="/unchecked/" />
+            <marker date="1510412898436" expanded="true" signature="9173:11005" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="10743:10776" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="11042:12216" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="11503:11519" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="11741:11774" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="12253:13855" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="13586:13620" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="13902:14179" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14223:14278" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="14334:14339" ph=" { " />
+            <marker date="1510412898436" expanded="false" signature="14363:14366" ph=" }" />
+            <marker date="1510412898436" expanded="true" signature="14426:14527" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14580:14643" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -556,8 +592,7 @@
           <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2503#2504#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <marker date="1510412898435" expanded="true" signature="3935:3944" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -599,6 +634,25 @@
           <caret line="203" column="9" lean-forward="true" selection-start-line="203" selection-start-column="9" selection-end-line="203" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1510412898436" expanded="true" signature="7498:7678" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="7715:8761" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="8244:8260" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="8456:8489" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="8838:9104" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="9108:9138" ph="/unchecked/" />
+            <marker date="1510412898436" expanded="true" signature="9173:11005" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="10743:10776" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="11042:12216" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="11503:11519" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="11741:11774" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="12253:13855" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="13586:13620" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="13902:14179" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14223:14278" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="14334:14339" ph=" { " />
+            <marker date="1510412898436" expanded="false" signature="14363:14366" ph=" }" />
+            <marker date="1510412898436" expanded="true" signature="14426:14527" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14580:14643" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -633,8 +687,7 @@
           <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2503#2504#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <marker date="1510412898435" expanded="true" signature="3935:3944" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -645,6 +698,25 @@
           <caret line="97" column="45" lean-forward="true" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1510412898436" expanded="true" signature="7498:7678" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="7715:8761" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="8244:8260" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="8456:8489" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="8838:9104" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="9108:9138" ph="/unchecked/" />
+            <marker date="1510412898436" expanded="true" signature="9173:11005" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="10743:10776" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="11042:12216" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="11503:11519" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="11741:11774" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="12253:13855" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="13586:13620" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="13902:14179" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14223:14278" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="14334:14339" ph=" { " />
+            <marker date="1510412898436" expanded="false" signature="14363:14366" ph=" }" />
+            <marker date="1510412898436" expanded="true" signature="14426:14527" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14580:14643" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -782,12 +854,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="108" column="28" lean-forward="false" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+        <state relative-caret-position="790">
+          <caret line="109" column="28" lean-forward="false" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2503#2504#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <marker date="1510412898435" expanded="true" signature="3935:3944" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="250" column="42" lean-forward="true" selection-start-line="250" selection-start-column="42" selection-end-line="250" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1510412898436" expanded="true" signature="7498:7678" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="7715:8761" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="8244:8260" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="8456:8489" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="8838:9104" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="9108:9138" ph="/unchecked/" />
+            <marker date="1510412898436" expanded="true" signature="9173:11005" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="10743:10776" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="11042:12216" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="11503:11519" ph="&lt;~&gt;" />
+            <marker date="1510412898436" expanded="true" signature="11741:11774" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="12253:13855" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="13586:13620" ph="//..." />
+            <marker date="1510412898436" expanded="true" signature="13902:14179" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14223:14278" ph="{...}" />
+            <marker date="1510412898436" expanded="false" signature="14334:14339" ph=" { " />
+            <marker date="1510412898436" expanded="false" signature="14363:14366" ph=" }" />
+            <marker date="1510412898436" expanded="true" signature="14426:14527" ph="{...}" />
+            <marker date="1510412898436" expanded="true" signature="14580:14643" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -795,17 +895,7 @@
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/XMLParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
-          <caret line="103" column="28" lean-forward="true" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="250" column="42" lean-forward="true" selection-start-line="250" selection-start-column="42" selection-end-line="250" selection-end-column="42" />
+          <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

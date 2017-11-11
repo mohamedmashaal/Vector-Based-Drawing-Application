@@ -7,10 +7,7 @@ import javax.xml.transform.stream.*;
 import org.xml.sax.*;
 import org.w3c.dom.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -75,6 +72,21 @@ public class XMLParser {
 
 
     public ArrayList<Map<String, String>> readXML(File xml) {
+        InputStream inputStream= null;
+        try {
+            inputStream = new FileInputStream(xml);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Reader reader = null;
+        try {
+            reader = new InputStreamReader(inputStream,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        InputSource is = new InputSource(reader);
+        is.setEncoding("UTF-8");
+
         ArrayList<Map<String, String>> shapesMaps = new ArrayList<>();
         Document dom;
         // Make an  instance of the DocumentBuilderFactory
@@ -84,7 +96,7 @@ public class XMLParser {
             DocumentBuilder db = dbf.newDocumentBuilder();
             // parse using the builder to get the DOM mapping of the
             // XML file
-            dom = db.parse(xml);
+            dom = db.parse(is);
             Element doc = dom.getDocumentElement();
             NodeList rootNode = doc.getChildNodes();
 
