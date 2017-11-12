@@ -19,6 +19,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
+import eg.edu.alexu.csd.oop.draw.cs60.view.Canvas;
 import eg.edu.alexu.csd.oop.draw.cs60.view.StrokeSlider;
 
 public class Controller implements IController {
@@ -28,7 +29,7 @@ public class Controller implements IController {
 	private Shape currentDraw;
 	private Color fill_color = Color.RED;
 	private Color color = Color.BLUE;
-	private double stroke = 2;
+	private double stroke = 0;
 
 	public Controller(DrawEngineImp model) {
 		this.model = model;
@@ -107,12 +108,12 @@ public class Controller implements IController {
 		model.redo();
 	}
 
-	public void load() {
-		model.load("file.xml");
+	public void load(String path) {
+		model.load(path);
 	}
 
-	public void save() {
-		model.save("file.xml");
+	public void save(String path) {
+		model.save(path);
 	}
 
 	public void delete() {
@@ -139,6 +140,11 @@ public class Controller implements IController {
 	public void strokeChange(int value) {
 		stroke = value;
 		view.getColorPicker().setBorder(new LineBorder(color, new Double(stroke).intValue()));
+		Graphics2D g = (Graphics2D) view.getCanvas().getGraphics();
+		g.setStroke(new BasicStroke(value));
+		Canvas c = (Canvas) view.getCanvas();
+		c.setStroke(value);
+		//System.out.println(g.getStroke());
 	}
 
 	public int getStroke() {

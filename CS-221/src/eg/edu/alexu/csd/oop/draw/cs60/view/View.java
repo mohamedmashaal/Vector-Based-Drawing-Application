@@ -186,7 +186,7 @@ public class View implements Observer {
 		loadMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.load();
+				new LoadChooser(getView());
 			}
 		});
 		fileMenu.add(loadMenuItem);
@@ -197,7 +197,7 @@ public class View implements Observer {
 		saveMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.save();
+				//controller.save();
 			}
 		});
 		fileMenu.add(saveMenuItem);

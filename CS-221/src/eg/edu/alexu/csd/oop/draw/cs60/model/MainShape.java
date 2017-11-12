@@ -13,7 +13,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 public abstract class MainShape implements Shape {
 	private Map<String, Double> properties;
 	private Point position;
-	private float default_stroke = 2;
+	private float default_stroke = 0;
 	private Color default_color = Color.BLUE;
 	private Color default_fill_color = Color.RED;
 

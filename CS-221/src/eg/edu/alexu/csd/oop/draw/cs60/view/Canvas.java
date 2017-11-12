@@ -1,8 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -13,12 +11,15 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	private View view;
 	private Point p1;
 	private Point p2;
-	private float stroke = 2;
+	private float stroke = 0;
 
 	@Override
 	protected void paintComponent(Graphics g) {
+		//Graphics2D canvas = (Graphics2D) g;
+		//canvas.setStroke(new BasicStroke(stroke));
 		super.paintComponent(g);
 		g.clearRect(0, 0, getWidth(), getHeight());
+		view.getModel().setStroke(stroke);
 		view.getModel().refresh(g);
 	}
 

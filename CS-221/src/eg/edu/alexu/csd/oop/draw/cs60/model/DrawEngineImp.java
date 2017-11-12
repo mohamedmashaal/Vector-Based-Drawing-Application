@@ -34,6 +34,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private XMLParser xmlParser = new XMLParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
 	private ArrayList<CustomButton> btnList;
+	private float stroke;
 
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
@@ -67,6 +68,11 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	@Override
 	public void refresh(Graphics canvas) {
 		// TODO Auto-generated method stub
+		if(!shapes.peek().isEmpty())
+			System.out.println(shapes.peek().get(shapes.peek().size()-1).getProperties().get("stroke"));
+		if(!shapes.peek().isEmpty() && shapes.peek().get(shapes.peek().size()-1).getProperties().get("stroke") == 0.0)
+			shapes.peek().get(shapes.peek().size()-1).getProperties().put("stroke",stroke*1.0);
+
 		for (Shape x : shapes.peek()) {
 			x.draw(canvas);
 			/*
@@ -220,6 +226,10 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		// LinkedList<>(reflections.getSubTypesOf(MainShape.class));
 		// return list ;
 		return supportedShapes;
+	}
+
+	public void setStroke(float value) {
+		this.stroke = value;
 	}
 
 	public void addSupportedShape(ArrayList<Class<? extends Shape>> arrayList) {
