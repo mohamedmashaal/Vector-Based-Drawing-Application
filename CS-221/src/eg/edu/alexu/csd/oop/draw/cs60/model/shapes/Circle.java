@@ -21,8 +21,6 @@ public class Circle extends MainShape {
 		getProperties().put("x", getPosition().getX());
 		getProperties().put("y", getPosition().getY());
 		getProperties().put("radius", new Double(radius));
-		getProperties().put("color", Color.BLACK.getRGB() * 1.0);
-		getProperties().put("fill_color", Color.RED.getRGB() * 1.0);
 		getProperties().put("bond_1_x", getBonds()[0].getX());
 		getProperties().put("bond_1_y", getBonds()[0].getY());
 		getProperties().put("bond_2_x", getBonds()[1].getX());

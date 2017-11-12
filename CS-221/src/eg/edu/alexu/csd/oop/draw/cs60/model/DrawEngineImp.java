@@ -38,6 +38,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private Color full_border = Color.BLACK;
 	private Color corner_color = Color.BLUE;
 	private Point [] full_bonds = new Point [4] ;
+	private int size_corner = 5 ;
+	private int margin_bonds = 10 ;
 
 
 	private DrawEngineImp() {
@@ -86,8 +88,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		Point p2 = null;
 		Point p3 = null;
 		Point p4 = null;
-		int size = 5 ;
-		int margin = 5 ;
 		for (Shape x : getShapes()) {
 			// if(x.isSelected()) {
 			if (x.getProperties().get("selected") != null && x.getProperties().get("selected").intValue() == 1) {
@@ -108,28 +108,36 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			}
 		}
 		if (p1 != null) {
-			p2 = new Point(p1.x + (p4.x - p1.x) + margin , p1.y - margin);
-			p3 = new Point(p1.x - margin, p1.y + (p4.y - p1.y)+margin);
-			full_bonds[0] = new Point(p1.x - margin , p1.y - margin) ;
+			p2 = new Point(p1.x + (p4.x - p1.x) + margin_bonds , p1.y - margin_bonds);
+			p3 = new Point(p1.x - margin_bonds, p1.y + (p4.y - p1.y)+margin_bonds);
+			full_bonds[0] = new Point(p1.x - margin_bonds , p1.y - margin_bonds) ;
 			full_bonds[1] = p2 ;full_bonds[2] = p3 ;
-			full_bonds[3] = new Point (p4.x + margin , p4.y + margin) ;
+			full_bonds[3] = new Point (p4.x + margin_bonds , p4.y + margin_bonds) ;
 			Graphics2D g = (Graphics2D) canvas;
 			g.setStroke(new BasicStroke(2));
 			g.setColor(full_border);
-			g.drawRect(p1.x - margin, p1.y - margin, p4.x - p1.x + 2 * margin, p4.y - p1.y + 2 * margin);
+			g.drawRect(p1.x - margin_bonds, p1.y - margin_bonds, p4.x - p1.x + 2 * margin_bonds, p4.y - p1.y + 2 * margin_bonds);
 			for(Point x : full_bonds) {
 				g.setColor(corner_color);
-				g.fillRect(x.x -size , x.y -size , 2 * size , 2 * size );
+				g.fillRect(x.x -size_corner , x.y -size_corner , 2 * size_corner , 2 * size_corner );
 				g.setStroke(new BasicStroke(new Float(1).floatValue()));
 				g.setColor(full_border);
-				g.drawRect(x.x -size , x.y -size , 2 * size , 2 * size );
+				g.drawRect(x.x -size_corner , x.y -size_corner , 2 * size_corner , 2 * size_corner );
 			}
 		}
 		else {
 			full_bonds[0] = p1 ;full_bonds[1] = p2 ;full_bonds[2] = p3 ;full_bonds[3] = p4 ;
 		}
 	}
-
+	
+	public Point[] getFull_bonds() {
+		return full_bonds;
+	}
+	
+	public int getSize_corner() {
+		return size_corner;
+	}
+	
 	public void setSelected() {
 		for (Shape x : getShapes()) {
 			// x.setSelected(false);

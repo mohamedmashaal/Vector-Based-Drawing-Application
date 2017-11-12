@@ -20,7 +20,7 @@ public class Rectangle extends MainShape {
 	public Rectangle() {
 		super();
 	}
-
+	
 	public Rectangle(Point position, double width, double height) {
 		super();
 		setPosition(position);
