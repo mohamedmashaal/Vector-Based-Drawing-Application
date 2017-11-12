@@ -142,9 +142,6 @@ public class Controller implements IController {
 		view.getColorPicker().setBorder(new LineBorder(color, new Double(stroke).intValue()));
 		Graphics2D g = (Graphics2D) view.getCanvas().getGraphics();
 		g.setStroke(new BasicStroke(value));
-		Canvas c = (Canvas) view.getCanvas();
-		c.setStroke(value);
-		//System.out.println(g.getStroke());
 	}
 
 	public int getStroke() {
