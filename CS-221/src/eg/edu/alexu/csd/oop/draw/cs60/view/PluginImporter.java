@@ -10,40 +10,40 @@ import java.util.jar.JarFile;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 
-public class PluginImporter extends JFileChooser{
-	View view ;
+public class PluginImporter extends JFileChooser {
+	View view;
+
 	public PluginImporter(View view) {
 		super();
-		this.view = view ;
+		this.view = view;
 		setAcceptAllFileFilterUsed(false);
 		addChoosableFileFilter(new FileFilter() {
-			
+
 			@Override
 			public String getDescription() {
 				return "Just .jar Files";
 			}
-			
+
 			@Override
 			public boolean accept(File f) {
-				 if (f.isDirectory()) {
-				        return true;
-				    }
-				 if(f.getName().substring(f.getName().length()-3).toLowerCase().equals("jar")) {
-					 return true;
-				 }
+				if (f.isDirectory()) {
+					return true;
+				}
+				if (f.getName().substring(f.getName().length() - 3).toLowerCase().equals("jar")) {
+					return true;
+				}
 				return false;
 			}
 		});
 		int returnVal = showDialog(view.getMainWindow(), "Import");
-		if(returnVal == JFileChooser.APPROVE_OPTION) {
-				try {
-					view.getController().imp(new JarFile(getSelectedFile()));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			try {
+				view.getController().imp(new JarFile(getSelectedFile()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
-	
-	
+
 }

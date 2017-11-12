@@ -14,17 +14,18 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Rectangle extends MainShape {
-	private double width ;
-	private double height ;
+	private double width;
+	private double height;
+
 	public Rectangle() {
 		super();
 	}
-	
-	public Rectangle(Point position , double width , double height) {
+
+	public Rectangle(Point position, double width, double height) {
 		super();
 		setPosition(position);
-		this.width = width ;
-		this.height = height ;
+		this.width = width;
+		this.height = height;
 		getProperties().put("x", position.getX());
 		getProperties().put("y", position.getY());
 		getProperties().put("width", new Double(width));
@@ -35,31 +36,30 @@ public class Rectangle extends MainShape {
 		getProperties().put("bond_2_y", getBonds()[1].getY());
 	}
 
-
-
-	
 	@Override
 	public void draw(Graphics canvas) {
-		Graphics2D g = (Graphics2D)canvas ;
+		Graphics2D g = (Graphics2D) canvas;
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
-		g.fillRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
-				   getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		g.setStroke( new BasicStroke(getProperties().get("stroke").floatValue()));
+		g.fillRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(),
+				getProperties().get("width").intValue(), getProperties().get("height").intValue());
+		g.setStroke(new BasicStroke(getProperties().get("stroke").floatValue()));
 		g.setColor(new Color(getProperties().get("color").intValue()));
-		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(), 
-				   getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		if(getProperties().get("selected").intValue() == 1) {
+		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(),
+				getProperties().get("width").intValue(), getProperties().get("height").intValue());
+		if (getProperties().get("selected").intValue() == 1) {
 			drawBonds(canvas);
 		}
 	}
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		Shape clone = new Rectangle(getPosition() , this.width , this.height); // needs some adjustment
+		Shape clone = new Rectangle(getPosition(), this.width, this.height); // needs
+																				// some
+																				// adjustment
 		clone.setColor(this.getColor());
 		clone.setFillColor(this.getFillColor());
 		clone.setPosition(this.getPosition());
-		Map<String,Double> clone_prop = new HashMap<>();
+		Map<String, Double> clone_prop = new HashMap<>();
 		clone_prop.putAll(this.getProperties());
 		clone.setProperties(clone_prop);
 		return clone;
@@ -67,10 +67,10 @@ public class Rectangle extends MainShape {
 
 	@Override
 	public Point[] getBonds() {
-		Point p1 = new Point(getProperties().get("x").intValue(),getProperties().get("y").intValue());
-		Point p2 = new Point(p1.x+getProperties().get("width").intValue(),p1.y+getProperties().get("height").intValue());
-		return new Point[] {p1,p2};
+		Point p1 = new Point(getProperties().get("x").intValue(), getProperties().get("y").intValue());
+		Point p2 = new Point(p1.x + getProperties().get("width").intValue(),
+				p1.y + getProperties().get("height").intValue());
+		return new Point[] { p1, p2 };
 	}
-	
 
 }

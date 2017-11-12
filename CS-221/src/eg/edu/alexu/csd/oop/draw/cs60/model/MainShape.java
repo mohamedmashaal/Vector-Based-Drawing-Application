@@ -11,34 +11,36 @@ import java.util.Map;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public abstract class MainShape implements Shape {
-	private Map<String, Double> properties ;
-	private Point position ;
+	private Map<String, Double> properties;
+	private Point position;
 	private float default_stroke = 2;
 	private Color default_color = Color.BLUE;
 	private Color default_fill_color = Color.RED;
-	//private boolean selected = false ;
+
+	// private boolean selected = false ;
 	public MainShape() {
 		properties = new HashMap<String, Double>();
 		properties.put("stroke", new Double(default_stroke));
-		properties.put("selected" , 0.0);
+		properties.put("selected", 0.0);
 		properties.put("default_x", 0.0);
 		properties.put("default_y", 0.0);
-		properties.put("color", default_color.getRGB()*1.0);
-		properties.put("fill_color", default_fill_color.getRGB()*1.0);
+		properties.put("color", default_color.getRGB() * 1.0);
+		properties.put("fill_color", default_fill_color.getRGB() * 1.0);
 	}
+
 	@Override
 	public void setPosition(Point position) {
-		this.position = position ;
+		this.position = position;
 	}
 
 	@Override
 	public Point getPosition() {
-		return position ;
+		return position;
 	}
 
 	@Override
 	public void setProperties(Map<String, Double> properties) {
-		this.properties = properties ;
+		this.properties = properties;
 	}
 
 	@Override
@@ -48,7 +50,7 @@ public abstract class MainShape implements Shape {
 
 	@Override
 	public void setColor(Color color) {
-		properties.put("color", color.getRGB()*1.0);
+		properties.put("color", color.getRGB() * 1.0);
 	}
 
 	@Override
@@ -58,44 +60,42 @@ public abstract class MainShape implements Shape {
 
 	@Override
 	public void setFillColor(Color color) {
-		properties.put("fill_color", color.getRGB()*1.0);
+		properties.put("fill_color", color.getRGB() * 1.0);
 	}
 
 	@Override
 	public Color getFillColor() {
-		return new Color(getProperties().get("fill_color").intValue()) ;
+		return new Color(getProperties().get("fill_color").intValue());
 	}
 
-/*	public float getStorke() {
-		return storke;
-	}
-	public void setStorke(float storke) {
-		this.storke = storke;
-	}*/
-	
-	/*public boolean isSelected() {
-		return selected;
-	}*/
-	
-	
-	/*public void setSelected(boolean selected) {
-		this.selected = selected ;
-	}*/
-	
+	/*
+	 * public float getStorke() { return storke; } public void setStorke(float
+	 * storke) { this.storke = storke; }
+	 */
+
+	/*
+	 * public boolean isSelected() { return selected; }
+	 */
+
+	/*
+	 * public void setSelected(boolean selected) { this.selected = selected ; }
+	 */
+
 	@Override
 	public abstract void draw(Graphics canvas);
-	
+
 	public abstract Object clone() throws CloneNotSupportedException;
-	
+
 	public void drawBonds(Graphics canvas) {
-		int margin = 5 ;
+		int margin = 5;
 		float dash1[] = { 10.0f };
-		  BasicStroke dashed = new BasicStroke(1.0f,
-		      BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
-		Graphics2D g = (Graphics2D)canvas;
+		BasicStroke dashed = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
+		Graphics2D g = (Graphics2D) canvas;
 		Point[] bonds = getBonds();
 		g.setStroke(dashed);
-		g.drawRect(bonds[0].x-margin, bonds[0].y-margin, bonds[1].x - bonds[0].x + 2 *margin, bonds[1].y - bonds[0].y + 2 * margin );
+		g.drawRect(bonds[0].x - margin, bonds[0].y - margin, bonds[1].x - bonds[0].x + 2 * margin,
+				bonds[1].y - bonds[0].y + 2 * margin);
 	}
-	public abstract Point [] getBonds();
+
+	public abstract Point[] getBonds();
 }

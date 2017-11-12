@@ -9,22 +9,24 @@ import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
 public class ColorPicker extends JButton {
-	private View view ;
+	private View view;
+
 	public ColorPicker(final View view) {
-		this.view = view ;
-        setFocusPainted(false);
-        setContentAreaFilled(false);
-        setOpaque(true);
+		this.view = view;
+		setFocusPainted(false);
+		setContentAreaFilled(false);
+		setOpaque(true);
 
-        setBackground(view.getController().getFill_color());
-        setBorder(javax.swing.BorderFactory.createLineBorder(view.getController().getColor(), view.getController().getStroke()));
+		setBackground(view.getController().getFill_color());
+		setBorder(javax.swing.BorderFactory.createLineBorder(view.getController().getColor(),
+				view.getController().getStroke()));
 
-        addActionListener(new ActionListener() {
-			
+		addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new ColorChoser(view, true);
-				}
+			}
 		});
 	}
 }
