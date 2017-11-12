@@ -43,6 +43,10 @@ public class Triangle extends MainShape {
 		getProperties().put("bond_1_y", getBonds()[0].getY());
 		getProperties().put("bond_2_x", getBonds()[1].getX());
 		getProperties().put("bond_2_y", getBonds()[1].getY());
+		getProperties().put("bond_3_x", getBonds()[2].getX());
+		getProperties().put("bond_3_y", getBonds()[2].getY());
+		getProperties().put("bond_4_x", getBonds()[3].getX());
+		getProperties().put("bond_4_y", getBonds()[3].getY());
 	}
 
 	@Override
@@ -64,9 +68,9 @@ public class Triangle extends MainShape {
 				new int[] { getProperties().get("y1").intValue(), getProperties().get("y2").intValue(),
 						getProperties().get("y3").intValue() },
 				3);
-		if (getProperties().get("selected").intValue() == 1) {
+		/*if (getProperties().get("selected").intValue() == 1) {
 			drawBonds(canvas);
-		}
+		}*/
 	}
 
 	@Override
@@ -92,8 +96,10 @@ public class Triangle extends MainShape {
 		int y2 = getProperties().get("y2").intValue();
 		int y3 = getProperties().get("y3").intValue();
 		Point p1 = new Point(Math.min(Math.min(x1, x2), x3), Math.min(Math.min(y1, y2), y3));
-		Point p2 = new Point(Math.max(Math.max(x1, x2), x3), Math.max(Math.max(y1, y2), y3));
-		return new Point[] { p1, p2 };
+		Point p4 = new Point(Math.max(Math.max(x1, x2), x3), Math.max(Math.max(y1, y2), y3));
+		Point p2 = new Point(p1.x + (p4.x-p1.x),p1.y);
+		Point p3 = new Point(p1.x, p1.y + (p4.y-p1.y));
+		return new Point[] { p1, p2 , p3 , p4 };
 	}
 
 }

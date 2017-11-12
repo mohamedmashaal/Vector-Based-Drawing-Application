@@ -30,6 +30,10 @@ public class Line extends MainShape {
 		getProperties().put("bond_1_y", getBonds()[0].getY());
 		getProperties().put("bond_2_x", getBonds()[1].getX());
 		getProperties().put("bond_2_y", getBonds()[1].getY());
+		getProperties().put("bond_3_x", getBonds()[2].getX());
+		getProperties().put("bond_3_y", getBonds()[2].getY());
+		getProperties().put("bond_4_x", getBonds()[3].getX());
+		getProperties().put("bond_4_y", getBonds()[3].getY());
 	}
 
 	@Override
@@ -41,9 +45,9 @@ public class Line extends MainShape {
 		g.drawLine(getProperties().get("x1").intValue(), getProperties().get("y1").intValue(),
 				getProperties().get("x2").intValue(), getProperties().get("y2").intValue());
 		g.setColor(new Color(getProperties().get("color").intValue()));
-		if (getProperties().get("selected").intValue() == 1) {
+		/*if (getProperties().get("selected").intValue() == 1) {
 			drawBonds(canvas);
-		}
+		}*/
 	}
 
 	@Override
@@ -62,13 +66,15 @@ public class Line extends MainShape {
 	@Override
 	public Point[] getBonds() {
 		Point p1 = new Point();
-		Point p2 = new Point();
+		Point p4 = new Point();
 		int x1 = this.getProperties().get("x1").intValue();
 		int x2 = this.getProperties().get("x2").intValue();
 		int y1 = this.getProperties().get("y1").intValue();
 		int y2 = this.getProperties().get("y2").intValue();
 		p1.setLocation(Math.min(x1, x2), Math.min(y1, y2));
-		p2.setLocation(Math.max(x1, x2), Math.max(y1, y2));
-		return new Point[] { p1, p2 };
+		p4.setLocation(Math.max(x1, x2), Math.max(y1, y2));
+		Point p2 = new Point(p1.x+(p4.x-p1.x), p1.y);
+		Point p3 = new Point(p1.x,p1.y+(p4.y-p1.y));
+		return new Point[] { p1, p2 , p3 , p4 };
 	}
 }

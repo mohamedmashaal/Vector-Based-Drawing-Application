@@ -34,6 +34,10 @@ public class Rectangle extends MainShape {
 		getProperties().put("bond_1_y", getBonds()[0].getY());
 		getProperties().put("bond_2_x", getBonds()[1].getX());
 		getProperties().put("bond_2_y", getBonds()[1].getY());
+		getProperties().put("bond_3_x", getBonds()[2].getX());
+		getProperties().put("bond_3_y", getBonds()[2].getY());
+		getProperties().put("bond_4_x", getBonds()[3].getX());
+		getProperties().put("bond_4_y", getBonds()[3].getY());
 	}
 
 	@Override
@@ -46,9 +50,9 @@ public class Rectangle extends MainShape {
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(),
 				getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		if (getProperties().get("selected").intValue() == 1) {
+		/*if (getProperties().get("selected").intValue() == 1) {
 			drawBonds(canvas);
-		}
+		}*/
 	}
 
 	@Override
@@ -69,8 +73,12 @@ public class Rectangle extends MainShape {
 	public Point[] getBonds() {
 		Point p1 = new Point(getProperties().get("x").intValue(), getProperties().get("y").intValue());
 		Point p2 = new Point(p1.x + getProperties().get("width").intValue(),
+				p1.y);
+		Point p3 = new Point(p1.x ,
 				p1.y + getProperties().get("height").intValue());
-		return new Point[] { p1, p2 };
+		Point p4 = new Point(p1.x + getProperties().get("width").intValue(),
+				p1.y + getProperties().get("height").intValue());
+		return new Point[] { p1, p2 , p3 , p4};
 	}
 
 }
