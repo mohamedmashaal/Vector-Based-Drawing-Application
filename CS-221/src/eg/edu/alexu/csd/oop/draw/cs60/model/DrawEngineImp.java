@@ -38,6 +38,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private Color full_border = Color.BLACK;
 	private Point [] full_bonds = new Point [4] ;
 
+
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
 		shapes.push(new ArrayList<Shape>());
@@ -69,7 +70,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	@Override
 	public void refresh(Graphics canvas) {
-		// TODO Auto-generated method stub
 		for (Shape x : shapes.peek()) {
 			x.draw(canvas);
 			/*
@@ -225,6 +225,10 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		// LinkedList<>(reflections.getSubTypesOf(MainShape.class));
 		// return list ;
 		return supportedShapes;
+	}
+
+	public void setStroke(float value) {
+		this.stroke = value;
 	}
 
 	public void addSupportedShape(ArrayList<Class<? extends Shape>> arrayList) {

@@ -186,7 +186,7 @@ public class View implements Observer {
 		loadMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.load();
+				new LoadChooser(getView());
 			}
 		});
 		fileMenu.add(loadMenuItem);
@@ -197,7 +197,7 @@ public class View implements Observer {
 		saveMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.save();
+				new SaveChooser(getView());
 			}
 		});
 		fileMenu.add(saveMenuItem);
@@ -209,6 +209,12 @@ public class View implements Observer {
 
 		exitMenuItem.setMnemonic('x');
 		exitMenuItem.setText("Exit");
+		exitMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				System.exit(0);
+			}
+		});
 
 		fileMenu.add(exitMenuItem);
 
