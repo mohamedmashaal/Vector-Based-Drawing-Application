@@ -68,8 +68,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	@Override
 	public void refresh(Graphics canvas) {
 		// TODO Auto-generated method stub
-		if(!shapes.peek().isEmpty() && shapes.peek().get(shapes.peek().size()-1).getProperties().get("stroke") == 0.0)
-			shapes.peek().get(shapes.peek().size()-1).getProperties().put("stroke",stroke*1.0);
 
 		for (Shape x : shapes.peek()) {
 			x.draw(canvas);
