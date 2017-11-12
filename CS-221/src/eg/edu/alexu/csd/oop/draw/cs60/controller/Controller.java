@@ -29,7 +29,7 @@ public class Controller implements IController {
 	private Shape currentDraw;
 	private Color fill_color = Color.RED;
 	private Color color = Color.BLUE;
-	private double stroke = 0;
+	private double stroke = 2;
 
 	public Controller(DrawEngineImp model) {
 		this.model = model;
