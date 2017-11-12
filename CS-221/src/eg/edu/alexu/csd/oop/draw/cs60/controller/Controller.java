@@ -71,7 +71,7 @@ public class Controller implements IController {
 		currentDraw = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		currentDraw.setColor(color);
 		currentDraw.setFillColor(fill_color);
-		currentDraw.getProperties().put("storke", new Double(stroke));
+		currentDraw.getProperties().put("stroke", new Double(stroke));
 		if (p1.equals(p2)) {
 			model.addShapeDrag(currentDraw);
 		} else {
@@ -83,7 +83,7 @@ public class Controller implements IController {
 		Shape newCurrent = ShapesFactory.CreateShape(getCurrentActive(), p1, p2);
 		newCurrent.setColor(color);
 		newCurrent.setFillColor(fill_color);
-		newCurrent.getProperties().put("storke", new Double(stroke));
+		newCurrent.getProperties().put("stroke", new Double(stroke));
 		model.dragDrawShape(currentDraw, newCurrent);
 		currentDraw = newCurrent;
 	}
