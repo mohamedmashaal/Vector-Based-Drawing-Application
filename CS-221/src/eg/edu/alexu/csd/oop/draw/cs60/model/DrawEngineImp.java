@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -34,6 +35,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private XMLParser xmlParser = new XMLParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
 	private ArrayList<CustomButton> btnList;
+	private Color full_border = Color.BLACK;
+	private Point [] full_bonds = new Point [4] ;
 
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
@@ -80,6 +83,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private void drawFullBonds(Graphics canvas) {
 		Point p1 = null;
 		Point p2 = null;
+		Point p3 = null;
+		Point p4 = null;
 		for (Shape x : getShapes()) {
 			// if(x.isSelected()) {
 			if (x.getProperties().get("selected") != null && x.getProperties().get("selected").intValue() == 1) {
@@ -103,9 +108,9 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		if (p1 != null) {
 			Graphics2D g = (Graphics2D) canvas;
 			g.setStroke(new BasicStroke(2));
+			g.setColor(full_border);
 			g.drawRect(p1.x - margin, p1.y - margin, p2.x - p1.x + 2 * margin, p2.y - p1.y + 2 * margin);
 		}
-
 	}
 
 	public void setSelected() {

@@ -40,6 +40,7 @@ public class Line extends MainShape {
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.drawLine(getProperties().get("x1").intValue(), getProperties().get("y1").intValue(),
 				getProperties().get("x2").intValue(), getProperties().get("y2").intValue());
+		g.setColor(new Color(getProperties().get("color").intValue()));
 		if (getProperties().get("selected").intValue() == 1) {
 			drawBonds(canvas);
 		}

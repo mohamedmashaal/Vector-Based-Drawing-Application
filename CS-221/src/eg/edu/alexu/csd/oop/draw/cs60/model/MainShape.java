@@ -26,6 +26,14 @@ public abstract class MainShape implements Shape {
 		properties.put("default_y", 0.0);
 		properties.put("color", default_color.getRGB() * 1.0);
 		properties.put("fill_color", default_fill_color.getRGB() * 1.0);
+		getProperties().put("bond_1_x", -1.0);
+		getProperties().put("bond_1_y", -1.0);
+		getProperties().put("bond_2_x", -1.0);
+		getProperties().put("bond_2_y", -1.0);
+		getProperties().put("bond_3_x", -1.0);
+		getProperties().put("bond_3_y", -1.0);
+		getProperties().put("bond_4_x", -1.0);
+		getProperties().put("bond_4_y", -1.0);
 	}
 
 	@Override
