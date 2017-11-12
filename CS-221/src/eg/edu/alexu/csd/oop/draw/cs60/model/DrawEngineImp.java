@@ -385,7 +385,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			loadedShapes.add(loadedShape);
 		}
 		shapes = new Stack<>();
-		shapes.push(new ArrayList<Shape>());
+		//shapes.push(new ArrayList<Shape>());
 		shapes.push(loadedShapes);
 		notifyObservers();
 		// }
