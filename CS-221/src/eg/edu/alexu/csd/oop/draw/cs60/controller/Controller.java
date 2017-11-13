@@ -158,4 +158,9 @@ public class Controller implements IController {
 		}
 	}
 
+	public void updateSelectedShapes(Color fill_color, Color color) {
+		if(view.getShapeList().getSelectedIndices().length > 0)
+			model.updateSelectedShapes(fill_color , color);
+	}
+
 }

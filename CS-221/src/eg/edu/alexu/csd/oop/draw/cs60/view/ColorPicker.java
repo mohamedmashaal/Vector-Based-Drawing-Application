@@ -25,7 +25,7 @@ public class ColorPicker extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ColorChoser(view, true);
+				new ColorChoser(view, false);
 			}
 		});
 	}

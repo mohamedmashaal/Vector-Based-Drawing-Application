@@ -19,28 +19,36 @@ public class ColorChoser extends JDialog {
 	private View view;
 	private Color color;
 	private Color fill_color;
+	
 
+	public ColorChoser(View view) {
+		super(view.getMainWindow(), false);
+		this.view = view;
+		color = view.getController().getColor();
+		fill_color = view.getController().getFill_color();
+		initElements();
+		addColorChooserListeners();
+		setupColorChoser();
+	}
+	
 	public ColorChoser(View view, boolean modal) {
 		super(view.getMainWindow(), modal);
 		this.view = view;
 		color = view.getController().getColor();
 		fill_color = view.getController().getFill_color();
 		initElements();
+		addColorChooserListeners();
+		addSelectCancelListeners();
 		setupColorChoser();
 	}
 
-	private void initElements() {
-		colorChooser = new JColorChooser(Color.RED);
-		preview = new ColorPicker(view);
-		preview.setEnabled(false);
-		cancel = new JButton("Cancel");
+	private void addSelectCancelListeners() {
 		cancel.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		select = new JButton("Select");
 		select.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -49,7 +57,10 @@ public class ColorChoser extends JDialog {
 				dispose();
 			}
 		});
-		selectFillColor = new JButton("Select Color");
+	}
+
+	private void addColorChooserListeners() {
+		// TODO Auto-generated method stub
 		selectFillColor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -57,7 +68,6 @@ public class ColorChoser extends JDialog {
 				preview.setBackground(fill_color);
 			}
 		});
-		selectBorderColor = new JButton("Select Border");
 		selectBorderColor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -65,6 +75,16 @@ public class ColorChoser extends JDialog {
 				preview.setBorder(new LineBorder(color, view.getController().getStroke()));
 			}
 		});
+	}
+
+	private void initElements() {
+		colorChooser = new JColorChooser(Color.RED);
+		preview = new ColorPicker(view);
+		preview.setEnabled(false);
+		cancel = new JButton("Cancel");
+		select = new JButton("Select");
+		selectFillColor = new JButton("Select Color");
+		selectBorderColor = new JButton("Select Border");
 	}
 
 	private void setupColorChoser() {
@@ -96,4 +116,20 @@ public class ColorChoser extends JDialog {
 		pack();
 		setVisible(true);
 	}
+	public JButton getSelect() {
+		return select;
+	}
+
+	public JButton getCancel() {
+		return cancel;
+	}
+	
+	public Color getColor() {
+		return color;
+	}
+
+	public Color getFill_color() {
+		return fill_color;
+	}
+	
 }
