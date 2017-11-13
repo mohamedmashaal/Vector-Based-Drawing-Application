@@ -59,9 +59,9 @@ public class Circle extends MainShape {
 		g.drawOval(getProperties().get("x").intValue() - getProperties().get("radius").intValue(),
 				getProperties().get("y").intValue() - getProperties().get("radius").intValue(),
 				getProperties().get("radius").intValue() * 2, getProperties().get("radius").intValue() * 2);
-		if (getProperties().get("selected").intValue() == 1) {
+		/*if (getProperties().get("selected").intValue() == 1) {
 			drawBonds(canvas);
-		}
+		}*/
 	}
 
 	@Override

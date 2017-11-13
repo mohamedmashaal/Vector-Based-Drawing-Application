@@ -106,8 +106,8 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		}
 		else if (resize) {
 			p2 = e.getPoint();
-			System.out.println(p2);
 			view.getController().resizeSelected(p1 , p2 , resize_corner);
+			p1 = new Point(p2);
 			repaint();
 		}
 	}

@@ -32,7 +32,6 @@ public class ResizeHandler {
 			newShape.setFillColor(x.getFillColor());
 			newShape.getProperties().put("stroke", x.getProperties().get("stroke"));
 			newShape.getProperties().put("selected", 1.0);
-			System.out.println("In circle handler");
 			model.dragDrawShape(x, newShape);
 		}
 		else if(x.getClass().getSimpleName().equalsIgnoreCase("ellipse")) {
@@ -53,7 +52,6 @@ public class ResizeHandler {
 			newShape.setFillColor(x.getFillColor());
 			newShape.getProperties().put("stroke", x.getProperties().get("stroke"));
 			newShape.getProperties().put("selected", 1.0);
-			System.out.println("In ellipse handler");
 			model.dragDrawShape(x, newShape);
 		}
 	}

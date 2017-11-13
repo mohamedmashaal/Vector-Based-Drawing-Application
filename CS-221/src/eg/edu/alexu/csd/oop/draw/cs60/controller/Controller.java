@@ -152,7 +152,6 @@ public class Controller implements IController {
 	public void resizeSelected(Point p1, Point p2, int resize_corner) {
 		for(Shape x :model.getShapes()) {
 			if(x.getProperties().get("selected").intValue() == 1) {
-				System.out.println("Selected");
 				ResizeHandler handler = new ResizeHandler(model);
 				handler.resize(x , p1 , p2 , resize_corner);
 			}
