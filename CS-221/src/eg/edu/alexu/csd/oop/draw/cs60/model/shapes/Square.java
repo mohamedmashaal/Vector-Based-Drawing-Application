@@ -52,12 +52,7 @@ public class Square extends MainShape {
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		Shape clone = new Rectangle(getPosition(), this.width, this.width); // needs
-																			// some
-																			// adjustment
-		clone.setColor(this.getColor());
-		clone.setFillColor(this.getFillColor());
-		clone.setPosition(this.getPosition());
+		Shape clone = new Rectangle();
 		Map<String, Double> clone_prop = new HashMap<>();
 		clone_prop.putAll(this.getProperties());
 		clone.setProperties(clone_prop);

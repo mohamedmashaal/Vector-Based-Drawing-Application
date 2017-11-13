@@ -66,11 +66,7 @@ public class Circle extends MainShape {
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		Shape clone = new Circle(new Point(getProperties().get("x").intValue(), getProperties().get("x").intValue()),
-				getProperties().get("radius").intValue(), new Color(getProperties().get("color").intValue()),
-				new Color(getProperties().get("fill_color").intValue())); // needs
-																			// some
-																			// adjustment
+		Shape clone = new Circle();
 		Map<String, Double> clone_prop = new HashMap<>();
 		clone_prop.putAll(this.getProperties());
 		clone.setProperties(clone_prop);
