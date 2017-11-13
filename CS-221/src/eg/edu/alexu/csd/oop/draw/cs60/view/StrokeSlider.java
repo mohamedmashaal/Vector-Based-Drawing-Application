@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class StrokeSlider extends JSlider {
 	static final int STK_MIN = 0;
-	static final int STK_MAX = 30;
+	static final int STK_MAX = 15;
 	static final int STK_INIT = 2;
 
 	private View view;

@@ -95,7 +95,7 @@ public class XMLParser {
 			e.printStackTrace();
 		}
 		InputSource is = new InputSource(reader);
-		is.setEncoding("UTF-8");
+		is.setEncoding("ISO-8859-1");
 		// Make an instance of the DocumentBuilderFactory
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {

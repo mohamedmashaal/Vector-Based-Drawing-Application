@@ -34,9 +34,11 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private JoeSONParser JSONParser = new JoeSONParser();
 	private XMLParser xmlParser = new XMLParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
-	private ArrayList<CustomButton> btnList;
 	private Color full_border = Color.BLACK;
+	private Color corner_color = Color.BLUE;
 	private Point [] full_bonds = new Point [4] ;
+	private int size_corner = 5 ;
+	private int margin_bonds = 10 ;
 
 
 	private DrawEngineImp() {
@@ -91,28 +93,50 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 				Point[] bonds = new Point[] {
 						new Point(x.getProperties().get("bond_1_x").intValue(),
 								x.getProperties().get("bond_1_y").intValue()),
-						new Point(x.getProperties().get("bond_2_x").intValue(),
-								x.getProperties().get("bond_2_y").intValue()) };
+						new Point(x.getProperties().get("bond_4_x").intValue(),
+								x.getProperties().get("bond_4_y").intValue()) };
 				if (p1 == null) {
 					p1 = bonds[0];
-					p2 = bonds[1];
+					p4 = bonds[1];
 				} else {
 					p1.x = Math.min(p1.x, bonds[0].x);
 					p1.y = Math.min(p1.y, bonds[0].y);
-					p2.x = Math.max(p2.x, bonds[1].x);
-					p2.y = Math.max(p2.y, bonds[1].y);
+					p4.x = Math.max(p4.x, bonds[1].x);
+					p4.y = Math.max(p4.y, bonds[1].y);
 				}
 			}
 		}
-		int margin = 10;
 		if (p1 != null) {
+			p2 = new Point(p1.x + (p4.x - p1.x) + margin_bonds , p1.y - margin_bonds);
+			p3 = new Point(p1.x - margin_bonds, p1.y + (p4.y - p1.y)+margin_bonds);
+			full_bonds[0] = new Point(p1.x - margin_bonds , p1.y - margin_bonds) ;
+			full_bonds[1] = p2 ;full_bonds[2] = p3 ;
+			full_bonds[3] = new Point (p4.x + margin_bonds , p4.y + margin_bonds) ;
 			Graphics2D g = (Graphics2D) canvas;
 			g.setStroke(new BasicStroke(2));
 			g.setColor(full_border);
-			g.drawRect(p1.x - margin, p1.y - margin, p2.x - p1.x + 2 * margin, p2.y - p1.y + 2 * margin);
+			g.drawRect(p1.x - margin_bonds, p1.y - margin_bonds, p4.x - p1.x + 2 * margin_bonds, p4.y - p1.y + 2 * margin_bonds);
+			for(Point x : full_bonds) {
+				g.setColor(corner_color);
+				g.fillRect(x.x -size_corner , x.y -size_corner , 2 * size_corner , 2 * size_corner );
+				g.setStroke(new BasicStroke(new Float(1).floatValue()));
+				g.setColor(full_border);
+				g.drawRect(x.x -size_corner , x.y -size_corner , 2 * size_corner , 2 * size_corner );
+			}
+		}
+		else {
+			full_bonds[0] = p1 ;full_bonds[1] = p2 ;full_bonds[2] = p3 ;full_bonds[3] = p4 ;
 		}
 	}
-
+	
+	public Point[] getFull_bonds() {
+		return full_bonds;
+	}
+	
+	public int getSize_corner() {
+		return size_corner;
+	}
+	
 	public void setSelected() {
 		for (Shape x : getShapes()) {
 			// x.setSelected(false);
@@ -385,7 +409,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			loadedShapes.add(loadedShape);
 		}
 		shapes = new Stack<>();
-		// shapes.push(new ArrayList<Shape>());
+		//shapes.push(new ArrayList<Shape>());
 		shapes.push(loadedShapes);
 		notifyObservers();
 		// }
