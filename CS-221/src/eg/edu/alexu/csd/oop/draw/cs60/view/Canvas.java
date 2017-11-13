@@ -59,7 +59,6 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 			if(isWithinCorner(e.getPoint())) {
 				p1 = e.getPoint() ;
 				resize = true ;
-				System.out.println("I'm here");
 			}
 		}
 	}
@@ -93,6 +92,11 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 				view.getController().draw(p1, p2);
 			}
 			repaint();
+		}
+		else {
+			if(resize) {
+				resize = false ;
+			}
 		}
 	}
 
