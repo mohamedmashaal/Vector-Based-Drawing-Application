@@ -16,6 +16,7 @@ import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ClassGetter;
 import eg.edu.alexu.csd.oop.draw.cs60.model.DrawEngineImp;
+import eg.edu.alexu.csd.oop.draw.cs60.model.ResizeHandler;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
@@ -146,6 +147,16 @@ public class Controller implements IController {
 
 	public int getStroke() {
 		return new Double(stroke).intValue();
+	}
+
+	public void resizeSelected(Point p1, Point p2, int resize_corner) {
+		for(Shape x :model.getShapes()) {
+			if(x.getProperties().get("selected").intValue() == 1) {
+				System.out.println("Selected");
+				ResizeHandler handler = new ResizeHandler(model);
+				handler.resize(x , p1 , p2 , resize_corner);
+			}
+		}
 	}
 
 }

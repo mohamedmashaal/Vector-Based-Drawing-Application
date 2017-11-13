@@ -101,8 +101,8 @@ public abstract class MainShape implements Shape {
 		Graphics2D g = (Graphics2D) canvas;
 		Point[] bonds = getBonds();
 		g.setStroke(dashed);
-		g.drawRect(bonds[0].x - margin, bonds[0].y - margin, bonds[1].x - bonds[0].x + 2 * margin,
-				bonds[1].y - bonds[0].y + 2 * margin);
+		g.drawRect(bonds[0].x - margin, bonds[0].y - margin, bonds[3].x - bonds[0].x + 2 * margin,
+				bonds[3].y - bonds[0].y + 2 * margin);
 	}
 
 	public abstract Point[] getBonds();

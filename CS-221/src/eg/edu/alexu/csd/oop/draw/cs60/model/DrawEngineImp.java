@@ -34,7 +34,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private JoeSONParser JSONParser = new JoeSONParser();
 	private XMLParser xmlParser = new XMLParser();
 	private ShapesFactory shapesFactory = new ShapesFactory();
-	private ArrayList<CustomButton> btnList;
 	private Color full_border = Color.BLACK;
 	private Color corner_color = Color.BLUE;
 	private Point [] full_bonds = new Point [4] ;

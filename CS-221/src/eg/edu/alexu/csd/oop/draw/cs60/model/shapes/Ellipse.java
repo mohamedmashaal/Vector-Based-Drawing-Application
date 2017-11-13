@@ -49,9 +49,9 @@ public class Ellipse extends MainShape {
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(),
 				getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		/*if (getProperties().get("selected").intValue() == 1) {
+		if (getProperties().get("selected").intValue() == 1) {
 			drawBonds(canvas);
-		}*/
+		}
 	}
 
 	@Override
