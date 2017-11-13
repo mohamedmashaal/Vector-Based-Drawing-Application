@@ -29,16 +29,18 @@ public class SaveChooser extends JFileChooser {
             System.out.println();
         }*/
 
+        setSelectedFile(new File("drawing"));
+
         setAcceptAllFileFilterUsed(false);
         addChoosableFileFilter(new FileFilter() {
             @Override
             public boolean accept(File file) {
                 if(file.isDirectory())
                     return true;
-                /*if(file.getName().endsWith(".json") || file.getName().endsWith(".xml")) {
+                if(file.getName().endsWith(".xml")) {
                     fileLoaded = file;
                     return true;
-                }*/
+                }
                 return false;
             }
 
@@ -48,10 +50,30 @@ public class SaveChooser extends JFileChooser {
             }
 
         });
+        addChoosableFileFilter(new FileFilter() {
+            @Override
+            public boolean accept(File file) {
+                if(file.isDirectory())
+                    return true;
+                if(file.getName().endsWith(".json")) {
+                    fileLoaded = file;
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public String getDescription() {
+                return ".json";
+            }
+
+        });
+
         int returnVal = showDialog(view.getMainWindow(), "Save");
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            String dir = getCurrentDirectory().getName();
-            File file = new File(dir + "/shapes.xml");
+            File file = new File(getSelectedFile().getName() + getDescription(getSelectedFile()));
+            //getCurrentDirectory().createNewFile();
+            System.out.println(file.getName() + " " + file.getPath());
             try {
                 getCurrentDirectory().createNewFile();
             } catch (IOException e) {

@@ -19,7 +19,6 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 		//canvas.setStroke(new BasicStroke(stroke));
 		super.paintComponent(g);
 		g.clearRect(0, 0, getWidth(), getHeight());
-		view.getModel().setStroke(stroke);
 		view.getModel().refresh(g);
 	}
 

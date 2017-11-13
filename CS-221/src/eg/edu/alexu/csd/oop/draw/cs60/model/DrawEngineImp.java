@@ -227,10 +227,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		return supportedShapes;
 	}
 
-	public void setStroke(float value) {
-		this.stroke = value;
-	}
-
 	public void addSupportedShape(ArrayList<Class<? extends Shape>> arrayList) {
 		for (Class<? extends Shape> x : arrayList)
 			supportedShapes.add(x);
