@@ -13,11 +13,11 @@ public class JoeSONParser {
 		int i = 0;
 		parsedArray.append("{\n");
 		for (Map<String, String> map : arrayOfMap) {
-			parsedArray.append("\"" + map.get("id") + "\" :\n{\n");
+			parsedArray.append("\t\"" + map.get("id") + "\" :\n\t{\n");
 			for (Map.Entry entry : map.entrySet()) {
-				parsedArray.append("\"" + entry.getKey() + "\" : \"" + entry.getValue() + "\",\n");
+				parsedArray.append("\t\t\"" + entry.getKey() + "\" : \"" + entry.getValue() + "\",\n");
 			}
-			parsedArray.append("},\n");
+			parsedArray.append("\t},\n");
 		}
 		parsedArray.append("}\n");
 
@@ -28,12 +28,12 @@ public class JoeSONParser {
 		ArrayList<Map<String, String>> arrayOfMap = new ArrayList<>();
 		Scanner in = new Scanner(jsonFormatted);
 		System.out.println("OKKKK " + jsonFormatted);
-		in.nextLine(); // as first line has only an open curly bracket "{"
+		in.nextLine().trim(); // as first line has only an open curly bracket "{"
 
 		while (in.hasNextLine()) {
 			Map<String, String> map = new HashMap<>();
 			// reading id line
-			String current = in.nextLine();
+			String current = in.nextLine().trim();
 			if (current.equals("}")) // end of file
 				break;
 			System.out.println("Curr: " + current);
@@ -55,7 +55,7 @@ public class JoeSONParser {
 
 			map.put("id", id);
 			while (true) {
-				current = in.nextLine();
+				current = in.nextLine().trim();
 				if (current.equals("},"))
 					break;
 				if (current.equals("{"))
