@@ -71,16 +71,9 @@ public class SaveChooser extends JFileChooser {
 
         int returnVal = showDialog(view.getMainWindow(), "Save");
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = new File(getSelectedFile().getName() + getDescription(getSelectedFile()));
-            //getCurrentDirectory().createNewFile();
-            System.out.println(file.getName() + " " + file.getPath());
-            try {
-                getCurrentDirectory().createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            //view.getController().load(fileLoaded.getName());
+            File file = new File( getCurrentDirectory().getPath() + "/" + getSelectedFile().getName() + getFileFilter().getDescription());
+            view.getModel().save(file.getPath());
+            System.out.println(file.getPath());
         }
     }
 

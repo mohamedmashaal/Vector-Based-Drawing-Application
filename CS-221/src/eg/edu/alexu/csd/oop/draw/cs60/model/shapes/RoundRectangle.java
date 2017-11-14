@@ -88,8 +88,8 @@ public class RoundRectangle implements Shape {
     @Override
     public void draw(Graphics canvas) {
         ((Graphics2D) canvas).setColor(getFillColor());
-        ((Graphics2D) canvas).fillRoundRect((int) p.getX(),
-                (int) p.getY(),
+        ((Graphics2D) canvas).fillRoundRect((int) properties.get("x").intValue(),
+                (int) properties.get("y").intValue(),
                 (int) properties.get("Width").intValue(),
                 (int) properties.get("Length").intValue(), 
                 (int) properties.get("ArcWidth").intValue(), 
@@ -120,7 +120,13 @@ public class RoundRectangle implements Shape {
     
     public Point[] getBonds() {
 		//TODO getBonds for round rectangle and integrating it in the Constructor.
-		//return new Point[] { p1,p2,p3,p4 };
-    	return null ;
+        Point p1 = new Point(getProperties().get("x").intValue(), getProperties().get("y").intValue());
+        Point p2 = new Point(p1.x + getProperties().get("width").intValue(),
+                p1.y);
+        Point p3 = new Point(p1.x ,
+                p1.y + getProperties().get("height").intValue());
+        Point p4 = new Point(p1.x + getProperties().get("width").intValue(),
+                p1.y + getProperties().get("height").intValue());
+        return new Point[] { p1, p2 , p3 , p4};
 	}
 }

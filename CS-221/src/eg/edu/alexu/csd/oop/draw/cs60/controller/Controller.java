@@ -35,6 +35,7 @@ public class Controller implements IController {
 		view = new View(this, model);
 		view.createView();
 		model.addObserver(view);
+		clipBoard = new ArrayList<>();
 	}
 
 	public Color getFill_color() {
@@ -138,6 +139,10 @@ public class Controller implements IController {
 		}
 		model.setSelected(view.getShapeList().getSelectedIndices());
 		view.getShapeList().setSelectedIndices(selectedIndices);
+	}
+
+	public void removeClipBoard(){
+		clipBoard = new ArrayList<>();
 	}
 
 	public void shapeSelected() {

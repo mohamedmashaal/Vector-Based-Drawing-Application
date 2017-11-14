@@ -38,6 +38,7 @@ public class View implements Observer {
 	private JMenuItem undoMenuItem;
 	private JMenuItem redoMenuItem;
 	private JMenuItem deleteMenuItem;
+	private JMenuItem removeClipBoardMenuItem;
 	private JMenuItem copyMenuItem;
 	private JMenuItem pasteMenuItem;
 	private JMenu fileMenu;
@@ -174,6 +175,7 @@ public class View implements Observer {
 		redoMenuItem = new javax.swing.JMenuItem();
 		undoMenuItem = new javax.swing.JMenuItem();
 		deleteMenuItem = new JMenuItem();
+		removeClipBoardMenuItem = new JMenuItem();
 		copyMenuItem = new JMenuItem();
 		pasteMenuItem = new JMenuItem();
 		helpMenu = new javax.swing.JMenu();
@@ -190,8 +192,8 @@ public class View implements Observer {
 		loadMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.load("file.json");
-				//new LoadChooser(getView());
+				//controller.load("file.json");
+				new LoadChooser(getView());
 			}
 		});
 		fileMenu.add(loadMenuItem);
@@ -202,8 +204,8 @@ public class View implements Observer {
 		saveMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.save("file.json");
-				//new SaveChooser(getView());
+				//controller.save("file.json");
+				new SaveChooser(getView());
 			}
 		});
 		fileMenu.add(saveMenuItem);
@@ -262,7 +264,7 @@ public class View implements Observer {
 		});
 		editMenu.add(deleteMenuItem);
 
-		copyMenuItem.setMnemonic('c');
+		copyMenuItem.setMnemonic('a');
 		copyMenuItem.setText("Copy Shape(s)");
 		copyMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 		copyMenuItem.addActionListener(new ActionListener() {
@@ -273,7 +275,7 @@ public class View implements Observer {
 		});
 		editMenu.add(copyMenuItem);
 
-		pasteMenuItem.setMnemonic('p');
+		pasteMenuItem.setMnemonic('v');
 		pasteMenuItem.setText("Paste Shape(s)");
 		pasteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, ActionEvent.CTRL_MASK));
 		pasteMenuItem.addActionListener(new ActionListener() {
@@ -287,6 +289,16 @@ public class View implements Observer {
 			}
 		});
 		editMenu.add(pasteMenuItem);
+
+		removeClipBoardMenuItem.setMnemonic('l');
+		removeClipBoardMenuItem.setText("Empty Clipboard");
+		removeClipBoardMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.removeClipBoard();
+			}
+		});
+		editMenu.add(removeClipBoardMenuItem);
 
 		menuBar.add(editMenu);
 
