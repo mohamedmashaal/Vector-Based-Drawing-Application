@@ -561,6 +561,11 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			}
 			for(int i = 0 ; i < getShapes().length ; i++) {
 				if(getShapes()[i].getProperties().get("selected").intValue() == 1 ) {
+					try {
+						shapes.peek().set(i, (Shape) shapes.peek().get(i).clone());
+					} catch (CloneNotSupportedException e) {
+						e.printStackTrace();
+					}
 					shapes.peek().get(i).setFillColor(fill_color);
 					shapes.peek().get(i).setColor(color);
 				}
