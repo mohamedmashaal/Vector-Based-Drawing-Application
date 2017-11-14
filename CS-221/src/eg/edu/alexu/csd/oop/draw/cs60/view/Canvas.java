@@ -13,6 +13,8 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 	private Point p2;
 	private boolean resize = false ;
 	private int resize_corner = 0 ;
+	private boolean move = false;
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		//Graphics2D canvas = (Graphics2D) g;
@@ -60,24 +62,38 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 				p1 = e.getPoint() ;
 				resize = true ;
 			}
+
+			//if inside the shape
+			if(isInsideShape(e.getPoint())){
+				p1 = e.getPoint();
+				move = true;
+				System.out.println("Pressed");
+			}
 		}
 	}
 
-	private boolean isWithinCorner(Point point) {
-		Point []  bonds = view.getModel().getFull_bonds();
-		if(bonds[0] == null)
-			return false;
-		else {
-			int size = view.getModel().getSize_corner();
-			for(int i = 0 ; i < 4 ; i++) {
-				Point x = bonds[i];
-				if((point.x <= x.x + size && point.x >= x.x - size) && (point.y <= x.y + size && point.y >= x.y - size)) {
-					resize_corner = i+1 ;
-					return true ;
-					}
-			}
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if (view.getActiveBtns() == 1) {
+			p2 = e.getPoint();
+			view.getController().dragDraw(p1, p2);
+			repaint();
 		}
-		return false ;
+		else if (resize) {
+			p2 = e.getPoint();
+			view.getController().resizeSelected(p1 , p2 , resize_corner);
+			p1 = new Point(p2);
+			repaint();
+		}
+		else if (move) {
+			p2 = e.getPoint();
+			// TODO Move Stuff
+			view.getController().moveSelected(p1, p2);
+			p1 = new Point(p2);
+			repaint();
+			System.out.println("Dragged");
+		}
 	}
 
 	@Override
@@ -97,23 +113,48 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 			if(resize) {
 				resize = false ;
 			}
+			if(move) {
+				move = false;
+				System.out.println("Released");
+			}
 		}
 	}
 
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		if (view.getActiveBtns() == 1) {
-			p2 = e.getPoint();
-			view.getController().dragDraw(p1, p2);
-			repaint();
+	private boolean isWithinCorner(Point point) {
+		Point []  bonds = view.getModel().getFull_bonds();
+		if(bonds[0] == null)
+			return false;
+		else {
+			int size = view.getModel().getSize_corner();
+			for(int i = 0 ; i < 4 ; i++) {
+				Point x = bonds[i];
+				if((point.x <= x.x + size && point.x >= x.x - size) && (point.y <= x.y + size && point.y >= x.y - size)) {
+					resize_corner = i+1 ;
+					return true ;
+				}
+			}
 		}
-		else if (resize) {
-			p2 = e.getPoint();
-			view.getController().resizeSelected(p1 , p2 , resize_corner);
-			p1 = new Point(p2);
-			repaint();
+		return false ;
+	}
+
+	private boolean isInsideShape(Point point){
+		Point []  bonds = view.getModel().getFull_bonds();
+		if(bonds[0] == null)
+			return false;
+		else {
+			int minX = bonds[0].x, maxX = bonds[0].x, minY = bonds[0].y, maxY = bonds[0].y;
+			for(int i = 0 ; i < 4 ; i++) {
+				Point p = bonds[i];
+				minX = Math.min(minX, p.x);
+				maxX = Math.max(maxX, p.x);
+				minY = Math.min(minY, p.y);
+				maxY = Math.max(maxY, p.y);
+			}
+			if(point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY){
+				return true;
+			}
 		}
+		return false ;
 	}
 
 	@Override

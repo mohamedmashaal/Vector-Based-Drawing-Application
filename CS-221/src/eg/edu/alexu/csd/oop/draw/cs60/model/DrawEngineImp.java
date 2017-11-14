@@ -232,6 +232,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		int index = shapes.peek().indexOf(oldShape);
 		if (index >= 0) {
 			shapes.peek().set(index, newShape);
+			System.out.println("Drag draw");
 		}
 	}
 
