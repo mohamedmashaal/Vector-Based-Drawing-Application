@@ -236,6 +236,10 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		}
 	}
 
+	public ArrayList<Shape> getArrayListOfShapes(){
+		return shapes.peek();
+	}
+
 	@Override
 	public Shape[] getShapes() {
 		// if(shapes.size() == 2)

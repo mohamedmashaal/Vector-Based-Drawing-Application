@@ -38,6 +38,8 @@ public class View implements Observer {
 	private JMenuItem undoMenuItem;
 	private JMenuItem redoMenuItem;
 	private JMenuItem deleteMenuItem;
+	private JMenuItem copyMenuItem;
+	private JMenuItem pasteMenuItem;
 	private JMenu fileMenu;
 	private JMenuItem loadMenuItem;
 	private JMenuItem saveAsMenuItem;
@@ -172,6 +174,8 @@ public class View implements Observer {
 		redoMenuItem = new javax.swing.JMenuItem();
 		undoMenuItem = new javax.swing.JMenuItem();
 		deleteMenuItem = new JMenuItem();
+		copyMenuItem = new JMenuItem();
+		pasteMenuItem = new JMenuItem();
 		helpMenu = new javax.swing.JMenu();
 		contentsMenuItem = new javax.swing.JMenuItem();
 		aboutMenuItem = new javax.swing.JMenuItem();
@@ -248,7 +252,7 @@ public class View implements Observer {
 		editMenu.add(redoMenuItem);
 
 		deleteMenuItem.setMnemonic('d');
-		deleteMenuItem.setText("Delete Shape");
+		deleteMenuItem.setText("Delete Shape(s)");
 		deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
 		deleteMenuItem.addActionListener(new ActionListener() {
 			@Override
@@ -257,6 +261,32 @@ public class View implements Observer {
 			}
 		});
 		editMenu.add(deleteMenuItem);
+
+		copyMenuItem.setMnemonic('c');
+		copyMenuItem.setText("Copy Shape(s)");
+		copyMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+		copyMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.copy();
+			}
+		});
+		editMenu.add(copyMenuItem);
+
+		pasteMenuItem.setMnemonic('p');
+		pasteMenuItem.setText("Paste Shape(s)");
+		pasteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, ActionEvent.CTRL_MASK));
+		pasteMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					controller.paste();
+				} catch (CloneNotSupportedException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		editMenu.add(pasteMenuItem);
 
 		menuBar.add(editMenu);
 

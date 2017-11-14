@@ -28,6 +28,7 @@ public class Controller implements IController {
 	private Color fill_color = Color.RED;
 	private Color color = Color.BLUE;
 	private double stroke = 2;
+	private ArrayList<Shape> clipBoard;
 
 	public Controller(DrawEngineImp model) {
 		this.model = model;
@@ -118,6 +119,27 @@ public class Controller implements IController {
 		model.removeShapes(view.getShapeList().getSelectedIndices());
 	}
 
+	public void copy(){
+		clipBoard = new ArrayList<>();
+		for(Shape shape : model.getShapes()){
+			if(shape.getProperties().get("selected") == 1.0)
+				clipBoard.add(shape);
+		}
+	}
+
+	public void paste() throws CloneNotSupportedException {
+		int[] selectedIndices = new int[clipBoard.size()];
+		int i=0;
+		for(Shape shape : clipBoard){
+			PasteHandler pasteHandler = new PasteHandler();
+			Shape shapeToPaste = pasteHandler.handle(shape);
+			model.addShape(shapeToPaste); // chage to add shapes
+			selectedIndices[i++] = model.getArrayListOfShapes().indexOf(shapeToPaste);
+		}
+		model.setSelected(view.getShapeList().getSelectedIndices());
+		view.getShapeList().setSelectedIndices(selectedIndices);
+	}
+
 	public void shapeSelected() {
 		model.setSelected();
 		model.setSelected(view.getShapeList().getSelectedIndices());
@@ -163,7 +185,7 @@ public class Controller implements IController {
 			}
 		}
 	}
-	
+
 	public void updateSelectedShapes(Color fill_color, Color color) {
 		if(view.getShapeList().getSelectedIndices().length > 0)
 			model.updateSelectedShapes(fill_color , color);
