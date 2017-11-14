@@ -7,6 +7,8 @@ import javax.swing.event.ListSelectionListener;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +49,16 @@ public class ShapeList<T> extends JList<String> {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				view.getController().shapeSelected();
+			}
+		});
+		
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if(e.getButton() ==  e.BUTTON3) {
+					new ColorChooserDialogue(view);
+				}
+				super.mousePressed(e);
 			}
 		});
 	}

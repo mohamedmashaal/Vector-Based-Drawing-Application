@@ -552,4 +552,21 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		}
 	}
 
+	public void updateSelectedShapes(Color fill_color, Color color) {
+			redoShapes = new Stack<>();
+			if (shapes.size() <= 20)
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
+			else {
+				shapes.remove(0);
+				shapes.push(new ArrayList<Shape>(shapes.peek()));
+			}
+			for(int i = 0 ; i < getShapes().length ; i++) {
+				if(getShapes()[i].getProperties().get("selected").intValue() == 1 ) {
+					shapes.peek().get(i).setFillColor(fill_color);
+					shapes.peek().get(i).setColor(color);
+				}
+			}
+		notifyObservers();
+	}
+
 }

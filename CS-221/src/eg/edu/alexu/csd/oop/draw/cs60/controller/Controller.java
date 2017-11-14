@@ -156,12 +156,17 @@ public class Controller implements IController {
 	}
 
 	public void moveSelected(Point p1, Point p2) {
-		for(Shape x :model.getShapes()) {
-			if(x.getProperties().get("selected").intValue() == 1) {
+		for (Shape x : model.getShapes()) {
+			if (x.getProperties().get("selected").intValue() == 1) {
 				MoveHandler handler = new MoveHandler(model);
-				handler.move(x , p1 , p2);
+				handler.move(x, p1, p2);
 			}
 		}
+	}
+	
+	public void updateSelectedShapes(Color fill_color, Color color) {
+		if(view.getShapeList().getSelectedIndices().length > 0)
+			model.updateSelectedShapes(fill_color , color);
 	}
 
 }
