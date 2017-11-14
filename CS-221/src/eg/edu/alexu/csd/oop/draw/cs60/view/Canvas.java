@@ -17,8 +17,6 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 
 	@Override
 	protected void paintComponent(Graphics g) {
-		//Graphics2D canvas = (Graphics2D) g;
-		//canvas.setStroke(new BasicStroke(stroke));
 		super.paintComponent(g);
 		g.clearRect(0, 0, getWidth(), getHeight());
 		view.getModel().refresh(g);
@@ -35,46 +33,42 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		if (view.getActiveBtns() == 1) {
 			p1 = e.getPoint();
 			view.getController().draw(p1, p1);
 		}
-		else {
-			if(isWithinCorner(e.getPoint())) {
+		else if(isWithinCorner(e.getPoint())) {
 				p1 = e.getPoint() ;
 				resize = true ;
-			}
+				view.getController().updateMoveResize();
+		}
 
 			//if inside the shape
-			if(isInsideShape(e.getPoint())){
+		else if(isInsideShape(e.getPoint())){
 				p1 = e.getPoint();
 				move = true;
-				System.out.println("Pressed");
-			}
+				view.getController().updateMoveResize();
 		}
+		
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
 		if (view.getActiveBtns() == 1) {
 			p2 = e.getPoint();
 			view.getController().dragDraw(p1, p2);
@@ -92,13 +86,11 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 			view.getController().moveSelected(p1, p2);
 			p1 = new Point(p2);
 			repaint();
-			System.out.println("Dragged");
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		if (view.getActiveBtns() == 1) {
 			p2 = e.getPoint();
 			if (p1.equals(p2)) {
@@ -115,7 +107,6 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 			}
 			if(move) {
 				move = false;
-				System.out.println("Released");
 			}
 		}
 	}
@@ -159,24 +150,20 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
 		return super.getWidth();
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
 		return super.getHeight();
 	}
 
 	@Override
 	public Graphics getGraphics() {
-		// TODO Auto-generated method stub
 		return super.getGraphics();
 	}
 

@@ -62,18 +62,22 @@ public class ShapesFactory {
 			List<Class<? extends Shape>> supported = engine.getSupportedShapes();
 			for (Class<? extends Shape> x : supported) {
 				if (x.getSimpleName().equalsIgnoreCase(shapeName)) {
-					try {
-						// Constructor<? extends Shape> ctor =
-						// x.getConstructor();
-						// Shape doRun = ctor.newInstance();
+					/*try {
 						Constructor<? extends Shape> cons = x.getConstructor(Point.class, double.class);
 						return cons.newInstance(p1,
 								Math.sqrt(Math.pow(Math.abs(p1.x - p2.x), 2) + Math.pow(Math.abs(p1.y - p2.y), 2)));
 					} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException
 							| IllegalArgumentException | InvocationTargetException e) {
 						e.printStackTrace();
+					}*/
+					try {
+						Constructor<? extends Shape> cons = x.getConstructor(Point.class, Point.class);
+						return cons.newInstance(p1,
+								p2);
+					} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException
+							| IllegalArgumentException | InvocationTargetException e) {
+						e.printStackTrace();
 					}
-
 				}
 			}
 		}

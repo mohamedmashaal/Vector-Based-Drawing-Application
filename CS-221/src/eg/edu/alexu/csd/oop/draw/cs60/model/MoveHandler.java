@@ -15,8 +15,12 @@ public class MoveHandler {
         int ytoUpdate = p2.y - p1.y;
 
         if(shape.getClass().getSimpleName().equalsIgnoreCase("circle")){
-            Circle newShape = (Circle) ShapesFactory.CreateShape("circle");
-            newShape.setProperties(shape.getProperties());
+            Circle newShape = null;
+			try {
+				newShape = (Circle) shape.clone();
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
             newShape.getProperties().put("x",newShape.getProperties().get("x") + xtoUpdate);
             newShape.getProperties().put("y",newShape.getProperties().get("y") + ytoUpdate);
             newShape.getProperties().put("bond_1_x", newShape.getBonds()[0].getX());
@@ -27,13 +31,16 @@ public class MoveHandler {
             newShape.getProperties().put("bond_3_y", newShape.getBonds()[2].getY());
             newShape.getProperties().put("bond_4_x", newShape.getBonds()[3].getX());
             newShape.getProperties().put("bond_4_y", newShape.getBonds()[3].getY());
-            System.out.println(shape.getProperties());System.out.println(newShape.getProperties());
             model.dragDrawShape(shape, newShape);
         }
 
         if(shape.getClass().getSimpleName().equalsIgnoreCase("ellipse")){
-            Ellipse newShape = (Ellipse) ShapesFactory.CreateShape("ellipse");
-            newShape.setProperties(shape.getProperties());
+        	Ellipse newShape = null;
+			try {
+				newShape = (Ellipse) shape.clone();
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
             newShape.getProperties().put("x",newShape.getProperties().get("x") + xtoUpdate);
             newShape.getProperties().put("y",newShape.getProperties().get("y") + ytoUpdate);
             newShape.getProperties().put("bond_1_x", newShape.getBonds()[0].getX());
@@ -44,13 +51,16 @@ public class MoveHandler {
             newShape.getProperties().put("bond_3_y", newShape.getBonds()[2].getY());
             newShape.getProperties().put("bond_4_x", newShape.getBonds()[3].getX());
             newShape.getProperties().put("bond_4_y", newShape.getBonds()[3].getY());
-            System.out.println(shape.getProperties());System.out.println(newShape.getProperties());
             model.dragDrawShape(shape, newShape);
         }
 
         if(shape.getClass().getSimpleName().equalsIgnoreCase("rectangle")){
-            Rectangle newShape = (Rectangle) ShapesFactory.CreateShape("rectangle");
-            newShape.setProperties(shape.getProperties());
+        	Rectangle newShape = null;
+			try {
+				newShape = (Rectangle) shape.clone();
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
             newShape.getProperties().put("x",newShape.getProperties().get("x") + xtoUpdate);
             newShape.getProperties().put("y",newShape.getProperties().get("y") + ytoUpdate);
             newShape.getProperties().put("bond_1_x", newShape.getBonds()[0].getX());
@@ -61,13 +71,16 @@ public class MoveHandler {
             newShape.getProperties().put("bond_3_y", newShape.getBonds()[2].getY());
             newShape.getProperties().put("bond_4_x", newShape.getBonds()[3].getX());
             newShape.getProperties().put("bond_4_y", newShape.getBonds()[3].getY());
-            System.out.println(shape.getProperties());System.out.println(newShape.getProperties());
             model.dragDrawShape(shape, newShape);
         }
 
         if(shape.getClass().getSimpleName().equalsIgnoreCase("square")){
-            Square newShape = (Square) ShapesFactory.CreateShape("square");
-            newShape.setProperties(shape.getProperties());
+        	Square newShape = null;
+			try {
+				newShape = (Square) shape.clone();
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
             newShape.getProperties().put("x",newShape.getProperties().get("x") + xtoUpdate);
             newShape.getProperties().put("y",newShape.getProperties().get("y") + ytoUpdate);
             newShape.getProperties().put("bond_1_x", newShape.getBonds()[0].getX());
@@ -78,13 +91,16 @@ public class MoveHandler {
             newShape.getProperties().put("bond_3_y", newShape.getBonds()[2].getY());
             newShape.getProperties().put("bond_4_x", newShape.getBonds()[3].getX());
             newShape.getProperties().put("bond_4_y", newShape.getBonds()[3].getY());
-            System.out.println(shape.getProperties());System.out.println(newShape.getProperties());
             model.dragDrawShape(shape, newShape);
         }
 
         if(shape.getClass().getSimpleName().equalsIgnoreCase("line")){
-            Line newShape = (Line) ShapesFactory.CreateShape("line");
-            newShape.setProperties(shape.getProperties());
+        	Line newShape = null;
+			try {
+				newShape = (Line) shape.clone();
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
             newShape.getProperties().put("x1",newShape.getProperties().get("x1") + xtoUpdate);
             newShape.getProperties().put("y1",newShape.getProperties().get("y1") + ytoUpdate);
             newShape.getProperties().put("x2",newShape.getProperties().get("x2") + xtoUpdate);
@@ -97,13 +113,16 @@ public class MoveHandler {
             newShape.getProperties().put("bond_3_y", newShape.getBonds()[2].getY());
             newShape.getProperties().put("bond_4_x", newShape.getBonds()[3].getX());
             newShape.getProperties().put("bond_4_y", newShape.getBonds()[3].getY());
-            System.out.println(shape.getProperties());System.out.println(newShape.getProperties());
             model.dragDrawShape(shape, newShape);
         }
 
         if(shape.getClass().getSimpleName().equalsIgnoreCase("triangle")){
-            Triangle newShape = (Triangle) ShapesFactory.CreateShape("triangle");
-            newShape.setProperties(shape.getProperties());
+        	Triangle newShape = null;
+			try {
+				newShape = (Triangle) shape.clone();
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
             newShape.getProperties().put("x1",newShape.getProperties().get("x1") + xtoUpdate);
             newShape.getProperties().put("y1",newShape.getProperties().get("y1") + ytoUpdate);
             newShape.getProperties().put("x2",newShape.getProperties().get("x2") + xtoUpdate);
@@ -118,7 +137,6 @@ public class MoveHandler {
             newShape.getProperties().put("bond_3_y", newShape.getBonds()[2].getY());
             newShape.getProperties().put("bond_4_x", newShape.getBonds()[3].getX());
             newShape.getProperties().put("bond_4_y", newShape.getBonds()[3].getY());
-            System.out.println(shape.getProperties());System.out.println(newShape.getProperties());
             model.dragDrawShape(shape, newShape);
         }
 
