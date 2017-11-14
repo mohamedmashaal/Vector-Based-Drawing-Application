@@ -5,12 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.*;
-import javax.xml.*;
-import javax.management.RuntimeErrorException;
 
 import eg.edu.alexu.csd.oop.draw.DrawingEngine;
 import eg.edu.alexu.csd.oop.draw.Observer;
@@ -22,8 +18,6 @@ import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Line;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Rectangle;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Square;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;
-import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
-import org.omg.SendingContext.RunTime;
 
 public class DrawEngineImp implements DrawingEngine, Subject {
 	private List<Observer> observers;
@@ -74,10 +68,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	public void refresh(Graphics canvas) {
 		for (Shape x : shapes.peek()) {
 			x.draw(canvas);
-			/*
-			 * if(x.isSelected()) { x.drawBonds(canvas); }
-			 */
-
 		}
 		drawFullBonds(canvas);
 	}
@@ -88,7 +78,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		Point p3 = null;
 		Point p4 = null;
 		for (Shape x : getShapes()) {
-			// if(x.isSelected()) {
 			if (x.getProperties().get("selected") != null && x.getProperties().get("selected").intValue() == 1) {
 				Point[] bonds = new Point[] {
 						new Point(x.getProperties().get("bond_1_x").intValue(),
@@ -139,7 +128,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	
 	public void setSelected() {
 		for (Shape x : getShapes()) {
-			// x.setSelected(false);
 			x.getProperties().put("selected", 0.0);
 		}
 	}
@@ -147,7 +135,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	public void setSelected(int[] indices) {
 		Shape[] shapes = getShapes();
 		for (Integer x : indices) {
-			// shapes[x].setSelected(true);
 			shapes[x].getProperties().put("selected", 1.0);
 		}
 		notifyObserversSelection();
@@ -155,7 +142,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	@Override
 	public void addShape(Shape shape) {
-		// TODO Auto-generated method stub
 		redoShapes = new Stack<>();
 		if (shapes.size() <= 20)
 			shapes.push(new ArrayList<Shape>(shapes.peek()));
@@ -169,7 +155,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	@Override
 	public void removeShape(Shape shape) {
-		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(shape);
 		if (index >= 0) {
 			redoShapes = new Stack<>();
@@ -185,7 +170,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	}
 
 	public void removeShapes(int[] indices) {
-		// TODO Auto-generated method stub
 		Arrays.sort(indices);
 		if (indices.length > 0) {
 			redoShapes = new Stack<>();
@@ -204,7 +188,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	@Override
 	public void updateShape(Shape oldShape, Shape newShape) {
-		// TODO Auto-generated method stub
 		int index = shapes.peek().indexOf(oldShape);
 		if (index >= 0) {
 			redoShapes = new Stack<>();
@@ -232,23 +215,16 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		int index = shapes.peek().indexOf(oldShape);
 		if (index >= 0) {
 			shapes.peek().set(index, newShape);
-			System.out.println("Drag draw");
 		}
 	}
 
 	@Override
 	public Shape[] getShapes() {
-		// if(shapes.size() == 2)
-		// throw new RuntimeException(shapes.peek().toString());
-		return shapes.peek().toArray(new Shape[shapes.peek().size()]);
+		return shapes.peek().toArray(new Shape[0]);
 	}
 
 	@Override
 	public List<Class<? extends Shape>> getSupportedShapes() {
-		// Reflections reflections = new Reflections();
-		// List<Class<? extends Shape>> list = new
-		// LinkedList<>(reflections.getSubTypesOf(MainShape.class));
-		// return list ;
 		return supportedShapes;
 	}
 
@@ -266,7 +242,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	@Override
 	public void undo() {
-		if (shapes.size() > 1)
+		if (shapes.size() > 1) 
 			redoShapes.push(shapes.pop());
 		notifyObservers();
 	}
@@ -280,13 +256,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	@Override
 	public void save(String path) {
-		// throw new RuntimeException(path);
 		if (path.substring(path.length() - 3).equalsIgnoreCase("xml")) {
 			saveXML(path);
-			// StringBuilder new_path = new StringBuilder(path.substring(0,
-			// path.indexOf('.')));
-			// new_path.append(".json");
-			// saveJSON(new_path.toString());
 		} else if (path.substring(path.length() - 4).equalsIgnoreCase("json")) {
 			saveJSON(path);
 		} else {
@@ -296,13 +267,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	@Override
 	public void load(String path) {
-		// throw new RuntimeException(path);
 		if (path.substring(path.length() - 3).equalsIgnoreCase("xml")) {
-			loadXML(path);
-			// StringBuilder new_path = new StringBuilder(path.substring(0,
-			// path.indexOf('.')));
-			// new_path.append(".json");
-			// loadJSON(new_path.toString());
+			loadXML(path);;
 		} else if (path.substring(path.length() - 4).equalsIgnoreCase("json")) {
 			loadJSON(path);
 		} else {
@@ -326,13 +292,9 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 			Map<String, String> newMap = new HashMap<String, String>();
 			if (shape.getProperties() != null)
-				// try {
 				for (Map.Entry entry : shape.getProperties().entrySet()) {
 					newMap.put(entry.getKey().toString(), entry.getValue().toString());
 				}
-			// } catch (Exception e) {
-
-			// }
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
 			arrayListofShapeMap.add(newMap);
 		}
@@ -341,33 +303,12 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		// objectToString(arrayOfShapes , path);
-	}
-
-	private void objectToString(ArrayList<Shape> arrayOfShapes, String path) {
-		XMLEncoder e = null;
-		try {
-			e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(path)));
-			e.writeObject(arrayOfShapes);
-			e.close();
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		return;
 	}
 
 	@SuppressWarnings("unchecked")
 	private void loadXML(String path) {
-		/*
-		 * try { ArrayList<Shape> parsedObj = (ArrayList<Shape>)
-		 * stringToObject(path); shapes = new Stack<>(); shapes.push(parsedObj);
-		 * notifyObservers(); } catch(Exception e) { throw new
-		 * RuntimeException(e); }
-		 */
-
 		File inputXML = new File(path);
 		StringBuilder shapesJSONContent = new StringBuilder();
-		// try {
 		Scanner in = null;
 		try {
 			in = new Scanner(inputXML);
@@ -402,21 +343,13 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			Shape loadedShape = shapesFactory.CreateShape(shapeName);
 
 			if (loadedShape != null)
-				// try {
 				loadedShape.setProperties(tempMap);
-			// } catch (Exception e) {
-
-			// }
 			loadedShapes.add(loadedShape);
 		}
 		shapes = new Stack<>();
 		//shapes.push(new ArrayList<Shape>());
 		shapes.push(loadedShapes);
 		notifyObservers();
-		// }
-		/*
-		 * catch(Exception e) { throw new RuntimeException(e); }
-		 */
 	}
 
 	private void saveJSON(String path) {
@@ -433,13 +366,9 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 			Map<String, String> newMap = new HashMap<String, String>();
 			if (shape.getProperties() != null)
-				// try {
 				for (Map.Entry entry : shape.getProperties().entrySet()) {
 					newMap.put(entry.getKey().toString(), entry.getValue().toString());
 				}
-			// } catch (Exception e) {
-
-			// }
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
 			arrayListofShapeMap.add(newMap);
 		}
@@ -481,8 +410,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 				if (entry.getKey().toString().equals("id"))
 					continue;
 				tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));
-				// System.out.println(entry.getKey().toString() + " " +
-				// Double.parseDouble(entry.getValue().toString()));
 			}
 			String tempShapeName = map.get("id");
 			String shapeName = "";
@@ -495,34 +422,13 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			Shape loadedShape = shapesFactory.CreateShape(shapeName);
 
 			if (loadedShape != null)
-				// try {
 				loadedShape.setProperties(tempMap);
-			// } catch (Exception e) {
-
-			// }
 			loadedShapes.add(loadedShape);
 		}
 		shapes = new Stack<>();
 		// shapes.push(new ArrayList<Shape>());
 		shapes.push(loadedShapes);
 		notifyObservers();
-		// }
-		/*
-		 * catch(Exception e) { throw new RuntimeException(e); }
-		 */
-	}
-
-	private Object stringToObject(String path) {
-		XMLDecoder xmlDecoder;
-		try {
-			xmlDecoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
-			xmlDecoder.close();
-			Object x = xmlDecoder.readObject();
-			return x;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	@Override
@@ -572,6 +478,15 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 				}
 			}
 		notifyObservers();
+	}
+
+	public void updateMoveResize() {
+		if (shapes.size() <= 20)
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
+		else {
+			shapes.remove(0);
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
+		}
 	}
 
 }

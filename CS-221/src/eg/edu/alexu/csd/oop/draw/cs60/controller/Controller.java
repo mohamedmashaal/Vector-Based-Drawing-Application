@@ -169,4 +169,8 @@ public class Controller implements IController {
 			model.updateSelectedShapes(fill_color , color);
 	}
 
+	public void updateMoveResize() {
+		model.updateMoveResize();
+	}
+
 }
