@@ -117,4 +117,10 @@ public class RoundRectangle implements Shape {
         r.setProperties(newprop);
         return r;
     }
+    
+    public Point[] getBonds() {
+		//TODO getBonds for round rectangle and integrating it in the Constructor.
+		//return new Point[] { p1,p2,p3,p4 };
+    	return null ;
+	}
 }
