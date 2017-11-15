@@ -5,8 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PluginColorChooser extends ColorChoser {
-	CreateDialogue dialogue ;
-	public PluginColorChooser(View view ,CreateDialogue dialogue) {
+	CreateDialoguePlugin dialogue ;
+	public PluginColorChooser(View view ,CreateDialoguePlugin dialogue) {
 		super(view);
 		this.dialogue = dialogue;
 		addSelectCancelListeners();

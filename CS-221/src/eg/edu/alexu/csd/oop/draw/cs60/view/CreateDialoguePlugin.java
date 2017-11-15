@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 
-public class CreateDialogue extends JDialog {
+public class CreateDialoguePlugin extends JDialog {
 	private View view ;
 	private String class_text ;
 	private Shape shape ;
@@ -28,7 +28,7 @@ public class CreateDialogue extends JDialog {
 	private Color color ;
 	private Color fill_color ;
 	
-	public CreateDialogue(View view,String text) {
+	public CreateDialoguePlugin(View view,String text) {
 		super(view.getMainWindow() , text);
 		this.view = view ;
 		class_text = text ;
@@ -62,7 +62,7 @@ public class CreateDialogue extends JDialog {
 			label = new JLabel(x);
 			labels.add(label);
 			panel.add(label);
-			textfield = new JTextField(5);
+			textfield = new JTextField(Double.toString(shape.getProperties().get(x)),5);
 			textFields.add(textfield);
 			panel.add(textfield);
 			getContentPane().add(panel);
@@ -119,7 +119,7 @@ public class CreateDialogue extends JDialog {
 	public void setFillColor(Color fill_color) {
 		this.fill_color = fill_color ;
 	}
-	private CreateDialogue getThis() {
+	private CreateDialoguePlugin getThis() {
 		return this ;
 	}
 }

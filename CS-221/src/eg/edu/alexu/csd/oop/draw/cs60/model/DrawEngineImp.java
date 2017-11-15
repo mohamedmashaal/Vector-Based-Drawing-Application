@@ -445,7 +445,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 				loadedShape.setProperties(tempMap);
 			loadedShapes.add(loadedShape);
 		}
-		shapes = new Stack<>();
+		//shapes = new Stack<>();
 		// shapes.push(new ArrayList<Shape>());
 		shapes.push(loadedShapes);
 		notifyObservers();
