@@ -31,7 +31,7 @@ public abstract class CreateDialogue extends JDialog {
 	
 	
 	public CreateDialogue(View view,String text) {
-		super(view.getMainWindow() , text , true);
+		super(view.getMainWindow() , text);
 		this.view = view ;
 		class_text = text ;
 		color = view.getController().getColor();
@@ -41,7 +41,7 @@ public abstract class CreateDialogue extends JDialog {
 	}
 	
 	public CreateDialogue(Shape shape , String title , View view , ArrayList<String> filters) {
-		super(view.getMainWindow() ,title, true);
+		super(view.getMainWindow() ,title);
 		this.view = view ;
 		this.shape = shape ;
 		this.filters = filters ;

@@ -39,7 +39,9 @@ public class EditBuiltInDialogue extends CreateDialogue{
 				int i = 0 ;
 				if(newShape != null)
 				for(JLabel x : getLabels()) {
+					System.out.println("Property :" + x.getText());
 					newShape.getProperties().put(x.getText(), Double.parseDouble(getTextFields().get(i).getText()));
+					i++ ;
 				}
 				newShape.setColor(getColor());
 				newShape.setFillColor(getFill_color());

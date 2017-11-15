@@ -47,6 +47,7 @@ public class EditPluginShape extends CreateDialogue{
 			get_Shape().setPosition(new Point(new Double(Double.parseDouble(getTextFields().get(0).getText())).intValue(),new Double(Double.parseDouble(getTextFields().get(1).getText())).intValue()));
 			for(JLabel x : getLabels()) {
 				newShape.getProperties().put(x.getText(), Double.parseDouble(getTextFields().get(i).getText()));
+				i++ ;
 			}
 		}
 		newShape.setColor(getColor());
