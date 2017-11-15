@@ -22,8 +22,6 @@ public abstract class MainShape implements Shape {
 		properties = new HashMap<String, Double>();
 		properties.put("stroke", new Double(default_stroke));
 		properties.put("selected", 0.0);
-		properties.put("default_x", 0.0);
-		properties.put("default_y", 0.0);
 		properties.put("color", default_color.getRGB() * 1.0);
 		properties.put("fill_color", default_fill_color.getRGB() * 1.0);
 		properties.put("bond_1_x", -1.0);

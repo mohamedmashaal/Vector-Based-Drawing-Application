@@ -67,14 +67,13 @@ public class ShapeList<T> extends JList<String> {
 			
 			@Override
 			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_D) {
-					view.getController().showEditDialouge();
+					view.getController().showEditDialouge(getSelectedIndices());
 				}
 				else if (e.getKeyCode() == KeyEvent.VK_C) {
 					new ColorChooserDialogue(view);

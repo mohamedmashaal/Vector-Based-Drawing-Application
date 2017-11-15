@@ -12,7 +12,7 @@ public class PluginButton extends CustomButton{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreateDialoguePlugin(view ,getText());
+				new CreatePluginDialogue(view ,getText());
 			}
 		});
 	}

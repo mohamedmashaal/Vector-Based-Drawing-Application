@@ -4,9 +4,10 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PluginColorChooser extends ColorChoser {
-	CreateDialoguePlugin dialogue ;
-	public PluginColorChooser(View view ,CreateDialoguePlugin dialogue) {
+public class EditBoxColorChooser extends ColorChoser {
+	CreateDialogue dialogue ;
+	
+	public EditBoxColorChooser(View view , CreateDialogue dialogue) {
 		super(view);
 		this.dialogue = dialogue;
 		addSelectCancelListeners();
