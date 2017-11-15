@@ -11,6 +11,7 @@ public class CustomButton extends JButton {
 	private Color pressedColor = Color.RED;
 	private Color normalColor = Color.BLUE;
 	private Boolean state = false;
+
 	private View view;
 	
 	public CustomButton(final View view , String text) {
@@ -48,8 +49,12 @@ public class CustomButton extends JButton {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!state) {
-					state = true;
+					for(CustomButton x : view.getBtnList()) {
+						x.resetState();
+					}
+					view.setActiveBtns(0);
 					view.setActiveBtns(view.getActiveBtns() + 1);
+					state = true;
 					setBackground(pressedColor);
 				} else {
 					if (state)
@@ -77,5 +82,10 @@ public class CustomButton extends JButton {
 	
 	public Boolean getState() {
 		return state;
+	}
+	
+	public void resetState() {
+		this.state = false ;
+		setBackground(normalColor);
 	}
 }

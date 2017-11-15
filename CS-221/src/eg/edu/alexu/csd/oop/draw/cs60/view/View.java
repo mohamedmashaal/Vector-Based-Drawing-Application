@@ -43,7 +43,6 @@ public class View implements Observer {
 	private JMenuItem pasteMenuItem;
 	private JMenu fileMenu;
 	private JMenuItem loadMenuItem;
-	//private JMenuItem saveAsMenuItem;
 	private JMenuItem saveMenuItem;
 	private JMenuItem exitMenuItem;
 	private JMenu PlugninMenu;
@@ -168,7 +167,6 @@ public class View implements Observer {
 		fileMenu = new javax.swing.JMenu();
 		loadMenuItem = new javax.swing.JMenuItem();
 		saveMenuItem = new javax.swing.JMenuItem();
-		//saveAsMenuItem = new javax.swing.JMenuItem();
 		exitMenuItem = new javax.swing.JMenuItem();
 		editMenu = new javax.swing.JMenu();
 		redoMenuItem = new javax.swing.JMenuItem();
@@ -177,9 +175,8 @@ public class View implements Observer {
 		removeClipBoardMenuItem = new JMenuItem();
 		copyMenuItem = new JMenuItem();
 		pasteMenuItem = new JMenuItem();
-		/*helpMenu = new javax.swing.JMenu();
-		contentsMenuItem = new javax.swing.JMenuItem();
-		aboutMenuItem = new javax.swing.JMenuItem();*/
+		AboutMenu = new javax.swing.JMenu();
+		aboutMenuItem = new javax.swing.JMenuItem();
 		PlugninMenu = new javax.swing.JMenu();
 		importMenuItem = new JMenuItem();
 
@@ -191,7 +188,6 @@ public class View implements Observer {
 		loadMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//controller.load("file.json");
 				new LoadChooser(getView());
 			}
 		});
@@ -203,16 +199,10 @@ public class View implements Observer {
 		saveMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//controller.save("file.json");
 				new SaveChooser(getView());
 			}
 		});
 		fileMenu.add(saveMenuItem);
-
-		/*saveAsMenuItem.setMnemonic('a');
-		saveAsMenuItem.setText("Save As ...");
-		saveAsMenuItem.setDisplayedMnemonicIndex(5);
-		fileMenu.add(saveAsMenuItem);*/
 
 		exitMenuItem.setMnemonic('x');
 		exitMenuItem.setText("Exit");
@@ -318,10 +308,6 @@ public class View implements Observer {
 		AboutMenu.setMnemonic('h');
 		AboutMenu.setText("Help");
 
-		/*contentsMenuItem.setMnemonic('c');
-		contentsMenuItem.setText("Contents");
-		helpMenu.add(contentsMenuItem);*/
-
 		aboutMenuItem.setMnemonic('a');
 		aboutMenuItem.setText("About");
 		AboutMenu.add(aboutMenuItem);
@@ -365,12 +351,10 @@ public class View implements Observer {
 	}
 
 	public ArrayList<CustomButton> getBtnList() {
-		// TODO Auto-generated method stub
 		return btnList;
 	}
 
 	public ShapeList<Shape> getShapeList() {
-		// TODO Auto-generated method stub
 		return shapesList;
 	}
 
@@ -400,11 +384,12 @@ public class View implements Observer {
 	@Override
 	public void updateSupportedShapes() {
 		List<Class<? extends Shape>> supported = getModel().getSupportedShapes();
-		for (int i = 6; i < supported.size(); i++) {
+		for (int i = model.getBuiltInShapes(); i < supported.size(); i++) {
+			if(i > btnList.size()-1) {
 			PluginButton plugin = new PluginButton(this, supported.get(i).getSimpleName());
 			btnList.add(plugin);
 			btnContainer.add(plugin);
-			btnContainer.revalidate();
+			btnContainer.revalidate();}
 		}
 	}
 

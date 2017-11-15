@@ -33,7 +33,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private Point [] full_bonds = new Point [4] ;
 	private int size_corner = 5 ;
 	private int margin_bonds = 10 ;
-
+	private int builtInShapes ;
 
 	private DrawEngineImp() {
 		shapes = new Stack<ArrayList<Shape>>();
@@ -58,6 +58,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		supportedShapes.add(Circle.class);
 		supportedShapes.add(Ellipse.class);
 		supportedShapes.add(Triangle.class);
+		builtInShapes = supportedShapes.size();
 	}
 
 	public static DrawEngineImp getUniqueInstance() {
@@ -78,7 +79,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		Point p3 = null;
 		Point p4 = null;
 		for (Shape x : getShapes()) {
-			if (x.getProperties().get("selected") != null && x.getProperties().get("selected").intValue() == 1) {
+			boolean notPlugin = isPlugin(x) ;
+			if (notPlugin && x.getProperties().get("selected") != null && x.getProperties().get("selected").intValue() == 1) {
 				Point[] bonds = new Point[] {
 						new Point(x.getProperties().get("bond_1_x").intValue(),
 								x.getProperties().get("bond_1_y").intValue()),
@@ -118,6 +120,17 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		}
 	}
 	
+	private boolean isPlugin(Shape shape) {
+		boolean plugin = true ;
+		for(int i = 0 ; i < builtInShapes ; i ++) {
+			if(getSupportedShapes().get(i).getSimpleName() == shape.getClass().getSimpleName()) {
+				plugin = false ;
+				break ;
+			}
+		}
+		return plugin;
+	}
+
 	public Point[] getFull_bonds() {
 		return full_bonds;
 	}
@@ -498,4 +511,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		}
 	}
 
+	public int getBuiltInShapes() {
+		return builtInShapes;
+	}
 }

@@ -97,6 +97,7 @@ public class CreateDialogue extends JDialog {
 					shape.getProperties().put(x,Double.parseDouble(textFields.get(i).getText()));
 					i++;
 				}
+				shape.getProperties().put("selected" , 0.0);
 				view.getController().draw(shape);
 				dispose();
 			}
