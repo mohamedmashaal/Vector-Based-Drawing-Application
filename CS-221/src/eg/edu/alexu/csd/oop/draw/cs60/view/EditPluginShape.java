@@ -1,7 +1,10 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map.Entry;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,24 +39,29 @@ public class EditPluginShape extends CreateDialogue{
 
 	@Override
 	public void addButtonListener() {
-		Shape newShape = null;
-		try {
-			newShape = (Shape) get_Shape().clone();
-		} catch (CloneNotSupportedException e1) {
-			e1.printStackTrace();
-		}
-		int i = 2 ;
-		if(newShape != null) {
-			get_Shape().setPosition(new Point(new Double(Double.parseDouble(getTextFields().get(0).getText())).intValue(),new Double(Double.parseDouble(getTextFields().get(1).getText())).intValue()));
-			for(JLabel x : getLabels()) {
-				newShape.getProperties().put(x.getText(), Double.parseDouble(getTextFields().get(i).getText()));
-				i++ ;
+		getDraw().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Shape newShape = null;
+				try {
+					newShape = (Shape) get_Shape().clone();
+				} catch (CloneNotSupportedException e1) {
+					e1.printStackTrace();
+				}
+				int i = 2 ;
+				if(newShape != null) {
+					newShape.setPosition(new Point(new Double(Double.parseDouble(getTextFields().get(0).getText())).intValue(),new Double(Double.parseDouble(getTextFields().get(1).getText())).intValue()));
+					for(i = 2 ; i < getLabels().size()-1 ; i++) {
+						newShape.getProperties().put(getLabels().get(i).getText(), Double.parseDouble(getTextFields().get(i).getText()));
+					}
+				}
+				newShape.setColor(getColor());
+				newShape.setFillColor(getFill_color());
+				getView().getController().updateShape(get_Shape() ,newShape);
+				dispose();
 			}
-		}
-		newShape.setColor(getColor());
-		newShape.setFillColor(getFill_color());
-		getView().getController().updateShape(get_Shape() ,newShape);
-		dispose();
+		});
 	}
 
 	@Override

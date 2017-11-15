@@ -212,8 +212,6 @@ public class Controller implements IController {
 		Shape [] shapes = model.getShapes();
 		for(Integer x : selectedIndices) {
 			if(model.isPlugin(shapes[x])) {
-				System.out.println("I went up");
-				System.out.println(shapes[x]);
 				new EditPluginShape(shapes[x], view.getShapeList().getModel().getElementAt(x) , view, Dialogue_filters);
 			}
 			else {
@@ -230,7 +228,7 @@ public class Controller implements IController {
 		Dialogue_filters = new ArrayList<>();
 		Dialogue_filters.add("bond_1_x");Dialogue_filters.add("bond_1_y");Dialogue_filters.add("bond_2_x");
 		Dialogue_filters.add("bond_2_y");Dialogue_filters.add("bond_3_x");Dialogue_filters.add("bond_3_y");
-		Dialogue_filters.add("bond_4_x");Dialogue_filters.add("bond_4_x");Dialogue_filters.add("color");
+		Dialogue_filters.add("bond_4_x");Dialogue_filters.add("bond_4_y");Dialogue_filters.add("color");
 		Dialogue_filters.add("fill_color");Dialogue_filters.add("selected");
 	}
 	

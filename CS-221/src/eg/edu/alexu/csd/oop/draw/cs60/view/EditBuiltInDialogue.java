@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
+import eg.edu.alexu.csd.oop.draw.cs60.main.MainEntry;
+import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 
 public class EditBuiltInDialogue extends CreateDialogue{
@@ -39,16 +41,28 @@ public class EditBuiltInDialogue extends CreateDialogue{
 				int i = 0 ;
 				if(newShape != null)
 				for(JLabel x : getLabels()) {
-					System.out.println("Property :" + x.getText());
 					newShape.getProperties().put(x.getText(), Double.parseDouble(getTextFields().get(i).getText()));
 					i++ ;
 				}
 				newShape.setColor(getColor());
 				newShape.setFillColor(getFill_color());
+				updateBonds(newShape);
 				getView().getController().updateShape(get_Shape() ,newShape);
 				dispose();
 			}
 		});
+	}
+
+	private void updateBonds(Shape shape) {
+		MainShape newShape = (MainShape) shape;
+		newShape.getProperties().put("bond_1_x", newShape.getBonds()[0].getX());
+        newShape.getProperties().put("bond_1_y", newShape.getBonds()[0].getY());
+        newShape.getProperties().put("bond_2_x", newShape.getBonds()[1].getX());
+        newShape.getProperties().put("bond_2_y", newShape.getBonds()[1].getY());
+        newShape.getProperties().put("bond_3_x", newShape.getBonds()[2].getX());
+        newShape.getProperties().put("bond_3_y", newShape.getBonds()[2].getY());
+        newShape.getProperties().put("bond_4_x", newShape.getBonds()[3].getX());
+        newShape.getProperties().put("bond_4_y", newShape.getBonds()[3].getY());
 	}
 
 	@Override
