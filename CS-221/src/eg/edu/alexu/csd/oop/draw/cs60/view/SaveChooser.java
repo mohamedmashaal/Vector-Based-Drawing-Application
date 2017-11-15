@@ -73,7 +73,6 @@ public class SaveChooser extends JFileChooser {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = new File( getCurrentDirectory().getPath() + "/" + getSelectedFile().getName() + getFileFilter().getDescription());
             view.getModel().save(file.getPath());
-            System.out.println(file.getPath());
         }
     }
 
