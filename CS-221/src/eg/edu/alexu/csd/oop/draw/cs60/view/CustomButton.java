@@ -11,13 +11,22 @@ public class CustomButton extends JButton {
 	private Color pressedColor = Color.RED;
 	private Color normalColor = Color.BLUE;
 	private Boolean state = false;
-
-	public Boolean getState() {
-		return state;
-	}
-
 	private View view;
-
+	
+	public CustomButton(final View view , String text) {
+		super(text);
+		this.view = view;
+		setNormalColor(view.getController().getColor());
+		setPressedColor(view.getController().getFill_color());
+		setBorderPainted(false);
+		setFocusPainted(false);
+		setContentAreaFilled(false);
+		setOpaque(true);
+		setBackground(normalColor);
+		setForeground(Color.WHITE);
+		setFont(new Font("Tahoma", Font.BOLD, 12));
+	}
+	
 	public CustomButton(String text, final View view) {
 		super(text);
 		this.view = view;
@@ -64,5 +73,9 @@ public class CustomButton extends JButton {
 		if (!state) {
 			this.setBackground(normalColor);
 		}
+	}
+	
+	public Boolean getState() {
+		return state;
 	}
 }

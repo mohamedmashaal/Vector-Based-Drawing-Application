@@ -123,7 +123,7 @@ public class Controller implements IController {
 	public void copy(){
 		clipBoard = new ArrayList<>();
 		for(Shape shape : model.getShapes()){
-			if(shape.getProperties().get("selected") == 1.0)
+			if(shape.getProperties().get("selected").intValue() == 1)
 				clipBoard.add(shape);
 		}
 	}
@@ -198,6 +198,10 @@ public class Controller implements IController {
 
 	public void updateMoveResize() {
 		model.updateMoveResize();
+	}
+
+	public void draw(Shape shape) {
+		model.addShape(shape);
 	}
 
 }

@@ -12,37 +12,17 @@ import java.util.Map;
 
 public class RoundRectangle implements Shape {
 
-    private Point p;
-    private Map<String, Double> properties;
-    private float default_stroke = 0;
-	private Color default_color = Color.BLUE;
-	private Color default_fill_color = Color.RED;
-    private Color c;
-    private Color fc;
+    protected Point p;
+    protected Map<String, Double> prop;
+    protected Color c;
+    protected Color fc;
 
     public RoundRectangle() {
-    	properties = new HashMap<>();
-    	properties.put("Width", 0.0);
-    	properties.put("Length", 0.0);
-    	properties.put("ArcWidth", 0.0);
-    	properties.put("ArcLength", 0.0);
-    }
-    public RoundRectangle(Point p1 , Point p2) {
-    	properties = new HashMap<String, Double>();
-		properties.put("stroke", new Double(default_stroke));
-		properties.put("selected", 0.0);
-		properties.put("default_x", 0.0);
-		properties.put("default_y", 0.0);
-		properties.put("color", default_color.getRGB() * 1.0);
-		properties.put("fill_color", default_fill_color.getRGB() * 1.0);
-		properties.put("bond_1_x", -1.0);
-		properties.put("bond_1_y", -1.0);
-		properties.put("bond_2_x", -1.0);
-		properties.put("bond_2_y", -1.0);
-		properties.put("bond_3_x", -1.0);
-		properties.put("bond_3_y", -1.0);
-		properties.put("bond_4_x", -1.0);
-		properties.put("bond_4_y", -1.0);
+        prop = new HashMap<>();
+        prop.put("Width", 0.0);
+        prop.put("Length", 0.0);
+        prop.put("ArcWidth", 0.0);
+        prop.put("ArcLength", 0.0);
     }
 
     @Override
@@ -57,12 +37,12 @@ public class RoundRectangle implements Shape {
 
     @Override
     public void setProperties(Map<String, Double> properties) {
-    	properties = properties;
+        prop = properties;
     }
 
     @Override
     public Map<String, Double> getProperties() {
-        return properties;
+        return prop;
     }
 
     @Override
@@ -88,21 +68,21 @@ public class RoundRectangle implements Shape {
     @Override
     public void draw(Graphics canvas) {
         ((Graphics2D) canvas).setColor(getFillColor());
-        ((Graphics2D) canvas).fillRoundRect((int) properties.get("x").intValue(),
-                (int) properties.get("y").intValue(),
-                (int) properties.get("Width").intValue(),
-                (int) properties.get("Length").intValue(), 
-                (int) properties.get("ArcWidth").intValue(), 
-                (int) properties.get("ArcLength").intValue());
+        ((Graphics2D) canvas).fillRoundRect((int) p.getX(),
+                (int) p.getY(),
+                (int) prop.get("Width").intValue(),
+                (int) prop.get("Length").intValue(), 
+                (int) prop.get("ArcWidth").intValue(), 
+                (int) prop.get("ArcLength").intValue());
 
         ((Graphics2D) canvas).setStroke(new BasicStroke(2));
         ((Graphics2D) canvas).setColor(getColor());
         ((Graphics2D) canvas).drawRoundRect((int) p.getX(),
                 (int) p.getY(),
-                (int) properties.get("Width").intValue(),
-                (int) properties.get("Length").intValue(), 
-                (int) properties.get("ArcWidth").intValue(), 
-                (int) properties.get("ArcLength").intValue());
+                (int) prop.get("Width").intValue(),
+                (int) prop.get("Length").intValue(), 
+                (int) prop.get("ArcWidth").intValue(), 
+                (int) prop.get("ArcLength").intValue());
     }
 
     @Override
@@ -112,21 +92,9 @@ public class RoundRectangle implements Shape {
         r.setFillColor(fc);
         r.setPosition(p);
         Map newprop = new HashMap<>();
-        for (Map.Entry s: properties.entrySet())
+        for (Map.Entry s: prop.entrySet())
             newprop.put(s.getKey(), s.getValue());
         r.setProperties(newprop);
         return r;
     }
-    
-    public Point[] getBonds() {
-		//TODO getBonds for round rectangle and integrating it in the Constructor.
-        Point p1 = new Point(getProperties().get("x").intValue(), getProperties().get("y").intValue());
-        Point p2 = new Point(p1.x + getProperties().get("width").intValue(),
-                p1.y);
-        Point p3 = new Point(p1.x ,
-                p1.y + getProperties().get("height").intValue());
-        Point p4 = new Point(p1.x + getProperties().get("width").intValue(),
-                p1.y + getProperties().get("height").intValue());
-        return new Point[] { p1, p2 , p3 , p4};
-	}
 }

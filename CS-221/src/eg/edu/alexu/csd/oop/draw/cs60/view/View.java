@@ -48,9 +48,8 @@ public class View implements Observer {
 	private JMenuItem exitMenuItem;
 	private JMenu PlugninMenu;
 	private JMenuItem importMenuItem;
-	/*private JMenu helpMenu;
+	private JMenu AboutMenu;
 	private JMenuItem aboutMenuItem;
-	private JMenuItem contentsMenuItem;*/
 	private ShapeList<Shape> shapesList;
 	private JScrollPane jScrollPane1;
 	private StrokeSlider strokeSlider;
@@ -264,9 +263,9 @@ public class View implements Observer {
 		});
 		editMenu.add(deleteMenuItem);
 
-		copyMenuItem.setMnemonic('a');
+		copyMenuItem.setMnemonic('c');
 		copyMenuItem.setText("Copy Shape(s)");
-		copyMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+		copyMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.SHIFT_MASK));
 		copyMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -277,7 +276,7 @@ public class View implements Observer {
 
 		pasteMenuItem.setMnemonic('v');
 		pasteMenuItem.setText("Paste Shape(s)");
-		pasteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, ActionEvent.CTRL_MASK));
+		pasteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, ActionEvent.SHIFT_MASK));
 		pasteMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -301,19 +300,6 @@ public class View implements Observer {
 		editMenu.add(removeClipBoardMenuItem);
 
 		menuBar.add(editMenu);
-
-		/*helpMenu.setMnemonic('h');
-		helpMenu.setText("Help");
-
-		contentsMenuItem.setMnemonic('c');
-		contentsMenuItem.setText("Contents");
-		helpMenu.add(contentsMenuItem);
-
-		aboutMenuItem.setMnemonic('a');
-		aboutMenuItem.setText("About");
-		helpMenu.add(aboutMenuItem);
-		menuBar.add(helpMenu);*/
-
 		PlugninMenu.setMnemonic('p');
 		PlugninMenu.setText("Plugins");
 
@@ -328,6 +314,18 @@ public class View implements Observer {
 		PlugninMenu.add(importMenuItem);
 
 		menuBar.add(PlugninMenu);
+
+		AboutMenu.setMnemonic('h');
+		AboutMenu.setText("Help");
+
+		/*contentsMenuItem.setMnemonic('c');
+		contentsMenuItem.setText("Contents");
+		helpMenu.add(contentsMenuItem);*/
+
+		aboutMenuItem.setMnemonic('a');
+		aboutMenuItem.setText("About");
+		AboutMenu.add(aboutMenuItem);
+		menuBar.add(AboutMenu);
 	}
 
 	private void createBtns() {
@@ -403,7 +401,7 @@ public class View implements Observer {
 	public void updateSupportedShapes() {
 		List<Class<? extends Shape>> supported = getModel().getSupportedShapes();
 		for (int i = 6; i < supported.size(); i++) {
-			CustomButton plugin = new CustomButton(supported.get(i).getSimpleName(), this);
+			PluginButton plugin = new PluginButton(this, supported.get(i).getSimpleName());
 			btnList.add(plugin);
 			btnContainer.add(plugin);
 			btnContainer.revalidate();
