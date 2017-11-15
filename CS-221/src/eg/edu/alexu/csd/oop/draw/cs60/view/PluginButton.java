@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class PluginButton extends CustomButton{
 	View view ;
-	public PluginButton(View view, String text) {
+	public PluginButton(final View view, String text) {
 		super(view, text);
 		this.view = view;
 		addActionListener(new ActionListener() {
