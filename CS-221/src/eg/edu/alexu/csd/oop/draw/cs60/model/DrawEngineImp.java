@@ -79,8 +79,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		Point p3 = null;
 		Point p4 = null;
 		for (Shape x : getShapes()) {
-			boolean notPlugin = isPlugin(x) ;
-			if (notPlugin && x.getProperties().get("selected") != null && x.getProperties().get("selected").intValue() == 1) {
+			boolean plugin = isPlugin(x) ;
+			if (!plugin && x.getProperties().get("selected") != null && x.getProperties().get("selected").intValue() == 1) {
 				Point[] bonds = new Point[] {
 						new Point(x.getProperties().get("bond_1_x").intValue(),
 								x.getProperties().get("bond_1_y").intValue()),
