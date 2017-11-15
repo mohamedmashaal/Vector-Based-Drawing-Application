@@ -153,6 +153,18 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		notifyObservers();
 	}
 
+	public void addShapes(ArrayList<Shape> shapesToAdd){
+		redoShapes = new Stack<>();
+		if (shapes.size() <= 20)
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
+		else {
+			shapes.remove(0);
+			shapes.push(new ArrayList<Shape>(shapes.peek()));
+		}
+		shapes.peek().addAll(shapesToAdd);
+		notifyObservers();
+	}
+
 	@Override
 	public void removeShape(Shape shape) {
 		int index = shapes.peek().indexOf(shape);

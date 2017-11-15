@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Calculator">
+    <archive path="/home/youssefali/Paint Repo/CS-221/src/Materials/Calculator.jar" />
+  </library>
+  <library name="Calculator1">
+    <archive path="/home/youssefali/Paint Repo/CS-221/bin/Materials/Calculator.jar" />
+  </library>
+  <library name="Ext_Lib">
+    <archive path="/home/youssefali/Paint Repo/CS-221/bin/Ext_Lib/guava-21.0.jar" />
+    <archive path="/home/youssefali/Paint Repo/CS-221/bin/Ext_Lib/javassist.jar" />
+    <archive path="/home/youssefali/Paint Repo/CS-221/bin/Ext_Lib/reflections-0.9.10.jar" />
+  </library>
+  <library name="Ext_Lib1">
+    <archive path="/home/youssefali/Paint Repo/CS-221/src/Ext_Lib/guava-21.0.jar" />
+    <archive path="/home/youssefali/Paint Repo/CS-221/src/Ext_Lib/javassist.jar" />
+    <archive path="/home/youssefali/Paint Repo/CS-221/src/Ext_Lib/reflections-0.9.10.jar" />
+  </library>
+</eclipse-userlibraries>
+

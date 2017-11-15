@@ -29,7 +29,7 @@ public class PluginImporter extends JFileChooser {
 				if (f.isDirectory()) {
 					return true;
 				}
-				if (f.getName().substring(f.getName().length() - 3).toLowerCase().equals("jar")) {
+				if (f.getName().endsWith("jar")) {
 					return true;
 				}
 				return false;

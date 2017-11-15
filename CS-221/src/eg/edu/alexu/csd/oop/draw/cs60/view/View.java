@@ -177,9 +177,9 @@ public class View implements Observer {
 		removeClipBoardMenuItem = new JMenuItem();
 		copyMenuItem = new JMenuItem();
 		pasteMenuItem = new JMenuItem();
-		/*helpMenu = new javax.swing.JMenu();
-		contentsMenuItem = new javax.swing.JMenuItem();
-		aboutMenuItem = new javax.swing.JMenuItem();*/
+		AboutMenu = new javax.swing.JMenu();
+		//contentsMenuItem = new javax.swing.JMenuItem();
+		aboutMenuItem = new javax.swing.JMenuItem();
 		PlugninMenu = new javax.swing.JMenu();
 		importMenuItem = new JMenuItem();
 
