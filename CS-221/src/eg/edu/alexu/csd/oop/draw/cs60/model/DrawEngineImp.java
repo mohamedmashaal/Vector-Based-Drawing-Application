@@ -247,10 +247,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	public void addSupportedShape(ArrayList<Class<? extends Shape>> arrayList) {
 		for (Class<? extends Shape> x : arrayList) {
-			if(!supportedShapes.contains(x)) {
-				System.out.println("I'm here");
+			if(!supportedShapes.contains(x))
 				supportedShapes.add(x);
-				}
 		}
 			
 		notifyObserversPlugin();

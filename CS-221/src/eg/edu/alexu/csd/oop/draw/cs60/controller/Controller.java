@@ -204,4 +204,9 @@ public class Controller implements IController {
 		model.addShape(shape);
 	}
 
+	public void showEditDialouge() {
+		// TODO Edit Dialogue
+		
+	}
+
 }
