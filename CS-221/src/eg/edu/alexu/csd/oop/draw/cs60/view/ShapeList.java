@@ -7,6 +7,8 @@ import javax.swing.event.ListSelectionListener;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
@@ -59,6 +61,29 @@ public class ShapeList<T> extends JList<String> {
 					new ColorChooserDialogue(view);
 				}
 				super.mousePressed(e);
+			}
+		});
+		addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_D) {
+					view.getController().showEditDialouge();
+				}
+				else if (e.getKeyCode() == KeyEvent.VK_C) {
+					new ColorChooserDialogue(view);
+				}
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
 			}
 		});
 	}

@@ -123,7 +123,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private boolean isPlugin(Shape shape) {
 		boolean plugin = true ;
 		for(int i = 0 ; i < builtInShapes ; i ++) {
-			if(getSupportedShapes().get(i).getSimpleName() == shape.getClass().getSimpleName()) {
+			if(getSupportedShapes().get(i).getSimpleName().equals(shape.getClass().getSimpleName())) {
 				plugin = false ;
 				break ;
 			}
@@ -259,10 +259,8 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	public void addSupportedShape(ArrayList<Class<? extends Shape>> arrayList) {
 		for (Class<? extends Shape> x : arrayList) {
-			if(!supportedShapes.contains(x)) {
-				System.out.println("I'm here");
+			if(!supportedShapes.contains(x))
 				supportedShapes.add(x);
-				}
 		}
 			
 		notifyObserversPlugin();
