@@ -168,6 +168,7 @@ public class ResizeHandler {
 			model.dragDrawShape(x, newShape);
 		}
 		else if(x.getClass().getSimpleName().equalsIgnoreCase("triangle")) {
+			//TODO Triangle Resize
 			Shape newShape = null ;
 			Point num1 = new Point(x.getProperties().get("x1").intValue(),x.getProperties().get("y1").intValue());
 			Point num2 = new Point(x.getProperties().get("x2").intValue(),x.getProperties().get("y2").intValue());
