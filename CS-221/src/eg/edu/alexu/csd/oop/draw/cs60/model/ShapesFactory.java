@@ -17,17 +17,30 @@ public class ShapesFactory {
 
 		if (shapeName.equalsIgnoreCase("circle"))
 			shape = new Circle();
-		if (shapeName.equalsIgnoreCase("ellipse"))
+		else if (shapeName.equalsIgnoreCase("ellipse"))
 			shape = new Ellipse();
-		if (shapeName.equalsIgnoreCase("rectangle"))
+		else if (shapeName.equalsIgnoreCase("rectangle"))
 			shape = new Rectangle();
-		if (shapeName.equalsIgnoreCase("line"))
+		else if (shapeName.equalsIgnoreCase("line"))
 			shape = new Line();
-		if (shapeName.equalsIgnoreCase("square"))
+		else if (shapeName.equalsIgnoreCase("square"))
 			shape = new Square();
-		if (shapeName.equalsIgnoreCase("triangle"))
+		else if (shapeName.equalsIgnoreCase("triangle"))
 			shape = new Triangle();
-
+		else {
+			DrawEngineImp engine = DrawEngineImp.getUniqueInstance();
+			List<Class<? extends Shape>> supported = engine.getSupportedShapes();
+			for (Class<? extends Shape> x : supported) {
+				if (x.getSimpleName().equalsIgnoreCase(shapeName)) {
+					try {
+						return x.newInstance();
+					} catch ( SecurityException | InstantiationException | IllegalAccessException
+							| IllegalArgumentException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
 		return shape;
 	}
 
@@ -62,20 +75,10 @@ public class ShapesFactory {
 			List<Class<? extends Shape>> supported = engine.getSupportedShapes();
 			for (Class<? extends Shape> x : supported) {
 				if (x.getSimpleName().equalsIgnoreCase(shapeName)) {
-					/*try {
-						Constructor<? extends Shape> cons = x.getConstructor(Point.class, double.class);
-						return cons.newInstance(p1,
-								Math.sqrt(Math.pow(Math.abs(p1.x - p2.x), 2) + Math.pow(Math.abs(p1.y - p2.y), 2)));
-					} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException
-							| IllegalArgumentException | InvocationTargetException e) {
-						e.printStackTrace();
-					}*/
 					try {
-						Constructor<? extends Shape> cons = x.getConstructor(Point.class, Point.class);
-						return cons.newInstance(p1,
-								p2);
-					} catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException
-							| IllegalArgumentException | InvocationTargetException e) {
+						return x.newInstance();
+					} catch ( SecurityException | InstantiationException | IllegalAccessException
+							| IllegalArgumentException e) {
 						e.printStackTrace();
 					}
 				}
