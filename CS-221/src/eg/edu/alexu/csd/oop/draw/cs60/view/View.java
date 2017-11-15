@@ -43,14 +43,14 @@ public class View implements Observer {
 	private JMenuItem pasteMenuItem;
 	private JMenu fileMenu;
 	private JMenuItem loadMenuItem;
-	private JMenuItem saveAsMenuItem;
+	//private JMenuItem saveAsMenuItem;
 	private JMenuItem saveMenuItem;
 	private JMenuItem exitMenuItem;
 	private JMenu PlugninMenu;
 	private JMenuItem importMenuItem;
-	private JMenu helpMenu;
+	/*private JMenu helpMenu;
 	private JMenuItem aboutMenuItem;
-	private JMenuItem contentsMenuItem;
+	private JMenuItem contentsMenuItem;*/
 	private ShapeList<Shape> shapesList;
 	private JScrollPane jScrollPane1;
 	private StrokeSlider strokeSlider;
@@ -169,7 +169,7 @@ public class View implements Observer {
 		fileMenu = new javax.swing.JMenu();
 		loadMenuItem = new javax.swing.JMenuItem();
 		saveMenuItem = new javax.swing.JMenuItem();
-		saveAsMenuItem = new javax.swing.JMenuItem();
+		//saveAsMenuItem = new javax.swing.JMenuItem();
 		exitMenuItem = new javax.swing.JMenuItem();
 		editMenu = new javax.swing.JMenu();
 		redoMenuItem = new javax.swing.JMenuItem();
@@ -178,9 +178,9 @@ public class View implements Observer {
 		removeClipBoardMenuItem = new JMenuItem();
 		copyMenuItem = new JMenuItem();
 		pasteMenuItem = new JMenuItem();
-		helpMenu = new javax.swing.JMenu();
+		/*helpMenu = new javax.swing.JMenu();
 		contentsMenuItem = new javax.swing.JMenuItem();
-		aboutMenuItem = new javax.swing.JMenuItem();
+		aboutMenuItem = new javax.swing.JMenuItem();*/
 		PlugninMenu = new javax.swing.JMenu();
 		importMenuItem = new JMenuItem();
 
@@ -210,10 +210,10 @@ public class View implements Observer {
 		});
 		fileMenu.add(saveMenuItem);
 
-		saveAsMenuItem.setMnemonic('a');
+		/*saveAsMenuItem.setMnemonic('a');
 		saveAsMenuItem.setText("Save As ...");
 		saveAsMenuItem.setDisplayedMnemonicIndex(5);
-		fileMenu.add(saveAsMenuItem);
+		fileMenu.add(saveAsMenuItem);*/
 
 		exitMenuItem.setMnemonic('x');
 		exitMenuItem.setText("Exit");
@@ -302,7 +302,7 @@ public class View implements Observer {
 
 		menuBar.add(editMenu);
 
-		helpMenu.setMnemonic('h');
+		/*helpMenu.setMnemonic('h');
 		helpMenu.setText("Help");
 
 		contentsMenuItem.setMnemonic('c');
@@ -312,7 +312,8 @@ public class View implements Observer {
 		aboutMenuItem.setMnemonic('a');
 		aboutMenuItem.setText("About");
 		helpMenu.add(aboutMenuItem);
-		menuBar.add(helpMenu);
+		menuBar.add(helpMenu);*/
+
 		PlugninMenu.setMnemonic('p');
 		PlugninMenu.setText("Plugins");
 
