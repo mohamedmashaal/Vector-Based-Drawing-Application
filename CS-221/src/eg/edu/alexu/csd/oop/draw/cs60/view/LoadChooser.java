@@ -18,7 +18,6 @@ public class LoadChooser extends JFileChooser {
                 if(file.isDirectory())
                     return true;
                 if(file.getName().endsWith(".json") || file.getName().endsWith(".xml")) {
-                    fileLoaded = file;
                     return true;
                 }
                 return false;
@@ -31,7 +30,9 @@ public class LoadChooser extends JFileChooser {
         });
         int returnVal = showDialog(view.getMainWindow(), "Load");
         if (returnVal == JFileChooser.APPROVE_OPTION) {
+            fileLoaded = getSelectedFile();
             view.getController().load(fileLoaded.getPath());
+            System.out.println(fileLoaded.getPath());
         }
     }
 
