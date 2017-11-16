@@ -37,7 +37,6 @@ public class Line extends MainShape {
 	@Override
 	public void draw(Graphics canvas) {
 		Graphics2D g = (Graphics2D) canvas;
-		// g.setColor(new Color(getProperties().get("color").intValue()));
 		g.setStroke(new BasicStroke(getProperties().get("stroke").floatValue()));
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.drawLine(getProperties().get("x1").intValue(), getProperties().get("y1").intValue(),

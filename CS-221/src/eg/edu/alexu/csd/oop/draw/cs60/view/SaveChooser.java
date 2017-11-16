@@ -2,9 +2,7 @@ package eg.edu.alexu.csd.oop.draw.cs60.view;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
-import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 
 public class SaveChooser extends JFileChooser {
 
@@ -17,20 +15,7 @@ public class SaveChooser extends JFileChooser {
     public SaveChooser(View view){
         super();
         this.view = view;
-
-        //TextField tf = (TextField) getComponent(1);
-
-        /*for(Component c : getComponents()){
-            System.out.println(c);
-            for(Component d : getComponents()){
-                System.out.println(d);
-
-            }
-            System.out.println();
-        }*/
-
         setSelectedFile(new File("drawing"));
-
         setAcceptAllFileFilterUsed(false);
         addChoosableFileFilter(new FileFilter() {
             @Override

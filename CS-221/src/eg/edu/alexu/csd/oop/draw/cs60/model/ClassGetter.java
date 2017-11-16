@@ -16,7 +16,6 @@ import java.util.jar.JarFile;
 import eg.edu.alexu.csd.oop.draw.Shape;
 
 public class ClassGetter {
-	private Class<Shape> shape = Shape.class;
 	private final ClassLoader mainClassLoader = getClass().getClassLoader();
 	private final Set<String> moduleClasses;
 	private ArrayList<Class<? extends Shape>> classes = new ArrayList<>();
@@ -36,12 +35,6 @@ public class ClassGetter {
 					moduleClasses.add(name);
 				}
 			}
-			/*
-			 * this.moduleClasses = connection.getJarFile().stream()
-			 * .map(JarEntry::getName) .filter(name -> name.endsWith(".class"))
-			 * .map(name -> name.replace(".class", "").replaceAll("/", "."))
-			 * .collect(Collectors.toSet());
-			 */
 		} catch (IOException e) {
 			throw new IllegalArgumentException(
 					String.format("Unexpected error while reading module jar: %s", e.getMessage()));
@@ -68,13 +61,10 @@ public class ClassGetter {
 					classes.add((Class<? extends Shape>) toAdd);
 				}
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

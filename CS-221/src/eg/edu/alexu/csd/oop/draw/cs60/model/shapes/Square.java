@@ -12,7 +12,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Square extends MainShape {
-	private double width;
 
 	public Square() {
 		super();
@@ -21,7 +20,6 @@ public class Square extends MainShape {
 	public Square(Point position, double width) {
 		super();
 		setPosition(position);
-		this.width = width;
 		getProperties().put("x", position.getX());
 		getProperties().put("y", position.getY());
 		getProperties().put("width", new Double(width));

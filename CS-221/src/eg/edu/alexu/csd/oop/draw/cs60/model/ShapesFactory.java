@@ -1,9 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.Point;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
 
 import eg.edu.alexu.csd.oop.draw.Shape;

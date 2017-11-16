@@ -88,10 +88,8 @@ public class XMLParser {
 			inputStream = new FileInputStream(xml);
 			reader = new InputStreamReader(inputStream, "ISO-8859-1");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		InputSource is = new InputSource(reader);
@@ -132,11 +130,6 @@ public class XMLParser {
 		} catch (IOException ioe) {
 			System.err.println(ioe.getMessage());
 		}
-		// StringBuilder x = new StringBuilder();
-		// for(Map z : shapesMaps) {
-		// x.append(z.keySet().toString()+ "\n");
-		// }
-		// throw new RuntimeException("Before" + x.toString()+"After");
 		return shapesMaps;
 	}
 

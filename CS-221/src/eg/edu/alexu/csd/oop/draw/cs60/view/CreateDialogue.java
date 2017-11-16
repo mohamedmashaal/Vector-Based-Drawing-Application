@@ -1,7 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
 import java.awt.Color;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
-import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 
 public abstract class CreateDialogue extends JDialog {
 	private View view ;

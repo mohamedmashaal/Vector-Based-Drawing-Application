@@ -8,7 +8,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Circle extends MainShape {
-	private double radius;
 
 	public Circle() {
 		super();
@@ -17,7 +16,6 @@ public class Circle extends MainShape {
 	public Circle(Point position, double radius) {
 		super();
 		setPosition(position);
-		this.radius = radius;
 		getProperties().put("x", getPosition().getX());
 		getProperties().put("y", getPosition().getY());
 		getProperties().put("radius", new Double(radius));
