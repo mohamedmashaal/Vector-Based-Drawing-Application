@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.oop.draw.cs60.controller;
 
 import java.awt.*;
 import java.io.File;
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -134,12 +135,18 @@ public class Controller implements IController {
 
 	public void paste() throws CloneNotSupportedException {
 		int[] selectedIndices = new int[clipBoard.size()];
+		ArrayList<Shape> shapesToAdd = new ArrayList<>();
 		int i=0;
 		for(Shape shape : clipBoard){
 			PasteHandler pasteHandler = new PasteHandler();
 			Shape shapeToPaste = pasteHandler.handle(shape);
-			model.addShape(shapeToPaste); // chage to add shapes
-			selectedIndices[i++] = model.getArrayListOfShapes().indexOf(shapeToPaste);
+			//model.addShape(shapeToPaste); // chage to add shapes
+			shapesToAdd.add(shapeToPaste);
+			//selectedIndices[i++] = model.getArrayListOfShapes().indexOf(shapeToPaste);
+		}
+		model.addShapes(shapesToAdd);
+		for(int x : selectedIndices) {
+			selectedIndices[i] = model.getArrayListOfShapes().indexOf(shapesToAdd.get(i++));
 		}
 		model.setSelected(view.getShapeList().getSelectedIndices());
 		view.getShapeList().setSelectedIndices(selectedIndices);
