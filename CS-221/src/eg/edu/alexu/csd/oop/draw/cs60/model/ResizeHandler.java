@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.Point;
+import java.security.KeyStore.Entry;
 
 import javax.management.modelmbean.ModelMBean;
 
@@ -185,7 +186,14 @@ public class ResizeHandler {
 			Point num1_e = new Point(num1.x == corner.x ? num1.x +xtoUpdate : num1.x ,num1.y == corner.y ? num1.y +ytoUpdate : num1.y);
 			Point num2_e = new Point(num2.x == corner.x ? num2.x +xtoUpdate : num2.x ,num2.y == corner.y ? num2.y +ytoUpdate : num2.y);
 			Point num3_e = new Point(num3.x == corner.x ? num3.x +xtoUpdate : num3.x ,num3.y == corner.y ? num3.y +ytoUpdate : num3.y);
-			newShape = new Triangle(num1_e, num2_e, num3_e);
+			if((num1_e.x == num2_e.x && num2_e.x == num3_e.x )||(num1_e.y == num2_e.y && num2_e.y == num3_e.y)) {
+				try {
+					newShape = (Shape)x.clone();
+				} catch (CloneNotSupportedException e) {
+				}
+			}
+			else {
+				newShape = new Triangle(num1_e, num2_e, num3_e);}
 			newShape.setColor(x.getColor());
 			newShape.setFillColor(x.getFillColor());
 			newShape.getProperties().put("stroke", x.getProperties().get("stroke"));
