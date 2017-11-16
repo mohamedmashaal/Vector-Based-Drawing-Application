@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 
-public class CreateDialogue extends JDialog {
+public abstract class CreateDialogue extends JDialog {
 	private View view ;
 	private String class_text ;
 	private Shape shape ;
@@ -27,6 +27,8 @@ public class CreateDialogue extends JDialog {
 	private JButton cancel ;
 	private Color color ;
 	private Color fill_color ;
+	private ArrayList<String> filters = null;
+	
 	
 	public CreateDialogue(View view,String text) {
 		super(view.getMainWindow() , text);
@@ -34,35 +36,39 @@ public class CreateDialogue extends JDialog {
 		class_text = text ;
 		color = view.getController().getColor();
 		fill_color = view.getController().getFill_color();
-		getandCreateInstance();
+		setupKeySetandShape();
 		createView();
 	}
+	
+	public CreateDialogue(Shape shape , String title , View view , ArrayList<String> filters) {
+		super(view.getMainWindow() ,title);
+		this.view = view ;
+		this.shape = shape ;
+		this.filters = filters ;
+		color = shape.getColor();
+		fill_color = shape.getFillColor();
+		setupKeySetandShape();
+		createView();
+	}
+	
+	
 	private void createView() {
 		getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 		labels = new ArrayList<>();
 		textFields = new ArrayList<>();
 		JPanel panel = new JPanel();
-		JLabel label = new JLabel("Position - X");
-		JTextField textfield = new JTextField(5);
-		labels.add(label);
-		panel.add(label);
-		textFields.add(textfield);
-		panel.add(textfield);
-		getContentPane().add(panel);
-		panel = new JPanel();
-		label = new JLabel("Position - Y");
-		textfield = new JTextField(5);
-		labels.add(label);
-		panel.add(label);
-		textFields.add(textfield);
-		panel.add(textfield);
-		getContentPane().add(panel);
+		JLabel label = new JLabel();
+		JTextField textfield = new JTextField();
+		addPosition();
 		for(String x : set) {
+			if(filters != null && filters.contains(x)) {
+				continue ;
+			}
 			panel = new JPanel();
 			label = new JLabel(x);
 			labels.add(label);
 			panel.add(label);
-			textfield = new JTextField(5);
+			textfield = new JTextField(Double.toString(shape.getProperties().get(x)),5);
 			textFields.add(textfield);
 			panel.add(textfield);
 			getContentPane().add(panel);
@@ -72,10 +78,9 @@ public class CreateDialogue extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new PluginColorChooser(view, getThis());
+				new EditBoxColorChooser(view, getThis());
 			}
 		});
-		getContentPane().add(new JPanel(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT)).add(colorChooser));
 		cancel = new JButton("Cancel");
 		cancel.addActionListener(new ActionListener() {
 			
@@ -85,34 +90,20 @@ public class CreateDialogue extends JDialog {
 			}
 		});
 		draw = new JButton("Draw");
-		draw.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				shape.setPosition(new Point(new Double(Double.parseDouble(textFields.get(0).getText())).intValue(),new Double(Double.parseDouble(textFields.get(1).getText())).intValue()));
-				shape.setColor(color);
-				shape.setFillColor(fill_color);
-				int i = 2 ;
-				for(String x : set) {
-					shape.getProperties().put(x,Double.parseDouble(textFields.get(i).getText()));
-					i++;
-				}
-				shape.getProperties().put("selected" , 0.0);
-				view.getController().draw(shape);
-				dispose();
-			}
-		});
+		addButtonListener();
 		panel = new JPanel();
 		panel.add(cancel);
+		panel.add(colorChooser);
 		panel.add(draw);
 		getContentPane().add(panel);
 		pack();
 		setVisible(true);
 	}
-	private void getandCreateInstance() {
-		shape = ShapesFactory.CreateShape(class_text);
-		set = shape.getProperties().keySet();
-	}
+	
+	public abstract void addPosition() ;
+	public abstract void addButtonListener();
+	public abstract void setupKeySetandShape();
+	
 	public void setColor(Color color) {
 		this.color = color ;
 	}
@@ -121,5 +112,49 @@ public class CreateDialogue extends JDialog {
 	}
 	private CreateDialogue getThis() {
 		return this ;
+	}
+	
+	public JButton getDraw() {
+		return draw;
+	}
+
+	public ArrayList<JLabel> getLabels() {
+		return labels;
+	}
+
+	public ArrayList<JTextField> getTextFields() {
+		return textFields;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public Color getFill_color() {
+		return fill_color;
+	}
+	
+	public Shape get_Shape() {
+		return shape;
+	}
+
+	public Set<String> getSet() {
+		return set;
+	}
+
+	public void setSet(Set<String> set) {
+		this.set = set;
+	}
+
+	public void setShape(Shape shape) {
+		this.shape = shape;
+	}
+	
+	public View getView() {
+		return view;
+	}
+
+	public String getClass_text() {
+		return class_text;
 	}
 }

@@ -17,6 +17,8 @@ import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.*;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
+import eg.edu.alexu.csd.oop.draw.cs60.view.EditBuiltInDialogue;
+import eg.edu.alexu.csd.oop.draw.cs60.view.EditPluginShape;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
 import eg.edu.alexu.csd.oop.draw.cs60.view.Canvas;
 import eg.edu.alexu.csd.oop.draw.cs60.view.StrokeSlider;
@@ -30,6 +32,7 @@ public class Controller implements IController {
 	private Color color = Color.BLUE;
 	private double stroke = 2;
 	private ArrayList<Shape> clipBoard;
+	private ArrayList<String> Dialogue_filters;
 
 	public Controller(DrawEngineImp model) {
 		this.model = model;
@@ -37,6 +40,7 @@ public class Controller implements IController {
 		view.createView();
 		model.addObserver(view);
 		clipBoard = new ArrayList<>();
+		createfilters();
 	}
 
 	public Color getFill_color() {
@@ -206,14 +210,33 @@ public class Controller implements IController {
 	public void updateMoveResize() {
 		model.updateMoveResize();
 	}
-
+	
 	public void draw(Shape shape) {
 		model.addShape(shape);
 	}
 
-	public void showEditDialouge() {
-		// TODO Edit Dialogue
-		
+	public void showEditDialouge(int [] selectedIndices) {
+		Shape [] shapes = model.getShapes();
+		for(Integer x : selectedIndices) {
+			if(model.isPlugin(shapes[x])) {
+				new EditPluginShape(shapes[x], view.getShapeList().getModel().getElementAt(x) , view, Dialogue_filters);
+			}
+			else {
+				new EditBuiltInDialogue(shapes[x], view.getShapeList().getModel().getElementAt(x) , view, Dialogue_filters);
+			}
+		}
 	}
 
+	public void updateShape(Shape oldShape, Shape newShape) {
+		model.updateShape(oldShape, newShape);
+	}
+	
+	private void createfilters(){
+		Dialogue_filters = new ArrayList<>();
+		Dialogue_filters.add("bond_1_x");Dialogue_filters.add("bond_1_y");Dialogue_filters.add("bond_2_x");
+		Dialogue_filters.add("bond_2_y");Dialogue_filters.add("bond_3_x");Dialogue_filters.add("bond_3_y");
+		Dialogue_filters.add("bond_4_x");Dialogue_filters.add("bond_4_y");Dialogue_filters.add("color");
+		Dialogue_filters.add("fill_color");Dialogue_filters.add("selected");
+	}
+	
 }

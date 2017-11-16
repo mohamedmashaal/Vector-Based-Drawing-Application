@@ -120,7 +120,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		}
 	}
 	
-	private boolean isPlugin(Shape shape) {
+	public boolean isPlugin(Shape shape) {
 		boolean plugin = true ;
 		for(int i = 0 ; i < builtInShapes ; i ++) {
 			if(getSupportedShapes().get(i).getSimpleName().equals(shape.getClass().getSimpleName())) {
