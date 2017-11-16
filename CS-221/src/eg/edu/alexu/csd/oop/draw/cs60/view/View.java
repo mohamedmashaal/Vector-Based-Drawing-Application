@@ -38,6 +38,7 @@ public class View implements Observer {
 	private JMenuItem copyMenuItem;
 	private JMenuItem pasteMenuItem;
 	private JMenu fileMenu;
+	private JMenuItem newMenuItem;
 	private JMenuItem loadMenuItem;
 	private JMenuItem saveMenuItem;
 	private JMenuItem exitMenuItem;
@@ -161,6 +162,7 @@ public class View implements Observer {
 	private void createMenuBar() {
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
+		newMenuItem = new javax.swing.JMenuItem();
 		loadMenuItem = new javax.swing.JMenuItem();
 		saveMenuItem = new javax.swing.JMenuItem();
 		exitMenuItem = new javax.swing.JMenuItem();
@@ -178,9 +180,21 @@ public class View implements Observer {
 
 		fileMenu.setMnemonic('f');
 		fileMenu.setText("File");
-
+		
+		newMenuItem.setMnemonic('n');
+		newMenuItem.setText("New");
+		newMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+		newMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				getController().reset();
+			}
+		});
+		fileMenu.add(newMenuItem);
+		
 		loadMenuItem.setMnemonic('o');
 		loadMenuItem.setText("Load");
+		loadMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, ActionEvent.CTRL_MASK));
 		loadMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -306,6 +320,13 @@ public class View implements Observer {
 
 		aboutMenuItem.setMnemonic('a');
 		aboutMenuItem.setText("About");
+		aboutMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new AboutDialogue(getView());
+			}
+		});
 		AboutMenu.add(aboutMenuItem);
 		menuBar.add(AboutMenu);
 	}

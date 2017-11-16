@@ -232,4 +232,8 @@ public class Controller {
 		Dialogue_filters.add("selected");
 	}
 
+	public void reset() {
+		model.reset();
+	}
+
 }

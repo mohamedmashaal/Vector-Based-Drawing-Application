@@ -505,4 +505,10 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	public int getBuiltInShapes() {
 		return builtInShapes;
 	}
+
+	public void reset() {
+		clear();
+		shapes.push(new ArrayList<>());
+		notifyObservers();
+	}
 }
