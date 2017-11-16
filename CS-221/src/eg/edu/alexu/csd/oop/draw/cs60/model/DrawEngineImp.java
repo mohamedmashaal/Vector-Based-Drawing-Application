@@ -356,7 +356,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		for (Map<String, String> map : parsedObj) {
 			Map<String, Double> tempMap = new HashMap<>();
 			for (Map.Entry entry : map.entrySet()) {
-				System.out.println(entry.getKey() + " " + entry.getValue());
 				if (entry.getKey().toString().equals("id"))
 					continue;
 				tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));

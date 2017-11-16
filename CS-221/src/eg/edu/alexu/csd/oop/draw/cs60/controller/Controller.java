@@ -13,7 +13,7 @@ import eg.edu.alexu.csd.oop.draw.cs60.view.EditBuiltInDialogue;
 import eg.edu.alexu.csd.oop.draw.cs60.view.EditPluginShape;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
 
-public class Controller  {
+public class Controller {
 	private View view;
 	private DrawEngineImp model;
 	private ArrayList<CustomButton> btnList;
@@ -115,10 +115,10 @@ public class Controller  {
 		model.removeShapes(view.getShapeList().getSelectedIndices());
 	}
 
-	public void copy(){
+	public void copy() {
 		clipBoard = new ArrayList<>();
-		for(Shape shape : model.getShapes()){
-			if(shape.getProperties().get("selected").intValue() == 1 && !model.isPlugin(shape))
+		for (Shape shape : model.getShapes()) {
+			if (shape.getProperties().get("selected").intValue() == 1 && !model.isPlugin(shape))
 				clipBoard.add(shape);
 		}
 	}
@@ -127,11 +127,13 @@ public class Controller  {
 		int[] selectedIndices = new int[clipBoard.size()];
 		ArrayList<Shape> shapesToAdd = new ArrayList<>();
 		for(Shape shape : clipBoard){
+
 			PasteHandler pasteHandler = new PasteHandler();
 			Shape shapeToPaste = pasteHandler.handle(shape);
-			//model.addShape(shapeToPaste); // chage to add shapes
+			// model.addShape(shapeToPaste); // chage to add shapes
 			shapesToAdd.add(shapeToPaste);
-			//selectedIndices[i++] = model.getArrayListOfShapes().indexOf(shapeToPaste);
+			// selectedIndices[i++] =
+			// model.getArrayListOfShapes().indexOf(shapeToPaste);
 		}
 		model.addShapes(shapesToAdd);
 		for(int i=0; i < clipBoard.size(); i++) {
@@ -141,7 +143,7 @@ public class Controller  {
 		view.getShapeList().setSelectedIndices(selectedIndices);
 	}
 
-	public void removeClipBoard(){
+	public void removeClipBoard() {
 		clipBoard = new ArrayList<>();
 	}
 
@@ -174,10 +176,10 @@ public class Controller  {
 	}
 
 	public void resizeSelected(Point p1, Point p2, int resize_corner) {
-		for(Shape x :model.getShapes()) {
-			if(x.getProperties().get("selected").intValue() == 1) {
+		for (Shape x : model.getShapes()) {
+			if (x.getProperties().get("selected").intValue() == 1) {
 				ResizeHandler handler = new ResizeHandler(model);
-				handler.resize(x , p1 , p2 , resize_corner);
+				handler.resize(x, p1, p2, resize_corner);
 			}
 		}
 	}
@@ -192,26 +194,26 @@ public class Controller  {
 	}
 
 	public void updateSelectedShapes(Color fill_color, Color color) {
-		if(view.getShapeList().getSelectedIndices().length > 0)
-			model.updateSelectedShapes(fill_color , color);
+		if (view.getShapeList().getSelectedIndices().length > 0)
+			model.updateSelectedShapes(fill_color, color);
 	}
 
 	public void updateMoveResize() {
 		model.updateMoveResize();
 	}
-	
+
 	public void draw(Shape shape) {
 		model.addShape(shape);
 	}
 
-	public void showEditDialouge(int [] selectedIndices) {
-		Shape [] shapes = model.getShapes();
-		for(Integer x : selectedIndices) {
-			if(model.isPlugin(shapes[x])) {
-				new EditPluginShape(shapes[x], view.getShapeList().getModel().getElementAt(x) , view, Dialogue_filters);
-			}
-			else {
-				new EditBuiltInDialogue(shapes[x], view.getShapeList().getModel().getElementAt(x) , view, Dialogue_filters);
+	public void showEditDialouge(int[] selectedIndices) {
+		Shape[] shapes = model.getShapes();
+		for (Integer x : selectedIndices) {
+			if (model.isPlugin(shapes[x])) {
+				new EditPluginShape(shapes[x], view.getShapeList().getModel().getElementAt(x), view, Dialogue_filters);
+			} else {
+				new EditBuiltInDialogue(shapes[x], view.getShapeList().getModel().getElementAt(x), view,
+						Dialogue_filters);
 			}
 		}
 	}
@@ -219,13 +221,20 @@ public class Controller  {
 	public void updateShape(Shape oldShape, Shape newShape) {
 		model.updateShape(oldShape, newShape);
 	}
-	
-	private void createfilters(){
+
+	private void createfilters() {
 		Dialogue_filters = new ArrayList<>();
-		Dialogue_filters.add("bond_1_x");Dialogue_filters.add("bond_1_y");Dialogue_filters.add("bond_2_x");
-		Dialogue_filters.add("bond_2_y");Dialogue_filters.add("bond_3_x");Dialogue_filters.add("bond_3_y");
-		Dialogue_filters.add("bond_4_x");Dialogue_filters.add("bond_4_y");Dialogue_filters.add("color");
-		Dialogue_filters.add("fill_color");Dialogue_filters.add("selected");
+		Dialogue_filters.add("bond_1_x");
+		Dialogue_filters.add("bond_1_y");
+		Dialogue_filters.add("bond_2_x");
+		Dialogue_filters.add("bond_2_y");
+		Dialogue_filters.add("bond_3_x");
+		Dialogue_filters.add("bond_3_y");
+		Dialogue_filters.add("bond_4_x");
+		Dialogue_filters.add("bond_4_y");
+		Dialogue_filters.add("color");
+		Dialogue_filters.add("fill_color");
+		Dialogue_filters.add("selected");
 	}
-	
+
 }

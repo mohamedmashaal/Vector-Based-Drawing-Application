@@ -31,7 +31,6 @@ public class LoadChooser extends JFileChooser {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             fileLoaded = getSelectedFile();
             view.getController().load(fileLoaded.getPath());
-            System.out.println(fileLoaded.getPath());
         }
     }
 
