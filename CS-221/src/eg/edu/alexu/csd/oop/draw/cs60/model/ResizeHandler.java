@@ -173,26 +173,19 @@ public class ResizeHandler {
 			Point num1 = new Point(x.getProperties().get("x1").intValue(),x.getProperties().get("y1").intValue());
 			Point num2 = new Point(x.getProperties().get("x2").intValue(),x.getProperties().get("y2").intValue());
 			Point num3 = new Point(x.getProperties().get("x3").intValue(),x.getProperties().get("y3").intValue());
-			if(num1.y < num2.y) {
-			if(resize_corner == 1) {
-				newShape = new Triangle(new Point(num1.x+xtoUpdate,num1.y+ytoUpdate),new Point(num2.x+xtoUpdate,num2.y),num3);}
-			else if(resize_corner == 2) {
-				newShape =new Triangle(new Point(num1.x+xtoUpdate,num1.y+ytoUpdate),num2 , new Point(num3.x+xtoUpdate,num3.y));}
-			else if(resize_corner == 3) {
-				newShape =new Triangle(num1,new Point(num2.x+xtoUpdate,num2.y+ytoUpdate) , new Point(num3.x,num3.y+ytoUpdate));}
-			else if (resize_corner == 4) {
-			newShape = new Triangle(num1,new Point(num2.x,num2.y+ytoUpdate) , new Point(num3.x+xtoUpdate,num3.y+ytoUpdate));}
-			}
-			else {
-				if(resize_corner == 1) {
-					newShape = new Triangle(num1,new Point(num2.x,num2.y+ytoUpdate) , new Point(num3.x+xtoUpdate,num3.y+ytoUpdate));}
-				else if(resize_corner == 2) {
-					newShape =new Triangle(num1,new Point(num2.x+xtoUpdate,num2.y+ytoUpdate) , new Point(num3.x,num3.y+ytoUpdate));}
-				else if(resize_corner == 3) {
-					newShape =new Triangle(new Point(num1.x+xtoUpdate,num1.y+ytoUpdate),num2 , new Point(num3.x+xtoUpdate,num3.y));}
-				else if (resize_corner == 4) {
-					newShape = new Triangle(new Point(num1.x+xtoUpdate,num1.y+ytoUpdate),new Point(num2.x+xtoUpdate,num2.y),num3);}
-				}
+			Point corner = null ;
+			if(resize_corner == 1)
+				 corner = new Point(x.getProperties().get("bond_1_x").intValue(),x.getProperties().get("bond_1_y").intValue());
+			else if(resize_corner == 2) 
+				corner = new Point(x.getProperties().get("bond_2_x").intValue(),x.getProperties().get("bond_2_y").intValue());
+			else if(resize_corner == 3) 
+				corner = new Point(x.getProperties().get("bond_3_x").intValue(),x.getProperties().get("bond_3_y").intValue());
+			else if (resize_corner == 4) 
+				corner = new Point(x.getProperties().get("bond_4_x").intValue(),x.getProperties().get("bond_4_y").intValue());
+			Point num1_e = new Point(num1.x == corner.x ? num1.x +xtoUpdate : num1.x ,num1.y == corner.y ? num1.y +ytoUpdate : num1.y);
+			Point num2_e = new Point(num2.x == corner.x ? num2.x +xtoUpdate : num2.x ,num2.y == corner.y ? num2.y +ytoUpdate : num2.y);
+			Point num3_e = new Point(num3.x == corner.x ? num3.x +xtoUpdate : num3.x ,num3.y == corner.y ? num3.y +ytoUpdate : num3.y);
+			newShape = new Triangle(num1_e, num2_e, num3_e);
 			newShape.setColor(x.getColor());
 			newShape.setFillColor(x.getFillColor());
 			newShape.getProperties().put("stroke", x.getProperties().get("stroke"));

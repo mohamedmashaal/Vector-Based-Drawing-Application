@@ -51,7 +51,7 @@ public class Triangle extends MainShape {
 
 	@Override
 	public void draw(Graphics canvas) {
-		// TODO Auto-generated method stub
+		
 		Graphics2D g = (Graphics2D) canvas;
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
 		g.fillPolygon(
