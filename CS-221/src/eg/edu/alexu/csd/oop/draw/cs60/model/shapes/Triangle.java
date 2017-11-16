@@ -13,10 +13,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Triangle extends MainShape {
-	private Point p2;
-	private Point p3;
-	private int[] xPoints = new int[3];
-	private int[] yPoints = new int[3];
 
 	public Triangle() {
 		super();
@@ -25,16 +21,8 @@ public class Triangle extends MainShape {
 	public Triangle(Point p1, Point p2, Point p3) {
 		super();
 		setPosition(p1);
-		this.p2 = p2;
-		this.p3 = p3;
-		xPoints[0] = getPosition().x;
-		xPoints[1] = p2.x;
-		xPoints[2] = p3.x;
-		yPoints[0] = getPosition().y;
-		yPoints[1] = p2.y;
-		yPoints[2] = p3.y;
-		this.getProperties().put("x1", getPosition().getX());
-		this.getProperties().put("y1", getPosition().getY());
+		this.getProperties().put("x1", p1.getX());
+		this.getProperties().put("y1", p1.getY());
 		this.getProperties().put("x2", p2.getX());
 		this.getProperties().put("y2", p2.getY());
 		this.getProperties().put("x3", p3.getX());

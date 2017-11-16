@@ -31,21 +31,6 @@ public class Circle extends MainShape {
 		getProperties().put("bond_4_y", getBonds()[3].getY());
 	}
 
-	public Circle(Point position, int radius, Color color, Color fillColor) {
-		super();
-		setPosition(position);
-		this.radius = radius;
-		getProperties().put("x", getPosition().getX());
-		getProperties().put("y", getPosition().getY());
-		getProperties().put("radius", new Double(radius));
-		getProperties().put("color", color.getRGB() * 1.0);
-		getProperties().put("fill_color", fillColor.getRGB() * 1.0);
-		getProperties().put("bond_1_x", getBonds()[0].getX());
-		getProperties().put("bond_1_y", getBonds()[0].getY());
-		getProperties().put("bond_2_x", getBonds()[1].getX());
-		getProperties().put("bond_2_y", getBonds()[1].getY());
-	}
-
 	@Override
 	public void draw(Graphics canvas) {
 		// TODO Auto-generated method stub

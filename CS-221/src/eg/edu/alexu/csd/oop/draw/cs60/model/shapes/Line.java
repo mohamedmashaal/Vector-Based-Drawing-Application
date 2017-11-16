@@ -12,8 +12,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Line extends MainShape {
-	private Point end;
-
+	
 	public Line() {
 		super();
 	}
@@ -21,7 +20,6 @@ public class Line extends MainShape {
 	public Line(Point p1, Point p2) {
 		super();
 		setPosition(p1);
-		end = new Point(p2);
 		this.getProperties().put("x1", p1.getX());
 		this.getProperties().put("y1", p1.getY());
 		this.getProperties().put("x2", p2.getX());
