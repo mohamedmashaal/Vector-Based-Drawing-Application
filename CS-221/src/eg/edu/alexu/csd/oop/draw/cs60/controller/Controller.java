@@ -127,19 +127,14 @@ public class Controller {
 		int[] selectedIndices = new int[clipBoard.size()];
 		ArrayList<Shape> shapesToAdd = new ArrayList<>();
 		for(Shape shape : clipBoard){
-
 			PasteHandler pasteHandler = new PasteHandler();
 			Shape shapeToPaste = pasteHandler.handle(shape);
-			// model.addShape(shapeToPaste); // chage to add shapes
 			shapesToAdd.add(shapeToPaste);
-			// selectedIndices[i++] =
-			// model.getArrayListOfShapes().indexOf(shapeToPaste);
 		}
 		model.addShapes(shapesToAdd);
 		for(int i=0; i < clipBoard.size(); i++) {
-			selectedIndices[i] = model.getArrayListOfShapes().indexOf(shapesToAdd.get(i++));
+			selectedIndices[i] = model.getArrayListOfShapes().indexOf(shapesToAdd.get(i));
 		}
-		model.setSelected(view.getShapeList().getSelectedIndices());
 		view.getShapeList().setSelectedIndices(selectedIndices);
 	}
 
