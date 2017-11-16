@@ -1,29 +1,19 @@
 package eg.edu.alexu.csd.oop.draw.cs60.controller;
 
 import java.awt.*;
-import java.io.File;
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
 
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import eg.edu.alexu.csd.oop.draw.IController;
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.*;
 import eg.edu.alexu.csd.oop.draw.cs60.view.CustomButton;
 import eg.edu.alexu.csd.oop.draw.cs60.view.EditBuiltInDialogue;
 import eg.edu.alexu.csd.oop.draw.cs60.view.EditPluginShape;
 import eg.edu.alexu.csd.oop.draw.cs60.view.View;
-import eg.edu.alexu.csd.oop.draw.cs60.view.Canvas;
-import eg.edu.alexu.csd.oop.draw.cs60.view.StrokeSlider;
 
-public class Controller implements IController {
+public class Controller  {
 	private View view;
 	private DrawEngineImp model;
 	private ArrayList<CustomButton> btnList;
@@ -128,7 +118,7 @@ public class Controller implements IController {
 	public void copy(){
 		clipBoard = new ArrayList<>();
 		for(Shape shape : model.getShapes()){
-			if(shape.getProperties().get("selected").intValue() == 1)
+			if(shape.getProperties().get("selected").intValue() == 1 && !model.isPlugin(shape))
 				clipBoard.add(shape);
 		}
 	}

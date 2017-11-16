@@ -14,8 +14,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Rectangle extends MainShape {
-	private double width;
-	private double height;
 
 	public Rectangle() {
 		super();
@@ -24,8 +22,6 @@ public class Rectangle extends MainShape {
 	public Rectangle(Point position, double width, double height) {
 		super();
 		setPosition(position);
-		this.width = width;
-		this.height = height;
 		getProperties().put("x", position.getX());
 		getProperties().put("y", position.getY());
 		getProperties().put("width", new Double(width));

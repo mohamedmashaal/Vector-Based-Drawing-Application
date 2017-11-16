@@ -17,7 +17,6 @@ public abstract class MainShape implements Shape {
 	private Color default_color = Color.BLUE;
 	private Color default_fill_color = Color.RED;
 
-	// private boolean selected = false ;
 	public MainShape() {
 		properties = new HashMap<String, Double>();
 		properties.put("stroke", new Double(default_stroke));
@@ -73,19 +72,6 @@ public abstract class MainShape implements Shape {
 	public Color getFillColor() {
 		return new Color(getProperties().get("fill_color").intValue());
 	}
-
-	/*
-	 * public float getStorke() { return storke; } public void setStorke(float
-	 * storke) { this.storke = storke; }
-	 */
-
-	/*
-	 * public boolean isSelected() { return selected; }
-	 */
-
-	/*
-	 * public void setSelected(boolean selected) { this.selected = selected ; }
-	 */
 
 	@Override
 	public abstract void draw(Graphics canvas);

@@ -1,22 +1,11 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
-import java.awt.Color;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Set;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import eg.edu.alexu.csd.oop.draw.Shape;
-import eg.edu.alexu.csd.oop.draw.cs60.main.MainEntry;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
-import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 
 public class EditBuiltInDialogue extends CreateDialogue{
 	public EditBuiltInDialogue(Shape shape ,String title, View view , ArrayList<String> filters ) {

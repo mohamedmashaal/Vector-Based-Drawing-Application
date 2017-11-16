@@ -8,7 +8,6 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Circle extends MainShape {
-	private double radius;
 
 	public Circle() {
 		super();
@@ -17,7 +16,6 @@ public class Circle extends MainShape {
 	public Circle(Point position, double radius) {
 		super();
 		setPosition(position);
-		this.radius = radius;
 		getProperties().put("x", getPosition().getX());
 		getProperties().put("y", getPosition().getY());
 		getProperties().put("radius", new Double(radius));
@@ -29,21 +27,6 @@ public class Circle extends MainShape {
 		getProperties().put("bond_3_y", getBonds()[2].getY());
 		getProperties().put("bond_4_x", getBonds()[3].getX());
 		getProperties().put("bond_4_y", getBonds()[3].getY());
-	}
-
-	public Circle(Point position, int radius, Color color, Color fillColor) {
-		super();
-		setPosition(position);
-		this.radius = radius;
-		getProperties().put("x", getPosition().getX());
-		getProperties().put("y", getPosition().getY());
-		getProperties().put("radius", new Double(radius));
-		getProperties().put("color", color.getRGB() * 1.0);
-		getProperties().put("fill_color", fillColor.getRGB() * 1.0);
-		getProperties().put("bond_1_x", getBonds()[0].getX());
-		getProperties().put("bond_1_y", getBonds()[0].getY());
-		getProperties().put("bond_2_x", getBonds()[1].getX());
-		getProperties().put("bond_2_y", getBonds()[1].getY());
 	}
 
 	@Override

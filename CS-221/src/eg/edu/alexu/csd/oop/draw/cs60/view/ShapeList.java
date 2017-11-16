@@ -75,7 +75,7 @@ public class ShapeList<T> extends JList<String> {
 				if(e.getKeyCode() == KeyEvent.VK_D) {
 					view.getController().showEditDialouge(getSelectedIndices());
 				}
-				else if (e.getKeyCode() == KeyEvent.VK_C) {
+				else if (e.getKeyCode() == KeyEvent.VK_F) {
 					new ColorChooserDialogue(view);
 				}
 			}

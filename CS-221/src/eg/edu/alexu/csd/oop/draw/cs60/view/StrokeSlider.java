@@ -1,11 +1,8 @@
 package eg.edu.alexu.csd.oop.draw.cs60.view;
 
 import javax.swing.JSlider;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
 
 public class StrokeSlider extends JSlider {
 	static final int STK_MIN = 0;

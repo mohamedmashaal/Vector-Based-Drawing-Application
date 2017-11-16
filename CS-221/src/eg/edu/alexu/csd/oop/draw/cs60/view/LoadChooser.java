@@ -3,7 +3,6 @@ package eg.edu.alexu.csd.oop.draw.cs60.view;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import java.io.File;
-import java.io.IOException;
 
 public class LoadChooser extends JFileChooser {
     View view;

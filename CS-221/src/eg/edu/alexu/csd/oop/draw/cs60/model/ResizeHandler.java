@@ -1,9 +1,6 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
 import java.awt.Point;
-import java.security.KeyStore.Entry;
-
-import javax.management.modelmbean.ModelMBean;
 
 import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.shapes.Triangle;

@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.oop.draw.cs60.model;
 
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -81,14 +80,11 @@ public class JoeSONParser {
 					}
 					entry[index] += current.charAt(i);
 				}
-				entry[1] = entry[1].substring(3); // deleting unwanted part " :
-													// "
-				// System.out.println(entry[0] + "\n" + entry[1] + "\n");
+				entry[1] = entry[1].substring(3); // deleting unwanted part " : "
 				map.put(entry[0], entry[1]); // adding entry to the map
 			}
 
 			arrayOfMap.add(map);
-			// in.close();
 		}
 
 		return arrayOfMap;
