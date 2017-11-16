@@ -15,13 +15,30 @@
       <file leaf-file-name="DrawEngineImp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="349" column="34" lean-forward="false" selection-start-line="349" selection-start-column="34" selection-end-line="349" selection-end-column="34" />
+            <state relative-caret-position="-3195">
+              <caret line="350" column="34" lean-forward="false" selection-start-line="350" selection-start-column="34" selection-end-line="350" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9148#9164#0" expanded="true" />
-                <element signature="e#9580#9610#0" expanded="true" />
-                <element signature="e#11648#11664#0" expanded="true" />
+                <element signature="e#2174#2175#0" expanded="true" />
+                <element signature="e#2202#2203#0" expanded="true" />
+                <element signature="e#4505#4506#0" expanded="true" />
+                <element signature="e#4529#4530#0" expanded="true" />
+                <element signature="e#4561#4562#0" expanded="true" />
+                <element signature="e#4586#4587#0" expanded="true" />
+                <element signature="e#6777#6778#0" expanded="true" />
+                <element signature="e#6808#6809#0" expanded="true" />
+                <element signature="e#7157#7158#0" expanded="true" />
+                <element signature="e#7184#7185#0" expanded="true" />
+                <element signature="e#7226#7227#0" expanded="true" />
+                <element signature="e#7275#7276#0" expanded="true" />
+                <element signature="e#7347#7348#0" expanded="true" />
+                <element signature="e#7376#7377#0" expanded="true" />
+                <element signature="e#9082#9098#0" expanded="true" />
+                <element signature="e#11337#11353#0" expanded="true" />
+                <element signature="e#13423#13424#0" expanded="true" />
+                <element signature="e#13453#13454#0" expanded="true" />
+                <marker date="1510842194946" expanded="false" signature="14635:14640" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="14661:14664" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -31,18 +48,31 @@
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/SaveChooser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
-              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-              <folding />
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding>
+                <marker date="1510842194946" expanded="true" signature="478:1861" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="570:1024" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="639:900" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="966:985" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="999:1013" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="1075:1531" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="1144:1406" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="1472:1491" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="1506:1520" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoadChooser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoadChooser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/LoadChooser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="368">
+              <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+              <folding>
+                <marker date="1510842194950" expanded="false" signature="779:798" ph=" { " />
+                <marker date="1510842194950" expanded="false" signature="819:833" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,10 +81,11 @@
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/ResizeHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
-              <caret line="189" column="20" lean-forward="true" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="20" />
+              <caret line="186" column="20" lean-forward="false" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="20" />
               <folding>
-                <element signature="e#360#361#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
+                <marker date="1510842194946" expanded="true" signature="274:279" ph=" { " />
+                <marker date="1510842194946" expanded="true" signature="299:302" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="371:11284" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -64,8 +95,74 @@
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3703">
-              <caret line="177" column="44" lean-forward="false" selection-start-line="177" selection-start-column="44" selection-end-line="177" selection-end-column="44" />
-              <folding />
+              <caret line="173" column="44" lean-forward="false" selection-start-line="173" selection-start-column="44" selection-end-line="173" selection-end-column="44" />
+              <folding>
+                <marker date="1510842194946" expanded="true" signature="1700:1758" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="1786:1998" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="2036:3661" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="3697:3927" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="3961:4161" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="4201:5969" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="6003:6137" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="6173:6360" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="6389:6394" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="6420:6423" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="6455:10913" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="7294:7397" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="7354:7361" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="7388:7393" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="7643:7746" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="7703:7710" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="7737:7742" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="7899:8000" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="7969:7976" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="7991:7996" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="8331:8425" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="8391:8398" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="8416:8421" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="8671:8765" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="8731:8738" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="8756:8761" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="9030:9126" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="9090:9097" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="9117:9122" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="9384:9478" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="9444:9451" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="9469:9474" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="9739:9924" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="9800:9920" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="10122:10227" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="10182:10189" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="10218:10223" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="10551:10657" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="10611:10618" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="10648:10653" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="10942:11459" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="11487:11492" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="11506:11509" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="11543:11548" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="11561:11564" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="11600:11605" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="11623:11626" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="11659:11664" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="11682:11685" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="11733:11738" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="11767:11770" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="11816:11821" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="11836:11839" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="11880:11885" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="11903:11906" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="11941:12005" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="12047:12052" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="12069:12072" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="12103:12108" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="12126:12129" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="12167:12172" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="12191:12194" ph=" }" />
+                <marker date="1510842194946" expanded="false" signature="12219:12224" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="12236:12239" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="12289:12640" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,8 +181,14 @@
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/PluginImporter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
-              <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-              <folding />
+              <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+              <folding>
+                <marker date="1510842194946" expanded="true" signature="301:979" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="413:689" ph="{...}" />
+                <marker date="1510842194946" expanded="false" signature="462:469" ph=" { " />
+                <marker date="1510842194946" expanded="false" signature="494:499" ph=" }" />
+                <marker date="1510842194946" expanded="true" signature="547:685" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,21 +196,21 @@
       <file leaf-file-name="ClassGetter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/ClassGetter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1127">
-              <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="966">
+              <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+              <folding>
+                <marker date="1510842194946" expanded="true" signature="2295:2350" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2806">
-              <caret line="141" column="28" lean-forward="false" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="324">
+              <caret line="136" column="25" lean-forward="false" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,8 +219,11 @@
         <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/ShapesFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
-              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-              <folding />
+              <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+              <folding>
+                <marker date="1510842194946" expanded="true" signature="270:1221" ph="{...}" />
+                <marker date="1510842194946" expanded="true" signature="1294:2995" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -179,12 +285,12 @@
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/SaveChooser.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/PluginImporter.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/shapes/RoundRectangle.java" />
-        <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/PluginButton.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/View.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/ResizeHandler.java" />
         <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/LoadChooser.java" />
+        <option value="$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -499,9 +605,26 @@
           <caret line="203" column="9" lean-forward="true" selection-start-line="203" selection-start-column="9" selection-end-line="203" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9148#9164#0" expanded="true" />
-            <element signature="e#9580#9610#0" expanded="true" />
-            <element signature="e#11648#11664#0" expanded="true" />
+            <element signature="e#2174#2175#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+            <element signature="e#4505#4506#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
+            <element signature="e#4561#4562#0" expanded="true" />
+            <element signature="e#4586#4587#0" expanded="true" />
+            <element signature="e#6777#6778#0" expanded="true" />
+            <element signature="e#6808#6809#0" expanded="true" />
+            <element signature="e#7157#7158#0" expanded="true" />
+            <element signature="e#7184#7185#0" expanded="true" />
+            <element signature="e#7226#7227#0" expanded="true" />
+            <element signature="e#7275#7276#0" expanded="true" />
+            <element signature="e#7347#7348#0" expanded="true" />
+            <element signature="e#7376#7377#0" expanded="true" />
+            <element signature="e#9082#9098#0" expanded="true" />
+            <element signature="e#11337#11353#0" expanded="true" />
+            <element signature="e#13423#13424#0" expanded="true" />
+            <element signature="e#13453#13454#0" expanded="true" />
+            <marker date="1510842194946" expanded="false" signature="14635:14640" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="14661:14664" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -524,7 +647,73 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2277">
           <caret line="109" column="47" lean-forward="false" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="47" />
-          <folding />
+          <folding>
+            <marker date="1510842194946" expanded="true" signature="1700:1758" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="1786:1998" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="2036:3661" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="3697:3927" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="3961:4161" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="4201:5969" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="6003:6137" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="6173:6360" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="6389:6394" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="6420:6423" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="6455:10913" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="7294:7397" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="7354:7361" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="7388:7393" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="7643:7746" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="7703:7710" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="7737:7742" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="7899:8000" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="7969:7976" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="7991:7996" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="8331:8425" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="8391:8398" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="8416:8421" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="8671:8765" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="8731:8738" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="8756:8761" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="9030:9126" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="9090:9097" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="9117:9122" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="9384:9478" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="9444:9451" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="9469:9474" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="9739:9924" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="9800:9920" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="10122:10227" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="10182:10189" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="10218:10223" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="10551:10657" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="10611:10618" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="10648:10653" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="10942:11459" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="11487:11492" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11506:11509" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11543:11548" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11561:11564" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11600:11605" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11623:11626" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11659:11664" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11682:11685" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11733:11738" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11767:11770" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11816:11821" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11836:11839" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11880:11885" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11903:11906" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="11941:12005" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="12047:12052" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12069:12072" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="12103:12108" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12126:12129" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="12167:12172" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12191:12194" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="12219:12224" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12236:12239" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="12289:12640" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -532,9 +721,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1334">
           <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -544,9 +731,26 @@
           <caret line="97" column="45" lean-forward="true" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9148#9164#0" expanded="true" />
-            <element signature="e#9580#9610#0" expanded="true" />
-            <element signature="e#11648#11664#0" expanded="true" />
+            <element signature="e#2174#2175#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+            <element signature="e#4505#4506#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
+            <element signature="e#4561#4562#0" expanded="true" />
+            <element signature="e#4586#4587#0" expanded="true" />
+            <element signature="e#6777#6778#0" expanded="true" />
+            <element signature="e#6808#6809#0" expanded="true" />
+            <element signature="e#7157#7158#0" expanded="true" />
+            <element signature="e#7184#7185#0" expanded="true" />
+            <element signature="e#7226#7227#0" expanded="true" />
+            <element signature="e#7275#7276#0" expanded="true" />
+            <element signature="e#7347#7348#0" expanded="true" />
+            <element signature="e#7376#7377#0" expanded="true" />
+            <element signature="e#9082#9098#0" expanded="true" />
+            <element signature="e#11337#11353#0" expanded="true" />
+            <element signature="e#13423#13424#0" expanded="true" />
+            <element signature="e#13453#13454#0" expanded="true" />
+            <marker date="1510842194946" expanded="false" signature="14635:14640" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="14661:14664" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -787,8 +991,74 @@
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3703">
-          <caret line="177" column="44" lean-forward="false" selection-start-line="177" selection-start-column="44" selection-end-line="177" selection-end-column="44" />
-          <folding />
+          <caret line="173" column="44" lean-forward="false" selection-start-line="173" selection-start-column="44" selection-end-line="173" selection-end-column="44" />
+          <folding>
+            <marker date="1510842194946" expanded="true" signature="1700:1758" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="1786:1998" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="2036:3661" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="3697:3927" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="3961:4161" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="4201:5969" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="6003:6137" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="6173:6360" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="6389:6394" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="6420:6423" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="6455:10913" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="7294:7397" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="7354:7361" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="7388:7393" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="7643:7746" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="7703:7710" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="7737:7742" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="7899:8000" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="7969:7976" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="7991:7996" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="8331:8425" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="8391:8398" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="8416:8421" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="8671:8765" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="8731:8738" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="8756:8761" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="9030:9126" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="9090:9097" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="9117:9122" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="9384:9478" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="9444:9451" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="9469:9474" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="9739:9924" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="9800:9920" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="10122:10227" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="10182:10189" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="10218:10223" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="10551:10657" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="10611:10618" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="10648:10653" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="10942:11459" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="11487:11492" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11506:11509" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11543:11548" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11561:11564" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11600:11605" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11623:11626" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11659:11664" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11682:11685" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11733:11738" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11767:11770" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11816:11821" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11836:11839" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="11880:11885" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="11903:11906" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="11941:12005" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="12047:12052" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12069:12072" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="12103:12108" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12126:12129" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="12167:12172" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12191:12194" ph=" }" />
+            <marker date="1510842194946" expanded="false" signature="12219:12224" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="12236:12239" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="12289:12640" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -803,25 +1073,23 @@
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/PluginImporter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
-          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding />
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding>
+            <marker date="1510842194946" expanded="true" signature="301:979" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="413:689" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="462:469" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="494:499" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="547:685" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/ClassGetter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2806">
-          <caret line="141" column="28" lean-forward="false" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
+        <state relative-caret-position="966">
+          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1510842194946" expanded="true" signature="2295:2350" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -829,31 +1097,22 @@
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/ShapesFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding>
+            <marker date="1510842194946" expanded="true" signature="270:1221" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="1294:2995" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/ResizeHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
-          <caret line="189" column="20" lean-forward="true" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="20" />
+          <caret line="186" column="20" lean-forward="false" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="20" />
           <folding>
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="349" column="34" lean-forward="false" selection-start-line="349" selection-start-column="34" selection-end-line="349" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9148#9164#0" expanded="true" />
-            <element signature="e#9580#9610#0" expanded="true" />
-            <element signature="e#11648#11664#0" expanded="true" />
+            <marker date="1510842194946" expanded="true" signature="274:279" ph=" { " />
+            <marker date="1510842194946" expanded="true" signature="299:302" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="371:11284" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -861,15 +1120,66 @@
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/SaveChooser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <marker date="1510842194946" expanded="true" signature="478:1861" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="570:1024" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="639:900" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="966:985" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="999:1013" ph=" }" />
+            <marker date="1510842194946" expanded="true" signature="1075:1531" ph="{...}" />
+            <marker date="1510842194946" expanded="true" signature="1144:1406" ph="{...}" />
+            <marker date="1510842194946" expanded="false" signature="1472:1491" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="1506:1520" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/view/LoadChooser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+        <state relative-caret-position="368">
+          <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding>
+            <marker date="1510842194950" expanded="false" signature="779:798" ph=" { " />
+            <marker date="1510842194950" expanded="false" signature="819:833" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/model/DrawEngineImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3195">
+          <caret line="350" column="34" lean-forward="false" selection-start-line="350" selection-start-column="34" selection-end-line="350" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2174#2175#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+            <element signature="e#4505#4506#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
+            <element signature="e#4561#4562#0" expanded="true" />
+            <element signature="e#4586#4587#0" expanded="true" />
+            <element signature="e#6777#6778#0" expanded="true" />
+            <element signature="e#6808#6809#0" expanded="true" />
+            <element signature="e#7157#7158#0" expanded="true" />
+            <element signature="e#7184#7185#0" expanded="true" />
+            <element signature="e#7226#7227#0" expanded="true" />
+            <element signature="e#7275#7276#0" expanded="true" />
+            <element signature="e#7347#7348#0" expanded="true" />
+            <element signature="e#7376#7377#0" expanded="true" />
+            <element signature="e#9082#9098#0" expanded="true" />
+            <element signature="e#11337#11353#0" expanded="true" />
+            <element signature="e#13423#13424#0" expanded="true" />
+            <element signature="e#13453#13454#0" expanded="true" />
+            <marker date="1510842194946" expanded="false" signature="14635:14640" ph=" { " />
+            <marker date="1510842194946" expanded="false" signature="14661:14664" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS-221/src/eg/edu/alexu/csd/oop/draw/cs60/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="136" column="25" lean-forward="false" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
           <folding />
         </state>
       </provider>

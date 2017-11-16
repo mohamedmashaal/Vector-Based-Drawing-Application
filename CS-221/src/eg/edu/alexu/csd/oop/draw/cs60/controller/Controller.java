@@ -126,7 +126,6 @@ public class Controller  {
 	public void paste() throws CloneNotSupportedException {
 		int[] selectedIndices = new int[clipBoard.size()];
 		ArrayList<Shape> shapesToAdd = new ArrayList<>();
-		int i=0;
 		for(Shape shape : clipBoard){
 			PasteHandler pasteHandler = new PasteHandler();
 			Shape shapeToPaste = pasteHandler.handle(shape);
@@ -135,7 +134,7 @@ public class Controller  {
 			//selectedIndices[i++] = model.getArrayListOfShapes().indexOf(shapeToPaste);
 		}
 		model.addShapes(shapesToAdd);
-		for(int x : selectedIndices) {
+		for(int i=0; i < clipBoard.size(); i++) {
 			selectedIndices[i] = model.getArrayListOfShapes().indexOf(shapesToAdd.get(i++));
 		}
 		model.setSelected(view.getShapeList().getSelectedIndices());
