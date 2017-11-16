@@ -41,7 +41,7 @@ public class XMLParser {
 
 			for (Map<String, String> map : maps) {
 				shape = dom.createElement(map.get("id"));
-				for (Map.Entry entry : map.entrySet()) {
+				for (Map.Entry<String, String> entry : map.entrySet()) {
 					property = dom.createElement(entry.getKey().toString());
 					property.appendChild(dom.createTextNode(entry.getValue().toString()));
 					shape.appendChild(property);
@@ -49,11 +49,6 @@ public class XMLParser {
 				rootEle.appendChild(shape);
 			}
 			dom.appendChild(rootEle);
-
-			NodeList nl = dom.getDocumentElement().getChildNodes();
-			for (int i = 0; i < nl.getLength(); i++) {
-				Node node = nl.item(i);
-			}
 
 			try {
 				Transformer tr = TransformerFactory.newInstance().newTransformer();

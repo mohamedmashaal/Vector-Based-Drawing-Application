@@ -12,7 +12,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Line extends MainShape {
-	
+
 	public Line() {
 		super();
 	}
@@ -42,9 +42,10 @@ public class Line extends MainShape {
 		g.drawLine(getProperties().get("x1").intValue(), getProperties().get("y1").intValue(),
 				getProperties().get("x2").intValue(), getProperties().get("y2").intValue());
 		g.setColor(new Color(getProperties().get("color").intValue()));
-		/*if (getProperties().get("selected").intValue() == 1) {
-			drawBonds(canvas);
-		}*/
+		/*
+		 * if (getProperties().get("selected").intValue() == 1) {
+		 * drawBonds(canvas); }
+		 */
 	}
 
 	@Override
@@ -66,8 +67,8 @@ public class Line extends MainShape {
 		int y2 = this.getProperties().get("y2").intValue();
 		p1.setLocation(Math.min(x1, x2), Math.min(y1, y2));
 		p4.setLocation(Math.max(x1, x2), Math.max(y1, y2));
-		Point p2 = new Point(p1.x+(p4.x-p1.x), p1.y);
-		Point p3 = new Point(p1.x,p1.y+(p4.y-p1.y));
-		return new Point[] { p1, p2 , p3 , p4 };
+		Point p2 = new Point(p1.x + (p4.x - p1.x), p1.y);
+		Point p3 = new Point(p1.x, p1.y + (p4.y - p1.y));
+		return new Point[] { p1, p2, p3, p4 };
 	}
 }

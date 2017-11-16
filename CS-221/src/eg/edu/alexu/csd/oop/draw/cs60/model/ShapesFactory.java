@@ -31,7 +31,7 @@ public class ShapesFactory {
 				if (x.getSimpleName().equalsIgnoreCase(shapeName)) {
 					try {
 						return x.newInstance();
-					} catch ( SecurityException | InstantiationException | IllegalAccessException
+					} catch (SecurityException | InstantiationException | IllegalAccessException
 							| IllegalArgumentException e) {
 						e.printStackTrace();
 					}
@@ -66,7 +66,7 @@ public class ShapesFactory {
 			int width = Math.abs(p1.x - p2.x);
 			int x = p1.x < p2.x ? p1.x + width / 2 : p1.x - width / 2;
 			int x2 = p1.x < p2.x ? p2.x - width : p2.x + width;
-			shape = new Triangle(new Point(x, p1.y),new Point(x2, p2.y) ,p2);
+			shape = new Triangle(new Point(x, p1.y), new Point(x2, p2.y), p2);
 		} else {
 			DrawEngineImp engine = DrawEngineImp.getUniqueInstance();
 			List<Class<? extends Shape>> supported = engine.getSupportedShapes();
@@ -74,7 +74,7 @@ public class ShapesFactory {
 				if (x.getSimpleName().equalsIgnoreCase(shapeName)) {
 					try {
 						return x.newInstance();
-					} catch ( SecurityException | InstantiationException | IllegalAccessException
+					} catch (SecurityException | InstantiationException | IllegalAccessException
 							| IllegalArgumentException e) {
 						e.printStackTrace();
 					}

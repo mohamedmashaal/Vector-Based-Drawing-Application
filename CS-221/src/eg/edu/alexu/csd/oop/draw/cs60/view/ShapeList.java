@@ -45,7 +45,6 @@ public class ShapeList<T> extends JList<String> {
 
 		});
 
-		String[] indexedShapes = new String[0];
 		setListData(new String[0]);
 		addListSelectionListener(new ListSelectionListener() {
 			@Override
@@ -53,36 +52,35 @@ public class ShapeList<T> extends JList<String> {
 				view.getController().shapeSelected();
 			}
 		});
-		
+
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if(e.getButton() ==  e.BUTTON3) {
+				if (e.getButton() == MouseEvent.BUTTON3) {
 					new ColorChooserDialogue(view);
 				}
 				super.mousePressed(e);
 			}
 		});
 		addKeyListener(new KeyListener() {
-			
+
 			@Override
 			public void keyTyped(KeyEvent e) {
-				
+
 			}
-			
+
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_D) {
+				if (e.getKeyCode() == KeyEvent.VK_D) {
 					view.getController().showEditDialouge(getSelectedIndices());
-				}
-				else if (e.getKeyCode() == KeyEvent.VK_F) {
+				} else if (e.getKeyCode() == KeyEvent.VK_F) {
 					new ColorChooserDialogue(view);
 				}
 			}
-			
+
 			@Override
 			public void keyPressed(KeyEvent e) {
-				
+
 			}
 		});
 	}

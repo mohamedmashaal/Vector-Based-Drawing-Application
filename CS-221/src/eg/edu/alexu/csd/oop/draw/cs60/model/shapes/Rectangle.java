@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Stroke;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +16,7 @@ public class Rectangle extends MainShape {
 	public Rectangle() {
 		super();
 	}
-	
+
 	public Rectangle(Point position, double width, double height) {
 		super();
 		setPosition(position);
@@ -46,9 +44,10 @@ public class Rectangle extends MainShape {
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(),
 				getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		/*if (getProperties().get("selected").intValue() == 1) {
-			drawBonds(canvas);
-		}*/
+		/*
+		 * if (getProperties().get("selected").intValue() == 1) {
+		 * drawBonds(canvas); }
+		 */
 	}
 
 	@Override
@@ -63,13 +62,11 @@ public class Rectangle extends MainShape {
 	@Override
 	public Point[] getBonds() {
 		Point p1 = new Point(getProperties().get("x").intValue(), getProperties().get("y").intValue());
-		Point p2 = new Point(p1.x + getProperties().get("width").intValue(),
-				p1.y);
-		Point p3 = new Point(p1.x ,
-				p1.y + getProperties().get("height").intValue());
+		Point p2 = new Point(p1.x + getProperties().get("width").intValue(), p1.y);
+		Point p3 = new Point(p1.x, p1.y + getProperties().get("height").intValue());
 		Point p4 = new Point(p1.x + getProperties().get("width").intValue(),
 				p1.y + getProperties().get("height").intValue());
-		return new Point[] { p1, p2 , p3 , p4};
+		return new Point[] { p1, p2, p3, p4 };
 	}
 
 }

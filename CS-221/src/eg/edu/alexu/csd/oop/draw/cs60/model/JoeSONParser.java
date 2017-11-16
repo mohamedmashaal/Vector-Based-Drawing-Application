@@ -9,11 +9,10 @@ public class JoeSONParser {
 
 	public String parseArrayOfMapsIntoJSON(ArrayList<Map<String, String>> arrayOfMap) {
 		StringBuilder parsedArray = new StringBuilder();
-		int i = 0;
 		parsedArray.append("{\n");
 		for (Map<String, String> map : arrayOfMap) {
 			parsedArray.append("\t\"" + map.get("id") + "\" :\n\t{\n");
-			for (Map.Entry entry : map.entrySet()) {
+			for (Map.Entry<String, String> entry : map.entrySet()) {
 				parsedArray.append("\t\t\"" + entry.getKey() + "\" : \"" + entry.getValue() + "\",\n");
 			}
 			parsedArray.append("\t},\n");
@@ -26,7 +25,8 @@ public class JoeSONParser {
 	public ArrayList<Map<String, String>> parseJSONIntoArrayOfMaps(String jsonFormatted) {
 		ArrayList<Map<String, String>> arrayOfMap = new ArrayList<>();
 		Scanner in = new Scanner(jsonFormatted);
-		in.nextLine().trim(); // as first line has only an open curly bracket "{"
+		in.nextLine().trim(); // as first line has only an open curly bracket
+								// "{"
 
 		while (in.hasNextLine()) {
 			Map<String, String> map = new HashMap<>();
@@ -57,8 +57,6 @@ public class JoeSONParser {
 				if (current.equals("{"))
 					continue;
 
-				boolean beginOfProp = true;
-
 				String[] entry = { "", "" };
 				int index = 0;
 				boolean oddQuote = true;
@@ -77,13 +75,14 @@ public class JoeSONParser {
 					}
 					entry[index] += current.charAt(i);
 				}
-				entry[1] = entry[1].substring(3); // deleting unwanted part " : "
+				entry[1] = entry[1].substring(3); // deleting unwanted part " :
+													// "
 				map.put(entry[0], entry[1]); // adding entry to the map
 			}
 
 			arrayOfMap.add(map);
 		}
-
+		in.close();
 		return arrayOfMap;
 	}
 

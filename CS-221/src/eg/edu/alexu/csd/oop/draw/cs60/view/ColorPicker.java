@@ -5,10 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class ColorPicker extends JButton {
-	private View view;
 
 	public ColorPicker(final View view) {
-		this.view = view;
 		setFocusPainted(false);
 		setContentAreaFilled(false);
 		setOpaque(true);

@@ -27,7 +27,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	private static DrawEngineImp uniqueInstance = new DrawEngineImp();
 	private JoeSONParser JSONParser = new JoeSONParser();
 	private XMLParser xmlParser = new XMLParser();
-	private ShapesFactory shapesFactory = new ShapesFactory();
 	private Color full_border = Color.BLACK;
 	private Color corner_color = Color.BLUE;
 	private Point[] full_bonds = new Point[4];
@@ -312,7 +311,6 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 	}
 
 	private void saveXML(String path) {
-		ArrayList<Shape> arrayOfShapes = new ArrayList<>(shapes.peek());
 		ArrayList<Map<String, String>> arrayListofShapeMap = new ArrayList<>();
 		Map<String, Integer> freqOfShapes = new HashMap<>();
 		for (Shape shape : shapes.peek()) {
@@ -326,7 +324,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 			Map<String, String> newMap = new HashMap<String, String>();
 			if (shape.getProperties() != null)
-				for (Map.Entry entry : shape.getProperties().entrySet()) {
+				for (Map.Entry<String, Double> entry : shape.getProperties().entrySet()) {
 					newMap.put(entry.getKey().toString(), entry.getValue().toString());
 				}
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
@@ -355,7 +353,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		ArrayList<Shape> loadedShapes = new ArrayList<>();
 		for (Map<String, String> map : parsedObj) {
 			Map<String, Double> tempMap = new HashMap<>();
-			for (Map.Entry entry : map.entrySet()) {
+			for (Map.Entry<String, String> entry : map.entrySet()) {
 				if (entry.getKey().toString().equals("id"))
 					continue;
 				tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));
@@ -367,7 +365,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 					break;
 				shapeName += tempShapeName.charAt(i);
 			}
-			Shape loadedShape = shapesFactory.CreateShape(shapeName);
+			Shape loadedShape = ShapesFactory.CreateShape(shapeName);
 			if (loadedShape != null)
 				loadedShape.setProperties(tempMap);
 			loadedShapes.add(loadedShape);
@@ -390,7 +388,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			}
 			Map<String, String> newMap = new HashMap<String, String>();
 			if (shape.getProperties() != null)
-				for (Map.Entry entry : shape.getProperties().entrySet()) {
+				for (Map.Entry<String, Double> entry : shape.getProperties().entrySet()) {
 					newMap.put(entry.getKey().toString(), entry.getValue().toString());
 				}
 			newMap.put("id", shapeName + freqOfShapes.get(shapeName));
@@ -424,7 +422,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		ArrayList<Shape> loadedShapes = new ArrayList<>();
 		for (Map<String, String> map : parsedObj) {
 			Map<String, Double> tempMap = new HashMap<>();
-			for (Map.Entry entry : map.entrySet()) {
+			for (Map.Entry<String, String> entry : map.entrySet()) {
 				if (entry.getKey().toString().equals("id"))
 					continue;
 				tempMap.put(entry.getKey().toString(), Double.parseDouble(entry.getValue().toString()));
@@ -436,7 +434,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 					break;
 				shapeName += tempShapeName.charAt(i);
 			}
-			Shape loadedShape = shapesFactory.CreateShape(shapeName);
+			Shape loadedShape = ShapesFactory.CreateShape(shapeName);
 			if (loadedShape != null)
 				loadedShape.setProperties(tempMap);
 			loadedShapes.add(loadedShape);

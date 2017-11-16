@@ -34,10 +34,7 @@ public class Circle extends MainShape {
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D) canvas;
 		g.setColor(new Color(getProperties().get("fill_color").intValue()));
-		g.fillOval(getProperties()
-						.get("x").intValue() -
-						getProperties()
-								.get("radius").intValue(),
+		g.fillOval(getProperties().get("x").intValue() - getProperties().get("radius").intValue(),
 				getProperties().get("y").intValue() - getProperties().get("radius").intValue(),
 				getProperties().get("radius").intValue() * 2, getProperties().get("radius").intValue() * 2);
 		g.setStroke(new BasicStroke(getProperties().get("stroke").floatValue()));
@@ -45,9 +42,10 @@ public class Circle extends MainShape {
 		g.drawOval(getProperties().get("x").intValue() - getProperties().get("radius").intValue(),
 				getProperties().get("y").intValue() - getProperties().get("radius").intValue(),
 				getProperties().get("radius").intValue() * 2, getProperties().get("radius").intValue() * 2);
-		/*if (getProperties().get("selected").intValue() == 1) {
-			drawBonds(canvas);
-		}*/
+		/*
+		 * if (getProperties().get("selected").intValue() == 1) {
+		 * drawBonds(canvas); }
+		 */
 	}
 
 	@Override
@@ -68,6 +66,6 @@ public class Circle extends MainShape {
 				getProperties().get("y").intValue() + getProperties().get("radius").intValue());
 		Point p4 = new Point(getProperties().get("x").intValue() + getProperties().get("radius").intValue(),
 				getProperties().get("y").intValue() + getProperties().get("radius").intValue());
-		return new Point[] { p1,p2,p3,p4 };
+		return new Point[] { p1, p2, p3, p4 };
 	}
 }

@@ -381,11 +381,12 @@ public class View implements Observer {
 	public void updateSupportedShapes() {
 		List<Class<? extends Shape>> supported = getModel().getSupportedShapes();
 		for (int i = model.getBuiltInShapes(); i < supported.size(); i++) {
-			if(i > btnList.size()-1) {
-			PluginButton plugin = new PluginButton(this, supported.get(i).getSimpleName());
-			btnList.add(plugin);
-			btnContainer.add(plugin);
-			btnContainer.revalidate();}
+			if (i > btnList.size() - 1) {
+				PluginButton plugin = new PluginButton(this, supported.get(i).getSimpleName());
+				btnList.add(plugin);
+				btnContainer.add(plugin);
+				btnContainer.revalidate();
+			}
 		}
 	}
 

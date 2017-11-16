@@ -12,11 +12,8 @@ public class CustomButton extends JButton {
 	private Color normalColor = Color.BLUE;
 	private Boolean state = false;
 
-	private View view;
-	
-	public CustomButton(final View view , String text) {
+	public CustomButton(final View view, String text) {
 		super(text);
-		this.view = view;
 		setNormalColor(view.getController().getColor());
 		setPressedColor(view.getController().getFill_color());
 		setBorderPainted(false);
@@ -27,10 +24,9 @@ public class CustomButton extends JButton {
 		setForeground(Color.WHITE);
 		setFont(new Font("Tahoma", Font.BOLD, 12));
 	}
-	
+
 	public CustomButton(String text, final View view) {
 		super(text);
-		this.view = view;
 		setNormalColor(view.getController().getColor());
 		setPressedColor(view.getController().getFill_color());
 		setBorderPainted(false);
@@ -49,7 +45,7 @@ public class CustomButton extends JButton {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!state) {
-					for(CustomButton x : view.getBtnList()) {
+					for (CustomButton x : view.getBtnList()) {
 						x.resetState();
 					}
 					view.setActiveBtns(0);
@@ -79,13 +75,13 @@ public class CustomButton extends JButton {
 			this.setBackground(normalColor);
 		}
 	}
-	
+
 	public Boolean getState() {
 		return state;
 	}
-	
+
 	public void resetState() {
-		this.state = false ;
+		this.state = false;
 		setBackground(normalColor);
 	}
 }

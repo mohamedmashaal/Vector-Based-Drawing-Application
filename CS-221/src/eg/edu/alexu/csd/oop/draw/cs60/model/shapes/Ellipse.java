@@ -12,7 +12,7 @@ import eg.edu.alexu.csd.oop.draw.Shape;
 import eg.edu.alexu.csd.oop.draw.cs60.model.MainShape;
 
 public class Ellipse extends MainShape {
-	
+
 	public Ellipse() {
 		super();
 	}
@@ -45,9 +45,10 @@ public class Ellipse extends MainShape {
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawOval(getProperties().get("x").intValue(), getProperties().get("y").intValue(),
 				getProperties().get("width").intValue(), getProperties().get("height").intValue());
-		/*if (getProperties().get("selected").intValue() == 1) {
-			drawBonds(canvas);
-		}*/
+		/*
+		 * if (getProperties().get("selected").intValue() == 1) {
+		 * drawBonds(canvas); }
+		 */
 	}
 
 	@Override
@@ -62,11 +63,12 @@ public class Ellipse extends MainShape {
 	@Override
 	public Point[] getBonds() {
 		Point p1 = new Point(getProperties().get("x").intValue(), getProperties().get("y").intValue());
-		Point p2 = new Point(getProperties().get("x").intValue()+ getProperties().get("width").intValue(), getProperties().get("y").intValue());
+		Point p2 = new Point(getProperties().get("x").intValue() + getProperties().get("width").intValue(),
+				getProperties().get("y").intValue());
 		Point p3 = new Point(p1.x, p1.y + getProperties().get("height").intValue());
 		Point p4 = new Point(p1.x + getProperties().get("width").intValue(),
 				p1.y + getProperties().get("height").intValue());
-		return new Point[] { p1, p2 ,p3 ,p4 };
+		return new Point[] { p1, p2, p3, p4 };
 	}
 
 }

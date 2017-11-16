@@ -19,7 +19,6 @@ public class ColorChoser extends JDialog {
 	private View view;
 	private Color color;
 	private Color fill_color;
-	
 
 	public ColorChoser(View view) {
 		super(view.getMainWindow(), false);
@@ -30,7 +29,7 @@ public class ColorChoser extends JDialog {
 		addColorChooserListeners();
 		setupColorChoser();
 	}
-	
+
 	public ColorChoser(View view, boolean modal) {
 		super(view.getMainWindow(), modal);
 		this.view = view;
@@ -60,7 +59,6 @@ public class ColorChoser extends JDialog {
 	}
 
 	private void addColorChooserListeners() {
-		// TODO Auto-generated method stub
 		selectFillColor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -116,6 +114,7 @@ public class ColorChoser extends JDialog {
 		pack();
 		setVisible(true);
 	}
+
 	public JButton getSelect() {
 		return select;
 	}
@@ -123,7 +122,7 @@ public class ColorChoser extends JDialog {
 	public JButton getCancel() {
 		return cancel;
 	}
-	
+
 	public Color getColor() {
 		return color;
 	}
@@ -131,5 +130,5 @@ public class ColorChoser extends JDialog {
 	public Color getFill_color() {
 		return fill_color;
 	}
-	
+
 }

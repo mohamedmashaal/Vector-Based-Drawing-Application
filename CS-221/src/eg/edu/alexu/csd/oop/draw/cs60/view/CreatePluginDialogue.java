@@ -10,9 +10,9 @@ import javax.swing.JTextField;
 
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 
-public class CreatePluginDialogue extends CreateDialogue{
-	public CreatePluginDialogue(View view,String text) {
-		super(view , text);
+public class CreatePluginDialogue extends CreateDialogue {
+	public CreatePluginDialogue(View view, String text) {
+		super(view, text);
 	}
 
 	@Override
@@ -38,24 +38,26 @@ public class CreatePluginDialogue extends CreateDialogue{
 	@Override
 	public void addButtonListener() {
 		getDraw().addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				get_Shape().setPosition(new Point(new Double(Double.parseDouble(getTextFields().get(0).getText())).intValue(),new Double(Double.parseDouble(getTextFields().get(1).getText())).intValue()));
+				get_Shape().setPosition(
+						new Point(new Double(Double.parseDouble(getTextFields().get(0).getText())).intValue(),
+								new Double(Double.parseDouble(getTextFields().get(1).getText())).intValue()));
 				get_Shape().setColor(getColor());
 				get_Shape().setFillColor(getFill_color());
-				int i = 2 ;
-				for(String x : getSet()) {
-					get_Shape().getProperties().put(x,Double.parseDouble(getTextFields().get(i).getText()));
+				int i = 2;
+				for (String x : getSet()) {
+					get_Shape().getProperties().put(x, Double.parseDouble(getTextFields().get(i).getText()));
 					i++;
 				}
-				get_Shape().getProperties().put("selected" , 0.0);
+				get_Shape().getProperties().put("selected", 0.0);
 				getView().getController().draw(get_Shape());
 				dispose();
-				
+
 			}
 		});
-		
+
 	}
 
 	@Override

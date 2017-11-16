@@ -43,9 +43,10 @@ public class Square extends MainShape {
 		g.setColor(new Color(getProperties().get("color").intValue()));
 		g.drawRect(getProperties().get("x").intValue(), getProperties().get("y").intValue(),
 				getProperties().get("width").intValue(), getProperties().get("width").intValue());
-		/*if (getProperties().get("selected").intValue() == 1) {
-			drawBonds(canvas);
-		}*/
+		/*
+		 * if (getProperties().get("selected").intValue() == 1) {
+		 * drawBonds(canvas); }
+		 */
 	}
 
 	@Override
@@ -60,12 +61,10 @@ public class Square extends MainShape {
 	@Override
 	public Point[] getBonds() {
 		Point p1 = new Point(getProperties().get("x").intValue(), getProperties().get("y").intValue());
-		Point p2 = new Point(p1.x + getProperties().get("width").intValue(),
-				p1.y );
-		Point p3 = new Point(p1.x ,
-				p1.y + getProperties().get("width").intValue());
+		Point p2 = new Point(p1.x + getProperties().get("width").intValue(), p1.y);
+		Point p3 = new Point(p1.x, p1.y + getProperties().get("width").intValue());
 		Point p4 = new Point(p1.x + getProperties().get("width").intValue(),
 				p1.y + getProperties().get("width").intValue());
-		return new Point[] { p1, p2 , p3 , p4};
+		return new Point[] { p1, p2, p3, p4 };
 	}
 }

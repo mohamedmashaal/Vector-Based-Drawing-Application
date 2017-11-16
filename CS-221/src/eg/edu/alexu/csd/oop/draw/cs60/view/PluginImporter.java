@@ -37,7 +37,6 @@ public class PluginImporter extends JFileChooser {
 			try {
 				view.getController().imp(new JarFile(getSelectedFile()));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
