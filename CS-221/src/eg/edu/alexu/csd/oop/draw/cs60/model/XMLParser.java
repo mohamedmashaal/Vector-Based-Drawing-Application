@@ -53,7 +53,6 @@ public class XMLParser {
 			NodeList nl = dom.getDocumentElement().getChildNodes();
 			for (int i = 0; i < nl.getLength(); i++) {
 				Node node = nl.item(i);
-				System.out.println(node.getNodeName() + " " + node.getNodeValue());
 			}
 
 			try {
@@ -111,14 +110,12 @@ public class XMLParser {
 				NodeList shapeNL = shapeNode.getChildNodes();
 				if (shapeNode.getNodeName().equals("#text"))
 					continue;
-				System.out.println("Name : " + shapeNode.getNodeName() + " -- " + shapeNode.getTextContent());
 				shapeMap.put("id", shapeNode.getNodeName());
 				for (int j = 0; j < shapeNL.getLength(); j++) {
 					Node prop = shapeNL.item(j);
 					if (prop.getNodeName().equals("#text"))
 						continue;
 					shapeMap.put(prop.getNodeName(), prop.getTextContent());
-					System.out.println("Hey : " + prop.getNodeName() + " -- " + prop.getTextContent());
 				}
 				shapesMaps.add(shapeMap);
 			}

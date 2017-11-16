@@ -26,7 +26,6 @@ public class JoeSONParser {
 	public ArrayList<Map<String, String>> parseJSONIntoArrayOfMaps(String jsonFormatted) {
 		ArrayList<Map<String, String>> arrayOfMap = new ArrayList<>();
 		Scanner in = new Scanner(jsonFormatted);
-		System.out.println("OKKKK " + jsonFormatted);
 		in.nextLine().trim(); // as first line has only an open curly bracket "{"
 
 		while (in.hasNextLine()) {
@@ -35,7 +34,6 @@ public class JoeSONParser {
 			String current = in.nextLine().trim();
 			if (current.equals("}")) // end of file
 				break;
-			System.out.println("Curr: " + current);
 			// getting just the id
 			// current.trim();
 			String id = "";
@@ -50,7 +48,6 @@ public class JoeSONParser {
 				}
 				id += current.charAt(i);
 			}
-			System.out.println("id: " + id);
 
 			map.put("id", id);
 			while (true) {
