@@ -373,10 +373,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			loadedShapes.add(loadedShape);
 		}
 		for(Shape x :loadedShapes) {
-			if(x == null) {
-				loadedShapes.remove(x);
-			}
-			else if(isPlugin(x)) {
+			if(isPlugin(x)) {
 				x.setPosition(new Point(new Double(x.getProperties().get("position-x")).intValue(),
 						new Double(x.getProperties().get("position-y")).intValue()));
 				x.setColor(new Color(x.getProperties().get("color").intValue()));
@@ -454,10 +451,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 		}
 		//plug in setting appropriate position and color
 		for(Shape x :loadedShapes) {
-			if(x == null) {
-				loadedShapes.remove(x);
-			}
-			else if(isPlugin(x)) {
+			if(isPlugin(x)) {
 				x.setPosition(new Point(new Double(x.getProperties().get("position-x")).intValue() , new Double(x.getProperties().get("position-y")).intValue()));
 				x.setColor(new Color(x.getProperties().get("color").intValue()));
 				x.setFillColor(new Color(x.getProperties().get("fill_color").intValue()));
