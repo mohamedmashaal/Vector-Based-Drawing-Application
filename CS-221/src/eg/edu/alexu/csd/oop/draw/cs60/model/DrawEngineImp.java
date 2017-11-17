@@ -524,7 +524,7 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 
 	public void reset() {
 		clear();
-		shapes.push(new ArrayList<>());
+		shapes.push(new ArrayList<Shape>());
 		notifyObservers();
 	}
 }
