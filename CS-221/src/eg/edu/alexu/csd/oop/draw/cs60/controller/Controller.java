@@ -230,10 +230,15 @@ public class Controller {
 		Dialogue_filters.add("color");
 		Dialogue_filters.add("fill_color");
 		Dialogue_filters.add("selected");
+		Dialogue_filters.add("position-x");
+		Dialogue_filters.add("position-y");
 	}
 
 	public void reset() {
 		model.reset();
 	}
 
+	public ArrayList<String> getDialogue_filters() {
+		return Dialogue_filters;
+	}
 }

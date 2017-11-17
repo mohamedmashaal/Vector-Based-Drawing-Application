@@ -13,7 +13,7 @@ public class PluginButton extends CustomButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CreatePluginDialogue(view, getText());
+				new CreatePluginDialogue(view, getText(), view.getController().getDialogue_filters());
 			}
 		});
 	}

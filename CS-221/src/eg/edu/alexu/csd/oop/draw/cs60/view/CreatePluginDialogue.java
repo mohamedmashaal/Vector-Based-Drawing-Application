@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.oop.draw.cs60.view;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,8 +12,8 @@ import javax.swing.JTextField;
 import eg.edu.alexu.csd.oop.draw.cs60.model.ShapesFactory;
 
 public class CreatePluginDialogue extends CreateDialogue {
-	public CreatePluginDialogue(View view, String text) {
-		super(view, text);
+	public CreatePluginDialogue(View view, String text, ArrayList<String> filters) {
+		super(view, text, filters);
 	}
 
 	@Override
@@ -44,12 +45,20 @@ public class CreatePluginDialogue extends CreateDialogue {
 				get_Shape().setPosition(
 						new Point(new Double(Double.parseDouble(getTextFields().get(0).getText())).intValue(),
 								new Double(Double.parseDouble(getTextFields().get(1).getText())).intValue()));
+				get_Shape().getProperties().put("position-x",
+						new Double(Double.parseDouble(getTextFields().get(0).getText())));
+				get_Shape().getProperties().put("position-y",
+						new Double(Double.parseDouble(getTextFields().get(1).getText())));
 				get_Shape().setColor(getColor());
 				get_Shape().setFillColor(getFill_color());
+				get_Shape().getProperties().put("color", getColor().getRGB() * 1.0);
+				get_Shape().getProperties().put("fill_color", getFill_color().getRGB() * 1.0);
 				int i = 2;
 				for (String x : getSet()) {
-					get_Shape().getProperties().put(x, Double.parseDouble(getTextFields().get(i).getText()));
-					i++;
+					if (!getFilters().contains(x)) {
+						get_Shape().getProperties().put(x, Double.parseDouble(getTextFields().get(i).getText()));
+						i++;
+					}
 				}
 				get_Shape().getProperties().put("selected", 0.0);
 				getView().getController().draw(get_Shape());

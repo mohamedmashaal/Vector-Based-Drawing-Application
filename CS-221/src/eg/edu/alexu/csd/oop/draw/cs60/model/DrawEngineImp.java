@@ -370,6 +370,14 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 				loadedShape.setProperties(tempMap);
 			loadedShapes.add(loadedShape);
 		}
+		for(Shape x :loadedShapes) {
+			if(isPlugin(x)) {
+				x.setPosition(new Point(new Double(x.getProperties().get("position-x")).intValue(),
+						new Double(x.getProperties().get("position-y")).intValue()));
+				x.setColor(new Color(x.getProperties().get("color").intValue()));
+				x.setFillColor(new Color(x.getProperties().get("fill_color").intValue()));
+			}
+		}
 		clear();
 		shapes.push(loadedShapes);
 		notifyObservers();
@@ -438,6 +446,14 @@ public class DrawEngineImp implements DrawingEngine, Subject {
 			if (loadedShape != null)
 				loadedShape.setProperties(tempMap);
 			loadedShapes.add(loadedShape);
+		}
+		//plug in setting appropriate position and color
+		for(Shape x :loadedShapes) {
+			if(isPlugin(x)) {
+				x.setPosition(new Point(new Double(x.getProperties().get("position-x")).intValue() , new Double(x.getProperties().get("position-y")).intValue()));
+				x.setColor(new Color(x.getProperties().get("color").intValue()));
+				x.setFillColor(new Color(x.getProperties().get("fill_color").intValue()));
+			}
 		}
 		clear();
 		shapes.push(loadedShapes);

@@ -52,6 +52,10 @@ public class EditPluginShape extends CreateDialogue {
 					newShape.setPosition(
 							new Point(new Double(Double.parseDouble(getTextFields().get(0).getText())).intValue(),
 									new Double(Double.parseDouble(getTextFields().get(1).getText())).intValue()));
+					newShape.getProperties().put("position-x",
+							new Double(Double.parseDouble(getTextFields().get(0).getText())));
+					newShape.getProperties().put("position-y",
+							new Double(Double.parseDouble(getTextFields().get(1).getText())));
 					for (i = 2; i < getLabels().size() - 1; i++) {
 						newShape.getProperties().put(getLabels().get(i).getText(),
 								Double.parseDouble(getTextFields().get(i).getText()));
@@ -59,6 +63,8 @@ public class EditPluginShape extends CreateDialogue {
 				}
 				newShape.setColor(getColor());
 				newShape.setFillColor(getFill_color());
+				newShape.getProperties().put("color", getColor().getRGB() * 1.0);
+				newShape.getProperties().put("fill_color", getFill_color().getRGB() * 1.0);
 				getView().getController().updateShape(get_Shape(), newShape);
 				dispose();
 			}

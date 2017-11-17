@@ -27,10 +27,11 @@ public abstract class CreateDialogue extends JDialog {
 	private Color fill_color;
 	private ArrayList<String> filters = null;
 
-	public CreateDialogue(View view, String text) {
+	public CreateDialogue(View view, String text, ArrayList<String> filters) {
 		super(view.getMainWindow(), text);
 		this.view = view;
 		class_text = text;
+		this.filters = filters;
 		color = view.getController().getColor();
 		fill_color = view.getController().getFill_color();
 		setupKeySetandShape();
@@ -156,5 +157,9 @@ public abstract class CreateDialogue extends JDialog {
 
 	public String getClass_text() {
 		return class_text;
+	}
+
+	public ArrayList<String> getFilters() {
+		return filters;
 	}
 }
