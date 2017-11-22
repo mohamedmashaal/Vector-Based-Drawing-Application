@@ -3,8 +3,10 @@ package eg.edu.alexu.csd.oop.draw.cs60.view;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -20,7 +22,11 @@ public class CreatePluginDialogue extends CreateDialogue {
 	public void addPosition() {
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("Position - X");
-		JTextField textfield = new JTextField(5);
+		//JTextField textfield = new JTextField(5);
+		NumberFormat numFormat = NumberFormat.getNumberInstance();
+		numFormat.setMaximumFractionDigits(3);
+		JTextField textfield = new JFormattedTextField(numFormat);
+		textfield.setColumns(5);
 		getLabels().add(label);
 		panel.add(label);
 		getTextFields().add(textfield);
@@ -28,7 +34,9 @@ public class CreatePluginDialogue extends CreateDialogue {
 		getContentPane().add(panel);
 		panel = new JPanel();
 		label = new JLabel("Position - Y");
-		textfield = new JTextField(5);
+		//textfield = new JTextField(5);
+		textfield = new JFormattedTextField(numFormat);
+		textfield.setColumns(5);
 		getLabels().add(label);
 		panel.add(label);
 		getTextFields().add(textfield);

@@ -3,6 +3,8 @@ package eg.edu.alexu.csd.oop.db.cs60.Model.DBObjects;
 import java.util.ArrayList;
 import java.util.List;
 
+import eg.edu.alexu.csd.oop.db.utils.Comparator;
+
 public class Table {
 	private String name ;
     private ArrayList<Column> columns;
@@ -70,7 +72,7 @@ public class Table {
 		}
 	}
 
-	private int getIndex(List<String> columns, String name) {
+	public int getIndex(List<String> columns, String name) {
 		for(int i = 0 ; i < columns.size() ; i++) {
 			if(columns.get(i).equalsIgnoreCase(name)) {
 				return i ;
@@ -100,7 +102,7 @@ public class Table {
 		return size ;
 	}
 
-	private int getIndex(String cl) {
+	public int getIndex(String cl) {
 		int i = 0;
 		for(Column column : columns) {
 			if(column.getName().equalsIgnoreCase(cl))
@@ -116,15 +118,46 @@ public class Table {
 
 	public int update(ArrayList<String> columns, ArrayList<String> values, ArrayList<String> toUpdate) {
 		int updated = 0;
-		if(toUpdate.size() == 2) {
+		if(toUpdate.size() == 3) {
 			String whereColumn = toUpdate.get(0);
-			String whereValue = toUpdate.get(1);
+			String operator = toUpdate.get(1);
+			String whereValue = toUpdate.get(2);
 			int index = getIndex(whereColumn);
 			String type ;
 			if(index != -1) {
+				ArrayList<Integer> indices = new ArrayList<>();
 				type = this.columns.get(index).getType();
 				ArrayList<Record> records = this.columns.get(index).getRecords();
 				for(int i = 0 ; i < records.size() ; i++) {
+					if(type.equalsIgnoreCase("int")) {
+						Integer record = (Integer)records.get(i).getValue();
+						if(new Comparator<Integer>().compare(record, new Integer(Integer.parseInt(whereValue)), operator)) {
+							indices.add(i);
+						}
+					}
+					else if(type.equalsIgnoreCase("varchar")) {
+						String record = (String) records.get(i).getValue();
+						if(new Comparator<String>().compare(record, whereValue , operator)) {
+							indices.add(i);
+						}
+					}
+				}
+				updated = indices.size();
+				for(Column cl : this.columns) {
+					int indexCl = getIndex(columns, cl.getName());
+					if(indexCl != -1) {
+						for(Integer i : indices) {
+							if(cl.getType().equalsIgnoreCase("int"))
+								cl.getRecord(i).setValue(new Integer(Integer.parseInt(values.get(indexCl))));
+							else if(cl.getType().equalsIgnoreCase("varchar")) {
+								cl.getRecord(i).setValue(values.get(indexCl));
+							}
+						}
+					}
+				}
+			}
+		}
+				/*for(int i = 0 ; i < records.size() ; i++) {
 					if(type.equalsIgnoreCase("int")) {
 						if(records.get(i) != null) {
 							Integer recordValue = (Integer)(records.get(i).getValue());
@@ -163,7 +196,7 @@ public class Table {
 					}
 				}
 			}
-		}
+		}*/
 		return updated;
 	}
 
@@ -187,7 +220,8 @@ public class Table {
 	public int delete(ArrayList<String> toUpdate) {
 		int size = 0;
 		String whereColumn = toUpdate.get(0);
-		String whereValue = toUpdate.get(1);
+		String operator = toUpdate.get(1);
+		String whereValue = toUpdate.get(2);
 		String type ;
 		int index = getIndex(whereColumn);
 		if(index != -1) {
@@ -196,14 +230,16 @@ public class Table {
 			ArrayList<Integer> toDelete = new ArrayList<>();
 			for(int i = 0 ; i < records.size() ; i++) {
 				if(type.equalsIgnoreCase("int")) {
-					Integer value = (Integer)records.get(i).getValue(); 
-					if(value.intValue() == Integer.parseInt(whereValue))
+					Integer record = (Integer)records.get(i).getValue(); 
+					if(new Comparator<Integer>().compare(record, new Integer(Integer.parseInt(whereValue)), operator)) {
 						toDelete.add(i);
+					}
 				}
 				else if (type.equalsIgnoreCase("varchar")) {
-					String value = (String)records.get(i).getValue(); 
-					if(value.equalsIgnoreCase(whereValue))
+					String record = (String)records.get(i).getValue(); 
+					if(new Comparator<String>().compare(record, whereValue , operator)) {
 						toDelete.add(i);
+					}
 				}
 			}
 			for(int i = toDelete.size()-1 ; i >= 0 ; i --) {

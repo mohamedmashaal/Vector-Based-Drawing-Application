@@ -3,11 +3,13 @@ package eg.edu.alexu.csd.oop.draw.cs60.view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -65,7 +67,12 @@ public abstract class CreateDialogue extends JDialog {
 			label = new JLabel(x);
 			labels.add(label);
 			panel.add(label);
-			textfield = new JTextField(Double.toString(shape.getProperties().get(x)), 5);
+			//textfield = new JTextField(Double.toString(shape.getProperties().get(x)), 5);
+			NumberFormat numFormat = NumberFormat.getNumberInstance();
+			numFormat.setMaximumFractionDigits(3);
+			textfield = new JFormattedTextField(numFormat);
+			textfield.setText(Double.toString(shape.getProperties().get(x)));
+			textfield.setColumns(5);
 			textFields.add(textfield);
 			panel.add(textfield);
 			getContentPane().add(panel);

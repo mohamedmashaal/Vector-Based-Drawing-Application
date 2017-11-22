@@ -21,6 +21,10 @@ public class Column <T> {
     	return type;
     }
 
+    public int getSize(){
+        return records.size();
+    }
+
     public void addRecord(Record<T> record) {
     	records.add(record);
     }
