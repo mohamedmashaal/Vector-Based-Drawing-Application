@@ -55,7 +55,7 @@ public class ClassGetter {
 			Class<?> toAdd;
 			try {
 				ClassLoader loader = URLClassLoader.newInstance(new URL[] { url }, mainClassLoader);
-				toAdd = loader.getClass().forName(x, true, loader);
+				toAdd = Class.forName(x, true, loader);
 				if (!toAdd.isInterface() && !Modifier.isAbstract(toAdd.getModifiers())
 						&& toAdd.newInstance() instanceof Shape) {
 					classes.add((Class<? extends Shape>) toAdd);
