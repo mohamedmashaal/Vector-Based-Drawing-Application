@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Calculator1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/CS-221/bin/Materials/Calculator.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
